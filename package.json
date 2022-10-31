@@ -1,0 +1,57 @@
+{
+	"name": "@hexatool/fs",
+	"version": "0.0.0",
+	"description": "Modular fs library based on graceful-fs",
+	"keywords": [
+		"fs",
+		"file",
+		"file system",
+		"copy",
+		"directory",
+		"extra",
+		"mkdirp",
+		"mkdir",
+		"mkdirs",
+		"recursive",
+		"json",
+		"read",
+		"write",
+		"extra",
+		"delete",
+		"remove",
+		"touch",
+		"create",
+		"text",
+		"output",
+		"move",
+		"promise"
+	],
+	"homepage": "https://github.com/hexatool/fs",
+	"bugs": {
+		"url": "https://github.com/hexatool/fs/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hexatool/fs"
+	},
+	"author": "MarioMH8",
+	"license": "MIT",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"build": "$npm_execpath run build:code && $npm_execpath run build:definitions",
+		"build:code": "yarn workspaces foreach run build",
+		"build:definitions": "yarn workspaces foreach run build:definitions",
+		"lint": "yarn workspaces foreach run lint",
+		"lint:fix": "yarn workspaces foreach run lint:fix",
+		"test": "yarn workspaces foreach run test",
+		"test:coverage": "yarn workspaces foreach run test:coverage",
+		"typecheck": "yarn workspaces foreach run typecheck"
+	},
+	"volta": {
+		"node": "18.12.0",
+		"yarn": "3.2.4"
+	},
+	"packageManager": "yarn@3.2.4"
+}
