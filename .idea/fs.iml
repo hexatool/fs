@@ -6,6 +6,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.github" />
       <excludeFolder url="file://$MODULE_DIR$/.yarn" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/make-dir/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/empty-dir/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/remove/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/stat/dist" />
       <excludePattern pattern=".npmignore" />
       <excludePattern pattern=".yarnrc*" />
       <excludePattern pattern=".pnp*" />

@@ -40,14 +40,15 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "$npm_execpath run build:code && $npm_execpath run build:definitions",
-		"build:code": "yarn workspaces foreach run build",
-		"build:definitions": "yarn workspaces foreach run build:definitions",
+		"build": "yarn workspaces foreach run build",
 		"lint": "yarn workspaces foreach run lint",
 		"lint:fix": "yarn workspaces foreach run lint:fix",
-		"test": "yarn workspaces foreach run test",
-		"test:coverage": "yarn workspaces foreach run test:coverage",
+		"test": "vitest run --no-isolate",
+		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "yarn workspaces foreach run typecheck"
+	},
+	"dependencies": {
+		"vitest": "0.24.5"
 	},
 	"volta": {
 		"node": "18.12.0",

@@ -1,0 +1,14 @@
+{
+	"extends": "@hexatool/tsconfig",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@hexatool/fs-*/async": [
+				"packages/*/src/async"
+			],
+			"@hexatool/fs-*": [
+				"packages/*/src/sync"
+			]
+		}
+	}
+}
