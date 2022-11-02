@@ -1,4 +1,4 @@
-import type { BigIntStats, Stats } from 'graceful-fs';
+import type { BigIntStats, Stats } from 'node:fs';
 
 export default function areIdentical(
 	srcStat: BigIntStats | Stats,

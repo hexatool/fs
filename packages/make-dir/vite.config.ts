@@ -16,8 +16,8 @@ export default defineConfig({
 		sourcemap: true,
 		rollupOptions: {
 			external: [
+				'node:fs',
 				'node:path',
-				'graceful-fs',
 				'@hexatool/fs-remove/async',
 				'@hexatool/fs-make-dir/async',
 				'@hexatool/fs-empty-dir/async',

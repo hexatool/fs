@@ -1,9 +1,9 @@
+import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
 import emptyDir from '@hexatool/fs-empty-dir';
 import remove from '@hexatool/fs-remove';
-import fs from 'graceful-fs';
 import { afterAll, afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import makeDirAsync from '../src/async';

@@ -1,5 +1,5 @@
-import type { Mode } from 'graceful-fs';
-import fs from 'graceful-fs';
+import type { Mode } from 'node:fs';
+import fs from 'node:fs';
 
 import checkPath from './check-path';
 

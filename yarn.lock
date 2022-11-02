@@ -347,11 +347,9 @@ __metadata:
     "@hexatool/fs-empty-dir": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.24.5
     eslint: 8.26.0
-    graceful-fs: 4.2.10
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.8.4
     vite: 3.2.2
@@ -365,11 +363,9 @@ __metadata:
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.24.5
     eslint: 8.26.0
-    graceful-fs: 4.2.10
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.8.4
     vite: 3.2.2
@@ -383,11 +379,9 @@ __metadata:
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.24.5
     eslint: 8.26.0
-    graceful-fs: 4.2.10
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.8.4
     vite: 3.2.2
@@ -401,11 +395,9 @@ __metadata:
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.24.5
     eslint: 8.26.0
-    graceful-fs: 4.2.10
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.8.4
     vite: 3.2.2
@@ -601,15 +593,6 @@ __metadata:
   version: 4.3.3
   resolution: "@types/chai@npm:4.3.3"
   checksum: 20cd094753e137cfc35939cae7f0ed78ecda7861e5c94704efab6979b9121a63807e9b631bdcf3a2792d6c6dba44050b13387262f9e63ebb040741c01c345f0a
-  languageName: node
-  linkType: hard
-
-"@types/graceful-fs@npm:4.1.5":
-  version: 4.1.5
-  resolution: "@types/graceful-fs@npm:4.1.5"
-  dependencies:
-    "@types/node": "*"
-  checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
   languageName: node
   linkType: hard
 
@@ -2208,7 +2191,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:4.2.10, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
+"graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
   version: 4.2.10
   resolution: "graceful-fs@npm:4.2.10"
   checksum: 3f109d70ae123951905d85032ebeae3c2a5a7a997430df00ea30df0e3a6c60cf6689b109654d6fdacd28810a053348c4d14642da1d075049e6be1ba5216218da

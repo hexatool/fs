@@ -1,5 +1,5 @@
-import type { PathLike } from 'graceful-fs';
-import fs from 'graceful-fs';
+import type { PathLike } from 'node:fs';
+import fs from 'node:fs';
 
 import type { ErrorWithCode, GetStatsOptions, StatsResult } from './types';
 
