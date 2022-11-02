@@ -417,6 +417,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs@workspace:."
   dependencies:
+    "@hexatool/eslint-config-typescript": 1.0.0
+    eslint: 8.26.0
+    typescript: 4.8.4
     vitest: 0.24.5
   languageName: unknown
   linkType: soft
