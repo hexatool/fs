@@ -38,6 +38,7 @@ jobs:
             -   name: Type check
                 run: yarn typecheck
     test:
+        name: Test
         strategy:
             matrix:
                 os: [ubuntu-latest, windows-latest]
