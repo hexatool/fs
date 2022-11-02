@@ -275,7 +275,7 @@ describe('@hexatool/fs-make-dir', root => {
 			try {
 				fn();
 			} catch (e: any) {
-				expect(['EPERM', 'ENOENT'].includes(e.code)).toBeTruthy();
+				expect(['EPERM', 'ENOENT'].includes(e.code as string)).toBeTruthy();
 			}
 		});
 
@@ -285,7 +285,7 @@ describe('@hexatool/fs-make-dir', root => {
 			try {
 				await fn();
 			} catch (e: any) {
-				expect(['EPERM', 'ENOENT'].includes(e.code)).toBeTruthy();
+				expect(['EPERM', 'ENOENT'].includes(e.code as string)).toBeTruthy();
 			}
 		});
 	});
