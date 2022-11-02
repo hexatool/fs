@@ -38,8 +38,11 @@ jobs:
             -   name: Type check
                 run: yarn typecheck
     test:
-        name: Test
-        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                version: [ 12, 14, 18 ]
+        runs-on: ${{ matrix.os }}
         permissions:
             contents: 'read'
             id-token: 'write'
@@ -47,10 +50,9 @@ jobs:
             -   name: Checkout
                 uses: actions/checkout@v3
 
-            -   name: Setup Node
-                uses: actions/setup-node@v3
+            -   uses: actions/setup-node@v3
                 with:
-                    node-version: '16'
+                    node-version: ${{ matrix.version }}
                     cache: 'yarn'
                     registry-url: 'https://registry.npmjs.org'
 
