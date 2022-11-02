@@ -43,7 +43,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-empty-dir": "0.0.0",
+		"@hexatool/fs-make-dir": "0.0.0",
 		"@hexatool/fs-remove": "0.0.0"
 	},
 	"devDependencies": {

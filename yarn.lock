@@ -339,12 +339,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexatool/fs-empty-dir@0.0.0, @hexatool/fs-empty-dir@workspace:packages/empty-dir":
+"@hexatool/fs-empty-dir@workspace:packages/empty-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-empty-dir@workspace:packages/empty-dir"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.0
-    "@hexatool/fs-empty-dir": 0.0.0
+    "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
@@ -357,7 +357,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-make-dir@workspace:packages/make-dir":
+"@hexatool/fs-make-dir@0.0.0, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-make-dir@workspace:packages/make-dir"
   dependencies:
