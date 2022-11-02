@@ -304,7 +304,7 @@ describe('@hexatool/fs-make-dir', root => {
 		it('async', async () => {
 			const file = 'c:\\tmp\foo:moo';
 			const fn = () => makeDirAsync(file);
-			expect(fn).toThrow();
+			await expect(fn).rejects.toThrow();
 			try {
 				await fn();
 			} catch (e: any) {
