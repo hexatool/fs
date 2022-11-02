@@ -1,15 +1,18 @@
+import type { Stats } from 'graceful-fs';
 import fs from 'graceful-fs';
-import type {Stats} from 'graceful-fs';
-import { fixWindowsEPERM, fixWindowsEPERMSync } from './fix-windows-eperm';
-import isWindows  from './is-windows';
-import { rmdirSync, rmdir } from './rmdir';
 
-export async function rimraf(path: string) {
+import { fixWindowsEPERM, fixWindowsEPERMSync } from './fix-windows-eperm';
+import isWindows from './is-windows';
+import { rmdir, rmdirSync } from './rmdir';
+import type { ErrorWithCode } from './types';
+
+export async function rimraf(path: string): Promise<void> {
 	let st: Stats | undefined = undefined;
 
 	try {
 		st = await fs.promises.lstat(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
 		}
@@ -23,28 +26,34 @@ export async function rimraf(path: string) {
 	try {
 		// sunos lets the root user unlink directories, which is... weird.
 		if (st && st.isDirectory()) {
-			await rmdir(path, null)
+			await rmdir(path);
 		} else {
-			await fs.promises.unlink(path)
+			await fs.promises.unlink(path);
 		}
-	} catch (er: any) {
-		if (er.code === 'ENOENT') {
-			return
-		} else if (er.code === 'EPERM') {
-			return isWindows ? await fixWindowsEPERM(path, er) : await rmdir(path, er)
-		} else if (er.code !== 'EISDIR') {
-			throw er
+	} catch (e2: unknown) {
+		const err2 = e2 as ErrorWithCode;
+		if (err2.code === 'ENOENT') {
+			return;
 		}
-		await rmdir(path, er)
+		if (err2.code === 'EPERM') {
+			isWindows ? await fixWindowsEPERM(path, err2) : await rmdir(path, err2);
+
+			return;
+		}
+		if (err2.code !== 'EISDIR') {
+			throw err2;
+		}
+		await rmdir(path, err2);
 	}
 }
 
-export function rimrafSync(path: string) {
+export function rimrafSync(path: string): void {
 	let st: Stats | undefined = undefined;
 
 	try {
 		st = fs.lstatSync(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
 		}
@@ -58,18 +67,23 @@ export function rimrafSync(path: string) {
 	try {
 		// sunos lets the root user unlink directories, which is... weird.
 		if (st && st.isDirectory()) {
-			rmdirSync(path, null)
+			rmdirSync(path);
 		} else {
-			fs.unlinkSync(path)
+			fs.unlinkSync(path);
 		}
-	} catch (er: any) {
-		if (er.code === 'ENOENT') {
-			return
-		} else if (er.code === 'EPERM') {
-			return isWindows ? fixWindowsEPERMSync(path, er) : rmdirSync(path, er)
-		} else if (er.code !== 'EISDIR') {
-			throw er
+	} catch (e2: unknown) {
+		const err2 = e2 as ErrorWithCode;
+		if (err2.code === 'ENOENT') {
+			return;
 		}
-		rmdirSync(path, er)
+		if (err2.code === 'EPERM') {
+			isWindows ? fixWindowsEPERMSync(path, err2) : rmdirSync(path, err2);
+
+			return;
+		}
+		if (err2.code !== 'EISDIR') {
+			throw err2;
+		}
+		rmdirSync(path, err2);
 	}
 }

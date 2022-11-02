@@ -1,64 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2641b04-7f2c-4139-91f0-95c7ef448cdf" name="Changes" comment="chore: add stat package">
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/src/async.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/src/empty.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/src/sync.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/empty-dir/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/chmod.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/clobber.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/invalid-drive.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/invalid-path.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/mkdir.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/mkdirp.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/perm.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/race.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/relative.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/root.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/src/async.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/src/check-path.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/src/make-dir.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/src/sync.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/make-dir/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/spec/index.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/async.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/fix-windows-eperm.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/is-windows.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/remove.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/rimraf.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/rmdir.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/rmkids.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/src/sync.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/remove/vite.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/release.yml" afterDir="false" />
+    <list default="true" id="d2641b04-7f2c-4139-91f0-95c7ef448cdf" name="Changes" comment="chore: project files">
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/make-dir/spec/index.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/remove/src/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/fs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/stat/.eslintrc.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/packages/empty-dir/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/empty-dir/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/empty-dir/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/chmod.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/clobber.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/invalid-drive.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/invalid-path.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/mkdir.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/mkdirp.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/perm.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/race.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/make-dir/spec/race.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/relative.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/spec/root.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/make-dir/spec/root.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/src/check-path.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/make-dir/src/check-path.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/src/make-dir.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/make-dir/src/make-dir.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/make-dir/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/make-dir/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/spec/index.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/fix-windows-eperm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/fix-windows-eperm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/is-windows.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/is-windows.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/remove.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/remove.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/rimraf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/rimraf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/rmdir.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/rmdir.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/src/rmkids.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/src/rmkids.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/remove/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/remove/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/are-identical.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/are-identical.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/async.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/async.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/check-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/check-paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/error-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/error-message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/get-stats.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/get-stats.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/is-src-subdirectory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/is-src-subdirectory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/src/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/stat/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/stat/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +67,7 @@
   <component name="ProjectId" id="2GtvOe9jDxoJPnRFw3vNecEXmh7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
@@ -94,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TF_FMT": "false",
-    "last_opened_file_path": "/Users/mmenendez/Code/hexatool/fs",
+    "last_opened_file_path": "/Users/mmenendez/Code/hexatool/fs/packages/remove/src",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -106,11 +88,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/remove/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/packages/stat" />
       <recent name="$PROJECT_DIR$/packages/remove" />
       <recent name="$PROJECT_DIR$/packages/make-dir" />
-      <recent name="$PROJECT_DIR$/packages/empty-dir" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/stat" />
@@ -125,6 +107,16 @@
       <command value="run" />
       <scripts>
         <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -153,6 +145,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.test" />
+        <item itemvalue="npm.lint:fix" />
         <item itemvalue="npm.build" />
         <item itemvalue="npm.test (1)" />
       </list>
@@ -176,6 +169,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore: initial commit" />
     <MESSAGE value="chore: add stat package" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add stat package" />
+    <MESSAGE value="chore: add remove package" />
+    <MESSAGE value="chore: add make-dir package" />
+    <MESSAGE value="chore: add empty-dir package" />
+    <MESSAGE value="chore: project files" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: project files" />
   </component>
 </project>

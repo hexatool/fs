@@ -1,58 +1,60 @@
 import type { Stats } from 'graceful-fs';
 import fs from 'graceful-fs';
-import { rmdirSync } from './rmdir';
 
-export async function fixWindowsEPERM(path: string, er: any) {
+import { rmdir, rmdirSync } from './rmdir';
+import type { ErrorWithCode } from './types';
+
+export async function fixWindowsEPERM(path: string, er: Error): Promise<void> {
 	try {
 		await fs.promises.chmod(path, 0o666);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
-		} else {
-			throw er;
 		}
+		throw er;
 	}
 
 	let stats: Stats;
 
 	try {
 		stats = await fs.promises.stat(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
-		} else {
-			throw er;
 		}
+		throw er;
 	}
 
 	if (stats.isDirectory()) {
-		await fs.promises.rmdir(path, er);
+		await rmdir(path, er);
 	} else {
 		await fs.promises.unlink(path);
 	}
 }
 
-export function fixWindowsEPERMSync(path: string, er: any) {
+export function fixWindowsEPERMSync(path: string, er: Error): void {
 	try {
 		fs.chmodSync(path, 0o666);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
-		} else {
-			throw er;
 		}
+		throw er;
 	}
 
 	let stats: Stats;
 
 	try {
 		stats = fs.statSync(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
 			return;
-		} else {
-			throw er;
 		}
+		throw er;
 	}
 
 	if (stats.isDirectory()) {

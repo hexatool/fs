@@ -5,6 +5,23 @@
 	"overrides": [
 		{
 			"files": [
+				"spec/**/*.ts",
+				"spec/**/*.tsx"
+			],
+			// Your TypeScript files extension
+
+			"parserOptions": {
+				"project": [
+					"./tsconfig.json"
+				]
+				// Specify it only for TypeScript files
+			},
+			"rules": {
+				"@typescript-eslint/no-unsafe-member-access": "warn"
+			}
+		},
+		{
+			"files": [
 				"*.ts",
 				"*.tsx"
 			],

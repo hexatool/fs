@@ -41,8 +41,8 @@
 	],
 	"scripts": {
 		"build": "yarn workspaces foreach run build",
-		"lint": "yarn workspaces foreach run lint",
-		"lint:fix": "yarn workspaces foreach run lint:fix",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
 		"test": "vitest run --no-isolate",
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "yarn workspaces foreach run typecheck"

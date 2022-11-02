@@ -12,7 +12,7 @@ class ErrorWithCode extends Error {
 
 // https://github.com/nodejs/node/issues/8987
 // https://github.com/libuv/libuv/pull/1088
-export default function checkPath(path: string) {
+export default function checkPath(path: string): void {
 	if (process.platform === 'win32') {
 		const pathHasInvalidWinCharacters = /[<>:"|?*]/.test(path.replace(parse(path).root, ''));
 

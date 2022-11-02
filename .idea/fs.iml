@@ -24,7 +24,7 @@
       <excludePattern pattern="webpack.config.js" />
       <excludePattern pattern="renovate.json" />
       <excludePattern pattern=".editorconfig" />
-      <excludePattern pattern=".eslintrc.cjs" />
+      <excludePattern pattern=".eslintrc*" />
       <excludePattern pattern="vite.config.ts" />
       <excludePattern pattern="tsconfig.build.json" />
     </content>
