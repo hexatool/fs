@@ -1,5 +1,5 @@
-import type { Stats } from 'graceful-fs';
-import fs from 'graceful-fs';
+import type { Stats } from 'node:fs';
+import fs from 'node:fs';
 
 import { rmdir, rmdirSync } from './rmdir';
 import type { ErrorWithCode } from './types';

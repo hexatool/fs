@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  Modular fs library based on graceful-fs.
+  Modular fs library.
 </p>
 
 ## How to use

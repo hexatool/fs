@@ -1,4 +1,4 @@
-import fs from 'graceful-fs';
+import fs from 'node:fs';
 
 import { rmkids, rmkidsSync } from './rmkids';
 import type { ErrorWithCode } from './types';

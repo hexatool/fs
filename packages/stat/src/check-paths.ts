@@ -1,6 +1,6 @@
 import { basename } from 'node:path';
 
-import type { BigIntStats, Stats } from 'graceful-fs';
+import type { BigIntStats, Stats } from 'node:fs';
 
 import areIdentical from './are-identical';
 import errorMessage from './error-message';

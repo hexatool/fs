@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 
-import fs from 'graceful-fs';
+import fs from 'node:fs';
 
 import isWindows from './is-windows';
 import { rimraf, rimrafSync } from './rimraf';

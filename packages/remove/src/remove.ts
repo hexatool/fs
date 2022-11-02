@@ -1,4 +1,4 @@
-import fs from 'graceful-fs';
+import fs from 'node:fs';
 
 import { rimraf, rimrafSync } from './rimraf';
 

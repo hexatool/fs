@@ -15,7 +15,10 @@ export default defineConfig({
 		minify: false,
 		sourcemap: true,
 		rollupOptions: {
-			external: ['node:path', 'graceful-fs'],
+			external: [
+				'node:fs',
+				'node:path',
+			],
 			output: {
 				exports: 'named',
 			},
