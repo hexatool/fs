@@ -7,10 +7,14 @@ export interface GetStatsOptions {
 }
 
 export interface StatsResult {
-	srcStat: Stats | BigIntStats;
-	destStat?: Stats | BigIntStats | undefined;
+	srcStat: BigIntStats | Stats;
+	destStat?: BigIntStats | Stats | undefined;
 }
 
 export interface CheckStatsResult extends StatsResult {
 	isChangingCase?: boolean | undefined;
+}
+
+export interface ErrorWithCode extends Error {
+	code?: string;
 }

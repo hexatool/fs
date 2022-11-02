@@ -1,10 +1,13 @@
 import fs from 'graceful-fs';
-import { rmkidsSync, rmkids } from './rmkids';
 
-export function rmdirSync(path: string, originalEr: any) {
+import { rmkids, rmkidsSync } from './rmkids';
+import type { ErrorWithCode } from './types';
+
+export function rmdirSync(path: string, originalEr?: Error): void {
 	try {
 		fs.rmdirSync(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOTDIR') {
 			throw originalEr;
 		} else if (err.code === 'ENOTEMPTY' || err.code === 'EEXIST' || err.code === 'EPERM') {
@@ -15,10 +18,11 @@ export function rmdirSync(path: string, originalEr: any) {
 	}
 }
 
-export async function rmdir(path: string, originalEr: any) {
+export async function rmdir(path: string, originalEr?: Error): Promise<void> {
 	try {
 		await fs.promises.rmdir(path);
-	} catch (err: any) {
+	} catch (e: unknown) {
+		const err = e as ErrorWithCode;
 		if (err.code === 'ENOTDIR') {
 			throw originalEr;
 		} else if (err.code === 'ENOTEMPTY' || err.code === 'EEXIST' || err.code === 'EPERM') {

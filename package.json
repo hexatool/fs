@@ -41,13 +41,16 @@
 	],
 	"scripts": {
 		"build": "yarn workspaces foreach run build",
-		"lint": "yarn workspaces foreach run lint",
-		"lint:fix": "yarn workspaces foreach run lint:fix",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
 		"test": "vitest run --no-isolate",
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "yarn workspaces foreach run typecheck"
 	},
 	"dependencies": {
+		"@hexatool/eslint-config-typescript": "1.0.0",
+		"eslint": "8.26.0",
+		"typescript": "4.8.4",
 		"vitest": "0.24.5"
 	},
 	"volta": {

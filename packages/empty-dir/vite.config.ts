@@ -1,17 +1,16 @@
 import path, { resolve } from 'node:path';
-import { defineConfig } from 'vite';
+
 import typescript2 from 'rollup-plugin-typescript2';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
 	build: {
 		target: 'ESNext',
 		lib: {
 			formats: ['es'],
-			fileName: (format, entryName) => `hexatool-fs-empty-dir-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
-			entry: [
-				resolve(__dirname, 'src/sync.ts'),
-				resolve(__dirname, 'src/async.ts'),
-			],
+			fileName: (format, entryName) =>
+				`hexatool-fs-empty-dir-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
+			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts')],
 		},
 		minify: false,
 		sourcemap: true,
@@ -47,11 +46,11 @@ export default defineConfig({
 						declaration: true,
 						declarationDir: 'dist/types',
 						emitDeclarationOnly: true,
-						baseUrl: "."
+						baseUrl: '.',
 					},
 				},
-				include: [ "src/*.ts+(|x)", "src/**/*.ts+(|x)" ],
-				useTsconfigDeclarationDir: true
+				include: ['src/*.ts+(|x)', 'src/**/*.ts+(|x)'],
+				useTsconfigDeclarationDir: true,
 			}),
 			apply: 'build',
 		},
