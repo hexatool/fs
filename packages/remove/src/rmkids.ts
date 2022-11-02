@@ -1,6 +1,5 @@
-import { join } from 'node:path';
-
 import fs from 'node:fs';
+import { join } from 'node:path';
 
 import isWindows from './is-windows';
 import { rimraf, rimrafSync } from './rimraf';

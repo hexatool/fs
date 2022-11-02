@@ -1,10 +1,10 @@
+import fs from 'node:fs';
 import { join } from 'node:path';
 
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import removeSync from '@hexatool/fs-remove';
 import removeAsync from '@hexatool/fs-remove/async';
-import fs from 'node:fs';
 
 export async function emptyDir(path: string): Promise<void> {
 	let items;

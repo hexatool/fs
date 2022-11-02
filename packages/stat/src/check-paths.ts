@@ -1,6 +1,5 @@
-import { basename } from 'node:path';
-
 import type { BigIntStats, Stats } from 'node:fs';
+import { basename } from 'node:path';
 
 import areIdentical from './are-identical';
 import errorMessage from './error-message';
