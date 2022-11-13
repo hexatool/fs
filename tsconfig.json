@@ -8,6 +8,12 @@
 			],
 			"@hexatool/fs-*": [
 				"packages/*/src/sync"
+			],
+			"@hexatool/fs/async": [
+				"packages/fs/src/async"
+			],
+			"@hexatool/fs": [
+				"packages/fs/src/sync"
 			]
 		}
 	}
