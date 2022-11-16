@@ -49,7 +49,7 @@
 		"@vitest/coverage-c8": "0.24.5",
 		"eslint": "8.26.0",
 		"rollup-plugin-typescript2": "0.34.1",
-		"typescript": "4.8.4",
+		"typescript": "4.9.3",
 		"vite": "3.2.4",
 		"vitest": "0.24.5"
 	},
