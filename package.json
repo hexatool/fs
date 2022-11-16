@@ -1,5 +1,5 @@
 {
-	"name": "@hexatool/fs",
+	"name": "@hexatool/fs-monorepo",
 	"version": "0.0.0",
 	"description": "Modular fs library",
 	"keywords": [
@@ -36,6 +36,7 @@
 	},
 	"author": "MarioMH8",
 	"license": "MIT",
+	"private": true,
 	"workspaces": [
 		"packages/*"
 	],
