@@ -1,5 +1,3 @@
-import { removeSync } from './remove';
-
-const remove = removeSync;
+import { removeSync as remove } from './remove';
 
 export default remove;

@@ -32,9 +32,9 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@hexatool/fs-remove/async': path.resolve(__dirname, '../remove/src/sync'),
-			'@hexatool/fs-empty-dir/async': path.resolve(__dirname, '../make-dir/src/sync'),
-			'@hexatool/fs-make-dir/async': path.resolve(__dirname, '../make-dir/src/sync'),
+			'@hexatool/fs-remove/async': path.resolve(__dirname, '../remove/src/async'),
+			'@hexatool/fs-empty-dir/async': path.resolve(__dirname, '../make-dir/src/async'),
+			'@hexatool/fs-make-dir/async': path.resolve(__dirname, '../make-dir/src/async'),
 			'@hexatool/fs-remove': path.resolve(__dirname, '../remove/src/sync'),
 			'@hexatool/fs-empty-dir': path.resolve(__dirname, '../make-dir/src/sync'),
 			'@hexatool/fs-make-dir': path.resolve(__dirname, '../make-dir/src/sync'),
