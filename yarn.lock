@@ -344,6 +344,7 @@ __metadata:
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.0
+    "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.24.5
