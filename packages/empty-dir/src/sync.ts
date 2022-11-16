@@ -1,3 +1,3 @@
-import { emptyDirSync as emptyDir} from './empty';
+import { emptyDirSync as emptyDir } from './empty';
 
 export default emptyDir;

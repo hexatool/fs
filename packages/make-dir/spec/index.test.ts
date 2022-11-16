@@ -1,6 +1,7 @@
-import { emptyDir, remove, exists, stat as fsStat, writeFile } from '@hexatool/fs';
 import os from 'node:os';
 import path from 'node:path';
+
+import { emptyDir, exists, remove, stat as fsStat, writeFile } from '@hexatool/fs';
 import { afterAll, afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import makeDirAsync from '../src/async';
