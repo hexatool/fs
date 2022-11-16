@@ -1,9 +1,7 @@
 import { checkPaths } from './check-paths';
 import { getStats } from './get-stats';
 
-const exp = {
+export {
 	checkPaths,
 	getStats,
 };
-
-export default exp;

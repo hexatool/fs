@@ -1,9 +1,7 @@
-import { checkPathsSync } from './check-paths';
-import { getStatsSync } from './get-stats';
+import { checkPathsSync as checkPaths } from './check-paths';
+import { getStatsSync as getStats } from './get-stats';
 
-const exp = {
-	checkPaths: checkPathsSync,
-	getStats: getStatsSync,
+export {
+	checkPaths,
+	getStats,
 };
-
-export default exp;
