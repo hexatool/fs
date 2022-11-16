@@ -1,5 +1,3 @@
-import { emptyDirSync } from './empty';
-
-const emptyDir = emptyDirSync;
+import { emptyDirSync as emptyDir} from './empty';
 
 export default emptyDir;
