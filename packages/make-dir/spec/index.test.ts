@@ -1,9 +1,6 @@
-import fs from 'node:fs';
+import { emptyDir, remove, exists, stat as fsStat, writeFile } from '@hexatool/fs';
 import os from 'node:os';
 import path from 'node:path';
-
-import emptyDir from '@hexatool/fs-empty-dir';
-import remove from '@hexatool/fs-remove';
 import { afterAll, afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import makeDirAsync from '../src/async';
@@ -11,18 +8,19 @@ import makeDirSync from '../src/sync';
 
 const isWindows = process.platform === 'win32';
 
-function pathExists(path: string) {
-	expect(fs.existsSync(path)).toBeTruthy();
-	const stat = fs.statSync(path);
+function existsDir(path: string) {
+	expect(exists(path)).toBeTruthy();
+	const stat = fsStat(path);
 	expect(stat.isDirectory()).toBeTruthy();
 }
-function pathNotExists(path: string) {
-	expect(fs.existsSync(path)).toBeFalsy();
+
+function notExistsDir(path: string) {
+	expect(exists(path)).toBeFalsy();
 }
 
 function assert(file: string, uMode = 0o755, wMode = 0o666) {
-	pathExists(file);
-	const stat = fs.statSync(file);
+	existsDir(file);
+	const stat = fsStat(file);
 	if (os.platform().indexOf('win') === 0) {
 		expect(stat.mode & 0o777).toBe(wMode);
 	} else {
@@ -44,15 +42,15 @@ describe('@hexatool/fs-make-dir', root => {
 
 		it(`sync`, () => {
 			const dir = path.join(TEST_DIR, `tmp-${Date.now()}${Math.random()}`);
-			pathNotExists(dir);
+			notExistsDir(dir);
 			makeDirSync(dir);
-			pathExists(dir);
+			existsDir(dir);
 		});
 		it(`async`, async () => {
 			const dir = path.join(TEST_DIR, `tmp-${Date.now()}${Math.random()}`);
-			pathNotExists(dir);
+			notExistsDir(dir);
 			await makeDirAsync(dir);
-			pathExists(dir);
+			existsDir(dir);
 		});
 	});
 	describe('should create a directory recursively', () => {
@@ -68,16 +66,16 @@ describe('@hexatool/fs-make-dir', root => {
 		it(`sync`, () => {
 			const dir = path.join(TEST_DIR, `tmp-${Date.now()}${Math.random()}`);
 			const newDir = path.join(TEST_DIR, 'dfdf', 'ffff', 'aaa');
-			pathNotExists(dir);
+			notExistsDir(dir);
 			makeDirSync(newDir);
-			pathExists(newDir);
+			existsDir(newDir);
 		});
 		it(`async`, async () => {
 			const dir = path.join(TEST_DIR, `tmp-${Date.now()}${Math.random()}`);
 			const newDir = path.join(TEST_DIR, 'dfdf', 'ffff', 'aaa');
-			pathNotExists(dir);
+			notExistsDir(dir);
 			await makeDirAsync(newDir);
-			pathExists(newDir);
+			existsDir(newDir);
 		});
 	});
 	describe.skipIf(isWindows)('should create a root directory', () => {
@@ -86,11 +84,11 @@ describe('@hexatool/fs-make-dir', root => {
 
 		it(`sync`, () => {
 			makeDirSync(dir);
-			pathExists(dir);
+			existsDir(dir);
 		});
 		it(`async`, async () => {
 			await makeDirAsync(dir);
-			pathExists(dir);
+			existsDir(dir);
 		});
 	});
 	describe('should create a directory with dots in name', () => {
@@ -105,7 +103,7 @@ describe('@hexatool/fs-make-dir', root => {
 
 		it(`sync`, () => {
 			const dir = path.join(TEST_DIR, (Math.random() * (1 << 30)).toString(16));
-			pathNotExists(dir);
+			notExistsDir(dir);
 			makeDirSync(dir, 0o755);
 			assert(dir);
 		});
@@ -131,12 +129,12 @@ describe('@hexatool/fs-make-dir', root => {
 		afterAll(() => remove(TEMP));
 
 		it(`sync`, () => {
-			pathNotExists(dir);
+			notExistsDir(dir);
 			makeDirSync(dir, 0o755);
 			assert(dir);
 		});
 		it(`async`, async () => {
-			pathNotExists(dir);
+			notExistsDir(dir);
 			await makeDirAsync(dir, 0o755);
 			assert(dir);
 		});
@@ -164,12 +162,12 @@ describe('@hexatool/fs-make-dir', root => {
 
 		describe(`744`, () => {
 			it(`sync`, () => {
-				pathNotExists(TEST_SUB_DIR);
+				notExistsDir(TEST_SUB_DIR);
 				makeDirSync(TEST_SUB_DIR, 0o744);
 				assert(TEST_SUB_DIR, 0o744, 0o666);
 			});
 			it(`async`, async () => {
-				pathNotExists(TEST_SUB_DIR);
+				notExistsDir(TEST_SUB_DIR);
 				await makeDirAsync(TEST_SUB_DIR, 0o744);
 				assert(TEST_SUB_DIR, 0o744, 0o666);
 			});
@@ -177,12 +175,12 @@ describe('@hexatool/fs-make-dir', root => {
 
 		describe(`755`, () => {
 			it(`sync`, () => {
-				pathNotExists(TEST_SUB_DIR);
+				notExistsDir(TEST_SUB_DIR);
 				makeDirSync(TEST_SUB_DIR, 0o755);
 				assert(TEST_SUB_DIR, 0o755, 0o666);
 			});
 			it(`async`, async () => {
-				pathNotExists(TEST_SUB_DIR);
+				notExistsDir(TEST_SUB_DIR);
 				await makeDirAsync(TEST_SUB_DIR, 0o755);
 				assert(TEST_SUB_DIR, 0o755, 0o666);
 			});
@@ -237,9 +235,9 @@ describe('@hexatool/fs-make-dir', root => {
 			// a file in the way
 			const itw = ps.slice(0, 2).join(path.sep);
 
-			fs.writeFileSync(itw, 'I AM IN THE WAY, THE TRUTH, AND THE LIGHT.');
+			writeFile(itw, 'I AM IN THE WAY, THE TRUTH, AND THE LIGHT.');
 
-			const stat = fs.statSync(itw);
+			const stat = fsStat(itw);
 			expect(stat).toBeDefined();
 			expect(stat.isFile()).toBeTruthy();
 		});

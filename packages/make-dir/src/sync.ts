@@ -1,5 +1,3 @@
-import { makeDirSync } from './make-dir';
-
-const makeDir = makeDirSync;
+import { makeDirSync as makeDir } from './make-dir';
 
 export default makeDir;
