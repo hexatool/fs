@@ -10,6 +10,8 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/empty-dir/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/remove/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/stat/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/fs/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/create-file/dist" />
       <excludePattern pattern=".npmignore" />
       <excludePattern pattern=".yarnrc*" />
       <excludePattern pattern=".pnp*" />
