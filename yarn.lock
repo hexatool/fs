@@ -370,12 +370,12 @@ __metadata:
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.2
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -388,12 +388,12 @@ __metadata:
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.4
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -404,12 +404,12 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.4
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -420,7 +420,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     eslint: 8.28.0
     typescript: 4.9.3
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -431,12 +431,12 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.4
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -447,12 +447,12 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.4
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -467,12 +467,12 @@ __metadata:
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
-    "@vitest/coverage-c8": 0.25.2
+    "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
     rollup-plugin-typescript2: 0.34.1
     typescript: 4.9.3
     vite: 3.2.2
-    vitest: 0.25.2
+    vitest: 0.25.3
   languageName: unknown
   linkType: soft
 
@@ -811,13 +811,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-c8@npm:0.25.2":
-  version: 0.25.2
-  resolution: "@vitest/coverage-c8@npm:0.25.2"
+"@vitest/coverage-c8@npm:0.25.3":
+  version: 0.25.3
+  resolution: "@vitest/coverage-c8@npm:0.25.3"
   dependencies:
     c8: ^7.12.0
-    vitest: 0.25.2
-  checksum: 2e6554b0f060fb3f2f8c021bdacb1eabd7471e1fb8568c49c5db84c1edb1f5af642bfc579531942c389dfce85a3ced632e4967548d1a8fe85475f512863a516f
+    vitest: 0.25.3
+  checksum: 39d20990d56750e35c51aababe32a300cc30e6941442586d935e6f1f5ae29f4838bd5c7bcb70fc8cad19304dd1852bb6b5342e3367b1813dae79db99f201e768
   languageName: node
   linkType: hard
 
@@ -3988,9 +3988,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:0.25.2":
-  version: 0.25.2
-  resolution: "vitest@npm:0.25.2"
+"vitest@npm:0.25.3":
+  version: 0.25.3
+  resolution: "vitest@npm:0.25.3"
   dependencies:
     "@types/chai": ^4.3.3
     "@types/chai-subset": ^1.3.3
@@ -4025,7 +4025,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: f41fe7c2c1fe8142ceb90f4d4bebca90c62615c168ff82ea5e797affb8cfd78a49c8900f6d9c552e0da1208961750b6cc705113ad99315e69afba5cd3fdef794
+  checksum: cd54de758f41295ef8a5304318b0de37f3182ec9b179d983cb0199dac89d51b80ee30124754703ef77ce4a1b675f3b02094ef96790889d5c9212dbab7490b4d0
   languageName: node
   linkType: hard
 
