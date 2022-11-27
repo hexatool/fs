@@ -9,7 +9,7 @@ export default defineConfig({
 		lib: {
 			formats: ['es'],
 			fileName: (format, entryName) =>
-				`hexatool-fs-make-dir-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
+				`hexatool-fs-remove-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
 			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts')],
 		},
 		minify: false,
@@ -19,8 +19,8 @@ export default defineConfig({
 				'node:fs',
 				'node:fs/promises',
 				'node:path',
-				'@hexatool/fs-copy/async',
-				// '@hexatool/fs-create-file/async',
+				// '@hexatool/fs-copy/async',
+				'@hexatool/fs-create-file/async',
 				'@hexatool/fs-create-link/async',
 				'@hexatool/fs-empty-dir/async',
 				'@hexatool/fs/async',
@@ -29,8 +29,8 @@ export default defineConfig({
 				'@hexatool/fs-path-exists/async',
 				'@hexatool/fs-remove/async',
 				'@hexatool/fs-stat/async',
-				'@hexatool/fs-copy',
-				// '@hexatool/fs-create-file',
+				// '@hexatool/fs-copy',
+				'@hexatool/fs-create-file',
 				'@hexatool/fs-create-link',
 				'@hexatool/fs-empty-dir',
 				'@hexatool/fs',
@@ -47,8 +47,8 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@hexatool/fs-copy/async': resolve(__dirname, '../copy/src/async'),
-			// '@hexatool/fs-create-file/async': resolve(__dirname, '../create-file/src/async'),
+			// '@hexatool/fs-copy/async': resolve(__dirname, '../copy/src/async'),
+			'@hexatool/fs-create-file/async': resolve(__dirname, '../create-file/src/async'),
 			'@hexatool/fs-create-link/async': resolve(__dirname, '../create-link/src/async'),
 			'@hexatool/fs-empty-dir/async': resolve(__dirname, '../empty-dir/src/async'),
 			'@hexatool/fs/async': resolve(__dirname, '../fs/src/async'),
@@ -58,8 +58,8 @@ export default defineConfig({
 			'@hexatool/fs-remove/async': resolve(__dirname, '../remove/src/async'),
 			'@hexatool/fs-stat/async': resolve(__dirname, '../stat/src/async'),
 
-			'@hexatool/fs-copy': resolve(__dirname, '../copy/src/sync'),
-			// '@hexatool/fs-create-file': resolve(__dirname, '../create-file/src/sync'),
+			// '@hexatool/fs-copy': resolve(__dirname, '../copy/src/sync'),
+			'@hexatool/fs-create-file': resolve(__dirname, '../create-file/src/sync'),
 			'@hexatool/fs-create-link': resolve(__dirname, '../create-link/src/sync'),
 			'@hexatool/fs-empty-dir': resolve(__dirname, '../empty-dir/src/sync'),
 			'@hexatool/fs': resolve(__dirname, '../fs/src/sync'),

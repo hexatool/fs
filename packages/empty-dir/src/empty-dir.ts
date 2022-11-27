@@ -6,7 +6,7 @@ import makeDirAsync from '@hexatool/fs-make-dir/async';
 import removeSync from '@hexatool/fs-remove';
 import removeAsync from '@hexatool/fs-remove/async';
 
-export async function emptyDir(path: string): Promise<void> {
+export async function emptyDirAsync(path: string): Promise<void> {
 	let items;
 	try {
 		items = await fs.promises.readdir(path);

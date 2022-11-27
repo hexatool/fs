@@ -2,7 +2,7 @@ import fs from 'node:fs';
 
 import { rimraf, rimrafSync } from './rimraf';
 
-export async function remove(path: string): Promise<void> {
+export async function removeAsync(path: string): Promise<void> {
 	// Node 14.14.0+
 	/* eslint @typescript-eslint/no-unnecessary-condition: off */
 	if (fs.promises.rm) {

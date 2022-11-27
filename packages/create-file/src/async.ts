@@ -1,3 +1,3 @@
-import { createFile } from './create-file';
+import { createFileAsync } from './create-file';
 
-export default createFile;
+export default createFileAsync;

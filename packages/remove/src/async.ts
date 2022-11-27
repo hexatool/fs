@@ -1,3 +1,3 @@
-import { remove } from './remove';
+import { removeAsync } from './remove';
 
-export default remove;
+export default removeAsync;

@@ -1,0 +1,42 @@
+{
+	"extends": [
+		"@hexatool/eslint-config-typescript"
+	],
+	"overrides": [
+		{
+			"files": [
+				"spec/**/*.ts",
+				"spec/**/*.tsx"
+			],
+			// Your TypeScript files extension
+
+			"parserOptions": {
+				"project": [
+					"./tsconfig.json"
+				]
+				// Specify it only for TypeScript files
+			},
+			"rules": {
+				"@typescript-eslint/no-unsafe-member-access": "warn",
+				"import/no-unresolved": "off"
+			}
+		},
+		{
+			"files": [
+				"*.ts",
+				"*.tsx"
+			],
+			// Your TypeScript files extension
+
+			"parserOptions": {
+				"project": [
+					"./tsconfig.json"
+				]
+				// Specify it only for TypeScript files
+			},
+			"rules": {
+				"import/no-unresolved": "off"
+			}
+		}
+	]
+}

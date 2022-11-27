@@ -1,3 +1,3 @@
-import { emptyDir } from './empty';
+import { emptyDirAsync } from './empty-dir';
 
-export default emptyDir;
+export default emptyDirAsync;

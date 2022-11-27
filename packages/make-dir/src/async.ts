@@ -1,3 +1,3 @@
-import { makeDir } from './make-dir';
+import { makeDirAsync } from './make-dir';
 
-export default makeDir;
+export default makeDirAsync;

@@ -14,7 +14,7 @@ type ErrorWithCode = Error & {
 	code?: string;
 };
 
-export async function createFile(path: string): Promise<void> {
+export async function createFileAsync(path: string): Promise<void> {
 	let stats: Stats | undefined;
 	try {
 		stats = await statAsync(path);
