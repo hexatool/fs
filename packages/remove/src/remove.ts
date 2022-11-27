@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import { fs } from '@hexatool/fs-file-system';
 
 import { rimraf, rimrafSync } from './rimraf';
 

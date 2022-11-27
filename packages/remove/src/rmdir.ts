@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import { fs } from '@hexatool/fs-file-system';
 
 import { rmkids, rmkidsSync } from './rmkids';
 import type { ErrorWithCode } from './types';

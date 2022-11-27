@@ -19,6 +19,8 @@ export default defineConfig({
 				'node:fs',
 				'node:fs/promises',
 				'node:path',
+				'graceful-fs',
+				'@hexatool/fs-file-system',
 				'@hexatool/fs-copy/async',
 				'@hexatool/fs-create-file/async',
 				'@hexatool/fs-create-link/async',
@@ -47,6 +49,7 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
+			'@hexatool/fs-file-system': resolve(__dirname, '../file-system/src/index'),
 			'@hexatool/fs-copy/async': resolve(__dirname, '../copy/src/async'),
 			'@hexatool/fs-create-file/async': resolve(__dirname, '../create-file/src/async'),
 			'@hexatool/fs-create-link/async': resolve(__dirname, '../create-link/src/async'),

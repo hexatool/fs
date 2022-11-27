@@ -383,8 +383,10 @@ __metadata:
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/tsconfig": 18.0.0
+    "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.28.0
@@ -400,6 +402,7 @@ __metadata:
   resolution: "@hexatool/fs-create-link@workspace:packages/create-link"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/fs-path-exists": 0.0.0
     "@hexatool/fs-stat": 0.0.0
@@ -419,6 +422,7 @@ __metadata:
   resolution: "@hexatool/fs-empty-dir@workspace:packages/empty-dir"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/tsconfig": 18.0.0
@@ -432,11 +436,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hexatool/fs-file-system@0.0.0, @hexatool/fs-file-system@workspace:packages/file-system":
+  version: 0.0.0-use.local
+  resolution: "@hexatool/fs-file-system@workspace:packages/file-system"
+  dependencies:
+    "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/tsconfig": 18.0.0
+    "@types/node": 18.11.9
+    "@vitest/coverage-c8": 0.25.3
+    eslint: 8.28.0
+    rollup-plugin-typescript2: 0.34.1
+    typescript: 4.9.3
+    vite: 3.2.4
+    vitest: 0.25.3
+  peerDependencies:
+    graceful-fs: 4.2.10
+  peerDependenciesMeta:
+    graceful-fs:
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@hexatool/fs-make-dir@0.0.0, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-make-dir@workspace:packages/make-dir"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
@@ -480,6 +506,7 @@ __metadata:
   resolution: "@hexatool/fs-path-exists@workspace:packages/path-exists"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
@@ -496,6 +523,7 @@ __metadata:
   resolution: "@hexatool/fs-remove@workspace:packages/remove"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
@@ -512,6 +540,7 @@ __metadata:
   resolution: "@hexatool/fs-stat@workspace:packages/stat"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
@@ -721,6 +750,15 @@ __metadata:
   version: 4.3.4
   resolution: "@types/chai@npm:4.3.4"
   checksum: 571184967beb03bf64c4392a13a7d44e72da9af5a1e83077ff81c39cf59c0fda2a5c78d2005084601cf8f3d11726608574d8b5b4a0e3e9736792807afd926cd0
+  languageName: node
+  linkType: hard
+
+"@types/graceful-fs@npm:4.1.5":
+  version: 4.1.5
+  resolution: "@types/graceful-fs@npm:4.1.5"
+  dependencies:
+    "@types/node": "*"
+  checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
   languageName: node
   linkType: hard
 

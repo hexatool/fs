@@ -23,12 +23,12 @@ describe('@hexatool/fs-empty-dir', root => {
 	describe('should empty a directory', () => {
 		describe('when directory exists and contains items', () => {
 			it('sync', () => {
-				expect(readDir(TEST_DIR)).lengthOf(0);
+				expect(readDir(TEST_DIR)).lengthOf(1);
 				emptyDirSync(TEST_DIR);
 				expect(readDir(TEST_DIR)).lengthOf(0);
 			});
 			it('async', async () => {
-				expect(readDir(TEST_DIR)).lengthOf(0);
+				expect(readDir(TEST_DIR)).lengthOf(1);
 				await emptyDirAsync(TEST_DIR);
 				expect(readDir(TEST_DIR)).lengthOf(0);
 			});

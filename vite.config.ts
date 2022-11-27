@@ -1,9 +1,10 @@
-import path from 'node:path';
+import path, { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
 	resolve: {
 		alias: {
+			'@hexatool/fs-file-system': resolve(__dirname, './packages/file-system/src/index'),
 			'@hexatool/create-file/async': path.resolve(__dirname, './packages/create-file/src/async'),
 			'@hexatool/fs-empty-dir/async': path.resolve(__dirname, './packages/empty-dir/src/async'),
 			'@hexatool/fs/async': path.resolve(__dirname, './packages/fs/src/async'),

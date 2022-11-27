@@ -43,6 +43,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@hexatool/fs-file-system": "0.0.0",
 		"@hexatool/fs-make-dir": "0.0.0",
 		"@hexatool/fs-path-exists": "0.0.0",
 		"@hexatool/fs-stat": "0.0.0"

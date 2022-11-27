@@ -1,5 +1,5 @@
 import type { Mode } from 'node:fs';
-import fs from 'node:fs';
+import { fs } from '@hexatool/fs-file-system';
 
 import checkPath from './check-path';
 

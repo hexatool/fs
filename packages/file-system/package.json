@@ -1,5 +1,5 @@
 {
-	"name": "@hexatool/fs-make-dir",
+	"name": "@hexatool/fs-file-system",
 	"version": "0.0.0",
 	"description": "Modular fs library",
 	"keywords": [
@@ -22,16 +22,12 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/hexatool-fs-make-dir-sync.mjs",
-	"types": "./dist/types/src/sync.d.ts",
+	"module": "./dist/hexatool-fs-file-system.mjs",
+	"types": "./dist/types/src/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/types/src/sync.d.ts",
-			"default": "./dist/hexatool-fs-make-dir-sync.mjs"
-		},
-		"./async": {
-			"types": "./dist/types/src/async.d.ts",
-			"default": "./dist/hexatool-fs-make-dir-async.mjs"
+			"types": "./dist/types/src/index.d.ts",
+			"default": "./dist/hexatool-fs-file-system.mjs"
 		}
 	},
 	"scripts": {
@@ -42,8 +38,13 @@
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "tsc --noEmit"
 	},
-	"dependencies": {
-		"@hexatool/fs-file-system": "0.0.0"
+	"peerDependencies": {
+		"graceful-fs": "4.2.10"
+	},
+	"peerDependenciesMeta": {
+		"graceful-fs": {
+			"optional": true
+		}
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.1",

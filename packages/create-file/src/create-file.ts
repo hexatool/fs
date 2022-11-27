@@ -1,14 +1,8 @@
-import type { Stats } from 'node:fs';
-import { readdirSync as readDirSync, statSync, writeFileSync } from 'node:fs';
-import {
-	readdir as readDirAsync,
-	stat as statAsync,
-	writeFile as writeFileAsync,
-} from 'node:fs/promises';
-import { dirname } from 'node:path';
-
+import { fs } from '@hexatool/fs-file-system';
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
+import type { Stats } from 'node:fs';
+import { dirname } from 'node:path';
 
 type ErrorWithCode = Error & {
 	code?: string;
@@ -17,7 +11,7 @@ type ErrorWithCode = Error & {
 export async function createFileAsync(path: string): Promise<void> {
 	let stats: Stats | undefined;
 	try {
-		stats = await statAsync(path);
+		stats = await fs.promises.stat(path);
 	} catch {
 		stats = undefined;
 	}
@@ -27,11 +21,11 @@ export async function createFileAsync(path: string): Promise<void> {
 
 	const dir = dirname(path);
 	try {
-		const dirStat = await statAsync(dir);
+		const dirStat = await fs.promises.stat(dir);
 		if (!dirStat.isDirectory()) {
 			// parent is not a directory
 			// This is just to cause an internal ENOTDIR error to be thrown
-			await readDirAsync(dir);
+			await fs.promises.readdir(dir);
 		}
 	} catch (e) {
 		const err = e as ErrorWithCode;
@@ -43,13 +37,13 @@ export async function createFileAsync(path: string): Promise<void> {
 		}
 	}
 
-	await writeFileAsync(path, '');
+	await fs.promises.writeFile(path, '');
 }
 
 export function createFileSync(path: string): void {
 	let stats: Stats | undefined;
 	try {
-		stats = statSync(path);
+		stats = fs.statSync(path);
 	} catch {
 		stats = undefined;
 	}
@@ -59,10 +53,10 @@ export function createFileSync(path: string): void {
 
 	const dir = dirname(path);
 	try {
-		if (!statSync(dir).isDirectory()) {
+		if (!fs.statSync(dir).isDirectory()) {
 			// parent is not a directory
 			// This is just to cause an internal ENOTDIR error to be thrown
-			readDirSync(dir);
+			fs.readdirSync(dir);
 		}
 	} catch (e) {
 		const err = e as ErrorWithCode;
@@ -74,5 +68,5 @@ export function createFileSync(path: string): void {
 		}
 	}
 
-	writeFileSync(path, '');
+	fs.writeFileSync(path, '');
 }

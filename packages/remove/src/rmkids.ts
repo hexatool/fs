@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import { fs } from '@hexatool/fs-file-system';
 import { join } from 'node:path';
 
 import isWindows from './is-windows';

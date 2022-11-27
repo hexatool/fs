@@ -3,6 +3,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
+			"@hexatool/fs-file-system": [
+				"packages/file-system/src/index"
+			],
 			"@hexatool/fs-*/async": [
 				"packages/*/src/async"
 			],
