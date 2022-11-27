@@ -1,5 +1,5 @@
 <h1 align="center">
-  Hexatool's fs-create-file module 
+  Hexatool's fs-path-exists module 
 </h1>
 
 <p align="center">
@@ -10,7 +10,7 @@
 
 1. Install the dependency
    ```bash
-   npm install --save-dev @hexatool/fs-create-file
+   npm install --save-dev @hexatool/fs-path-exists
    ```
 
 ## What it does
@@ -20,7 +20,7 @@
 ## API
 
 ```typescript
-import fs from '@hexatool/fs-create-file';
+import fs from '@hexatool/fs-path-exists';
 ```
 
 ## Hexatool Code Quality Standards

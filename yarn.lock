@@ -424,6 +424,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hexatool/fs-path-exists@0.0.0, @hexatool/fs-path-exists@workspace:packages/path-exists":
+  version: 0.0.0-use.local
+  resolution: "@hexatool/fs-path-exists@workspace:packages/path-exists"
+  dependencies:
+    "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/tsconfig": 18.0.0
+    "@types/node": 18.11.9
+    "@vitest/coverage-c8": 0.25.3
+    eslint: 8.28.0
+    rollup-plugin-typescript2: 0.34.1
+    typescript: 4.9.3
+    vite: 3.2.2
+    vitest: 0.25.3
+  languageName: unknown
+  linkType: soft
+
 "@hexatool/fs-remove@0.0.0, @hexatool/fs-remove@workspace:packages/remove":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-remove@workspace:packages/remove"
@@ -463,6 +479,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/fs-empty-dir": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
+    "@hexatool/fs-path-exists": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0

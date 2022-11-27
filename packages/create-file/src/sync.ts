@@ -1,3 +1,3 @@
-import { createFileSync as createFile } from './create-file-dir';
+import { createFileSync as createFile } from './create-file';
 
 export default createFile;

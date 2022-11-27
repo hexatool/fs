@@ -1,3 +1,3 @@
-import { createFile } from './create-file-dir';
+import { createFile } from './create-file';
 
 export default createFile;
