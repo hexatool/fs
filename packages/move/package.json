@@ -42,6 +42,13 @@
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "tsc --noEmit"
 	},
+	"dependencies": {
+		"@hexatool/fs-copy": "0.0.0",
+		"@hexatool/fs-file-system": "0.0.0",
+		"@hexatool/fs-make-dir": "0.0.0",
+		"@hexatool/fs-remove": "0.0.0",
+		"@hexatool/fs-stat": "0.0.0"
+	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.1",
 		"@hexatool/tsconfig": "18.0.0",
