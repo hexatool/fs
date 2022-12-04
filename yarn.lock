@@ -362,11 +362,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexatool/fs-copy@workspace:packages/copy":
+"@hexatool/fs-copy@0.0.0, @hexatool/fs-copy@workspace:packages/copy":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-copy@workspace:packages/copy"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-make-dir": 0.0.0
+    "@hexatool/fs-path-exists": 0.0.0
+    "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
@@ -490,6 +494,11 @@ __metadata:
   resolution: "@hexatool/fs-move@workspace:packages/move"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-copy": 0.0.0
+    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-make-dir": 0.0.0
+    "@hexatool/fs-remove": 0.0.0
+    "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.9
     "@vitest/coverage-c8": 0.25.3
