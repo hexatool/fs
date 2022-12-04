@@ -13,7 +13,7 @@ export default defineConfig({
 			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts')],
 		},
 		minify: false,
-		sourcemap: true,
+		sourcemap: false,
 		rollupOptions: {
 			external: [
 				'node:fs',

@@ -9,11 +9,11 @@ export default defineConfig({
 		lib: {
 			formats: ['es'],
 			fileName: (format) =>
-				`hexatool-fs-remove.${format === 'es' ? 'mjs' : 'cjs'}`,
+				`hexatool-fs-file-system.${format === 'es' ? 'mjs' : 'cjs'}`,
 			entry: [resolve(__dirname, 'src/index.ts')],
 		},
 		minify: false,
-		sourcemap: true,
+		sourcemap: false,
 		rollupOptions: {
 			external: [
 				'node:fs',

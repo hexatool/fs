@@ -9,11 +9,11 @@ export default defineConfig({
 		lib: {
 			formats: ['es'],
 			fileName: (format, entryName) =>
-				`hexatool-fs-make-dir-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
+				`hexatool-fs-create-link-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
 			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts')],
 		},
 		minify: false,
-		sourcemap: true,
+		sourcemap: false,
 		rollupOptions: {
 			external: [
 				'node:fs',
