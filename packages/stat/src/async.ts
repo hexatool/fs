@@ -1,5 +1,7 @@
 import areIdentical from './are-identical';
-import { checkPaths } from './check-paths';
-import { getStats } from './get-stats';
+import { checkParentPathsAsync as checkParentPaths } from './check-parent-paths';
+import { checkPathsAsync as checkPaths } from './check-paths';
+import { getStatsAsync as getStats } from './get-stats';
+import isSrcSubdirectory from './is-src-subdirectory';
 
-export { areIdentical, checkPaths, getStats };
+export { areIdentical, checkParentPaths, checkPaths, getStats, isSrcSubdirectory };

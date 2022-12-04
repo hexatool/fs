@@ -1,4 +1,5 @@
 import type { Stats } from 'node:fs';
+
 import { fs } from '@hexatool/fs-file-system';
 
 import { fixWindowsEPERM, fixWindowsEPERMSync } from './fix-windows-eperm';

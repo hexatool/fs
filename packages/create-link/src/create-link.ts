@@ -1,11 +1,12 @@
+import type { Stats } from 'node:fs';
+import { dirname } from 'node:path';
+
 import { fs } from '@hexatool/fs-file-system';
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import pathExistsSync from '@hexatool/fs-path-exists';
 import pathExistsAsync from '@hexatool/fs-path-exists/async';
 import { areIdentical } from '@hexatool/fs-stat';
-import type { Stats } from 'node:fs';
-import { dirname } from 'node:path';
 
 export async function createLinkAsync(srcPath: string, destPath: string): Promise<void> {
 	let destPathStats: Stats | undefined;

@@ -3,7 +3,7 @@ import { basename } from 'node:path';
 
 import areIdentical from './are-identical';
 import errorMessage from './error-message';
-import { getStats, getStatsSync } from './get-stats';
+import { getStatsAsync, getStatsSync } from './get-stats';
 import isSrcSubdirectory from './is-src-subdirectory';
 import type { CheckStatsResult, FunctionName, GetStatsOptions } from './types';
 
@@ -42,13 +42,13 @@ function internalCheck(
 	return { srcStat, destStat };
 }
 
-export async function checkPaths(
+export async function checkPathsAsync(
 	src: string,
 	dest: string,
 	funcName: FunctionName,
 	opts?: GetStatsOptions
 ): Promise<CheckStatsResult> {
-	const { srcStat, destStat } = await getStats(src, dest, opts);
+	const { srcStat, destStat } = await getStatsAsync(src, dest, opts);
 
 	return internalCheck(src, srcStat, dest, destStat, funcName);
 }

@@ -1,8 +1,9 @@
+import type { Stats } from 'node:fs';
+import { dirname } from 'node:path';
+
 import { fs } from '@hexatool/fs-file-system';
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
-import type { Stats } from 'node:fs';
-import { dirname } from 'node:path';
 
 type ErrorWithCode = Error & {
 	code?: string;

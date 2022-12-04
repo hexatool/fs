@@ -1,5 +1,6 @@
-import { fs } from '@hexatool/fs-file-system';
 import { join } from 'node:path';
+
+import { fs } from '@hexatool/fs-file-system';
 
 import isWindows from './is-windows';
 import { rimraf, rimrafSync } from './rimraf';

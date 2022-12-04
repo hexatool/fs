@@ -1,9 +1,10 @@
 import type { PathLike } from 'node:fs';
+
 import { fs } from '@hexatool/fs-file-system';
 
 import type { ErrorWithCode, GetStatsOptions, StatsResult } from './types';
 
-export async function getStats(
+export async function getStatsAsync(
 	src: PathLike,
 	dest: PathLike,
 	opts?: GetStatsOptions
