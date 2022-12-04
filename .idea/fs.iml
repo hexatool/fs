@@ -13,6 +13,10 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/fs/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/create-file/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/file-system/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/create-link/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/path-exists/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/copy/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/move/dist" />
       <excludePattern pattern=".npmignore" />
       <excludePattern pattern=".yarnrc*" />
       <excludePattern pattern=".pnp*" />
