@@ -382,7 +382,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-file@workspace:packages/create-file":
+"@hexatool/fs-create-file@0.0.0, @hexatool/fs-create-file@workspace:packages/create-file":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
@@ -566,6 +566,7 @@ __metadata:
   resolution: "@hexatool/fs@workspace:packages/fs"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-create-file": 0.0.0
     "@hexatool/fs-empty-dir": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/fs-path-exists": 0.0.0
