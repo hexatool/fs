@@ -24,7 +24,7 @@
       <excludePattern pattern=".gitignore" />
       <excludePattern pattern="LICENSE" />
       <excludePattern pattern="tsconfig.*" />
-      <excludePattern pattern="vite.*" />
+      <excludePattern pattern="vitse.*" />
       <excludePattern pattern="babel.*" />
       <excludePattern pattern="*.lock" />
       <excludePattern pattern="nest-cli.json" />
@@ -32,7 +32,6 @@
       <excludePattern pattern="renovate.json" />
       <excludePattern pattern=".editorconfig" />
       <excludePattern pattern=".eslintrc*" />
-      <excludePattern pattern="vite.config.ts" />
       <excludePattern pattern="tsconfig.build.json" />
     </content>
     <orderEntry type="inheritedJdk" />
