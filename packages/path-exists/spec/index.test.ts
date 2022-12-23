@@ -7,11 +7,11 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import pathExistsAsync from '../src/async';
 import pathExistsSync from '../src/sync';
 
-describe('@hexatool/fs-path-exists', root => {
+describe('@hexatool/fs-path-exists', () => {
 	let TEST_DIR: string;
 
 	beforeEach(() => {
-		TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'path-exists');
+		TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-path-exists'.split('/'));
 		emptyDir(TEST_DIR);
 	});
 

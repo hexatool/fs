@@ -1,17 +1,17 @@
 import os from 'node:os';
 import path from 'node:path';
 
-import { exists, makeDir, readDir, remove } from '@hexatool/fs';
+import { createFile, exists, makeDir, readDir, remove } from '@hexatool/fs';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import emptyDirAsync from '../src/async';
 import emptyDirSync from '../src/sync';
 
-describe('@hexatool/fs-empty-dir', root => {
+describe('@hexatool/fs-empty-dir', () => {
 	let TEST_DIR: string;
 
 	beforeEach(() => {
-		TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'mkdir');
+		TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-empty-dir'.split('/'));
 		if (exists(TEST_DIR)) {
 			remove(TEST_DIR);
 		}
@@ -22,6 +22,9 @@ describe('@hexatool/fs-empty-dir', root => {
 
 	describe('should empty a directory', () => {
 		describe('when directory exists and contains items', () => {
+			beforeEach(() => {
+				createFile(path.join(TEST_DIR, 'foo.bar'));
+			});
 			it('sync', () => {
 				expect(readDir(TEST_DIR)).lengthOf(1);
 				emptyDirSync(TEST_DIR);
