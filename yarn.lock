@@ -373,7 +373,7 @@ __metadata:
     "@hexatool/fs-path-exists": 0.0.0
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -392,7 +392,7 @@ __metadata:
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/tsconfig": 18.0.0
     "@types/graceful-fs": 4.1.5
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -412,7 +412,7 @@ __metadata:
     "@hexatool/fs-path-exists": 0.0.0
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -431,7 +431,7 @@ __metadata:
     "@hexatool/fs-make-dir": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -447,7 +447,7 @@ __metadata:
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -469,7 +469,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -501,7 +501,7 @@ __metadata:
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -518,7 +518,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -535,7 +535,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -552,7 +552,7 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.1
     "@hexatool/fs-file-system": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -574,7 +574,7 @@ __metadata:
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/fs-stat": 0.0.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/node": 18.11.10
+    "@types/node": 18.11.17
     "@vitest/coverage-c8": 0.25.3
     eslint: 8.29.0
     rollup-plugin-typescript2: 0.34.1
@@ -794,17 +794,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:18.11.17":
   version: 18.11.17
   resolution: "@types/node@npm:18.11.17"
   checksum: 1933afd068d5c75c068c6c4df6d10edb3b0b2bb6503d544e2f0496ac007c90596e6a5e284a8ef032451bc16f871b7e46719d7d2bea60e9b25d13a77d52161cac
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.11.10":
-  version: 18.11.10
-  resolution: "@types/node@npm:18.11.10"
-  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
   languageName: node
   linkType: hard
 
