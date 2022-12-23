@@ -1,6 +1,7 @@
 import {
 	existsSync as exists,
 	readdirSync as readDir,
+	readFileSync as readFile,
 	realpathSync as realPath,
 	statSync as stat,
 	writeFileSync as writeFile,
@@ -23,6 +24,7 @@ export {
 	makeDir,
 	pathExists,
 	readDir,
+	readFile,
 	realPath,
 	remove,
 	stat,

@@ -30,12 +30,12 @@ function assert(file: string, uMode = 0o755, wMode = 0o666) {
 	expect(stat.isDirectory()).toBeTruthy();
 }
 
-describe('@hexatool/fs-make-dir', root => {
+describe('@hexatool/fs-make-dir', () => {
 	describe('should create a directory', () => {
 		let TEST_DIR: string;
 
 		beforeEach(() => {
-			TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'mkdir');
+			TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-make-dir'.split('/'));
 			emptyDir(TEST_DIR);
 		});
 
@@ -58,7 +58,7 @@ describe('@hexatool/fs-make-dir', root => {
 		let TEST_DIR: string;
 
 		beforeEach(() => {
-			TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'mkdir2');
+			TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-make-dir'.split('/'), 'mkdir2');
 			emptyDir(TEST_DIR);
 		});
 
@@ -96,7 +96,7 @@ describe('@hexatool/fs-make-dir', root => {
 		let TEST_DIR: string;
 
 		beforeEach(() => {
-			TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'dots');
+			TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-make-dir'.split('/'), 'dots');
 			emptyDir(TEST_DIR);
 		});
 
@@ -153,7 +153,7 @@ describe('@hexatool/fs-make-dir', root => {
 
 			TEST_SUB_DIR = ps.join(path.sep);
 
-			TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'chmod');
+			TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-make-dir'.split('/'), 'chmod');
 			TEST_SUB_DIR = path.join(TEST_DIR, TEST_SUB_DIR);
 
 			emptyDir(TEST_DIR);
@@ -192,7 +192,7 @@ describe('@hexatool/fs-make-dir', root => {
 		let file: string;
 
 		beforeEach(() => {
-			TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'race');
+			TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-make-dir'.split('/'), 'race');
 			emptyDir(TEST_DIR);
 			const ps = [TEST_DIR];
 

@@ -1,5 +1,11 @@
 import { existsSync as exists } from 'node:fs';
-import { readdir as readDir, realpath as realPath, stat, writeFile } from 'node:fs/promises';
+import {
+	readdir as readDir,
+	readFile,
+	realpath as realPath,
+	stat,
+	writeFile,
+} from 'node:fs/promises';
 
 import createFile from '@hexatool/fs-create-file/async';
 import emptyDir from '@hexatool/fs-empty-dir/async';
@@ -18,6 +24,7 @@ export {
 	makeDir,
 	pathExistsAsync,
 	readDir,
+	readFile,
 	realPath,
 	remove,
 	stat,

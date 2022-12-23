@@ -7,11 +7,11 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import emptyDirAsync from '../src/async';
 import emptyDirSync from '../src/sync';
 
-describe('@hexatool/fs-empty-dir', root => {
+describe('@hexatool/fs-empty-dir', () => {
 	let TEST_DIR: string;
 
 	beforeEach(() => {
-		TEST_DIR = path.join(os.tmpdir(), ...root.name.split('/'), 'mkdir');
+		TEST_DIR = path.join(os.tmpdir(), ...'@hexatool/fs-empty-dir'.split('/'));
 		if (exists(TEST_DIR)) {
 			remove(TEST_DIR);
 		}
