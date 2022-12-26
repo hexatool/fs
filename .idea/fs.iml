@@ -17,6 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/path-exists/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/copy/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/move/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/.changeset" />
       <excludePattern pattern=".npmignore" />
       <excludePattern pattern=".yarnrc*" />
       <excludePattern pattern=".pnp*" />
