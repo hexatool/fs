@@ -7,6 +7,7 @@ export default defineConfig({
 			'@hexatool/fs-file-system': resolve(__dirname, './packages/file-system/src/index'),
 			'@hexatool/fs-copy/async': resolve(__dirname, './packages/copy/src/async'),
 			'@hexatool/fs-create-file/async': path.resolve(__dirname, './packages/create-file/src/async'),
+			'@hexatool/fs-create-link/async': path.resolve(__dirname, './packages/create-link/src/async'),
 			'@hexatool/fs-empty-dir/async': path.resolve(__dirname, './packages/empty-dir/src/async'),
 			'@hexatool/fs/async': path.resolve(__dirname, './packages/fs/src/async'),
 			'@hexatool/fs-make-dir/async': path.resolve(__dirname, './packages/make-dir/src/async'),
@@ -16,6 +17,7 @@ export default defineConfig({
 
 			'@hexatool/fs-copy': resolve(__dirname, './packages/copy/src/sync'),
 			'@hexatool/fs-create-file': path.resolve(__dirname, './packages/create-file/src/sync'),
+			'@hexatool/fs-create-link': path.resolve(__dirname, './packages/create-link/src/sync'),
 			'@hexatool/fs-empty-dir': path.resolve(__dirname, './packages/empty-dir/src/sync'),
 			'@hexatool/fs': path.resolve(__dirname, './packages/fs/src/sync'),
 			'@hexatool/fs-make-dir': path.resolve(__dirname, './packages/make-dir/src/sync'),
