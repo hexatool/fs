@@ -35,7 +35,7 @@ describe('@hexatool/fs-create-file', () => {
 	});
 
 	describe('should not modify the file', () => {
-		describe('when the file does exist', () => {
+		describe('when the file exists', () => {
 			it('sync', () => {
 				const file = path.join(TEST_DIR, `${Math.random()}t-e`, `${Math.random()}.txt`);
 				makeDir(path.dirname(file));
@@ -54,6 +54,29 @@ describe('@hexatool/fs-create-file', () => {
 				const content = readFile(file, 'utf8');
 				expect(content).toBe('hello world');
 			});
+		});
+	});
+
+	describe('should give clear error when there is a directory at that path', () => {
+		it('sync', () => {
+			const file = path.join(TEST_DIR, 'somedir');
+			makeDir(file);
+			expect(() => createFileSync(file)).toThrow();
+			try {
+				createFileSync(file);
+			} catch (e: any) {
+				expect(e.code).toBe('EISDIR');
+			}
+		});
+		it('async', async () => {
+			const file = path.join(TEST_DIR, 'somedir');
+			makeDir(file);
+			expect(() => createFileSync(file)).toThrow();
+			try {
+				await createFileAsync(file);
+			} catch (e: any) {
+				expect(e.code).toBe('EISDIR');
+			}
 		});
 	});
 

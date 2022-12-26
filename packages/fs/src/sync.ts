@@ -14,11 +14,16 @@ import pathExists from '@hexatool/fs-path-exists';
 import remove from '@hexatool/fs-remove';
 import { areIdentical, checkPaths, getStats } from '@hexatool/fs-stat';
 
+const ensureFile = createFile;
+const ensureDir = makeDir;
+
 export {
 	areIdentical,
 	checkPaths,
 	createFile,
 	emptyDir,
+	ensureDir,
+	ensureFile,
 	exists,
 	getStats,
 	makeDir,
