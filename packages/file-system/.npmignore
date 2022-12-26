@@ -1,4 +1,4 @@
-.eslintrc.cjs
+.eslintignore
+.eslintrc.json
 tsconfig.json
-tsconfig.build.json
 vite.config.ts

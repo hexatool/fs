@@ -7,9 +7,12 @@ import {
 	writeFileSync as writeFile,
 } from 'node:fs';
 
+import copy from '@hexatool/fs-copy';
 import createFile from '@hexatool/fs-create-file';
+import createLink from '@hexatool/fs-create-link';
 import emptyDir from '@hexatool/fs-empty-dir';
 import makeDir from '@hexatool/fs-make-dir';
+import move from '@hexatool/fs-move';
 import pathExists from '@hexatool/fs-path-exists';
 import remove from '@hexatool/fs-remove';
 import { areIdentical, checkPaths, getStats } from '@hexatool/fs-stat';
@@ -20,13 +23,16 @@ const ensureDir = makeDir;
 export {
 	areIdentical,
 	checkPaths,
+	copy,
 	createFile,
+	createLink,
 	emptyDir,
 	ensureDir,
 	ensureFile,
 	exists,
 	getStats,
 	makeDir,
+	move,
 	pathExists,
 	readDir,
 	readFile,

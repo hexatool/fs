@@ -785,7 +785,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-link@workspace:packages/create-link":
+"@hexatool/fs-create-link@0.0.0, @hexatool/fs-create-link@workspace:packages/create-link":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-link@workspace:packages/create-link"
   dependencies:
@@ -870,7 +870,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-move@workspace:packages/move":
+"@hexatool/fs-move@0.0.0, @hexatool/fs-move@workspace:packages/move":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-move@workspace:packages/move"
   dependencies:
@@ -943,9 +943,12 @@ __metadata:
   resolution: "@hexatool/fs@workspace:packages/fs"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.1
+    "@hexatool/fs-copy": 0.0.0
     "@hexatool/fs-create-file": 0.0.0
+    "@hexatool/fs-create-link": 0.0.0
     "@hexatool/fs-empty-dir": 0.0.0
     "@hexatool/fs-make-dir": 0.0.0
+    "@hexatool/fs-move": 0.0.0
     "@hexatool/fs-path-exists": 0.0.0
     "@hexatool/fs-remove": 0.0.0
     "@hexatool/fs-stat": 0.0.0

@@ -49,7 +49,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@hexatool/fs-file-system': resolve(__dirname, '../file-system/src/index'),
-			// '@hexatool/fs-copy/async': resolve(__dirname, '../copy/src/async'),
+			'@hexatool/fs-copy/async': resolve(__dirname, './src/async'),
 			'@hexatool/fs-create-file/async': resolve(__dirname, '../create-file/src/async'),
 			'@hexatool/fs-create-link/async': resolve(__dirname, '../create-link/src/async'),
 			'@hexatool/fs-empty-dir/async': resolve(__dirname, '../empty-dir/src/async'),
@@ -60,7 +60,7 @@ export default defineConfig({
 			'@hexatool/fs-remove/async': resolve(__dirname, '../remove/src/async'),
 			'@hexatool/fs-stat/async': resolve(__dirname, '../stat/src/async'),
 
-			// '@hexatool/fs-copy': resolve(__dirname, '../copy/src/sync'),
+			'@hexatool/fs-copy': resolve(__dirname, './src/sync'),
 			'@hexatool/fs-create-file': resolve(__dirname, '../create-file/src/sync'),
 			'@hexatool/fs-create-link': resolve(__dirname, '../create-link/src/sync'),
 			'@hexatool/fs-empty-dir': resolve(__dirname, '../empty-dir/src/sync'),
