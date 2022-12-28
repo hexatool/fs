@@ -44,8 +44,8 @@
 		"build": "yarn workspaces foreach run build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"test": "vitest run --no-isolate",
 		"publish": "yarn changeset publish",
+		"test": "vitest run --no-isolate",
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "yarn workspaces foreach run typecheck",
 		"version": "yarn changeset version && yarn install --mode update-lockfile"
