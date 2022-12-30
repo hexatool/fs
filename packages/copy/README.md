@@ -6,7 +6,7 @@
   Modular fs library.
 </p>
 
-## How to use
+## Installation
 
 ```bash
 npm install --save-dev @hexatool/fs-copy

@@ -6,7 +6,7 @@
   Modular fs library.
 </p>
 
-## How to use
+## Installation
 
 1. Install the dependency
    ```bash

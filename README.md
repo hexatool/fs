@@ -6,7 +6,7 @@
   Modular fs library.
 </p>
 
-## How to use
+## Installation
 
 ```bash
 npm install --save-dev @hexatool/fs
@@ -25,10 +25,34 @@ Optionally uses [`graceful-fs`][graceful-fs] if package is installed and
 `HEXATOOL_USE_GRACEFUL_FS` environment variable has any value.
 
 
-## API
+## Methods
+-   [copy](#copy)
+
+### copy
+Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
+
+**Example**
 
 ```typescript
-import fs from '@hexatool/fs';
+import { copy } from '@hexatool/fs';
+
+// copy file
+copy('/tmp/myfile', '/tmp/mynewfile');
+
+// copy directory, even if it has subdirectories or files
+copy('/tmp/mydir', '/tmp/mynewdir');
+```
+
+**Async function**
+
+```typescript
+import { copy } from '@hexatool/fs/async';
+
+// copy file
+await copy('/tmp/myfile', '/tmp/mynewfile');
+
+// copy directory, even if it has subdirectories or files
+await copy('/tmp/mydir', '/tmp/mynewdir');
 ```
 
 ## Hexatool Code Quality Standards
