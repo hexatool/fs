@@ -30,10 +30,14 @@ Copy a file or directory. The directory can have contents.
     - Type `string`.
     - Optional `false`.
     - **Note:** If `src` is a directory it will copy everything inside of this directory, not the entire directory itself.
+
+
 - `dest`. 
     - Type `string`.
     - Optional `false`.
     - **Note:** If `src` is a file, `dest` cannot be a directory.
+
+
 - `options`. 
     - Type `CopyOptions`.
     - Optional `true`.
