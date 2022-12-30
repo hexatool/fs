@@ -8,21 +8,47 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save-dev @hexatool/fs-create-file
-   ```
+```bash
+npm install --save-dev @hexatool/fs-create-file
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-create-file --dev
+```
 
 ## What it does
-
-- 
+Creates an empty file. If the file that is requested to be created is in directories that do not exist, these directories are created. 
+If the file already exists, **it is NOT MODIFIED**.
 
 ## API
 
+### createFile(path: string): void
+- `path`
+   - Type `string`.
+   - Optional `false`.
+
+
+## Example
+
 ```typescript
-import fs from '@hexatool/fs-create-file';
+import createFile from '@hexatool/fs-create-file';
+
+const file = '/tmp/this/path/does/not/exist/file.txt'
+createFile(file)
+// file has now been created, including the directory it is to be placed in
 ```
 
+**Async function**
+
+```typescript
+import createFile from '@hexatool/fs-create-file/async';
+
+const file = '/tmp/this/path/does/not/exist/file.txt'
+await createFile(file)
+// file has now been created, including the directory it is to be placed in
+```
 ## Hexatool Code Quality Standards
 
 Publishing this package we are committing ourselves to the following code quality standards:

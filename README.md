@@ -26,7 +26,9 @@ Optionally uses [`graceful-fs`][graceful-fs] if package is installed and
 
 
 ## Methods
+-   [ensureFile](#createFile)
 -   [copy](#copy)
+-   [createFile](#createFile)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -53,6 +55,31 @@ await copy('/tmp/myfile', '/tmp/mynewfile');
 
 // copy directory, even if it has subdirectories or files
 await copy('/tmp/mydir', '/tmp/mynewdir');
+```
+
+### createFile
+Alias: `ensureFile`
+
+Creates an empty file. See full documentation [here](./packages/create-file/README.md).
+
+**Example**
+
+```typescript
+import { createFile } from '@hexatool/fs';
+
+const file = '/tmp/this/path/does/not/exist/file.txt'
+createFile(file)
+// file has now been created, including the directory it is to be placed in
+```
+
+**Async function**
+
+```typescript
+import { createFile } from '@hexatool/fs/async';
+
+const file = '/tmp/this/path/does/not/exist/file.txt'
+await createFile(file)
+// file has now been created, including the directory it is to be placed in
 ```
 
 ## Hexatool Code Quality Standards

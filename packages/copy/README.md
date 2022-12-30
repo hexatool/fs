@@ -24,7 +24,7 @@ Copy a file or directory. The directory can have contents.
 
 ## API
 
-### copy(src: string, dest: string, options?: CopyOptions)
+### copy(src: string, dest: string, options?: CopyOptions): void
 
 - `src` 
     - Type `string`.
