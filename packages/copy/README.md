@@ -8,10 +8,15 @@
 
 ## How to use
 
-1. Install the dependency
-   ```bash
-   npm install --save-dev @hexatool/fs-copy
-   ```
+```bash
+npm install --save-dev @hexatool/fs-copy
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-copy --dev
+```
 
 ## What it does
 
@@ -19,17 +24,51 @@ Copy a file or directory. The directory can have contents.
 
 ## API
 
-# copy(src: string, dest: string, options?: CopyOptions)
+### copy(src: string, dest: string, options?: CopyOptions)
 
-- `src` Note that if `src` is a directory it will copy everything inside of this directory, not the entire directory itself.
-- `dest` Note that if `src` is a file, `dest` cannot be a directory.
+- `src` 
+    - Type `string`.
+    - Optional `false`.
+    - **Note:** If `src` is a directory it will copy everything inside of this directory, not the entire directory itself.
+- `dest`. 
+    - Type `string`.
+    - Optional `false`.
+    - **Note:** If `src` is a file, `dest` cannot be a directory.
+- `options`. 
+    - Type `CopyOptions`.
+    - Optional `true`.
 
-# `CopyOptions`
-   - `overwrite: boolean`: overwrite existing file or directory, default is `true`. _Note that the copy operation will silently fail if you set this to `false` and the destination exists._ Use the `errorOnExist` option to change this behavior.
-   - `errorOnExist: boolean`: when `overwrite` is `false` and the destination exists, throw an error. Default is `false`.
-   - `dereference: boolean`: dereference symlinks, default is `false`.
-   - `preserveTimestamps: boolean`: When true, will set last modification and access times to the ones of the original source files. When false, timestamp behavior is OS-dependent. Default is `false`.
-   - `filter: Function`: Function to filter copied files/directories. Return `true` to copy the item, `false` to ignore it.
+### CopyOptions
+
+- `dereference`. Dereference symlinks.
+    - Type `boolean`.
+    - Optional `true`.
+  - Default `false`.
+
+
+- `filter`. Function to filter copied files/directories. Return `true` to copy the item, `false` to ignore it.
+    - Type `(src: string, dest: string) => boolean`.
+    - Optional `true`.
+
+
+- `errorOnExist`. When `overwrite` is `false` and the destination exists, throw an error.
+    - Type `boolean`.
+    - Optional `true`.
+    - Default `false`.
+
+
+- `overwrite`. Overwrite existing file or directory. 
+  - Type `boolean`.
+  - Optional `true`.
+  - Default `true`.
+  
+  *_Note that the copy operation will silently fail if you set this to `false` and the destination exists._* Use the `errorOnExist` option to change this behavior.
+
+
+- `preserveTimestamps`. When `true`, will set last modification and access times to the ones of the original source files. When `false`, timestamp behavior is OS-dependent.
+  - Type `boolean`.
+  - Optional `true`.
+  - Default `false`.
 
 ## Example
 
