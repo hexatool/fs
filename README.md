@@ -66,6 +66,7 @@ Creates an empty file. See full documentation [here](./packages/create-file/READ
 
 ```typescript
 import { createFile } from '@hexatool/fs';
+// or import { ensureFile } from '@hexatool/fs';
 
 const file = '/tmp/this/path/does/not/exist/file.txt'
 createFile(file)
@@ -76,6 +77,7 @@ createFile(file)
 
 ```typescript
 import { createFile } from '@hexatool/fs/async';
+// or import { ensureFile } from '@hexatool/fs/async';
 
 const file = '/tmp/this/path/does/not/exist/file.txt'
 await createFile(file)
