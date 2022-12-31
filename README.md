@@ -29,8 +29,10 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [createFile](#createFile)
 -   [createLink](#createLink)
 -   [emptyDir](#emptyDir)
+-   [ensureDir](#makeDir)
 -   [ensureFile](#createFile)
 -   [ensureLink](#createLink)
+-   [makeDir](#makeDir)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -135,6 +137,46 @@ const srcPath = '/tmp/file.txt';
 const destPath = '/tmp/this/path/does/not/exist/file.txt';
 await createLink(srcPath, destPath);
 // link has now been created, including the directory it is to be placed in
+```
+
+### makeDir
+Alias: `ensureDir`
+
+Ensures that the directory exists. See full documentation [here](./packages/make-dir/README.md).
+
+**Example**
+
+```typescript
+import { makeDir } from '@hexatool/fs';
+// or import { ensureDir } from '@hexatool/fs';
+
+
+const dir = '/tmp/this/path/does/not/exist'
+
+const desiredMode = 0o2775
+
+makeDir(dir)
+// dir has now been created, including the directory it is to be placed in
+
+makeDir(dir, desiredMode)
+// dir has now been created, including the directory it is to be placed in with permission 0o2775
+```
+
+**Async function**
+
+```typescript
+import { makeDir } from '@hexatool/fs/async';
+// or import { ensureDir } from '@hexatool/fs/async';
+
+const dir = '/tmp/this/path/does/not/exist'
+
+const desiredMode = 0o2775
+
+await makeDir(dir)
+// dir has now been created, including the directory it is to be placed in
+
+await makeDir(dir, desiredMode)
+// dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 
 ## Using [`graceful-fs`][graceful-fs]

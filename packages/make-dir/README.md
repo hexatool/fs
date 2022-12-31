@@ -8,19 +8,64 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save @hexatool/fs-create-file
-   ```
+```bash
+npm install --save @hexatool/fs-make-dir
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-make-dir
+```
 
 ## What it does
-
-- 
+Ensures that the directory exists. If the directory structure does not exist, it is created. 
+If provided, options may specify the desired mode for the directory.
 
 ## API
 
+### makeDir(path: string, mode: Mode = 0o777): void
+
+- `path`
+   - Type `string`.
+   - Optional `false`.
+
+
+- `mode`
+   - Type `string`.
+   - Optional `true`.
+   - Default `0o777`.
+
+## Examples
+
 ```typescript
-import fs from '@hexatool/fs-create-file';
+import makeDir from '@hexatool/fs-make-dir';
+
+const dir = '/tmp/this/path/does/not/exist'
+
+const desiredMode = 0o2775
+
+makeDir(dir)
+// dir has now been created, including the directory it is to be placed in
+
+makeDir(dir, desiredMode)
+// dir has now been created, including the directory it is to be placed in with permission 0o2775
+```
+
+**Async function**
+
+```typescript
+import makeDir from '@hexatool/fs-make-dir/async';
+
+const dir = '/tmp/this/path/does/not/exist'
+
+const desiredMode = 0o2775
+
+await makeDir(dir)
+// dir has now been created, including the directory it is to be placed in
+
+await makeDir(dir, desiredMode)
+// dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 
 ## Hexatool Code Quality Standards

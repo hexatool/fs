@@ -4,19 +4,19 @@ import { fs } from '@hexatool/fs-file-system';
 
 import checkPath from './check-path';
 
-export async function makeDirAsync(path: string, mode: Mode = 0o777): Promise<string | undefined> {
+export async function makeDirAsync(path: string, mode: Mode = 0o777): Promise<void> {
 	checkPath(path);
 
-	return await fs.promises.mkdir(path, {
+	await fs.promises.mkdir(path, {
 		mode,
 		recursive: true,
 	});
 }
 
-export function makeDirSync(path: string, mode: Mode = 0o777): string | undefined {
+export function makeDirSync(path: string, mode: Mode = 0o777): void {
 	checkPath(path);
 
-	return fs.mkdirSync(path, {
+	fs.mkdirSync(path, {
 		mode,
 		recursive: true,
 	});
