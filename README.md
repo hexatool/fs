@@ -21,7 +21,7 @@ yarn add @hexatool/fs --dev
 ## What it does
 `@hexatool/fs` contains a bunch of filesystem methods. Each method has its async version and is re-exported from his own package.
 
-Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fs) for more information.
+Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgraceful-fs) for more information.
 
 
 ## Methods
@@ -114,7 +114,7 @@ await createLink(srcPath, destPath);
 // link has now been created, including the directory it is to be placed in
 ```
 
-## Using `graceful-fs`
+## Using [`graceful-fs`][graceful-fs]
 
 You can optionally use [`graceful-fs`][graceful-fs] to prevent `EMFILE` errors. To configure [`graceful-fs`][graceful-fs] 
 you need to install it and make sure that `HEXATOOL_USE_GRACEFUL_FS` environment variable has any value.
