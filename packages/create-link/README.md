@@ -44,7 +44,7 @@ createLink(srcPath, destPath);
 **Async function**
 
 ```typescript
-import createLink from '@hexatool/fs-create-link';
+import createLink from '@hexatool/fs-create-link/async';
 
 const srcPath = '/tmp/file.txt';
 const destPath = '/tmp/this/path/does/not/exist/file.txt';
