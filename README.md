@@ -28,6 +28,7 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [copy](#copy)
 -   [createFile](#createFile)
 -   [createLink](#createLink)
+-   [emptyDir](#emptyDir)
 -   [ensureFile](#createFile)
 -   [ensureLink](#createLink)
 
@@ -56,6 +57,28 @@ await copy('/tmp/myfile', '/tmp/mynewfile');
 
 // copy directory, even if it has subdirectories or files
 await copy('/tmp/mydir', '/tmp/mynewdir');
+```
+
+### emptyDir
+
+Ensures that a directory is empty. See full documentation [here](./packages/empty-dir/README.md).
+
+**Example**
+
+```typescript
+import { emptyDir } from '@hexatool/fs';
+
+// assume this directory has a lot of files and folders
+emptyDir('/tmp/some/dir');
+```
+
+**Async function**
+
+```typescript
+import { emptyDir } from '@hexatool/fs/async';
+
+// assume this directory has a lot of files and folders
+await emptyDir('/tmp/some/dir');
 ```
 
 ### createFile
