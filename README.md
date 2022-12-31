@@ -25,11 +25,11 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 
 
 ## Methods
--   [ensureFile](#createFile)
--   [ensureLink](#createLink)
 -   [copy](#copy)
 -   [createFile](#createFile)
 -   [createLink](#createLink)
+-   [ensureFile](#createFile)
+-   [ensureLink](#createLink)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
