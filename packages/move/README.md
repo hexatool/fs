@@ -10,7 +10,7 @@
 
 1. Install the dependency
    ```bash
-   npm install --save-dev @hexatool/fs-move
+   npm install --save @hexatool/fs-move
    ```
 
 ## What it does

@@ -10,7 +10,7 @@
 
 1. Install the dependency
    ```bash
-   npm install --save-dev @hexatool/fs-remove
+   npm install --save @hexatool/fs-remove
    ```
 
 ## What it does

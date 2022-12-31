@@ -10,7 +10,7 @@
 
 1. Install the dependency
    ```bash
-   npm install --save-dev @hexatool/fs-file-system
+   npm install --save @hexatool/fs-file-system
    ```
 
 ## What it does

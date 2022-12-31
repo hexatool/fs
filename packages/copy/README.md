@@ -9,13 +9,13 @@
 ## Installation
 
 ```bash
-npm install --save-dev @hexatool/fs-copy
+npm install --save @hexatool/fs-copy
 ```
 
 **Using yarn**
 
 ```bash
-yarn add @hexatool/fs-copy --dev
+yarn add @hexatool/fs-copy
 ```
 
 ## What it does

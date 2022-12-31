@@ -9,13 +9,13 @@
 ## Installation
 
 ```bash
-npm install --save-dev @hexatool/fs
+npm install --save @hexatool/fs
 ```
 
 **Using yarn**
 
 ```bash
-yarn add @hexatool/fs --dev
+yarn add @hexatool/fs
 ```
 
 ## What it does

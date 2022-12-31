@@ -9,13 +9,13 @@
 ## Installation
 
 ```bash
-npm install --save-dev @hexatool/fs-create-link
+npm install --save @hexatool/fs-create-link
 ```
 
 **Using yarn**
 
 ```bash
-yarn add @hexatool/fs-create-link --dev
+yarn add @hexatool/fs-create-link
 ```
 
 ## What it does
