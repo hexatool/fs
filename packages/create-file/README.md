@@ -49,6 +49,7 @@ const file = '/tmp/this/path/does/not/exist/file.txt'
 await createFile(file)
 // file has now been created, including the directory it is to be placed in
 ```
+
 ## Hexatool Code Quality Standards
 
 Publishing this package we are committing ourselves to the following code quality standards:

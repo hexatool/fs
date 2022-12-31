@@ -19,6 +19,7 @@ import { areIdentical, checkPaths, getStats } from '@hexatool/fs-stat';
 
 const ensureFile = createFile;
 const ensureDir = makeDir;
+const ensureLink = createLink;
 
 export {
 	areIdentical,
@@ -29,6 +30,7 @@ export {
 	emptyDir,
 	ensureDir,
 	ensureFile,
+	ensureLink,
 	exists,
 	getStats,
 	makeDir,

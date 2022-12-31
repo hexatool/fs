@@ -17,6 +17,10 @@ import pathExistsAsync from '@hexatool/fs-path-exists/async';
 import remove from '@hexatool/fs-remove/async';
 import { areIdentical, checkPaths, getStats } from '@hexatool/fs-stat/async';
 
+const ensureDir = makeDir;
+const ensureFile = createFile;
+const ensureLink = createLink;
+
 export {
 	areIdentical,
 	checkPaths,
@@ -24,6 +28,9 @@ export {
 	createFile,
 	createLink,
 	emptyDir,
+	ensureDir,
+	ensureFile,
+	ensureLink,
 	exists,
 	getStats,
 	makeDir,

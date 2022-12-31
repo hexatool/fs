@@ -8,19 +8,48 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save-dev @hexatool/fs-create-link
-   ```
+```bash
+npm install --save-dev @hexatool/fs-create-link
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-create-link --dev
+```
 
 ## What it does
 
-- 
+Creates a links to a file. If the directory structure does not exist, it is created.
 
 ## API
 
+### createLink(srcPath: string, destPath: string): void
+- `srcPath`
+   - Type `string`.
+   - Optional `false`.
+- `destPath`
+   - Type `string`.
+   - Optional `false`.
+
 ```typescript
-import fs from '@hexatool/fs-create-link';
+import createLink from '@hexatool/fs-create-link';
+
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
+createLink(srcPath, destPath);
+// link has now been created, including the directory it is to be placed in
+```
+
+**Async function**
+
+```typescript
+import createLink from '@hexatool/fs-create-link';
+
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
+await createLink(srcPath, destPath);
+// link has now been created, including the directory it is to be placed in
 ```
 
 ## Hexatool Code Quality Standards

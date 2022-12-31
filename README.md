@@ -26,8 +26,10 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fs) fo
 
 ## Methods
 -   [ensureFile](#createFile)
+-   [ensureLink](#createLink)
 -   [copy](#copy)
 -   [createFile](#createFile)
+-   [createLink](#createLink)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -81,6 +83,35 @@ import { createFile } from '@hexatool/fs/async';
 const file = '/tmp/this/path/does/not/exist/file.txt'
 await createFile(file)
 // file has now been created, including the directory it is to be placed in
+```
+
+### createLink
+Alias: `ensureLink`
+
+Creates a links to a file. See full documentation [here](./packages/create-link/README.md).
+
+**Example**
+
+```typescript
+import { createLink } from '@hexatool/fs';
+// or import { ensureLink } from '@hexatool/fs';
+
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
+createLink(srcPath, destPath);
+// link has now been created, including the directory it is to be placed in
+```
+
+**Async function**
+
+```typescript
+import { createLink } from '@hexatool/fs/async';
+// or import { ensureLink } from '@hexatool/fs/async';
+
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
+await createLink(srcPath, destPath);
+// link has now been created, including the directory it is to be placed in
 ```
 
 ## Using `graceful-fs`
