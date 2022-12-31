@@ -151,14 +151,14 @@ import { makeDir } from '@hexatool/fs';
 // or import { ensureDir } from '@hexatool/fs';
 
 
-const dir = '/tmp/this/path/does/not/exist'
+const dir = '/tmp/this/path/does/not/exist';
 
-const desiredMode = 0o2775
+const desiredMode = 0o2775;
 
-makeDir(dir)
+makeDir(dir);
 // dir has now been created, including the directory it is to be placed in
 
-makeDir(dir, desiredMode)
+makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 
@@ -168,14 +168,14 @@ makeDir(dir, desiredMode)
 import { makeDir } from '@hexatool/fs/async';
 // or import { ensureDir } from '@hexatool/fs/async';
 
-const dir = '/tmp/this/path/does/not/exist'
+const dir = '/tmp/this/path/does/not/exist';
 
-const desiredMode = 0o2775
+const desiredMode = 0o2775;
 
-await makeDir(dir)
+await makeDir(dir);
 // dir has now been created, including the directory it is to be placed in
 
-await makeDir(dir, desiredMode)
+await makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 

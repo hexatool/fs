@@ -41,14 +41,14 @@ If provided, options may specify the desired mode for the directory.
 ```typescript
 import makeDir from '@hexatool/fs-make-dir';
 
-const dir = '/tmp/this/path/does/not/exist'
+const dir = '/tmp/this/path/does/not/exist';
 
-const desiredMode = 0o2775
+const desiredMode = 0o2775;
 
-makeDir(dir)
+makeDir(dir);
 // dir has now been created, including the directory it is to be placed in
 
-makeDir(dir, desiredMode)
+makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 
@@ -57,14 +57,14 @@ makeDir(dir, desiredMode)
 ```typescript
 import makeDir from '@hexatool/fs-make-dir/async';
 
-const dir = '/tmp/this/path/does/not/exist'
+const dir = '/tmp/this/path/does/not/exist';
 
-const desiredMode = 0o2775
+const desiredMode = 0o2775;
 
-await makeDir(dir)
+await makeDir(dir);
 // dir has now been created, including the directory it is to be placed in
 
-await makeDir(dir, desiredMode)
+await makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
 ```
 
