@@ -34,6 +34,7 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [ensureLink](#createLink)
 -   [makeDir](#makeDir)
 -   [move](#move)
+-   [pathExists](#pathExists)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -199,6 +200,35 @@ move('/tmp/somefile', '/tmp/does/not/exist/yet/somefile')
 import move from '@hexatool/fs-move/async';
 
 await move('/tmp/somedir', '/tmp/may/already/exist/somedir', { overwrite: true })
+
+```
+
+### pathExists
+
+Test whether the given path exists by checking with the file system. See full documentation [here](./packages/path-exists/README.md).
+
+**Example**
+
+```typescript
+import pathExists from '@hexatool/fs-path-exists';
+
+const file = '/tmp/this/path/does/not/exist/file.txt';
+
+const exists = pathExists(f);
+
+console.log(exists); // => false
+```
+
+**Async function**
+
+```typescript
+import pathExists from '@hexatool/fs-path-exists/async';
+
+const file = '/tmp/this/path/does/not/exist/file.txt';
+
+const exists = await pathExists(f);
+
+console.log(exists); // => false
 
 ```
 
