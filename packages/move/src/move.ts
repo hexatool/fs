@@ -15,20 +15,20 @@ import { doRenameAsync, doRenameSync } from './do-rename';
 import { isParentRoot } from './is-parent-root';
 import type { MoveOptions } from './types';
 
-export async function moveSync(src: string, dest: string, opts: MoveOptions): Promise<void> {
+export async function moveAsync(src: string, dest: string, opts?: MoveOptions): Promise<void> {
 	const { srcStat, isChangingCase = false } = await checkPathsAsync(src, dest, 'move');
 	await checkParentPathsAsync(src, srcStat, dest, 'move');
 	if (!isParentRoot(dest)) {
 		await makeDirAsync(path.dirname(dest));
 	}
-	await doRenameAsync(src, dest, opts.overwrite, isChangingCase);
+	await doRenameAsync(src, dest, opts?.overwrite, isChangingCase);
 }
 
-export function moveAsync(src: string, dest: string, opts: MoveOptions): void {
+export function moveSync(src: string, dest: string, opts?: MoveOptions): void {
 	const { srcStat, isChangingCase = false } = checkPathsSync(src, dest, 'move');
 	checkParentPathsSync(src, srcStat, dest, 'move');
 	if (!isParentRoot(dest)) {
 		makeDirSync(path.dirname(dest));
 	}
-	doRenameSync(src, dest, opts.overwrite, isChangingCase);
+	doRenameSync(src, dest, opts?.overwrite, isChangingCase);
 }

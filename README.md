@@ -33,6 +33,7 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [ensureFile](#createFile)
 -   [ensureLink](#createLink)
 -   [makeDir](#makeDir)
+-   [move](#move)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -177,6 +178,28 @@ await makeDir(dir);
 
 await makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
+```
+
+### move
+
+Moves a file or directory, even across devices. See full documentation [here](./packages/move/README.md).
+
+**Example**
+
+```typescript
+import move from '@hexatool/fs-move';
+
+move('/tmp/somefile', '/tmp/does/not/exist/yet/somefile')
+
+```
+
+**Async function**
+
+```typescript
+import move from '@hexatool/fs-move/async';
+
+await move('/tmp/somedir', '/tmp/may/already/exist/somedir', { overwrite: true })
+
 ```
 
 ## Using [`graceful-fs`][graceful-fs]

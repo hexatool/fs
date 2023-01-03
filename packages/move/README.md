@@ -8,19 +8,68 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save @hexatool/fs-move
-   ```
+```bash
+npm install --save @hexatool/fs-move
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-move
+```
 
 ## What it does
-
-- 
+Moves a file or directory, even across devices.
 
 ## API
 
+### move(src: string, dest: string, opts?: MoveOptions): void
+
+- `src`
+   - Type `string`.
+   - Optional `false`.
+
+
+- `dest`
+   - Type `string`.
+   - Optional `false`.
+
+
+- `opts`
+   - Type `MoveOptions`.
+   - Optional `true`.
+
+### MoveOptions
+
+- `override`. Overwrite existing file or directory
+   - Type `boolean`.
+   - Optional `true`.
+
+## Examples
+
 ```typescript
-import fs from '@hexatool/fs-move';
+import move from '@hexatool/fs-move';
+
+move('/tmp/somefile', '/tmp/does/not/exist/yet/somefile')
+
+```
+
+**Using `override` option**
+
+```typescript
+import move from '@hexatool/fs-move';
+
+move('/tmp/somedir', '/tmp/may/already/exist/somedir', { overwrite: true })
+
+```
+
+**Async function**
+
+```typescript
+import move from '@hexatool/fs-move/async';
+
+await move('/tmp/somedir', '/tmp/may/already/exist/somedir', { overwrite: true })
+
 ```
 
 ## Hexatool Code Quality Standards
