@@ -725,15 +725,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexatool/fs-copy@0.0.0, @hexatool/fs-copy@workspace:packages/copy":
+"@hexatool/fs-copy@0.0.1-next.0, @hexatool/fs-copy@workspace:packages/copy":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-copy@workspace:packages/copy"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
-    "@hexatool/fs-path-exists": 0.0.0
-    "@hexatool/fs-stat": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/fs-path-exists": 0.0.1-next.0
+    "@hexatool/fs-stat": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -744,13 +744,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-file@0.0.0, @hexatool/fs-create-file@workspace:packages/create-file":
+"@hexatool/fs-create-file@0.0.1-next.0, @hexatool/fs-create-file@workspace:packages/create-file":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/graceful-fs": 4.1.5
     "@types/node": 18.11.18
@@ -762,15 +762,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-link@0.0.0, @hexatool/fs-create-link@workspace:packages/create-link":
+"@hexatool/fs-create-link@0.0.1-next.0, @hexatool/fs-create-link@workspace:packages/create-link":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-link@workspace:packages/create-link"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
-    "@hexatool/fs-path-exists": 0.0.0
-    "@hexatool/fs-stat": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/fs-path-exists": 0.0.1-next.0
+    "@hexatool/fs-stat": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -781,14 +781,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-empty-dir@0.0.0, @hexatool/fs-empty-dir@workspace:packages/empty-dir":
+"@hexatool/fs-empty-dir@0.0.1-next.0, @hexatool/fs-empty-dir@workspace:packages/empty-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-empty-dir@workspace:packages/empty-dir"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
-    "@hexatool/fs-remove": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/fs-remove": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -799,7 +799,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-file-system@0.0.0, @hexatool/fs-file-system@workspace:packages/file-system":
+"@hexatool/fs-file-system@0.0.1-next.0, @hexatool/fs-file-system@workspace:packages/file-system":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-file-system@workspace:packages/file-system"
   dependencies:
@@ -819,12 +819,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-make-dir@0.0.0, @hexatool/fs-make-dir@workspace:packages/make-dir":
+"@hexatool/fs-make-dir@0.0.1-next.0, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-make-dir@workspace:packages/make-dir"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -847,16 +847,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-move@0.0.0, @hexatool/fs-move@workspace:packages/move":
+"@hexatool/fs-move@0.0.1-next.0, @hexatool/fs-move@workspace:packages/move":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-move@workspace:packages/move"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-copy": 0.0.0
-    "@hexatool/fs-file-system": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
-    "@hexatool/fs-remove": 0.0.0
-    "@hexatool/fs-stat": 0.0.0
+    "@hexatool/fs-copy": 0.0.1-next.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/fs-remove": 0.0.1-next.0
+    "@hexatool/fs-stat": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -867,12 +867,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-path-exists@0.0.0, @hexatool/fs-path-exists@workspace:packages/path-exists":
+"@hexatool/fs-path-exists@0.0.1-next.0, @hexatool/fs-path-exists@workspace:packages/path-exists":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-path-exists@workspace:packages/path-exists"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -883,12 +883,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-remove@0.0.0, @hexatool/fs-remove@workspace:packages/remove":
+"@hexatool/fs-remove@0.0.1-next.0, @hexatool/fs-remove@workspace:packages/remove":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-remove@workspace:packages/remove"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -899,12 +899,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-stat@0.0.0, @hexatool/fs-stat@workspace:packages/stat":
+"@hexatool/fs-stat@0.0.1-next.0, @hexatool/fs-stat@workspace:packages/stat":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-stat@workspace:packages/stat"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-file-system": 0.0.0
+    "@hexatool/fs-file-system": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
@@ -920,15 +920,15 @@ __metadata:
   resolution: "@hexatool/fs@workspace:packages/fs"
   dependencies:
     "@hexatool/eslint-config-typescript": 1.0.2
-    "@hexatool/fs-copy": 0.0.0
-    "@hexatool/fs-create-file": 0.0.0
-    "@hexatool/fs-create-link": 0.0.0
-    "@hexatool/fs-empty-dir": 0.0.0
-    "@hexatool/fs-make-dir": 0.0.0
-    "@hexatool/fs-move": 0.0.0
-    "@hexatool/fs-path-exists": 0.0.0
-    "@hexatool/fs-remove": 0.0.0
-    "@hexatool/fs-stat": 0.0.0
+    "@hexatool/fs-copy": 0.0.1-next.0
+    "@hexatool/fs-create-file": 0.0.1-next.0
+    "@hexatool/fs-create-link": 0.0.1-next.0
+    "@hexatool/fs-empty-dir": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/fs-move": 0.0.1-next.0
+    "@hexatool/fs-path-exists": 0.0.1-next.0
+    "@hexatool/fs-remove": 0.0.1-next.0
+    "@hexatool/fs-stat": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3

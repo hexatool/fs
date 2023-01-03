@@ -14,5 +14,7 @@
     "@hexatool/fs-remove": "0.0.0",
     "@hexatool/fs-stat": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "thin-cougars-reply"
+  ]
 }
