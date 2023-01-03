@@ -7,8 +7,8 @@ export interface GetStatsOptions {
 }
 
 export interface StatsResult {
-	srcStat: BigIntStats | Stats;
 	destStat?: BigIntStats | Stats | undefined;
+	srcStat: BigIntStats | Stats;
 }
 
 export interface CheckStatsResult extends StatsResult {
