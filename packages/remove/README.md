@@ -8,19 +8,47 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save @hexatool/fs-remove
-   ```
+```bash
+npm install --save @hexatool/fs-remove
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-remove
+```
 
 ## What it does
-
-- 
+Removes a file or directory. The directory can have contents. If the path does not exist, silently does nothing.
 
 ## API
 
+### remove(path: string): void
+
+- `path`
+   - Type `string`.
+   - Optional `false`.
+
+## Examples
+
 ```typescript
-import fs from '@hexatool/fs-remove';
+import remove from '@hexatool/fs-remove';
+
+// remove file
+remove('/tmp/myfile');
+
+remove('/home/foo'); // I just deleted foo HOME directory.
+```
+
+**Async function**
+
+```typescript
+import remove from '@hexatool/fs-remove/async';
+
+// remove file
+await remove('/tmp/myfile');
+
+await remove('/home/foo'); // I just deleted foo HOME directory.
 ```
 
 ## Hexatool Code Quality Standards

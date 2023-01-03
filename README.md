@@ -35,6 +35,7 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [makeDir](#makeDir)
 -   [move](#move)
 -   [pathExists](#pathExists)
+-   [remove](#remove)
 
 ### copy
 Copy a file or directory. The directory can have contents. See full documentation [here](./packages/copy/README.md).
@@ -230,6 +231,32 @@ const exists = await pathExists(f);
 
 console.log(exists); // => false
 
+```
+
+### remove
+
+Removes a file or directory. See full documentation [here](./packages/remove/README.md).
+
+**Example**
+
+```typescript
+import remove from '@hexatool/fs-remove';
+
+// remove file
+remove('/tmp/myfile');
+
+remove('/home/foo'); // I just deleted foo HOME directory.
+```
+
+**Async function**
+
+```typescript
+import remove from '@hexatool/fs-remove/async';
+
+// remove file
+await remove('/tmp/myfile');
+
+await remove('/home/foo'); // I just deleted foo HOME directory.
 ```
 
 ## Using [`graceful-fs`][graceful-fs]
