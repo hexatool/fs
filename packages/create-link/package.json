@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs-create-link",
-	"version": "0.0.0",
+	"version": "0.0.1-next.0",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
@@ -43,10 +43,10 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-file-system": "0.0.0",
-		"@hexatool/fs-make-dir": "0.0.0",
-		"@hexatool/fs-path-exists": "0.0.0",
-		"@hexatool/fs-stat": "0.0.0"
+		"@hexatool/fs-file-system": "0.0.1-next.0",
+		"@hexatool/fs-make-dir": "0.0.1-next.0",
+		"@hexatool/fs-path-exists": "0.0.1-next.0",
+		"@hexatool/fs-stat": "0.0.1-next.0"
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.2",
