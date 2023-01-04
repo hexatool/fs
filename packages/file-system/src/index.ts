@@ -1,4 +1,4 @@
-import * as console from 'console';
+import * as console from 'node:console';
 
 let fs: typeof import('node:fs');
 if (process.env['HEXATOOL_USE_GRACEFUL_FS']) {

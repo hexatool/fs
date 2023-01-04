@@ -28,5 +28,25 @@ export default defineConfig({
 			'@hexatool/fs-stat': path.resolve(__dirname, './packages/stat/src/sync'),
 		},
 	},
+
+	plugins: [
+		{
+			...typescript2({
+				check: false,
+				tsconfigOverride: {
+					compilerOptions: {
+						module: 'ES2020',
+						declaration: true,
+						declarationDir: 'dist/types',
+						emitDeclarationOnly: true,
+						baseUrl: '.',
+					},
+				},
+				include: ['src/*.ts+(|x)', 'src/**/*.ts+(|x)'],
+				useTsconfigDeclarationDir: true,
+			}),
+			apply: 'build',
+		},
+	],
 });
 
