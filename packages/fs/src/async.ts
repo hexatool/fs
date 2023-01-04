@@ -15,7 +15,16 @@ import makeDir from '@hexatool/fs-make-dir/async';
 import move from '@hexatool/fs-move/async';
 import pathExistsAsync from '@hexatool/fs-path-exists/async';
 import remove from '@hexatool/fs-remove/async';
-import { areIdentical, checkPaths, getStats } from '@hexatool/fs-stat/async';
+import type { StatsResult } from '@hexatool/fs-stat';
+import {
+	areIdentical,
+	checkParentPaths,
+	checkPaths,
+	getStats,
+	isSrcSubdirectory,
+} from '@hexatool/fs-stat/async';
+
+export type { StatsResult };
 
 const ensureDir = makeDir;
 const ensureFile = createFile;
@@ -23,6 +32,7 @@ const ensureLink = createLink;
 
 export {
 	areIdentical,
+	checkParentPaths,
 	checkPaths,
 	copy,
 	createFile,
@@ -33,6 +43,7 @@ export {
 	ensureLink,
 	exists,
 	getStats,
+	isSrcSubdirectory,
 	makeDir,
 	move,
 	pathExistsAsync,
