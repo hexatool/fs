@@ -8,19 +8,14 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save @hexatool/fs-stat
-   ```
+```bash
+npm install --save @hexatool/fs-stat
+```
 
-## What it does
+**Using yarn**
 
-- 
-
-## API
-
-```typescript
-import fs from '@hexatool/fs-stat';
+```bash
+yarn add @hexatool/fs-stat
 ```
 
 ## Hexatool Code Quality Standards

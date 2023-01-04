@@ -8,19 +8,50 @@
 
 ## Installation
 
-1. Install the dependency
-   ```bash
-   npm install --save @hexatool/fs-path-exists
-   ```
+```bash
+npm install --save @hexatool/fs-path-exists
+```
+
+**Using yarn**
+
+```bash
+yarn add @hexatool/fs-path-exists
+```
 
 ## What it does
-
-- 
+Test whether the given path exists by checking with the file system.
 
 ## API
 
+### pathExists(path: PathLike): void
+
+- `path`
+   - Type `PathLike`.
+   - Optional `false`.
+
+## Examples
+
 ```typescript
-import fs from '@hexatool/fs-path-exists';
+import pathExists from '@hexatool/fs-path-exists';
+
+const file = '/tmp/this/path/does/not/exist/file.txt';
+
+const exists = pathExists(f);
+
+console.log(exists); // => false
+```
+
+**Async function**
+
+```typescript
+import pathExists from '@hexatool/fs-path-exists/async';
+
+const file = '/tmp/this/path/does/not/exist/file.txt';
+
+const exists = await pathExists(f);
+
+console.log(exists); // => false
+
 ```
 
 ## Hexatool Code Quality Standards
