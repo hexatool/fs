@@ -15,6 +15,7 @@ export default defineConfig({
 			'@hexatool/fs-path-exists/async': path.resolve(__dirname, './packages/path-exists/src/async'),
 			'@hexatool/fs-remove/async': path.resolve(__dirname, './packages/remove/src/async'),
 			'@hexatool/fs-stat/async': path.resolve(__dirname, './packages/stat/src/async'),
+			'@hexatool/fs-temporary/async': path.resolve(__dirname, './packages/temporary/src/async'),
 
 			'@hexatool/fs-copy': resolve(__dirname, './packages/copy/src/sync'),
 			'@hexatool/fs-create-file': path.resolve(__dirname, './packages/create-file/src/sync'),
@@ -26,6 +27,7 @@ export default defineConfig({
 			'@hexatool/fs-path-exists': path.resolve(__dirname, './packages/path-exists/src/sync'),
 			'@hexatool/fs-remove': path.resolve(__dirname, './packages/remove/src/sync'),
 			'@hexatool/fs-stat': path.resolve(__dirname, './packages/stat/src/sync'),
+			'@hexatool/fs-temporary': path.resolve(__dirname, './packages/temporary/src/sync'),
 		},
 	},
 });
