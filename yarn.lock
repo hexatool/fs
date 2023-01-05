@@ -926,7 +926,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-temporary@0.0.1-next.0, @hexatool/fs-temporary@workspace:packages/temporary":
+"@hexatool/fs-temporary@0.0.1-next.1, @hexatool/fs-temporary@workspace:packages/temporary":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-temporary@workspace:packages/temporary"
   dependencies:
@@ -958,7 +958,7 @@ __metadata:
     "@hexatool/fs-path-exists": 0.0.1-next.0
     "@hexatool/fs-remove": 0.0.1-next.0
     "@hexatool/fs-stat": 0.0.1-next.0
-    "@hexatool/fs-temporary": 0.0.1-next.0
+    "@hexatool/fs-temporary": 0.0.1-next.1
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
