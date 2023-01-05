@@ -23,6 +23,7 @@ import {
 	isSrcSubdirectory,
 	StatsResult,
 } from '@hexatool/fs-stat';
+import temporaryDir, { makeTemporaryDir } from '@hexatool/fs-temporary';
 
 export type { StatsResult };
 
@@ -45,6 +46,7 @@ export {
 	getStats,
 	isSrcSubdirectory,
 	makeDir,
+	makeTemporaryDir,
 	move,
 	pathExists,
 	readDir,
@@ -52,5 +54,6 @@ export {
 	realPath,
 	remove,
 	stat,
+	temporaryDir,
 	writeFile,
 };

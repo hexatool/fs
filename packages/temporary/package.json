@@ -1,5 +1,5 @@
 {
-	"name": "@hexatool/fs",
+	"name": "@hexatool/fs-temporary",
 	"version": "0.0.1-next.0",
 	"description": "Modular fs library",
 	"keywords": [
@@ -22,16 +22,16 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/hexatool-fs-sync.mjs",
+	"module": "./dist/hexatool-fs-temporary-sync.mjs",
 	"types": "./dist/types/src/sync.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/types/src/sync.d.ts",
-			"default": "./dist/hexatool-fs-sync.mjs"
+			"default": "./dist/hexatool-fs-temporary-sync.mjs"
 		},
 		"./async": {
 			"types": "./dist/types/src/async.d.ts",
-			"default": "./dist/hexatool-fs-async.mjs"
+			"default": "./dist/hexatool-fs-temporary-async.mjs"
 		}
 	},
 	"scripts": {
@@ -43,16 +43,8 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-copy": "0.0.1-next.0",
-		"@hexatool/fs-create-file": "0.0.1-next.0",
-		"@hexatool/fs-create-link": "0.0.1-next.0",
-		"@hexatool/fs-empty-dir": "0.0.1-next.0",
-		"@hexatool/fs-make-dir": "0.0.1-next.0",
-		"@hexatool/fs-make-temporary-dir": "0.0.1-next.0",
-		"@hexatool/fs-move": "0.0.1-next.0",
-		"@hexatool/fs-path-exists": "0.0.1-next.0",
-		"@hexatool/fs-remove": "0.0.1-next.0",
-		"@hexatool/fs-stat": "0.0.1-next.0"
+		"@hexatool/fs-file-system": "0.0.1-next.0",
+		"@hexatool/fs-make-dir": "0.0.1-next.0"
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.2",
