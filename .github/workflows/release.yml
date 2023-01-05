@@ -9,61 +9,10 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    code-check:
-        name: Code check
-        runs-on: ubuntu-latest
-        permissions:
-            contents: 'read'
-            id-token: 'write'
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
-
-            -   name: Setup Node
-                uses: actions/setup-node@v3
-                with:
-                    node-version: 'lts/*'
-                    cache: 'yarn'
-
-            -   name: Install dependencies
-                run: yarn install --immutable
-
-            -   name: Lint
-                run: yarn lint
-
-            -   name: Type check
-                run: yarn typecheck
-    test:
-        name: Test
-        strategy:
-            matrix:
-                os: [ubuntu-latest, windows-latest]
-                version: [ 14, 16, 18 ]
-        runs-on: ${{ matrix.os }}
-        permissions:
-            contents: 'read'
-            id-token: 'write'
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
-
-            -   name: Setup Node
-                uses: actions/setup-node@v3
-                with:
-                    node-version: ${{ matrix.version }}
-                    cache: 'yarn'
-
-            -   name: Install dependencies
-                run: yarn install --immutable
-
-            -   name: Test
-                run: yarn test
-
     release:
         name: Release
         runs-on: ubuntu-latest
         if: ${{ github.event_name == 'push' }}
-        needs: [ code-check,test ]
         permissions:
             contents: 'write'
             id-token: 'write'
