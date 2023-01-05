@@ -20,6 +20,7 @@ export default defineConfig({
 				'node:fs',
 				'node:fs/promises',
 				'node:path',
+				'node:crypto',
 				'graceful-fs',
 				'@hexatool/fs-file-system',
 				'@hexatool/fs-temporary/async',
