@@ -33,6 +33,7 @@ Optionally uses [`graceful-fs`][graceful-fs]. Read [here](#using-graceful-fsgrac
 -   [ensureFile](#createFile)
 -   [ensureLink](#createLink)
 -   [makeDir](#makeDir)
+-   [makeTemporaryDir](#makeTemporaryDir)
 -   [move](#move)
 -   [pathExists](#pathExists)
 -   [remove](#remove)
@@ -180,6 +181,42 @@ await makeDir(dir);
 
 await makeDir(dir, desiredMode);
 // dir has now been created, including the directory it is to be placed in with permission 0o2775
+```
+
+### makeTemporaryDir
+
+Get a random temporary directory path. See full documentation [here](./packages/temporary/README.md).
+
+**Example**
+
+```typescript
+import os from 'node:os';
+
+import { temporaryDirectory } from '@hexatool/fs';
+
+console.log(os.tmpdir());
+//=> '/var/folders/3x/jf5977fn79jbglr7rk0tq4d00000gn/T' // <= Symlink
+
+console.log(temporaryDirectory);
+//=> '/private/var/folders/3x/jf5977fn79jbglr7rk0tq4d00000gn/T'
+```
+
+**Create temporary folder**
+
+```typescript
+import { makeTemporaryDir } from '@hexatool/fs';
+
+makeTemporaryDir();
+//=> '/private/var/folders/3x/jf5977fn79jbglr7rk0tq4d00000gn/T/2f3d094aec2cb1b93bb0f4cffce5ebd6'
+```
+
+**Async function**
+
+```typescript
+import { makeTemporaryDir } from '@hexatool/fs/async';
+
+await makeTemporaryDir('foo');
+//=> '/private/var/folders/3x/jf5977fn79jbglr7rk0tq4d00000gn/T/foo_3c085674ad31223b9653c88f725d6b41'
 ```
 
 ### move

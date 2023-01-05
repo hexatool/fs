@@ -926,6 +926,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hexatool/fs-temporary@0.0.1-next.0, @hexatool/fs-temporary@workspace:packages/temporary":
+  version: 0.0.0-use.local
+  resolution: "@hexatool/fs-temporary@workspace:packages/temporary"
+  dependencies:
+    "@hexatool/eslint-config-typescript": 1.0.2
+    "@hexatool/fs-file-system": 0.0.1-next.0
+    "@hexatool/fs-make-dir": 0.0.1-next.0
+    "@hexatool/tsconfig": 18.0.0
+    "@types/node": 18.11.18
+    "@vitest/coverage-c8": 0.26.3
+    eslint: 8.31.0
+    rollup-plugin-typescript2: 0.34.1
+    typescript: 4.9.4
+    vite: 4.0.4
+    vitest: 0.26.3
+  languageName: unknown
+  linkType: soft
+
 "@hexatool/fs@workspace:packages/fs":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs@workspace:packages/fs"
@@ -940,6 +958,7 @@ __metadata:
     "@hexatool/fs-path-exists": 0.0.1-next.0
     "@hexatool/fs-remove": 0.0.1-next.0
     "@hexatool/fs-stat": 0.0.1-next.0
+    "@hexatool/fs-temporary": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3

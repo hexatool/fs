@@ -1,0 +1,21 @@
+{
+	"extends": [
+		"@hexatool/eslint-config-typescript"
+	],
+	"overrides": [
+		{
+			"files": [
+				"*.ts",
+				"*.tsx"
+			],
+			"parserOptions": {
+				"project": [
+					"./tsconfig.json"
+				]
+			},
+			"rules": {
+				"import/no-unresolved": "off"
+			}
+		}
+	]
+}
