@@ -48,11 +48,11 @@
 		"@hexatool/fs-create-link": "0.0.1-next.0",
 		"@hexatool/fs-empty-dir": "0.0.1-next.0",
 		"@hexatool/fs-make-dir": "0.0.1-next.0",
-		"@hexatool/fs-make-temporary-dir": "0.0.1-next.0",
 		"@hexatool/fs-move": "0.0.1-next.0",
 		"@hexatool/fs-path-exists": "0.0.1-next.0",
 		"@hexatool/fs-remove": "0.0.1-next.0",
-		"@hexatool/fs-stat": "0.0.1-next.0"
+		"@hexatool/fs-stat": "0.0.1-next.0",
+		"@hexatool/fs-temporary": "0.0.1-next.0"
 	},
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.2",
