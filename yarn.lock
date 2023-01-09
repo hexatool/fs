@@ -753,7 +753,7 @@ __metadata:
     "@hexatool/fs-file-system": 0.0.1-next.0
     "@hexatool/fs-make-dir": 0.0.1-next.0
     "@hexatool/tsconfig": 18.0.0
-    "@types/graceful-fs": 4.1.5
+    "@types/graceful-fs": 4.1.6
     "@types/node": 18.11.18
     "@vitest/coverage-c8": 0.26.3
     eslint: 8.31.0
@@ -1176,12 +1176,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/graceful-fs@npm:4.1.5":
-  version: 4.1.5
-  resolution: "@types/graceful-fs@npm:4.1.5"
+"@types/graceful-fs@npm:4.1.6":
+  version: 4.1.6
+  resolution: "@types/graceful-fs@npm:4.1.6"
   dependencies:
     "@types/node": "*"
-  checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
+  checksum: c3070ccdc9ca0f40df747bced1c96c71a61992d6f7c767e8fd24bb6a3c2de26e8b84135ede000b7e79db530a23e7e88dcd9db60eee6395d0f4ce1dae91369dd4
   languageName: node
   linkType: hard
 
