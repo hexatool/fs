@@ -67,5 +67,8 @@
 	},
 	"engines": {
 		"node": ">=14.16.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
