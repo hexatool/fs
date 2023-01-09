@@ -1,5 +1,12 @@
 # @hexatool/fs
 
+## 0.0.1-next.2
+
+### Patch Changes
+
+- Updated dependencies [814e576]
+  - @hexatool/fs-temporary@0.0.1-next.2
+
 ## 0.0.1-next.1
 
 ### Patch Changes
