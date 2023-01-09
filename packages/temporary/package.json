@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs-temporary",
-	"version": "0.0.1-next.1",
+	"version": "0.0.1-next.2",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
