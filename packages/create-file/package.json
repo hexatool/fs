@@ -49,7 +49,7 @@
 	"devDependencies": {
 		"@hexatool/eslint-config-typescript": "1.0.2",
 		"@hexatool/tsconfig": "18.0.0",
-		"@types/graceful-fs": "4.1.5",
+		"@types/graceful-fs": "4.1.6",
 		"@types/node": "18.11.18",
 		"@vitest/coverage-c8": "0.26.3",
 		"eslint": "8.31.0",
