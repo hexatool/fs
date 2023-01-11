@@ -44,11 +44,11 @@
 		"build": "yarn workspaces foreach run build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
-		"publish": "yarn changeset publish",
+		"publish": "$npm_execpath changeset publish",
 		"test": "vitest run --no-isolate",
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "yarn workspaces foreach run typecheck",
-		"version": "yarn changeset version && yarn install --mode update-lockfile"
+		"version": "$npm_execpath changeset version && $npm_execpath install"
 	},
 	"dependencies": {
 		"@changesets/cli": "2.26.0",

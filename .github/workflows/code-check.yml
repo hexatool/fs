@@ -3,11 +3,7 @@ name: Code check & test
 on:
     pull_request:
         branches: [ main ]
-        types: [ opened, synchronize, reopened, edited ]
-
-concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+        types: [ opened, synchronize ]
 
 jobs:
     code-check:
@@ -53,6 +49,7 @@ jobs:
                 with:
                     node-version: ${{ matrix.version }}
                     cache: 'yarn'
+                    registry-url: 'https://registry.npmjs.org'
 
             -   name: Install dependencies
                 run: yarn install --immutable
