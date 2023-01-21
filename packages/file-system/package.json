@@ -22,11 +22,9 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/hexatool-fs-file-system.mjs",
-	"types": "./dist/types/src/index.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/types/src/index.d.ts",
+			"types": "./dist/index.d.ts",
 			"default": "./dist/hexatool-fs-file-system.mjs"
 		}
 	},
@@ -46,21 +44,7 @@
 			"optional": true
 		}
 	},
-	"devDependencies": {
-		"@hexatool/eslint-config-typescript": "1.0.2",
-		"@hexatool/tsconfig": "18.0.0",
-		"@types/node": "18.11.18",
-		"@vitest/coverage-c8": "0.27.1",
-		"eslint": "8.32.0",
-		"rollup-plugin-typescript2": "0.34.1",
-		"typescript": "4.9.4",
-		"vite": "4.0.4",
-		"vitest": "0.27.1"
-	},
 	"engines": {
 		"node": ">=14.16.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }
