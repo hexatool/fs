@@ -1,34 +1,6 @@
-import path, { resolve } from 'node:path';
 import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-	resolve: {
-		alias: {
-			'@hexatool/fs-file-system': resolve(__dirname, './packages/file-system/src/index'),
-			'@hexatool/fs-copy/async': resolve(__dirname, './packages/copy/src/async'),
-			'@hexatool/fs-create-file/async': path.resolve(__dirname, './packages/create-file/src/async'),
-			'@hexatool/fs-create-link/async': path.resolve(__dirname, './packages/create-link/src/async'),
-			'@hexatool/fs-empty-dir/async': path.resolve(__dirname, './packages/empty-dir/src/async'),
-			'@hexatool/fs/async': path.resolve(__dirname, './packages/fs/src/async'),
-			'@hexatool/fs-make-dir/async': path.resolve(__dirname, './packages/make-dir/src/async'),
-			'@hexatool/fs-move/async': path.resolve(__dirname, './packages/move/src/async'),
-			'@hexatool/fs-path-exists/async': path.resolve(__dirname, './packages/path-exists/src/async'),
-			'@hexatool/fs-remove/async': path.resolve(__dirname, './packages/remove/src/async'),
-			'@hexatool/fs-stat/async': path.resolve(__dirname, './packages/stat/src/async'),
-			'@hexatool/fs-temporary/async': path.resolve(__dirname, './packages/temporary/src/async'),
-
-			'@hexatool/fs-copy': resolve(__dirname, './packages/copy/src/sync'),
-			'@hexatool/fs-create-file': path.resolve(__dirname, './packages/create-file/src/sync'),
-			'@hexatool/fs-create-link': path.resolve(__dirname, './packages/create-link/src/sync'),
-			'@hexatool/fs-empty-dir': path.resolve(__dirname, './packages/empty-dir/src/sync'),
-			'@hexatool/fs': path.resolve(__dirname, './packages/fs/src/sync'),
-			'@hexatool/fs-make-dir': path.resolve(__dirname, './packages/make-dir/src/sync'),
-			'@hexatool/fs-move': path.resolve(__dirname, './packages/move/src/sync'),
-			'@hexatool/fs-path-exists': path.resolve(__dirname, './packages/path-exists/src/sync'),
-			'@hexatool/fs-remove': path.resolve(__dirname, './packages/remove/src/sync'),
-			'@hexatool/fs-stat': path.resolve(__dirname, './packages/stat/src/sync'),
-			'@hexatool/fs-temporary': path.resolve(__dirname, './packages/temporary/src/sync'),
-		},
-	},
+	plugins: [tsconfigPaths()],
 });
-
