@@ -41,13 +41,13 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "yarn workspaces foreach run build",
+		"build": "yarn workspaces foreach -pv run build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"publish": "$npm_execpath changeset publish",
 		"test": "vitest run --no-isolate",
 		"test:coverage": "vitest run --no-isolate --coverage",
-		"typecheck": "yarn workspaces foreach run typecheck",
+		"typecheck": "yarn workspaces foreach -pv run typecheck",
 		"version": "$npm_execpath changeset version && $npm_execpath install"
 	},
 	"dependencies": {
