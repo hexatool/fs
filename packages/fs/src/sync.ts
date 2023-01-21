@@ -15,13 +15,13 @@ import makeDir from '@hexatool/fs-make-dir';
 import move from '@hexatool/fs-move';
 import pathExists from '@hexatool/fs-path-exists';
 import remove from '@hexatool/fs-remove';
+import type { StatsResult } from '@hexatool/fs-stat';
 import {
 	areIdentical,
 	checkParentPaths,
 	checkPaths,
 	getStats,
 	isSrcSubdirectory,
-	StatsResult,
 } from '@hexatool/fs-stat';
 import temporaryDir, { makeTemporaryDir } from '@hexatool/fs-temporary';
 
