@@ -784,6 +784,7 @@ __metadata:
   dependencies:
     "@changesets/cli": 2.26.0
     "@hexatool/eslint-config-typescript": 1.0.2
+    "@hexatool/tsconfig": 18.0.0
     eslint: 8.32.0
     typescript: 4.9.4
     vite: 4.0.4
@@ -854,6 +855,13 @@ __metadata:
     "@hexatool/fs-temporary": 0.0.1-next.2
   languageName: unknown
   linkType: soft
+
+"@hexatool/tsconfig@npm:18.0.0":
+  version: 18.0.0
+  resolution: "@hexatool/tsconfig@npm:18.0.0"
+  checksum: c31c81ae7a6d44eadc11ef3d1016cf391f5b49444349e2095dbde3291f773530462941319eb90a48383858f7196a65e6ff26535a20df5686af3e266a1479d1c0
+  languageName: node
+  linkType: hard
 
 "@humanwhocodes/config-array@npm:^0.11.8":
   version: 0.11.8
