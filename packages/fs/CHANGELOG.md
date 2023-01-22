@@ -1,5 +1,22 @@
 # @hexatool/fs
 
+## 0.0.1-next.4
+
+### Patch Changes
+
+- 9f498e5: Fix `types` field in `package.json`
+- Updated dependencies [9f498e5]
+  - @hexatool/fs-create-file@0.0.1-next.2
+  - @hexatool/fs-create-link@0.0.1-next.2
+  - @hexatool/fs-path-exists@0.0.1-next.2
+  - @hexatool/fs-empty-dir@0.0.1-next.2
+  - @hexatool/fs-temporary@0.0.1-next.4
+  - @hexatool/fs-make-dir@0.0.1-next.2
+  - @hexatool/fs-remove@0.0.1-next.2
+  - @hexatool/fs-copy@0.0.1-next.2
+  - @hexatool/fs-move@0.0.1-next.2
+  - @hexatool/fs-stat@0.0.1-next.2
+
 ## 0.0.1-next.3
 
 ### Patch Changes

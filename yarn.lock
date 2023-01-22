@@ -713,48 +713,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexatool/fs-copy@0.0.1-next.1, @hexatool/fs-copy@workspace:packages/copy":
+"@hexatool/fs-copy@0.0.1-next.2, @hexatool/fs-copy@workspace:packages/copy":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-copy@workspace:packages/copy"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
-    "@hexatool/fs-path-exists": 0.0.1-next.1
-    "@hexatool/fs-stat": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
+    "@hexatool/fs-path-exists": 0.0.1-next.2
+    "@hexatool/fs-stat": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-file@0.0.1-next.1, @hexatool/fs-create-file@workspace:packages/create-file":
+"@hexatool/fs-create-file@0.0.1-next.2, @hexatool/fs-create-file@workspace:packages/create-file":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-create-link@0.0.1-next.1, @hexatool/fs-create-link@workspace:packages/create-link":
+"@hexatool/fs-create-link@0.0.1-next.2, @hexatool/fs-create-link@workspace:packages/create-link":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-link@workspace:packages/create-link"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
-    "@hexatool/fs-path-exists": 0.0.1-next.1
-    "@hexatool/fs-stat": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
+    "@hexatool/fs-path-exists": 0.0.1-next.2
+    "@hexatool/fs-stat": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-empty-dir@0.0.1-next.1, @hexatool/fs-empty-dir@workspace:packages/empty-dir":
+"@hexatool/fs-empty-dir@0.0.1-next.2, @hexatool/fs-empty-dir@workspace:packages/empty-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-empty-dir@workspace:packages/empty-dir"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
-    "@hexatool/fs-remove": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
+    "@hexatool/fs-remove": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-file-system@0.0.1-next.1, @hexatool/fs-file-system@workspace:packages/file-system":
+"@hexatool/fs-file-system@0.0.1-next.2, @hexatool/fs-file-system@workspace:packages/file-system":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-file-system@workspace:packages/file-system"
   dependencies:
@@ -767,11 +767,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-make-dir@0.0.1-next.1, @hexatool/fs-make-dir@workspace:packages/make-dir":
+"@hexatool/fs-make-dir@0.0.1-next.2, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-make-dir@workspace:packages/make-dir"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
@@ -791,48 +791,48 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-move@0.0.1-next.1, @hexatool/fs-move@workspace:packages/move":
+"@hexatool/fs-move@0.0.1-next.2, @hexatool/fs-move@workspace:packages/move":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-move@workspace:packages/move"
   dependencies:
-    "@hexatool/fs-copy": 0.0.1-next.1
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
-    "@hexatool/fs-remove": 0.0.1-next.1
-    "@hexatool/fs-stat": 0.0.1-next.1
+    "@hexatool/fs-copy": 0.0.1-next.2
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
+    "@hexatool/fs-remove": 0.0.1-next.2
+    "@hexatool/fs-stat": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-path-exists@0.0.1-next.1, @hexatool/fs-path-exists@workspace:packages/path-exists":
+"@hexatool/fs-path-exists@0.0.1-next.2, @hexatool/fs-path-exists@workspace:packages/path-exists":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-path-exists@workspace:packages/path-exists"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-remove@0.0.1-next.1, @hexatool/fs-remove@workspace:packages/remove":
+"@hexatool/fs-remove@0.0.1-next.2, @hexatool/fs-remove@workspace:packages/remove":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-remove@workspace:packages/remove"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-stat@0.0.1-next.1, @hexatool/fs-stat@workspace:packages/stat":
+"@hexatool/fs-stat@0.0.1-next.2, @hexatool/fs-stat@workspace:packages/stat":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-stat@workspace:packages/stat"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-temporary@0.0.1-next.3, @hexatool/fs-temporary@workspace:packages/temporary":
+"@hexatool/fs-temporary@0.0.1-next.4, @hexatool/fs-temporary@workspace:packages/temporary":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-temporary@workspace:packages/temporary"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
+    "@hexatool/fs-file-system": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
   languageName: unknown
   linkType: soft
 
@@ -840,16 +840,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs@workspace:packages/fs"
   dependencies:
-    "@hexatool/fs-copy": 0.0.1-next.1
-    "@hexatool/fs-create-file": 0.0.1-next.1
-    "@hexatool/fs-create-link": 0.0.1-next.1
-    "@hexatool/fs-empty-dir": 0.0.1-next.1
-    "@hexatool/fs-make-dir": 0.0.1-next.1
-    "@hexatool/fs-move": 0.0.1-next.1
-    "@hexatool/fs-path-exists": 0.0.1-next.1
-    "@hexatool/fs-remove": 0.0.1-next.1
-    "@hexatool/fs-stat": 0.0.1-next.1
-    "@hexatool/fs-temporary": 0.0.1-next.3
+    "@hexatool/fs-copy": 0.0.1-next.2
+    "@hexatool/fs-create-file": 0.0.1-next.2
+    "@hexatool/fs-create-link": 0.0.1-next.2
+    "@hexatool/fs-empty-dir": 0.0.1-next.2
+    "@hexatool/fs-make-dir": 0.0.1-next.2
+    "@hexatool/fs-move": 0.0.1-next.2
+    "@hexatool/fs-path-exists": 0.0.1-next.2
+    "@hexatool/fs-remove": 0.0.1-next.2
+    "@hexatool/fs-stat": 0.0.1-next.2
+    "@hexatool/fs-temporary": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 

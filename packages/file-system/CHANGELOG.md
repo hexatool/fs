@@ -1,5 +1,11 @@
 # @hexatool/fs-file-system
 
+## 0.0.1-next.2
+
+### Patch Changes
+
+- 9f498e5: Fix `types` field in `package.json`
+
 ## 0.0.1-next.1
 
 ### Patch Changes
