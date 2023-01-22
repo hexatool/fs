@@ -22,6 +22,7 @@
 	"files": [
 		"dist"
 	],
+	"module": "./dist/hexatool-fs-create-file-sync.mjs",
 	"types": "./dist/sync.d.ts",
 	"exports": {
 		".": {

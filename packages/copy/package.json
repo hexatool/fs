@@ -22,6 +22,7 @@
 	"files": [
 		"dist"
 	],
+	"module": "./dist/hexatool-fs-copy-sync.mjs",
 	"types": "./dist/sync.d.ts",
 	"exports": {
 		".": {
