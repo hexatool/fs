@@ -1,5 +1,11 @@
 # @hexatool/fs-file-system
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- cd2901d: Corregir el campo `module` en el `package.json`
+
 ## 0.0.1-next.2
 
 ### Patch Changes

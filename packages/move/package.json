@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs-move",
-	"version": "0.0.1-next.2",
+	"version": "0.0.1-next.3",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
@@ -43,11 +43,11 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-copy": "0.0.1-next.2",
-		"@hexatool/fs-file-system": "0.0.1-next.2",
-		"@hexatool/fs-make-dir": "0.0.1-next.2",
-		"@hexatool/fs-remove": "0.0.1-next.2",
-		"@hexatool/fs-stat": "0.0.1-next.2"
+		"@hexatool/fs-copy": "0.0.1-next.3",
+		"@hexatool/fs-file-system": "0.0.1-next.3",
+		"@hexatool/fs-make-dir": "0.0.1-next.3",
+		"@hexatool/fs-remove": "0.0.1-next.3",
+		"@hexatool/fs-stat": "0.0.1-next.3"
 	},
 	"engines": {
 		"node": ">=14.16.0"

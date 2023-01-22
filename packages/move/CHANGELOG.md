@@ -1,5 +1,17 @@
 # @hexatool/fs-move
 
+## 0.0.1-next.3
+
+### Patch Changes
+
+- cd2901d: Corregir el campo `module` en el `package.json`
+- Updated dependencies [cd2901d]
+  - @hexatool/fs-copy@0.0.1-next.3
+  - @hexatool/fs-file-system@0.0.1-next.3
+  - @hexatool/fs-make-dir@0.0.1-next.3
+  - @hexatool/fs-remove@0.0.1-next.3
+  - @hexatool/fs-stat@0.0.1-next.3
+
 ## 0.0.1-next.2
 
 ### Patch Changes
