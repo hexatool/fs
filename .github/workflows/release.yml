@@ -32,5 +32,6 @@ jobs:
                     commit: 'chore: release'
                     title: 'chore: release'
                 env:
+                    YARN_ENABLE_IMMUTABLE_INSTALLS: false
                     GITHUB_TOKEN: ${{ secrets.HEXATOOL_GITHUB_TOKEN }}
                     NPM_TOKEN: ${{ secrets.HEXATOOL_NPM_TOKEN }}
