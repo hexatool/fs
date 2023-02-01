@@ -16,7 +16,6 @@
 		"type": "git",
 		"url": "https://github.com/hexatool/fs"
 	},
-	"author": "MarioMH8",
 	"license": "MIT",
 	"type": "module",
 	"files": [

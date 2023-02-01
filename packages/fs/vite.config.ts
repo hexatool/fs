@@ -2,9 +2,8 @@ import { resolve } from 'node:path';
 
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import { externalizeDeps } from 'vite-plugin-externalize-deps';
 import tsconfigPaths from 'vite-tsconfig-paths';
-
-import externalize from '../../vite.plugin.external';
 
 export default defineConfig({
 	build: {
@@ -23,7 +22,7 @@ export default defineConfig({
 			skipDiagnostics: true,
 			entryRoot: resolve(__dirname, 'src'),
 		}),
-		externalize(),
+		externalizeDeps(),
 		tsconfigPaths(),
 	],
 });

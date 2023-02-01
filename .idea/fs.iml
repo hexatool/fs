@@ -27,7 +27,7 @@
       <excludePattern pattern=".gitignore" />
       <excludePattern pattern="LICENSE" />
       <excludePattern pattern="tsconfig.*" />
-      <excludePattern pattern="vitse.*" />
+      <excludePattern pattern="vite.*" />
       <excludePattern pattern="babel.*" />
       <excludePattern pattern="*.lock" />
       <excludePattern pattern="nest-cli.json" />
