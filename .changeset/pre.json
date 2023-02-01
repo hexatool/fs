@@ -16,11 +16,5 @@
     "@hexatool/fs-temporary": "0.0.1-next.0"
   },
   "changesets": [
-    "bright-chicken-float",
-    "eleven-houses-smoke",
-    "grumpy-impalas-give",
-    "seven-flies-wink",
-    "thin-cougars-reply",
-    "thin-frogs-shout"
   ]
 }
