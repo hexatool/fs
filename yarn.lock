@@ -783,9 +783,9 @@ __metadata:
     "@hexatool/eslint-config-typescript": 1.0.3
     "@hexatool/tsconfig": 18.0.0
     eslint: 8.33.0
-    typescript: 4.9.4
+    typescript: 4.9.5
     vite: 4.0.4
-    vite-plugin-dts: 1.7.1
+    vite-plugin-dts: 1.7.2
     vite-tsconfig-paths: 4.0.5
     vitest: 0.28.1
   languageName: unknown
@@ -1132,15 +1132,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:~0.17.0":
-  version: 0.17.0
-  resolution: "@ts-morph/common@npm:0.17.0"
+"@ts-morph/common@npm:~0.18.0":
+  version: 0.18.1
+  resolution: "@ts-morph/common@npm:0.18.1"
   dependencies:
-    fast-glob: ^3.2.11
+    fast-glob: ^3.2.12
     minimatch: ^5.1.0
     mkdirp: ^1.0.4
     path-browserify: ^1.0.1
-  checksum: f588c0acabcc6ca9463ac09b343d67a73f6e7bf47f674aaff11542b95b58342556b05241610b9e6dffc2966db529e7261b6860577786f919a835c22488ec9260
+  checksum: 848fff5f7a6428d7c2f055de20cf8df864a967aac0cc03adc558d853442085a8fd9dec70429da24d67d263794b315edb0791c46d23ad9ae513251a7702df8031
   languageName: node
   linkType: hard
 
@@ -2706,7 +2706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.9":
   version: 3.2.12
   resolution: "fast-glob@npm:3.2.12"
   dependencies:
@@ -5249,13 +5249,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-morph@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "ts-morph@npm:16.0.0"
+"ts-morph@npm:17.0.1":
+  version: 17.0.1
+  resolution: "ts-morph@npm:17.0.1"
   dependencies:
-    "@ts-morph/common": ~0.17.0
+    "@ts-morph/common": ~0.18.0
     code-block-writer: ^11.0.3
-  checksum: a45ee1a2da09b06ac45a468c1cb9b00cc1b335224afddb22c30e4ad8a747b71c8a7c6cea29a6309ebf68d69f5dc8d3650d381891b77da5e2ad3e301dc3de40d5
+  checksum: 4748ab45d0fb0be235f69399ea217cf1c5984ad2ef3ff9eba5a417571f73098c6f1f765fc011eaadc48179471b977f1e44f72eb993932e5c74c5031ab6c60f3a
   languageName: node
   linkType: hard
 
@@ -5375,13 +5375,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.9.4":
-  version: 4.9.4
-  resolution: "typescript@npm:4.9.4"
+"typescript@npm:4.9.5":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
   languageName: node
   linkType: hard
 
@@ -5395,13 +5395,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.9.4#~builtin<compat/typescript>":
-  version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
+"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
+  checksum: 8f6260acc86b56bfdda6004bc53f32ea548f543e8baef7071c8e34d29d292f3e375c8416556c8de10b24deef6933cd1c16a8233dc84a3dd43a13a13265d0faab
   languageName: node
   linkType: hard
 
@@ -5531,9 +5531,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:1.7.1":
-  version: 1.7.1
-  resolution: "vite-plugin-dts@npm:1.7.1"
+"vite-plugin-dts@npm:1.7.2":
+  version: 1.7.2
+  resolution: "vite-plugin-dts@npm:1.7.2"
   dependencies:
     "@microsoft/api-extractor": ^7.33.5
     "@rollup/pluginutils": ^5.0.2
@@ -5542,10 +5542,10 @@ __metadata:
     fast-glob: ^3.2.12
     fs-extra: ^10.1.0
     kolorist: ^1.6.0
-    ts-morph: ^16.0.0
+    ts-morph: 17.0.1
   peerDependencies:
     vite: ">=2.9.0"
-  checksum: e2714a9e1727860cb217308b000d7306f98ba626998893a72d8b0e5db577d989457827033c76125a87491ace453325726da3795f17c3fea3e8af0d5e81820e89
+  checksum: 2445cc131481eddcac8fdff7feabf49018cabf745b0f1e955b45c9ce98313e5e7d9e9bb838af78577866404ed9070d915b4b6bc80c9f6eb91ec95608ce456f2d
   languageName: node
   linkType: hard
 
