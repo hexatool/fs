@@ -58,7 +58,7 @@
 		"vite": "4.0.4",
 		"vite-plugin-dts": "1.7.2",
 		"vite-tsconfig-paths": "4.0.5",
-		"vitest": "0.28.1"
+		"vitest": "0.28.3"
 	},
 	"volta": {
 		"node": "18.13.0",
