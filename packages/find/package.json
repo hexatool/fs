@@ -1,0 +1,50 @@
+{
+	"name": "@hexatool/fs-find",
+	"version": "0.0.1-next.3",
+	"description": "Modular fs library",
+	"keywords": [
+		"fs",
+		"file",
+		"file system",
+		"promise"
+	],
+	"homepage": "https://github.com/hexatool/fs",
+	"bugs": {
+		"url": "https://github.com/hexatool/fs/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hexatool/fs"
+	},
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"module": "./dist/hexatool-fs-find-sync.mjs",
+	"types": "./dist/sync.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/sync.d.ts",
+			"default": "./dist/hexatool-fs-find-sync.mjs"
+		},
+		"./async": {
+			"types": "./dist/async.d.ts",
+			"default": "./dist/hexatool-fs-find-async.mjs"
+		}
+	},
+	"scripts": {
+		"build": "vite build",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
+		"test": "vitest run --no-isolate",
+		"test:coverage": "vitest run --no-isolate --coverage",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@hexatool/fs-file-system": "0.0.1-next.3"
+	},
+	"engines": {
+		"node": ">=14.16.0"
+	}
+}
