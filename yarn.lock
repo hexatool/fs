@@ -769,6 +769,8 @@ __metadata:
   resolution: "@hexatool/fs-find@workspace:packages/find"
   dependencies:
     "@hexatool/fs-file-system": 0.0.1-next.3
+    "@types/mock-fs": 4.13.1
+    mock-fs: 5.2.0
   languageName: unknown
   linkType: soft
 
@@ -1220,6 +1222,15 @@ __metadata:
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
   checksum: b8da83c66eb4aac0440e64674b19564d9d86c80ae273144db9681e5eeff66f238ade9515f5006ffbfa955ceff8b89ad2bd8ec577d7caee74ba101431fb07045d
+  languageName: node
+  linkType: hard
+
+"@types/mock-fs@npm:4.13.1":
+  version: 4.13.1
+  resolution: "@types/mock-fs@npm:4.13.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: a5fcf8212daa270e6aa560019a4bd28a66e6fa49c55c1373746d5894f4aa1aafa5588335194953cf014de3c77df6be67a041fb6638ead7124307370985880b6c
   languageName: node
   linkType: hard
 
@@ -4039,6 +4050,13 @@ __metadata:
     pkg-types: ^1.0.1
     ufo: ^1.0.1
   checksum: d53147a2f5f83499589c47a00e00df30cbae2e630dfcfdfdeee2b70b49aff6612f2fa13195a1c6268b8f8ecd6064cb9a35febbdf895b2cbfeacdf9a9b3e31493
+  languageName: node
+  linkType: hard
+
+"mock-fs@npm:5.2.0":
+  version: 5.2.0
+  resolution: "mock-fs@npm:5.2.0"
+  checksum: c25835247bd26fa4e0189addd61f98973f61a72741e4d2a5694b143a2069b84978443a7ac0fdb1a71aead99273ec22ff4e9c968de11bbd076db020264c5b8312
   languageName: node
   linkType: hard
 

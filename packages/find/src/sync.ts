@@ -1,30 +1,8 @@
-import type {
-	CommonOptions,
-	GroupOptions,
-	GroupOutput,
-	OnlyCountOptions,
-	OnlyCountsOutput,
-	Options,
-	Output,
-	PathsOutput,
-} from './types';
+import { Crawler } from './crawler';
+import type { Options } from './options';
 
-export default function find(path: string, options: GroupOptions): GroupOutput;
-export default function find(path: string, options: OnlyCountOptions): OnlyCountsOutput;
-export default function find(path: string, options: CommonOptions): PathsOutput;
-export default function find(path: string, options: Options): Output {
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	if (options && 'group' in options && options.group) {
-		return [];
-	}
+export default function find(root: string, options: Options): string[] | undefined {
+	const walker = new Crawler(root, options);
 
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	if (options && 'onlyCounts' in options && options.onlyCounts) {
-		return {
-			directories: 0,
-			files: 0,
-		};
-	}
-
-	return [path];
+	return walker.start(root, options.maxDepth ?? Infinity);
 }

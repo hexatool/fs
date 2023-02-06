@@ -1,33 +1,21 @@
-import type {
-	CommonOptions,
-	GroupOptions,
-	GroupOutput,
-	OnlyCountOptions,
-	OnlyCountsOutput,
-	Options,
-	Output,
-	PathsOutput,
-} from './types';
+import type { ResultCallback } from './crawler';
+import { Crawler } from './crawler';
+import type { Options } from './options';
 
-export default async function find(path: string, options: GroupOptions): Promise<GroupOutput>;
-export default async function find(
-	path: string,
-	options: OnlyCountOptions
-): Promise<OnlyCountsOutput>;
-export default async function find(path: string, options: CommonOptions): Promise<PathsOutput>;
-export default async function find(path: string, options: Options): Promise<Output> {
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	if (options && 'group' in options && options.group) {
-		return [];
-	}
+export default async function async(root: string, options: Options): Promise<string[]> {
+	return new Promise<string[]>((resolve, reject) => {
+		callback(root, options, (err, output) => {
+			if (err) {
+				reject(err);
 
-	// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	if (options && 'onlyCounts' in options && options.onlyCounts) {
-		return {
-			directories: 0,
-			files: 0,
-		};
-	}
+				return;
+			}
+			resolve(output);
+		});
+	});
+}
 
-	return [path];
+function callback(root: string, options: Options, callback: ResultCallback) {
+	const walker = new Crawler(root, options, callback);
+	walker.start(root, options.maxDepth ?? Infinity);
 }
