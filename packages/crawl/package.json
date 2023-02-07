@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs-find",
-	"version": "0.0.1-next.3",
+	"version": "0.0.0",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
@@ -21,16 +21,16 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/hexatool-fs-find-sync.mjs",
+	"module": "./dist/hexatool-fs-crawl-sync.mjs",
 	"types": "./dist/sync.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/sync.d.ts",
-			"default": "./dist/hexatool-fs-find-sync.mjs"
+			"default": "./dist/hexatool-fs-crawl-sync.mjs"
 		},
 		"./async": {
 			"types": "./dist/async.d.ts",
-			"default": "./dist/hexatool-fs-find-async.mjs"
+			"default": "./dist/hexatool-fs-crawl-async.mjs"
 		}
 	},
 	"scripts": {

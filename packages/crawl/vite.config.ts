@@ -11,7 +11,7 @@ export default defineConfig({
 		lib: {
 			formats: ['es'],
 			fileName: (format, entryName) =>
-				`hexatool-fs-find-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
+				`hexatool-fs-crawl-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
 			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts')],
 		},
 		minify: false,

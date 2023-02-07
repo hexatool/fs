@@ -1,4 +1,3 @@
-import * as console from 'console';
 import { statSync } from 'fs';
 import mock, { restore, symlink } from 'mock-fs';
 import path, { sep } from 'path';
@@ -21,8 +20,8 @@ async function crawl(type: ApiTypes, path: string) {
 }
 
 const thisFilePath = path.relative(process.cwd(), __dirname);
-let findModuleFilePath = path.relative(process.cwd(), path.resolve(__dirname, '..'));
-findModuleFilePath = findModuleFilePath === '' ? '.' : findModuleFilePath;
+let crawlModuleFilePath = path.relative(process.cwd(), path.resolve(__dirname, '..'));
+crawlModuleFilePath = crawlModuleFilePath === '' ? '.' : crawlModuleFilePath;
 
 const nodeModulesFilePath = path.relative(
 	process.cwd(),
@@ -31,7 +30,7 @@ const nodeModulesFilePath = path.relative(
 let rootProjectFilePath = path.relative(process.cwd(), path.resolve(__dirname, '../../../'));
 rootProjectFilePath = rootProjectFilePath === '' ? '.' : rootProjectFilePath;
 
-describe('@hexatool/fs-find', () => {
+describe('@hexatool/fs-crawl', () => {
 	describe.each(apiTypes)('crawl single depth directory', type => {
 		it(type, async () => await crawl(type, thisFilePath));
 	});
@@ -93,12 +92,12 @@ describe('@hexatool/fs-find', () => {
 		it(type, async () => {
 			const api = new CrawlerBuilder()
 				.withBasePath()
-				.filter(p => p.includes('packages/find'))
+				.filter(p => p.includes('packages/crawl'))
 				.filter(p => p.includes('.ts'));
 			const files = await api[type](rootProjectFilePath);
 			expect(files.length).toBeGreaterThan(0);
 			expect(
-				files.every(file => file.endsWith('.ts') && file.includes('packages/find'))
+				files.every(file => file.endsWith('.ts') && file.includes('packages/crawl'))
 			).toBeTruthy();
 		});
 	});
@@ -319,7 +318,7 @@ describe('@hexatool/fs-find', () => {
 	describe.each(apiTypes)('crawl and filter only directories', type => {
 		it(type, async () => {
 			const api = new CrawlerBuilder().onlyDirs().filter(path => path.includes('src'));
-			const files = await api[type](findModuleFilePath);
+			const files = await api[type](crawlModuleFilePath);
 			expect(files.length).toBe(2);
 		});
 	});
@@ -341,7 +340,6 @@ describe('@hexatool/fs-find', () => {
 		it(type, async () => {
 			const api = new CrawlerBuilder().withRelativePaths();
 			const files = await api[type](nodeModulesFilePath);
-			console.log(files);
 			expect(files.every(file => !file.startsWith('node_modules'))).toBeTruthy();
 		});
 	});
@@ -350,7 +348,6 @@ describe('@hexatool/fs-find', () => {
 		it(type, async () => {
 			const api = new CrawlerBuilder().withRelativePaths();
 			const files = await api[type](nodeModulesFilePath + sep);
-			console.log(files);
 			expect(
 				files.every(file => !file.startsWith('node_modules') && !file.includes('//'))
 			).toBeTruthy();

@@ -1,5 +1,5 @@
 <h1 align="center">
-  Hexatool's fs-find module 
+  Hexatool's fs-crawl module 
 </h1>
 
 <p align="center">
@@ -9,13 +9,13 @@
 ## Installation
 
 ```bash
-npm install --save @hexatool/fs-find
+npm install --save @hexatool/fs-crawl
 ```
 
 **Using yarn**
 
 ```bash
-yarn add @hexatool/fs-find
+yarn add @hexatool/fs-crawl
 ```
 
 ## What it does
@@ -24,7 +24,7 @@ Copy a file or directory. The directory can have contents.
 
 ## API
 
-### find(): void
+### crawl(): void
 
 - `param` 
     - Type `any`.
