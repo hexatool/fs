@@ -1,9 +1,10 @@
+import path from 'node:path';
+
 import type { CrawlDirection } from '../options';
 import joinDirectoryPath from './join-directory-path';
 
-function nextUpDirectoryPath(directoryPath: string, filename: string): string {
-	// return path.dirname(directoryPath);
-	return joinDirectoryPath(filename, directoryPath);
+function nextUpDirectoryPath(directoryPath: string): string {
+	return path.dirname(directoryPath);
 }
 
 function nextDownDirectoryPath(directoryPath: string, filename: string): string {
