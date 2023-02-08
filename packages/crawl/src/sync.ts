@@ -1,8 +1,9 @@
 import { Crawler } from './crawler';
-import type { Options } from './options';
+import type { CrawlerOptions } from './options';
 
-export default function find(root: string, options: Options): string[] | undefined {
-	const walker = new Crawler(root, options);
+export default function crawl(root: string, options: CrawlerOptions): string[] {
+	const crawler = new Crawler(root, options);
+	const maxDepth = 'maxDepth' in options ? options.maxDepth : Infinity;
 
-	return walker.start(root, options.maxDepth ?? Infinity);
+	return crawler.start(root, maxDepth) ?? [];
 }
