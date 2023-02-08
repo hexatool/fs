@@ -1,7 +1,9 @@
-import { statSync } from 'fs';
+import * as console from 'node:console';
+import { statSync } from 'node:fs';
+import path, { sep } from 'node:path';
+import * as process from 'node:process';
+
 import mock, { restore, symlink } from 'mock-fs';
-import path, { sep } from 'path';
-import * as process from 'process';
 import { describe, expect, it } from 'vitest';
 
 import CrawlerBuilder from '../src';
@@ -352,5 +354,11 @@ describe('@hexatool/fs-crawl', () => {
 				files.every(file => !file.startsWith('node_modules') && !file.includes('//'))
 			).toBeTruthy();
 		});
+	});
+
+	it('test', () => {
+		const api = new CrawlerBuilder().withFullPaths().up();
+		const files = api.sync(nodeModulesFilePath);
+		console.table(files);
 	});
 });

@@ -18,10 +18,6 @@ function joinPath(filename: string) {
 	return filename;
 }
 
-export function joinDirectoryPath(filename: string, directoryPath: string): string {
-	return directoryPath + filename + sep;
-}
-
 export type JoinPathFunction = (filename: string, directoryPath: string) => string;
 
 export default function (root: string, options: Options): JoinPathFunction {

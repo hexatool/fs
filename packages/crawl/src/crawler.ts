@@ -1,18 +1,16 @@
 import type { Dirent } from 'node:fs';
 import { resolve as pathResolve, sep } from 'node:path';
 
-import type { InvokeCallbackFunction } from './functions/invoke-callback';
-import invokeCallback from './functions/invoke-callback';
-import joinPath, { joinDirectoryPath, JoinPathFunction } from './functions/join-path';
-import type { PushDirectoryFunction } from './functions/push-directory';
-import pushDirectory from './functions/push-directory';
-import type { PushFileFunction } from './functions/push-file';
-import pushFile from './functions/push-file';
-import type { ResolveSymlinkFunction } from './functions/resolve-symlink';
-import resolveSymlink from './functions/resolve-symlink';
-import type { WalkDirectoryFunction } from './functions/walk-directory';
-import walkDirectory from './functions/walk-directory';
-import type { Options } from './options';
+import invokeCallback, { type InvokeCallbackFunction } from './functions/invoke-callback';
+import joinDirectoryPath from './functions/join-directory-path';
+import joinPath, { type JoinPathFunction } from './functions/join-path';
+import type { NextDirectoryPathFunction } from './functions/next-directory-path';
+import nextDirectoryPath from './functions/next-directory-path';
+import pushDirectory, { type PushDirectoryFunction } from './functions/push-directory';
+import pushFile, { type PushFileFunction } from './functions/push-file';
+import resolveSymlink, { type ResolveSymlinkFunction } from './functions/resolve-symlink';
+import walkDirectory, { type WalkDirectoryFunction } from './functions/walk-directory';
+import type { CrawlDirection, Options } from './options';
 import { CrawlerQueue } from './queue';
 import { cleanPath } from './utils';
 
@@ -26,8 +24,10 @@ export type ResultCallback = (error: Error | undefined, output: string[]) => voi
 
 export class Crawler {
 	private readonly callbackInvoker: InvokeCallbackFunction;
+	private readonly direction: CrawlDirection;
 	private readonly isSynchronous: boolean;
 	private readonly joinPath: JoinPathFunction;
+	private readonly nextDirectoryPath: NextDirectoryPathFunction;
 	private readonly pushDirectory: PushDirectoryFunction;
 	private readonly pushFile: PushFileFunction;
 	private readonly resolveSymlink?: ResolveSymlinkFunction | undefined;
@@ -43,12 +43,14 @@ export class Crawler {
 			options,
 			queue: new CrawlerQueue((error, state) => this.callbackInvoker(state, error, callback)),
 		};
+		this.direction = options.direction;
 		this.callbackInvoker = invokeCallback(this.isSynchronous);
 		this.joinPath = joinPath(root, options);
 		this.pushDirectory = pushDirectory(options);
 		this.pushFile = pushFile(options);
 		this.resolveSymlink = resolveSymlink(options, this.isSynchronous);
 		this.walkDirectory = walkDirectory(this.isSynchronous);
+		this.nextDirectoryPath = nextDirectoryPath(this.direction);
 	}
 
 	start(root: string, depth: number): string[] | undefined {
@@ -85,7 +87,7 @@ export class Crawler {
 				const filename = this.joinPath(entry.name, directoryPath);
 				this.pushFile(filename, files, filters);
 			} else if (entry.isDirectory()) {
-				const path = joinDirectoryPath(entry.name, directoryPath);
+				const path = this.nextDirectoryPath(directoryPath, entry.name);
 				if (exclude && exclude(entry.name, path)) {
 					continue;
 				}
