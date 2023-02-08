@@ -1,3 +1,3 @@
-import { CrawlerBuilder } from './builder';
+import CommonCrawlerBuilder from './builder';
 
-export default CrawlerBuilder;
+export default CommonCrawlerBuilder;
