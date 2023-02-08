@@ -1,11 +1,12 @@
 import findAsync from './async';
-import type { ExcludePredicate, FilterPredicate, Options } from './options';
+import type { CrawlDirection, ExcludePredicate, FilterPredicate, Options } from './options';
 import findSync from './sync';
 
 export class CrawlerBuilder {
 	protected readonly commonOptions: Options = {
 		maxDepth: Infinity,
 		suppressErrors: true,
+		direction: 'down',
 		filters: [],
 	};
 
@@ -16,6 +17,18 @@ export class CrawlerBuilder {
 	async async(path: string): Promise<string[]> {
 		// @ts-ignore
 		return findAsync(path, this.options());
+	}
+
+	direction(direction: CrawlDirection): CrawlerBuilder {
+		this.commonOptions.direction = direction;
+
+		return this;
+	}
+
+	down(): CrawlerBuilder {
+		this.commonOptions.direction = 'down';
+
+		return this;
 	}
 
 	exclude(predicate: ExcludePredicate): CrawlerBuilder {
@@ -51,6 +64,12 @@ export class CrawlerBuilder {
 	sync(path: string): string[] {
 		// @ts-ignore
 		return findSync(path, this.options());
+	}
+
+	up(): CrawlerBuilder {
+		this.commonOptions.direction = 'up';
+
+		return this;
 	}
 
 	withBasePath(): CrawlerBuilder {
