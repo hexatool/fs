@@ -10,12 +10,12 @@ import pushDirectory, { type PushDirectoryFunction } from './functions/push-dire
 import pushFile, { type PushFileFunction } from './functions/push-file';
 import resolveSymlink, { type ResolveSymlinkFunction } from './functions/resolve-symlink';
 import walkDirectory, { type WalkDirectoryFunction } from './functions/walk-directory';
-import type { CrawlDirection, Options } from './options';
+import type { CrawlDirection, CrawlerOptions } from './options';
 import { CrawlerQueue } from './queue';
 import { cleanPath } from './utils';
 
 export interface CrawlerState {
-	options: Options;
+	options: CrawlerOptions;
 	paths: string[];
 	queue: CrawlerQueue;
 }
@@ -34,7 +34,7 @@ export class Crawler {
 	private readonly state: CrawlerState;
 	private readonly walkDirectory: WalkDirectoryFunction;
 
-	constructor(root: string, options: Options, callback?: ResultCallback) {
+	constructor(root: string, options: CrawlerOptions, callback?: ResultCallback) {
 		this.isSynchronous = !callback;
 
 		this.state = {
@@ -55,10 +55,50 @@ export class Crawler {
 
 	start(root: string, depth: number): string[] | undefined {
 		const normalizePath = this.normalizePath(root);
-		this.walkDirectory(this.state, normalizePath, depth, this.walk);
+		this.walkDirectory(this.state, normalizePath, depth, this.crawl);
 
 		return this.isSynchronous ? this.callbackInvoker(this.state, undefined) : undefined;
 	}
+
+	private readonly crawl = (entries: Dirent[], directoryPath: string, depth: number) => {
+		const {
+			paths,
+			options: { filters, exclude },
+		} = this.state;
+
+		const resolveSymlinks =
+			'resolveSymlinks' in this.state.options && this.state.options.resolveSymlinks;
+
+		this.pushDirectory(directoryPath, paths, filters);
+
+		const files = this.state.paths;
+		for (const entry of entries) {
+			if (entry.isFile() || (entry.isSymbolicLink() && !resolveSymlinks)) {
+				const filename = this.joinPath(entry.name, directoryPath);
+				this.pushFile(filename, files, filters);
+			} else if (entry.isDirectory()) {
+				const nextDirectory = joinDirectoryPath(entry.name, directoryPath);
+				if (exclude && exclude(entry.name, nextDirectory)) {
+					continue;
+				}
+				this.walkDirectory(this.state, nextDirectory, depth - 1, this.crawl);
+			} else if (entry.isSymbolicLink() && resolveSymlinks) {
+				const path = joinDirectoryPath(entry.name, directoryPath);
+				this.resolveSymlink!(path, this.state, (stat, resolvedPath) => {
+					if (stat.isDirectory()) {
+						const normalizePath = this.normalizePath(resolvedPath);
+						if (exclude && exclude(entry.name, normalizePath)) {
+							return;
+						}
+
+						this.walkDirectory(this.state, normalizePath, depth - 1, this.crawl);
+					} else {
+						this.pushFile(resolvedPath, files, filters);
+					}
+				});
+			}
+		}
+	};
 
 	private normalizePath(path: string) {
 		let copyPath = path;
@@ -72,41 +112,4 @@ export class Crawler {
 
 		return needsSeparator ? copyPath + sep : copyPath;
 	}
-
-	private readonly walk = (entries: Dirent[], directoryPath: string, depth: number) => {
-		const {
-			paths,
-			options: { filters, resolveSymlinks, exclude },
-		} = this.state;
-
-		this.pushDirectory(directoryPath, paths, filters);
-
-		const files = this.state.paths;
-		for (const entry of entries) {
-			if (entry.isFile() || (entry.isSymbolicLink() && !resolveSymlinks)) {
-				const filename = this.joinPath(entry.name, directoryPath);
-				this.pushFile(filename, files, filters);
-			} else if (entry.isDirectory()) {
-				const path = this.nextDirectoryPath(directoryPath, entry.name);
-				if (exclude && exclude(entry.name, path)) {
-					continue;
-				}
-				this.walkDirectory(this.state, path, depth - 1, this.walk);
-			} else if (entry.isSymbolicLink() && resolveSymlinks) {
-				const path = joinDirectoryPath(entry.name, directoryPath);
-				this.resolveSymlink!(path, this.state, (stat, resolvedPath) => {
-					if (stat.isDirectory()) {
-						const normalizePath = this.normalizePath(resolvedPath);
-						if (exclude && exclude(entry.name, normalizePath)) {
-							return;
-						}
-
-						this.walkDirectory(this.state, normalizePath, depth - 1, this.walk);
-					} else {
-						this.pushFile(resolvedPath, files, filters);
-					}
-				});
-			}
-		}
-	};
 }

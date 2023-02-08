@@ -1,6 +1,6 @@
 import { sep } from 'node:path';
 
-import type { Options } from '../options';
+import type { CrawlerOptions } from '../options';
 
 function joinPathWithBasePath(filename: string, directoryPath: string) {
 	return directoryPath + filename;
@@ -20,7 +20,7 @@ function joinPath(filename: string) {
 
 export type JoinPathFunction = (filename: string, directoryPath: string) => string;
 
-export default function (root: string, options: Options): JoinPathFunction {
+export default function (root: string, options: CrawlerOptions): JoinPathFunction {
 	const { relativePaths, includeBasePath } = options;
 
 	return relativePaths

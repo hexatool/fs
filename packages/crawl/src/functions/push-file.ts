@@ -1,4 +1,4 @@
-import type { FilterPredicate, Options } from '../options';
+import type { CrawlerOptions, FilterPredicate } from '../options';
 
 export type PushFileFunction = (
 	directoryPath: string,
@@ -23,7 +23,7 @@ const empty: PushFileFunction = () => {
 	return;
 };
 
-export default function (options: Options): PushFileFunction {
+export default function (options: CrawlerOptions): PushFileFunction {
 	const { excludeFiles, filters } = options;
 	if (excludeFiles) {
 		return empty;

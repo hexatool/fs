@@ -3,7 +3,7 @@ import type { Stats } from 'node:fs';
 import { fs } from '@hexatool/fs-file-system';
 
 import type { CrawlerState } from '../crawler';
-import type { Options } from '../options';
+import type { CrawlerOptions } from '../options';
 
 export type ResolveSymlinkFunction = (
 	path: string,
@@ -45,7 +45,7 @@ const resolveSymlinksSync: ResolveSymlinkFunction = function (path, state, callb
 };
 
 export default function (
-	options: Options,
+	options: CrawlerOptions,
 	isSynchronous: boolean
 ): ResolveSymlinkFunction | undefined {
 	if (!options.resolveSymlinks) {

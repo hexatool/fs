@@ -1,4 +1,4 @@
-import type { FilterPredicate, Options } from '../options';
+import type { CrawlerOptions, FilterPredicate } from '../options';
 
 export type PushDirectoryFunction = (
 	directoryPath: string,
@@ -23,7 +23,7 @@ const empty: PushDirectoryFunction = () => {
 	return;
 };
 
-export default function (options: Options): PushDirectoryFunction {
+export default function (options: CrawlerOptions): PushDirectoryFunction {
 	const { includeDirs, filters } = options;
 	if (!includeDirs) {
 		return empty;
