@@ -12,7 +12,11 @@ export default defineConfig({
 			formats: ['es'],
 			fileName: (format, entryName) =>
 				`hexatool-fs-crawl-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
-			entry: [resolve(__dirname, 'src/sync.ts'), resolve(__dirname, 'src/async.ts'), resolve(__dirname, 'src/builder.ts')],
+			entry: [
+				resolve(__dirname, 'src/sync.ts'),
+				resolve(__dirname, 'src/async.ts'),
+				resolve(__dirname, 'src/builder.ts'),
+			],
 		},
 		minify: false,
 		sourcemap: false,
