@@ -42,6 +42,8 @@ const nodeModulesFilePath = path.relative(
 let rootProjectFilePath = path.relative(process.cwd(), path.resolve(__dirname, '../../../'));
 rootProjectFilePath = rootProjectFilePath === '' ? '.' : rootProjectFilePath;
 
+const isWindows = process.platform === 'win32';
+
 describe('@hexatool/fs-crawl', () => {
 	describe.each(apiTypes)('crawl down single depth directory', type => {
 		it(type, async () => await crawlDown(type, thisFilePath));
@@ -60,7 +62,7 @@ describe('@hexatool/fs-crawl', () => {
 			expect(files[0]).toBeDefined();
 			expect(files.every(t => t)).toBeTruthy();
 			expect(files[0]?.length).toBeGreaterThan(0);
-			expect(files[0]?.endsWith('node_modules/')).toBeTruthy();
+			expect(files[0]?.endsWith(`node_modules${sep}`)).toBeTruthy();
 		});
 	});
 
@@ -90,12 +92,12 @@ describe('@hexatool/fs-crawl', () => {
 			const api = crawler
 				.down()
 				.withBasePath()
-				.filter(p => p.includes('packages/crawl'))
+				.filter(p => p.includes(`packages${sep}crawl`))
 				.filter(p => p.endsWith('.ts'));
 			const files = await api[type](rootProjectFilePath);
 			expect(files.length).toBeGreaterThan(0);
 			expect(
-				files.every(file => file.endsWith('.ts') && file.includes('packages/crawl'))
+				files.every(file => file.endsWith('.ts') && file.includes(`packages${sep}crawl`))
 			).toBeTruthy();
 		});
 	});
@@ -119,7 +121,7 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)(
+	describe.skipIf(isWindows).each(apiTypes)(
 		'crawl down files in a directory and output full paths (withFullPaths)',
 		type => {
 			it(type, async () => {
@@ -142,7 +144,7 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)(
+	describe.skipIf(isWindows).each(apiTypes)(
 		`getting files from restricted directory shouldn't throw (suppressErrors)`,
 		type => {
 			it(type, async () => {
@@ -171,37 +173,40 @@ describe('@hexatool/fs-crawl', () => {
 		}
 	);
 
-	describe.each(apiTypes)(`crawl down down all files and include resolved symlinks`, type => {
-		it(type, async () => {
-			mock({
-				'/sym/linked': {
-					'file-1': 'file contents',
-				},
-				'/other/dir': {
-					'file-2': 'file contents2',
-				},
-				'/some/dir': {
-					fileSymlink: symlink({
-						path: '/other/dir/file-2',
-					}),
-					fileSymlink2: symlink({
-						path: '/other/dir/file-3',
-					}),
-					dirSymlink: symlink({
-						path: '/sym/linked',
-					}),
-				},
+	describe.skipIf(isWindows).each(apiTypes)(
+		`crawl down down all files and include resolved symlinks`,
+		type => {
+			it(type, async () => {
+				mock({
+					'/sym/linked': {
+						'file-1': 'file contents',
+					},
+					'/other/dir': {
+						'file-2': 'file contents2',
+					},
+					'/some/dir': {
+						fileSymlink: symlink({
+							path: '/other/dir/file-2',
+						}),
+						fileSymlink2: symlink({
+							path: '/other/dir/file-3',
+						}),
+						dirSymlink: symlink({
+							path: '/sym/linked',
+						}),
+					},
+				});
+				const api = crawler.down().withSymlinks();
+				const files = await api[type]('/some/dir');
+				expect(files.length).toBe(2);
+				expect(files.includes('/sym/linked/file-1')).toBeTruthy();
+				expect(files.includes('/other/dir/file-2')).toBeTruthy();
+				restore();
 			});
-			const api = crawler.down().withSymlinks();
-			const files = await api[type]('/some/dir');
-			expect(files.length).toBe(2);
-			expect(files.includes('/sym/linked/file-1')).toBeTruthy();
-			expect(files.includes('/other/dir/file-2')).toBeTruthy();
-			restore();
-		});
-	});
+		}
+	);
 
-	describe.each(apiTypes)(
+	describe.skipIf(isWindows).each(apiTypes)(
 		'crawl down all files and include resolved symlinks with exclusions',
 		type => {
 			it(type, async () => {
@@ -234,33 +239,36 @@ describe('@hexatool/fs-crawl', () => {
 		}
 	);
 
-	describe.each(apiTypes)('crawl down all files and include unresolved symlinks', type => {
-		it(type, async () => {
-			mock({
-				'/sym/linked': {
-					'file-1': 'file contents',
-				},
-				'/other/dir': {
-					'file-2': 'file contents2',
-				},
-				'/some/dir': {
-					fileSymlink: symlink({
-						path: '/other/dir/file-2',
-					}),
-					dirSymlink: symlink({
-						path: '/sym/linked',
-					}),
-				},
+	describe.skipIf(isWindows).each(apiTypes)(
+		'crawl down all files and include unresolved symlinks',
+		type => {
+			it(type, async () => {
+				mock({
+					'/sym/linked': {
+						'file-1': 'file contents',
+					},
+					'/other/dir': {
+						'file-2': 'file contents2',
+					},
+					'/some/dir': {
+						fileSymlink: symlink({
+							path: '/other/dir/file-2',
+						}),
+						dirSymlink: symlink({
+							path: '/sym/linked',
+						}),
+					},
+				});
+				const api = crawler.down().withDirs();
+				const files = await api[type]('/some/dir');
+				expect(files.length).toBe(3);
+				expect(files.includes('/some/dir/')).toBeTruthy();
+				expect(files.includes('fileSymlink')).toBeTruthy();
+				expect(files.includes('dirSymlink')).toBeTruthy();
+				restore();
 			});
-			const api = crawler.down().withDirs();
-			const files = await api[type]('/some/dir');
-			expect(files.length).toBe(3);
-			expect(files.includes('/some/dir/')).toBeTruthy();
-			expect(files.includes('fileSymlink')).toBeTruthy();
-			expect(files.includes('dirSymlink')).toBeTruthy();
-			restore();
-		});
-	});
+		}
+	);
 
 	describe.each(apiTypes)('crawl down all files (including symlinks) and throw errors', type => {
 		it(type, async () => {
