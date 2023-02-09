@@ -728,6 +728,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@hexatool/fs-crawl@workspace:packages/crawl":
+  version: 0.0.0-use.local
+  resolution: "@hexatool/fs-crawl@workspace:packages/crawl"
+  dependencies:
+    "@hexatool/fs-file-system": 0.0.1-next.3
+    "@types/mock-fs": 4.13.1
+    mock-fs: 5.2.0
+  languageName: unknown
+  linkType: soft
+
 "@hexatool/fs-create-file@0.0.1-next.3, @hexatool/fs-create-file@workspace:packages/create-file":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
@@ -768,16 +778,6 @@ __metadata:
   peerDependenciesMeta:
     graceful-fs:
       optional: true
-  languageName: unknown
-  linkType: soft
-
-"@hexatool/fs-find@workspace:packages/crawl":
-  version: 0.0.0-use.local
-  resolution: "@hexatool/fs-find@workspace:packages/crawl"
-  dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
-    "@types/mock-fs": 4.13.1
-    mock-fs: 5.2.0
   languageName: unknown
   linkType: soft
 
