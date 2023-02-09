@@ -6,6 +6,7 @@ import mock, { restore, symlink } from 'mock-fs';
 import { describe, expect, it } from 'vitest';
 
 import crawler from '../src';
+import { checkOptions } from '../src/options';
 
 const apiTypes = ['async', 'sync'] as const;
 type ApiTypes = (typeof apiTypes)[number];
@@ -397,5 +398,44 @@ describe('@hexatool/fs-crawl', () => {
 			expect(files.length).toBeGreaterThan(0);
 			expect(files.every(t => !t.startsWith(root))).toBeTruthy();
 		});
+	});
+
+	it('must check options', () => {
+		// @ts-ignore
+		expect(() => checkOptions({})).toThrow(`direction must be === 'up' or 'down'`);
+		expect(() =>
+			checkOptions({
+				direction: 'up',
+				filters: [],
+			})
+		).toThrow(`resolvePaths must be === true if direction === 'up'`);
+		expect(() =>
+			// @ts-ignore
+			checkOptions({
+				direction: 'down',
+			})
+		).toThrow(`filters must be an array`);
+		expect(() =>
+			checkOptions({
+				direction: 'up',
+				resolvePaths: true,
+				filters: [],
+			})
+		).toThrow(`includeBasePath must be === true if direction === 'up'`);
+		expect(() =>
+			checkOptions({
+				direction: 'down',
+				resolveSymlinks: true,
+				filters: [],
+			})
+		).toThrow(`resolvePaths must be === true if resolveSymlinks === true`);
+		expect(() =>
+			checkOptions({
+				direction: 'down',
+				resolveSymlinks: true,
+				resolvePaths: true,
+				filters: [],
+			})
+		).toThrow(`includeBasePath must be === true if resolveSymlinks === true`);
 	});
 });

@@ -9,6 +9,7 @@ import pushFile, { type PushFileFunction } from './functions/push-file';
 import resolveSymlink, { type ResolveSymlinkFunction } from './functions/resolve-symlink';
 import walkDirectory, { type WalkDirectoryFunction } from './functions/walk-directory';
 import type { CrawlDirection, CrawlerOptions, ExcludePredicate } from './options';
+import { checkOptions } from './options';
 import { CrawlerQueue } from './queue';
 import { cleanPath } from './utils';
 
@@ -33,6 +34,7 @@ export class Crawler {
 	private readonly walkDirectory: WalkDirectoryFunction;
 
 	constructor(root: string, options: CrawlerOptions, callback?: ResultCallback) {
+		checkOptions(options);
 		this.isSynchronous = !callback;
 
 		this.state = {
