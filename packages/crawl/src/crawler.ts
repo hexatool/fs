@@ -1,16 +1,14 @@
 import type { Dirent } from 'node:fs';
-import { resolve as pathResolve, sep } from 'node:path';
+import { basename, dirname, resolve as pathResolve, sep } from 'node:path';
 
 import invokeCallback, { type InvokeCallbackFunction } from './functions/invoke-callback';
 import joinDirectoryPath from './functions/join-directory-path';
 import joinPath, { type JoinPathFunction } from './functions/join-path';
-import type { NextDirectoryPathFunction } from './functions/next-directory-path';
-import nextDirectoryPath from './functions/next-directory-path';
 import pushDirectory, { type PushDirectoryFunction } from './functions/push-directory';
 import pushFile, { type PushFileFunction } from './functions/push-file';
 import resolveSymlink, { type ResolveSymlinkFunction } from './functions/resolve-symlink';
 import walkDirectory, { type WalkDirectoryFunction } from './functions/walk-directory';
-import type { CrawlDirection, CrawlerOptions } from './options';
+import type { CrawlDirection, CrawlerOptions, ExcludePredicate } from './options';
 import { CrawlerQueue } from './queue';
 import { cleanPath } from './utils';
 
@@ -27,11 +25,11 @@ export class Crawler {
 	private readonly direction: CrawlDirection;
 	private readonly isSynchronous: boolean;
 	private readonly joinPath: JoinPathFunction;
-	private readonly nextDirectoryPath: NextDirectoryPathFunction;
 	private readonly pushDirectory: PushDirectoryFunction;
 	private readonly pushFile: PushFileFunction;
 	private readonly resolveSymlink?: ResolveSymlinkFunction | undefined;
 	private readonly state: CrawlerState;
+	private readonly stopAt?: string | undefined;
 	private readonly walkDirectory: WalkDirectoryFunction;
 
 	constructor(root: string, options: CrawlerOptions, callback?: ResultCallback) {
@@ -44,13 +42,14 @@ export class Crawler {
 			queue: new CrawlerQueue((error, state) => this.callbackInvoker(state, error, callback)),
 		};
 		this.direction = options.direction;
+		this.stopAt =
+			'stopAt' in options && options.stopAt ? this.normalizePath(options.stopAt) : undefined;
 		this.callbackInvoker = invokeCallback(this.isSynchronous);
 		this.joinPath = joinPath(root, options);
 		this.pushDirectory = pushDirectory(options);
 		this.pushFile = pushFile(options);
 		this.resolveSymlink = resolveSymlink(options, this.isSynchronous);
 		this.walkDirectory = walkDirectory(this.isSynchronous);
-		this.nextDirectoryPath = nextDirectoryPath(this.direction);
 	}
 
 	start(root: string, depth: number): string[] | undefined {
@@ -78,9 +77,16 @@ export class Crawler {
 				this.pushFile(filename, files, filters);
 			} else if (entry.isDirectory()) {
 				const nextDirectory = joinDirectoryPath(entry.name, directoryPath);
+
 				if (exclude && exclude(entry.name, nextDirectory)) {
 					continue;
 				}
+
+				if (this.direction === 'up') {
+					this.pushDirectory(nextDirectory, paths, filters);
+					continue;
+				}
+
 				this.walkDirectory(this.state, nextDirectory, depth - 1, this.crawl);
 			} else if (entry.isSymbolicLink() && resolveSymlinks) {
 				const path = joinDirectoryPath(entry.name, directoryPath);
@@ -91,11 +97,22 @@ export class Crawler {
 							return;
 						}
 
-						this.walkDirectory(this.state, normalizePath, depth - 1, this.crawl);
+						if (this.direction === 'up') {
+							this.pushDirectory(normalizePath, paths, filters);
+						} else {
+							this.walkDirectory(this.state, normalizePath, depth - 1, this.crawl);
+						}
 					} else {
 						this.pushFile(resolvedPath, files, filters);
 					}
 				});
+			}
+		}
+
+		if (this.direction === 'up' && directoryPath !== this.stopAt) {
+			const nextDirectory = this.previousDirectory(directoryPath, exclude);
+			if (nextDirectory) {
+				this.walkDirectory(this.state, nextDirectory, depth - 1, this.crawl);
 			}
 		}
 	};
@@ -111,5 +128,20 @@ export class Crawler {
 		const needsSeparator = copyPath[copyPath.length - 1] !== sep;
 
 		return needsSeparator ? copyPath + sep : copyPath;
+	}
+
+	private previousDirectory(
+		directoryPath: string,
+		exclude?: ExcludePredicate
+	): string | undefined {
+		const dirName = basename(directoryPath);
+		const nextDirectory = this.normalizePath(dirname(directoryPath));
+		if (exclude && exclude(dirName, directoryPath)) {
+			const stepNextDirectory = this.normalizePath(dirname(directoryPath));
+
+			return this.previousDirectory(stepNextDirectory, exclude);
+		}
+
+		return nextDirectory;
 	}
 }

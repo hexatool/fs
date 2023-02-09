@@ -3,7 +3,7 @@ import type { CrawlerOptions, FilterPredicate } from '../options';
 export type PushDirectoryFunction = (
 	directoryPath: string,
 	paths: string[],
-	filters?: FilterPredicate[]
+	filters: FilterPredicate[]
 ) => void;
 
 const pushDirectory: PushDirectoryFunction = (directoryPath, paths) => {
@@ -11,9 +11,6 @@ const pushDirectory: PushDirectoryFunction = (directoryPath, paths) => {
 };
 
 const pushDirectoryFilter: PushDirectoryFunction = (directoryPath, paths, filters) => {
-	if (!filters) {
-		return;
-	}
 	if (filters.every(filter => filter(directoryPath, true))) {
 		paths.push(directoryPath);
 	}
@@ -29,5 +26,5 @@ export default function (options: CrawlerOptions): PushDirectoryFunction {
 		return empty;
 	}
 
-	return filters && filters.length ? pushDirectoryFilter : pushDirectory;
+	return filters.length ? pushDirectoryFilter : pushDirectory;
 }

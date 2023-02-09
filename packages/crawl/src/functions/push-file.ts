@@ -3,13 +3,10 @@ import type { CrawlerOptions, FilterPredicate } from '../options';
 export type PushFileFunction = (
 	directoryPath: string,
 	paths: string[],
-	filters?: FilterPredicate[]
+	filters: FilterPredicate[]
 ) => void;
 
 const pushFileFilter: PushFileFunction = (filename, paths, filters) => {
-	if (!filters) {
-		return;
-	}
 	if (filters.every(filter => filter(filename, false))) {
 		paths.push(filename);
 	}
@@ -29,7 +26,7 @@ export default function (options: CrawlerOptions): PushFileFunction {
 		return empty;
 	}
 
-	if (filters && filters.length) {
+	if (filters.length) {
 		return pushFileFilter;
 	}
 

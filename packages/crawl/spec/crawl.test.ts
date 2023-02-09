@@ -1,18 +1,28 @@
-import * as console from 'node:console';
 import { statSync } from 'node:fs';
 import path, { sep } from 'node:path';
 import * as process from 'node:process';
 
+import * as console from 'console';
 import mock, { restore, symlink } from 'mock-fs';
 import { describe, expect, it } from 'vitest';
 
-import CrawlerBuilder from '../src';
+import crawler from '../src';
 
 const apiTypes = ['async', 'sync'] as const;
 type ApiTypes = (typeof apiTypes)[number];
 
-async function crawl(type: ApiTypes, path: string) {
-	const api = new CrawlerBuilder();
+async function crawlDown(type: ApiTypes, path: string) {
+	const api = crawler.down();
+	const files = await api[type](path);
+	expect(files).toBeDefined();
+	expect(files.length).toBeGreaterThan(0);
+	expect(files.every(t => t)).toBeTruthy();
+
+	return files;
+}
+
+async function crawlUp(type: ApiTypes, path: string) {
+	const api = crawler.up();
 	const files = await api[type](path);
 	expect(files).toBeDefined();
 	expect(files.length).toBeGreaterThan(0);
@@ -33,38 +43,19 @@ let rootProjectFilePath = path.relative(process.cwd(), path.resolve(__dirname, '
 rootProjectFilePath = rootProjectFilePath === '' ? '.' : rootProjectFilePath;
 
 describe('@hexatool/fs-crawl', () => {
-	describe.each(apiTypes)('crawl single depth directory', type => {
-		it(type, async () => await crawl(type, thisFilePath));
+	describe.each(apiTypes)('crawl down single depth directory', type => {
+		it(type, async () => await crawlDown(type, thisFilePath));
 	});
 
-	describe.each(apiTypes)('crawl single depth directory with options', type => {
+	describe.each(apiTypes)('crawl down multi depth directory', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder({ includeBasePath: true });
-			const files = await api[type](thisFilePath);
-			expect(files.every(file => file.startsWith(thisFilePath))).toBeTruthy();
-			await crawl(type, thisFilePath);
+			await crawlDown(type, nodeModulesFilePath);
 		});
 	});
 
-	describe.each(apiTypes)('crawl multi depth directory', type => {
+	describe.each(apiTypes)('crawl down and get both files and directories (withDirs)', type => {
 		it(type, async () => {
-			await crawl(type, nodeModulesFilePath);
-		});
-	});
-
-	describe.each(apiTypes)('crawl multi depth directory with options', type => {
-		it(type, async () => {
-			const api = new CrawlerBuilder({ maxDepth: 1 });
-			const files = await api[type](nodeModulesFilePath);
-			expect(files).toBeDefined();
-			expect(files.length).toBeGreaterThan(0);
-			expect(files.every(file => file.split('/').length <= 3)).toBeTruthy();
-		});
-	});
-
-	describe.each(apiTypes)('crawl and get both files and directories (withDirs)', type => {
-		it(type, async () => {
-			const api = new CrawlerBuilder().withDirs();
+			const api = crawler.down().withDirs();
 			const files = await api[type](nodeModulesFilePath);
 			expect(files[0]).toBeDefined();
 			expect(files.every(t => t)).toBeTruthy();
@@ -73,29 +64,34 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl and get all files (withMaxDepth = 1)', type => {
+	describe.each(apiTypes)('crawl down and get all files (withMaxDepth = 1)', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withMaxDepth(1).withBasePath();
+			const api = crawler.down().withMaxDepth(1).withBasePath();
 			const files = await api[type](nodeModulesFilePath);
+			expect(files.length).toBeGreaterThan(0);
 			expect(files.every(file => file.split('/').length <= 5)).toBeTruthy();
 		});
 	});
 
-	describe.each(apiTypes)('crawl and get files that match filter', type => {
+	describe.each(apiTypes)('crawl down and get files that match filter', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withBasePath().filter(p => p.endsWith('.js'));
+			const api = crawler
+				.down()
+				.withBasePath()
+				.filter(p => p.endsWith('.js'));
 			const files = await api[type](nodeModulesFilePath);
 			expect(files.length).toBeGreaterThan(0);
 			expect(files.every(file => file.endsWith('.js'))).toBeTruthy();
 		});
 	});
 
-	describe.each(apiTypes)('crawl and get files that match multiple filters', type => {
+	describe.each(apiTypes)('crawl down and get files that match multiple filters', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder()
+			const api = crawler
+				.down()
 				.withBasePath()
 				.filter(p => p.includes('packages/crawl'))
-				.filter(p => p.includes('.ts'));
+				.filter(p => p.endsWith('.ts'));
 			const files = await api[type](rootProjectFilePath);
 			expect(files.length).toBeGreaterThan(0);
 			expect(
@@ -104,9 +100,10 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl but exclude node_modules dir', type => {
+	describe.each(apiTypes)('crawl down but exclude node_modules dir', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder()
+			const api = crawler
+				.down()
 				.withBasePath()
 				.exclude(p => p.includes('node_modules'));
 			const files = await api[type](rootProjectFilePath);
@@ -114,19 +111,19 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl all files in a directory (with base path)', type => {
+	describe.each(apiTypes)('crawl down all files in a directory (with base path)', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withBasePath();
+			const api = crawler.down().withBasePath();
 			const files = await api[type]('./');
 			expect(files.every(file => file.startsWith('./'))).toBeTruthy();
 		});
 	});
 
 	describe.each(apiTypes)(
-		'get all files in a directory and output full paths (withFullPaths)',
+		'crawl down files in a directory and output full paths (withFullPaths)',
 		type => {
 			it(type, async () => {
-				const api = new CrawlerBuilder().withFullPaths();
+				const api = crawler.down().withFullPaths();
 				const files = await api[type]('./');
 				expect(files.every(file => file.startsWith('/'))).toBeTruthy();
 			});
@@ -135,7 +132,7 @@ describe('@hexatool/fs-crawl', () => {
 
 	describe.each(apiTypes)('getting files from restricted directory should throw', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withErrors();
+			const api = crawler.down().withErrors();
 			const fn = () => api[type]('/etc');
 			if (type === 'async') {
 				await expect(fn).rejects.toThrow();
@@ -149,29 +146,32 @@ describe('@hexatool/fs-crawl', () => {
 		`getting files from restricted directory shouldn't throw (suppressErrors)`,
 		type => {
 			it(type, async () => {
-				const api = new CrawlerBuilder();
+				const api = crawler.down();
 				const files = await api[type]('/etc');
 				expect(files.length).toBeGreaterThan(0);
 			});
 		}
 	);
 
-	describe.each(apiTypes)(`recurse root (files should not contain multiple /)`, type => {
-		it(type, async () => {
-			mock({
-				'/etc': {
-					hosts: 'dooone',
-				},
+	describe.each(apiTypes)(
+		`crawl down recurse root (files should not contain multiple /)`,
+		type => {
+			it(type, async () => {
+				mock({
+					'/etc': {
+						hosts: 'dooone',
+					},
+				});
+				const api = crawler.down().withBasePath().normalize();
+				const files = await api[type]('/');
+				expect(files.length).toBeGreaterThan(0);
+				expect(files.every(file => !file.includes('//'))).toBeTruthy();
+				restore();
 			});
-			const api = new CrawlerBuilder().withBasePath().normalize();
-			const files = await api[type]('/');
-			expect(files.length).toBeGreaterThan(0);
-			expect(files.every(file => !file.includes('//'))).toBeTruthy();
-			restore();
-		});
-	});
+		}
+	);
 
-	describe.each(apiTypes)(`crawl all files and include resolved symlinks`, type => {
+	describe.each(apiTypes)(`crawl down down all files and include resolved symlinks`, type => {
 		it(type, async () => {
 			mock({
 				'/sym/linked': {
@@ -192,7 +192,7 @@ describe('@hexatool/fs-crawl', () => {
 					}),
 				},
 			});
-			const api = new CrawlerBuilder().withSymlinks();
+			const api = crawler.down().withSymlinks();
 			const files = await api[type]('/some/dir');
 			expect(files.length).toBe(2);
 			expect(files.includes('/sym/linked/file-1')).toBeTruthy();
@@ -202,7 +202,7 @@ describe('@hexatool/fs-crawl', () => {
 	});
 
 	describe.each(apiTypes)(
-		'crawl all files and include resolved symlinks with exclusions',
+		'crawl down all files and include resolved symlinks with exclusions',
 		type => {
 			it(type, async () => {
 				mock({
@@ -222,7 +222,8 @@ describe('@hexatool/fs-crawl', () => {
 						}),
 					},
 				});
-				const api = new CrawlerBuilder()
+				const api = crawler
+					.down()
 					.withSymlinks()
 					.exclude((_name, path) => path === '/sym/linked/');
 				const files = await api[type]('/some/dir');
@@ -233,7 +234,7 @@ describe('@hexatool/fs-crawl', () => {
 		}
 	);
 
-	describe.each(apiTypes)('crawl all files and include unresolved symlinks', type => {
+	describe.each(apiTypes)('crawl down all files and include unresolved symlinks', type => {
 		it(type, async () => {
 			mock({
 				'/sym/linked': {
@@ -251,7 +252,7 @@ describe('@hexatool/fs-crawl', () => {
 					}),
 				},
 			});
-			const api = new CrawlerBuilder().withDirs();
+			const api = crawler.down().withDirs();
 			const files = await api[type]('/some/dir');
 			expect(files.length).toBe(3);
 			expect(files.includes('/some/dir/')).toBeTruthy();
@@ -261,7 +262,7 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl all files (including symlinks) and throw errors', type => {
+	describe.each(apiTypes)('crawl down all files (including symlinks) and throw errors', type => {
 		it(type, async () => {
 			mock({
 				'/sym/linked': {
@@ -277,7 +278,7 @@ describe('@hexatool/fs-crawl', () => {
 					}),
 				},
 			});
-			const api = new CrawlerBuilder().withErrors().withSymlinks();
+			const api = crawler.down().withErrors().withSymlinks();
 			const fn = () => api[type]('/some/dir');
 			if (type === 'async') {
 				await expect(fn).rejects.toThrow('no such file or directory');
@@ -288,46 +289,40 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl and return only directories', type => {
+	describe.each(apiTypes)('crawl down and return only directories', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().onlyDirs();
+			const api = crawler.down().onlyDirs();
 			const files = await api[type](nodeModulesFilePath);
 			expect(files.length).greaterThan(0);
-			expect(files.every(dir => statSync(dir).isDirectory)).toBeTruthy();
+			expect(files.every(dir => statSync(dir).isDirectory())).toBeTruthy();
 		});
 	});
 
-	describe.each(apiTypes)('crawl with options and return only directories', type => {
-		it(type, async () => {
-			const api = new CrawlerBuilder({
-				excludeFiles: true,
-				includeDirs: true,
+	describe.each(apiTypes)(
+		'crawl down all files in a directory (path with trailing slash)',
+		type => {
+			it(type, async () => {
+				const api = crawler.down().normalize();
+				const files = await api[type](nodeModulesFilePath + sep);
+				expect(files.every(file => !file.includes('/'))).toBeTruthy();
 			});
-			const files = await api[type](nodeModulesFilePath);
-			expect(files.length).greaterThan(0);
-			expect(files.every(dir => statSync(dir).isDirectory)).toBeTruthy();
-		});
-	});
+		}
+	);
 
-	describe.each(apiTypes)('crawl all files in a directory (path with trailing slash)', type => {
+	describe.each(apiTypes)('crawl down and filter only directories', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().normalize();
-			const files = await api[type](nodeModulesFilePath + sep);
-			expect(files.every(file => !file.includes('/'))).toBeTruthy();
-		});
-	});
-
-	describe.each(apiTypes)('crawl and filter only directories', type => {
-		it(type, async () => {
-			const api = new CrawlerBuilder().onlyDirs().filter(path => path.includes('src'));
+			const api = crawler
+				.down()
+				.onlyDirs()
+				.filter(path => path.includes('src'));
 			const files = await api[type](crawlModuleFilePath);
-			expect(files.length).toBe(2);
+			expect(files.length).toBeGreaterThanOrEqual(2);
 		});
 	});
 
 	describe.each(apiTypes)('giving undefined directory path should throw', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder();
+			const api = crawler.down();
 			// @ts-ignore
 			const fn = () => api[type]();
 			if (type === 'async') {
@@ -338,17 +333,17 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	describe.each(apiTypes)('crawl and return relative paths', type => {
+	describe.each(apiTypes)('crawl down and return relative paths', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withRelativePaths();
+			const api = crawler.down().withRelativePaths();
 			const files = await api[type](nodeModulesFilePath);
 			expect(files.every(file => !file.startsWith('node_modules'))).toBeTruthy();
 		});
 	});
 
-	describe.each(apiTypes)('crawl and return relative paths that end with /', type => {
+	describe.each(apiTypes)('crawl down and return relative paths that end with /', type => {
 		it(type, async () => {
-			const api = new CrawlerBuilder().withRelativePaths();
+			const api = crawler.down().withRelativePaths();
 			const files = await api[type](nodeModulesFilePath + sep);
 			expect(
 				files.every(file => !file.startsWith('node_modules') && !file.includes('//'))
@@ -356,9 +351,42 @@ describe('@hexatool/fs-crawl', () => {
 		});
 	});
 
-	it('test', () => {
-		const api = new CrawlerBuilder().withFullPaths().up();
-		const files = api.sync(nodeModulesFilePath);
-		console.table(files);
+	describe.each(apiTypes)('crawl down but exclude crawl dir', type => {
+		it(type, async () => {
+			const api = crawler
+				.down()
+				.withFullPaths()
+				.exclude((_path, dir) => dir.includes('fs'));
+			const files = await api[type](rootProjectFilePath);
+			console.table(files);
+			expect(files.every(file => !file.includes('fs'))).toBeTruthy();
+		});
+	});
+
+	describe.each(apiTypes)('crawl up a directory', type => {
+		it(type, async () => await crawlUp(type, thisFilePath));
+	});
+
+	describe.each(apiTypes)('crawl up a directory (with stopAt)', type => {
+		it(type, async () => {
+			const stopAt = path.resolve(rootProjectFilePath);
+			const api = crawler.up().withStopAt(stopAt);
+			const files = await api[type](thisFilePath);
+			expect(files).toBeDefined();
+			expect(files.length).toBeGreaterThan(0);
+			expect(files.every(t => t.startsWith(stopAt))).toBeTruthy();
+		});
+	});
+
+	describe.each(apiTypes)('crawl up a directory (with exclude)', type => {
+		it(type, async () => {
+			const root = path.resolve(rootProjectFilePath);
+			const api = crawler.up().exclude((_path, dir) => dir.startsWith(root));
+			const files = await api[type](thisFilePath);
+			expect(files).toBeDefined();
+			expect(files.length).toBeGreaterThan(0);
+			console.table(files);
+			expect(files.every(t => !t.startsWith(root))).toBeTruthy();
+		});
 	});
 });

@@ -1,3 +1,7 @@
+import { parse, resolve } from 'node:path';
+
+import * as process from 'process';
+
 import findAsync from './async';
 import type {
 	CommonCrawlerOptions,
@@ -9,6 +13,13 @@ import type {
 } from './options';
 import findSync from './sync';
 
+function getSystemStop() {
+	const directory = resolve(process.cwd());
+	const { root } = parse(directory);
+
+	return resolve(directory, root);
+}
+
 abstract class CommonCrawlerBuilder<TOptions extends CommonCrawlerOptions> {
 	protected readonly commonOptions: TOptions;
 
@@ -19,6 +30,7 @@ abstract class CommonCrawlerBuilder<TOptions extends CommonCrawlerOptions> {
 			suppressErrors: true,
 			direction,
 			filters: [],
+			stopAt: direction === 'up' ? getSystemStop() : undefined,
 		};
 	}
 
@@ -71,6 +83,14 @@ abstract class CommonCrawlerBuilder<TOptions extends CommonCrawlerOptions> {
 
 		return this;
 	}
+
+	withSymlinks() {
+		this.commonOptions.resolveSymlinks = true;
+		this.commonOptions.resolvePaths = true;
+		this.commonOptions.includeBasePath = true;
+
+		return this;
+	}
 }
 
 class CrawlerUpBuilder extends CommonCrawlerBuilder<CrawlerUpOptions> {
@@ -79,7 +99,14 @@ class CrawlerUpBuilder extends CommonCrawlerBuilder<CrawlerUpOptions> {
 		this.commonOptions.resolvePaths = true;
 		this.commonOptions.includeBasePath = true;
 	}
+
+	withStopAt(stopAt: string): CrawlerUpBuilder {
+		this.commonOptions.stopAt = stopAt;
+
+		return this;
+	}
 }
+
 class CrawlerDownBuilder extends CommonCrawlerBuilder<CrawlerDownOptions> {
 	constructor() {
 		super('down');
@@ -108,12 +135,6 @@ class CrawlerDownBuilder extends CommonCrawlerBuilder<CrawlerDownOptions> {
 		this.commonOptions.relativePaths = true;
 
 		return this;
-	}
-
-	withSymlinks(): CrawlerDownBuilder {
-		this.commonOptions.resolveSymlinks = true;
-
-		return this.withFullPaths();
 	}
 }
 

@@ -8,11 +8,12 @@ export interface CommonCrawlerOptions {
 	direction: CrawlDirection;
 	exclude?: ExcludePredicate;
 	excludeFiles?: boolean;
-	filters?: FilterPredicate[];
+	filters: FilterPredicate[];
 	includeBasePath?: boolean;
 	includeDirs?: boolean;
 	normalizePath?: boolean;
 	resolvePaths?: boolean;
+	resolveSymlinks?: boolean;
 	suppressErrors?: boolean;
 }
 
@@ -20,11 +21,11 @@ export interface CrawlerDownOptions extends CommonCrawlerOptions {
 	direction: 'down';
 	maxDepth?: number;
 	relativePaths?: boolean;
-	resolveSymlinks?: boolean;
 }
 
 export interface CrawlerUpOptions extends CommonCrawlerOptions {
 	direction: 'up';
+	stopAt?: string;
 }
 
 export type CrawlerOptions = CrawlerDownOptions | CrawlerUpOptions;
