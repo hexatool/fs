@@ -2,7 +2,6 @@ import { statSync } from 'node:fs';
 import path, { sep } from 'node:path';
 import * as process from 'node:process';
 
-import * as console from 'console';
 import mock, { restore, symlink } from 'mock-fs';
 import { describe, expect, it } from 'vitest';
 
@@ -358,8 +357,19 @@ describe('@hexatool/fs-crawl', () => {
 				.withFullPaths()
 				.exclude((_path, dir) => dir.includes('fs'));
 			const files = await api[type](rootProjectFilePath);
-			console.table(files);
 			expect(files.every(file => !file.includes('fs'))).toBeTruthy();
+		});
+	});
+
+	describe.each(apiTypes)('crawl down but exclude and maxDepth', type => {
+		it(type, async () => {
+			const api = crawler
+				.down()
+				.withFullPaths()
+				.withMaxDepth(2)
+				.exclude((_path, dir) => dir.includes('copy'));
+			const files = await api[type](rootProjectFilePath);
+			expect(files.every(file => !file.includes('/copy/'))).toBeTruthy();
 		});
 	});
 
@@ -385,7 +395,6 @@ describe('@hexatool/fs-crawl', () => {
 			const files = await api[type](thisFilePath);
 			expect(files).toBeDefined();
 			expect(files.length).toBeGreaterThan(0);
-			console.table(files);
 			expect(files.every(t => !t.startsWith(root))).toBeTruthy();
 		});
 	});

@@ -48,8 +48,8 @@ export class Crawler {
 		this.joinPath = joinPath(root, options);
 		this.pushDirectory = pushDirectory(options);
 		this.pushFile = pushFile(options);
-		this.resolveSymlink = resolveSymlink(options, this.isSynchronous);
-		this.walkDirectory = walkDirectory(this.isSynchronous);
+		this.resolveSymlink = resolveSymlink(this.isSynchronous, options);
+		this.walkDirectory = walkDirectory(this.isSynchronous, options);
 	}
 
 	start(root: string, depth: number): string[] | undefined {

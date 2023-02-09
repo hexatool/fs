@@ -45,8 +45,8 @@ const resolveSymlinksSync: ResolveSymlinkFunction = function (path, state, callb
 };
 
 export default function (
-	options: CrawlerOptions,
-	isSynchronous: boolean
+	isSynchronous: boolean,
+	options: CrawlerOptions
 ): ResolveSymlinkFunction | undefined {
 	if (!options.resolveSymlinks) {
 		return undefined;
