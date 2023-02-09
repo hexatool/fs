@@ -26,8 +26,8 @@ Test whether the given path exists by checking with the file system.
 ### pathExists(path: PathLike): void
 
 - `path`
-   - Type `PathLike`.
-   - Optional `false`.
+   - Type: `PathLike`.
+   - Optional: `false`.
 
 ## Examples
 

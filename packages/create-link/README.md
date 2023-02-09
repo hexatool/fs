@@ -26,11 +26,11 @@ Creates a links to a file. If the directory structure does not exist, it is crea
 
 ### createLink(srcPath: string, destPath: string): void
 - `srcPath`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 - `destPath`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 ```typescript
 import createLink from '@hexatool/fs-create-link';

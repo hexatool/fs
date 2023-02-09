@@ -26,8 +26,8 @@ If the file already exists, **it is NOT MODIFIED**.
 
 ### createFile(path: string): void
 - `path`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 
 ## Example

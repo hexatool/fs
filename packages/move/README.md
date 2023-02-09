@@ -26,24 +26,24 @@ Moves a file or directory, even across devices.
 ### move(src: string, dest: string, opts?: MoveOptions): void
 
 - `src`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 
 - `dest`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 
 - `opts`
-   - Type `MoveOptions`.
-   - Optional `true`.
+   - Type: `MoveOptions`.
+   - Optional: `true`.
 
 ### MoveOptions
 
 - `override`. Overwrite existing file or directory
-   - Type `boolean`.
-   - Optional `true`.
+   - Type: `boolean`.
+   - Optional: `true`.
 
 ## Examples
 

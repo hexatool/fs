@@ -27,13 +27,13 @@ If provided, options may specify the desired mode for the directory.
 ### makeDir(path: string, mode: Mode = 0o777): void
 
 - `path`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 
 - `mode`
-   - Type `string`.
-   - Optional `true`.
+   - Type: `string`.
+   - Optional: `true`.
    - Default `0o777`.
 
 ## Examples

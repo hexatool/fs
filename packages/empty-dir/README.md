@@ -27,8 +27,8 @@ If the directory does not exist, it is created. The directory itself is not dele
 ### emptyDir(path: string): void
 
 - `path`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 ## Examples
 

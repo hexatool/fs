@@ -26,8 +26,8 @@ Removes a file or directory. The directory can have contents. If the path does n
 ### remove(path: string): void
 
 - `path`
-   - Type `string`.
-   - Optional `false`.
+   - Type: `string`.
+   - Optional: `false`.
 
 ## Examples
 
