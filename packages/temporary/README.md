@@ -35,8 +35,8 @@ problems when the returned path is a symlink, which is the case on macOS.
 ### makeTemporaryDir(prefix?: string): string
 
 - `prefix`
-    - Type `string`.
-    - Optional `true`.
+    - Type: `string`.
+    - Optional: `true`.
     - Default `''`.
 
 
