@@ -45,7 +45,9 @@ abstract class CommonCrawlerBuilder<TOptions extends CommonCrawlerOptions> {
 	}
 
 	filter(predicate: FilterPredicate) {
-		this.commonOptions.filters ??= [];
+		if (!this.commonOptions.filters) {
+			this.commonOptions.filters = [];
+		}
 		this.commonOptions.filters.push(predicate);
 
 		return this;
