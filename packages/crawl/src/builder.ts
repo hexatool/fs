@@ -7,11 +7,14 @@ import type {
 	CommonCrawlerOptions,
 	CrawlDirection,
 	CrawlerDownOptions,
+	CrawlerOptions,
 	CrawlerUpOptions,
 	ExcludePredicate,
 	FilterPredicate,
 } from './options';
 import findSync from './sync';
+
+export type { CrawlerOptions };
 
 function getSystemStop() {
 	const directory = resolve(process.cwd());

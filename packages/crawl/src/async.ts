@@ -2,6 +2,8 @@ import type { ResultCallback } from './crawler';
 import { Crawler } from './crawler';
 import type { CrawlerOptions } from './options';
 
+export type { CrawlerOptions };
+
 function callback(root: string, options: CrawlerOptions, callback: ResultCallback) {
 	const walker = new Crawler(root, options, callback);
 	const maxDepth = 'maxDepth' in options ? options.maxDepth : Infinity;
