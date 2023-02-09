@@ -31,6 +31,10 @@
 		"./async": {
 			"types": "./dist/async.d.ts",
 			"default": "./dist/hexatool-fs-crawl-async.mjs"
+		},
+		"./builder": {
+			"types": "./dist/builder.d.ts",
+			"default": "./dist/hexatool-fs-crawl-builder.mjs"
 		}
 	},
 	"scripts": {
