@@ -8,6 +8,7 @@ import {
 } from 'node:fs/promises';
 
 import copy from '@hexatool/fs-copy/async';
+import crawl, { type CrawlerOptions } from '@hexatool/fs-crawl/async';
 import createFile from '@hexatool/fs-create-file/async';
 import createLink from '@hexatool/fs-create-link/async';
 import emptyDir from '@hexatool/fs-empty-dir/async';
@@ -25,7 +26,7 @@ import {
 } from '@hexatool/fs-stat/async';
 import temporaryDir, { makeTemporaryDir } from '@hexatool/fs-temporary/async';
 
-export type { StatsResult };
+export type { CrawlerOptions, StatsResult };
 
 const ensureDir = makeDir;
 const ensureFile = createFile;
@@ -36,6 +37,7 @@ export {
 	checkParentPaths,
 	checkPaths,
 	copy,
+	crawl,
 	createFile,
 	createLink,
 	emptyDir,
