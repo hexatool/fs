@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs",
-	"version": "0.0.1-next.5",
+	"version": "0.0.1-next.6",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
@@ -43,7 +43,7 @@
 	},
 	"dependencies": {
 		"@hexatool/fs-copy": "0.0.1-next.3",
-		"@hexatool/fs-crawl": "0.0.0",
+		"@hexatool/fs-crawl": "0.0.1-next.0",
 		"@hexatool/fs-create-file": "0.0.1-next.3",
 		"@hexatool/fs-create-link": "0.0.1-next.3",
 		"@hexatool/fs-empty-dir": "0.0.1-next.3",
