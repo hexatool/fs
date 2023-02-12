@@ -37,6 +37,18 @@
 			"default": "./dist/hexatool-fs-crawl-builder.mjs"
 		}
 	},
+	"typesVersions": {
+		"*": {
+			"async": [
+				"./dist/async.d.ts"
+			]
+		},
+		"*": {
+			"builder": [
+				"./dist/builder.d.ts"
+			]
+		}
+	},
 	"scripts": {
 		"build": "vite build",
 		"lint": "eslint .",

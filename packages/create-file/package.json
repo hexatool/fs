@@ -33,6 +33,13 @@
 			"default": "./dist/hexatool-fs-create-file-async.mjs"
 		}
 	},
+	"typesVersions": {
+		"*": {
+			"async": [
+				"./dist/async.d.ts"
+			]
+		}
+	},
 	"scripts": {
 		"build": "vite build",
 		"lint": "eslint .",

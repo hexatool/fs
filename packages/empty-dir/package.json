@@ -33,6 +33,13 @@
 			"default": "./dist/hexatool-fs-empty-dir-async.mjs"
 		}
 	},
+	"typesVersions": {
+		"*": {
+			"async": [
+				"./dist/async.d.ts"
+			]
+		}
+	},
 	"scripts": {
 		"build": "vite build",
 		"lint": "eslint .",
