@@ -39,11 +39,6 @@
 	},
 	"typesVersions": {
 		"*": {
-			"async": [
-				"./dist/async.d.ts"
-			]
-		},
-		"*": {
 			"builder": [
 				"./dist/builder.d.ts"
 			]
