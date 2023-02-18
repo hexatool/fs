@@ -1,6 +1,6 @@
 {
 	"name": "@hexatool/fs",
-	"version": "0.0.1-next.6",
+	"version": "0.0.1-next.7",
 	"description": "Modular fs library",
 	"keywords": [
 		"fs",
@@ -49,17 +49,17 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-copy": "0.0.1-next.3",
-		"@hexatool/fs-crawl": "0.0.1-next.0",
-		"@hexatool/fs-create-file": "0.0.1-next.3",
-		"@hexatool/fs-create-link": "0.0.1-next.3",
-		"@hexatool/fs-empty-dir": "0.0.1-next.3",
-		"@hexatool/fs-make-dir": "0.0.1-next.3",
-		"@hexatool/fs-move": "0.0.1-next.3",
-		"@hexatool/fs-path-exists": "0.0.1-next.3",
-		"@hexatool/fs-remove": "0.0.1-next.3",
-		"@hexatool/fs-stat": "0.0.1-next.3",
-		"@hexatool/fs-temporary": "0.0.1-next.5"
+		"@hexatool/fs-copy": "0.0.1-next.4",
+		"@hexatool/fs-crawl": "0.0.1-next.1",
+		"@hexatool/fs-create-file": "0.0.1-next.4",
+		"@hexatool/fs-create-link": "0.0.1-next.4",
+		"@hexatool/fs-empty-dir": "0.0.1-next.4",
+		"@hexatool/fs-make-dir": "0.0.1-next.4",
+		"@hexatool/fs-move": "0.0.1-next.4",
+		"@hexatool/fs-path-exists": "0.0.1-next.4",
+		"@hexatool/fs-remove": "0.0.1-next.4",
+		"@hexatool/fs-stat": "0.0.1-next.4",
+		"@hexatool/fs-temporary": "0.0.1-next.6"
 	},
 	"engines": {
 		"node": ">=14.16.0"
