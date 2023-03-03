@@ -9,6 +9,15 @@
 			"@hexatool/fs-*/async": [
 				"packages/*/src/async"
 			],
+			"@hexatool/fs-*/builder": [
+				"packages/*/src/builder"
+			],
+			"@hexatool/fs-*/iterator": [
+				"packages/*/src/iterator"
+			],
+			"@hexatool/fs-*/stream": [
+				"packages/*/src/stream"
+			],
 			"@hexatool/fs-*": [
 				"packages/*/src/sync"
 			],

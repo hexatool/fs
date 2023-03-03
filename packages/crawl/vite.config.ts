@@ -1,5 +1,3 @@
-import { resolve } from 'node:path';
-
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { externalizeDeps } from 'vite-plugin-externalize-deps';
@@ -13,9 +11,11 @@ export default defineConfig({
 			fileName: (format, entryName) =>
 				`hexatool-fs-crawl-${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
 			entry: [
-				resolve(__dirname, 'src/sync.ts'),
-				resolve(__dirname, 'src/async.ts'),
-				resolve(__dirname, 'src/builder.ts'),
+				'src/async.ts',
+				'src/builder.ts',
+				'src/iterator.ts',
+				'src/sync.ts',
+				'src/stream.ts',
 			],
 		},
 		minify: false,

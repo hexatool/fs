@@ -35,12 +35,29 @@
 		"./builder": {
 			"types": "./dist/builder.d.ts",
 			"default": "./dist/hexatool-fs-crawl-builder.mjs"
+		},
+		"./iterator": {
+			"types": "./dist/iterator.d.ts",
+			"default": "./dist/hexatool-fs-crawl-iterator.mjs"
+		},
+		"./stream": {
+			"types": "./dist/stream.d.ts",
+			"default": "./dist/hexatool-fs-crawl-stream.mjs"
 		}
 	},
 	"typesVersions": {
 		"*": {
+			"async": [
+				"./dist/async.d.ts"
+			],
 			"builder": [
 				"./dist/builder.d.ts"
+			],
+			"iterator": [
+				"./dist/iterator.d.ts"
+			],
+			"stream": [
+				"./dist/stream.d.ts"
 			]
 		}
 	},
@@ -57,6 +74,7 @@
 	},
 	"devDependencies": {
 		"@types/mock-fs": "4.13.1",
+		"fdir": "6.0.1",
 		"mock-fs": "5.2.0"
 	},
 	"engines": {

@@ -1,0 +1,212 @@
+// Vitest Snapshot v1
+
+exports[`@hexatool/fs-crawl > crawl custom directory > crawl custom directory down > async crawl custom directory down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory > crawl custom directory down > iterator crawl custom directory down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory > crawl custom directory down > stream crawl custom directory down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory > crawl custom directory down > sync crawl custom directory down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory with Dirent > crawl custom directory with Dirent down > async crawl current directory with Dirent down 1`] = `
+[
+  Dirent {
+    "name": ".eslintignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".eslintrc.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".npmignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "CHANGELOG.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "LICENSE",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "README.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "package.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "spec",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "src",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "tsconfig.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "vite.config.ts",
+    Symbol(type): 1,
+  },
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory with Dirent > crawl custom directory with Dirent down > stream crawl custom directory with Dirent down 1`] = `
+[
+  Dirent {
+    "name": ".eslintignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".eslintrc.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".npmignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "CHANGELOG.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "LICENSE",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "README.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "package.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "spec",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "src",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "tsconfig.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "vite.config.ts",
+    Symbol(type): 1,
+  },
+]
+`;
+
+exports[`@hexatool/fs-crawl > crawl custom directory with Dirent > crawl custom directory with Dirent down > sync crawl current directory with Dirent down 1`] = `
+[
+  Dirent {
+    "name": ".eslintignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".eslintrc.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": ".npmignore",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "CHANGELOG.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "LICENSE",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "README.md",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "package.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "spec",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "src",
+    Symbol(type): 2,
+  },
+  Dirent {
+    "name": "tsconfig.json",
+    Symbol(type): 1,
+  },
+  Dirent {
+    "name": "vite.config.ts",
+    Symbol(type): 1,
+  },
+]
+`;

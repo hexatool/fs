@@ -1,19 +1,14 @@
-import type { Dirent } from 'node:fs';
+import type { Readable } from 'node:stream';
 
 import type { PathLike } from 'fs';
 
 import builder from './builder';
 import type { CrawlerOptions } from './types';
-import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
 
-export default function crawl(options: DirentCrawlerOptions): Dirent[];
-export default function crawl(options: StringCrawlerOptions): string[];
-export default function crawl(path: PathLike, options: DirentCrawlerOptions): Dirent[];
-export default function crawl(path: PathLike, options: StringCrawlerOptions): string[];
 export default function crawl(
 	pathOrOptions: CrawlerOptions | PathLike,
 	options?: CrawlerOptions
-): (Dirent | string)[] {
+): Readable {
 	const path =
 		typeof pathOrOptions === 'string'
 			? pathOrOptions
@@ -32,8 +27,8 @@ export default function crawl(
 
 	const b = builder[opts.direction]();
 	if (opts.returnType === 'Dirent') {
-		return b.withDirent().sync().start(path);
+		return b.withDirent().stream().start(path);
 	}
 
-	return b.sync().start(path);
+	return b.stream().start(path);
 }

@@ -6,14 +6,20 @@ import builder from './builder';
 import type { CrawlerOptions } from './types';
 import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
 
-export default function crawl(options: DirentCrawlerOptions): Promise<Dirent[]>;
-export default function crawl(options: StringCrawlerOptions): Promise<string[]>;
-export default function crawl(path: PathLike, options: DirentCrawlerOptions): Promise<Dirent[]>;
-export default function crawl(path: PathLike, options: StringCrawlerOptions): Promise<string[]>;
-export default async function crawl(
+export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<Dirent>;
+export default function crawl(options: StringCrawlerOptions): AsyncIterableIterator<string>;
+export default function crawl(
+	path: PathLike,
+	options: DirentCrawlerOptions
+): AsyncIterableIterator<Dirent>;
+export default function crawl(
+	path: PathLike,
+	options: StringCrawlerOptions
+): AsyncIterableIterator<string>;
+export default function crawl(
 	pathOrOptions: CrawlerOptions | PathLike,
 	options?: CrawlerOptions
-): Promise<(Dirent | string)[]> {
+): AsyncIterableIterator<Dirent | string> {
 	const path =
 		typeof pathOrOptions === 'string'
 			? pathOrOptions
@@ -32,8 +38,8 @@ export default async function crawl(
 
 	const b = builder[opts.direction]();
 	if (opts.returnType === 'Dirent') {
-		return b.withDirent().async().start(path);
+		return b.withDirent().iterator().start(path);
 	}
 
-	return b.async().start(path);
+	return b.iterator().start(path);
 }
