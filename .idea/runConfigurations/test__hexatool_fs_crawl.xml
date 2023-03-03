@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test:@hexatool/fs-crawl" type="JavaScriptTestRunnerVitest">
+    <node-interpreter value="project" />
+    <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+    <working-dir value="$PROJECT_DIR$/packages/crawl" />
+    <envs />
+    <scope-kind value="SUITE" />
+    <test-file value="$PROJECT_DIR$/packages/crawl/spec/crawler.test.ts" />
+    <test-names>
+      <test-name value="@hexatool/fs-crawl" />
+    </test-names>
+    <method v="2" />
+  </configuration>
+</component>
