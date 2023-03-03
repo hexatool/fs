@@ -1,7 +1,7 @@
 import { fdir as Fdir } from 'fdir';
 import { bench, describe } from 'vitest';
 
-import crawler from '../src/sync';
+import crawler from '../src/builder';
 
 describe('[ASYNC] crawl down single depth directory', () => {
 	bench('@hexatool/fs-crawl/sync', () => {
