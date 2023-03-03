@@ -6,6 +6,8 @@ import builder from './builder';
 import type { CrawlerOptions } from './types';
 import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
 
+export type { CrawlerOptions };
+
 export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<Dirent>;
 export default function crawl(options: StringCrawlerOptions): AsyncIterableIterator<string>;
 export default function crawl(

@@ -3,7 +3,7 @@ import type { Dirent } from 'node:fs';
 import { fs } from '@hexatool/fs-file-system';
 import type { PathLike } from 'fs';
 
-import type { CallBack, EmitEvents } from '../types';
+import type { CallBack, ReturnType } from '../types';
 
 export type CallbackReadDirFn<Output extends Dirent | string> = (
 	path: PathLike,
@@ -28,7 +28,7 @@ export default function readDirFn(api: 'sync', resultType: 'Dirent'): SyncReadDi
 export default function readDirFn(api: 'sync', resultType: 'string'): SyncReadDirFn<string>;
 export default function readDirFn<Output extends Dirent | string>(
 	api: 'callback' | 'sync',
-	resultType: EmitEvents
+	resultType: ReturnType
 ): ReadDirFn<Output> {
 	if (api === 'callback' && resultType === 'Dirent') {
 		// @ts-ignore

@@ -6,6 +6,7 @@ import builder from './builder';
 import type { CrawlerOptions } from './types';
 import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
 
+export type { CrawlerOptions };
 export default function crawl(options: DirentCrawlerOptions): Promise<Dirent[]>;
 export default function crawl(options: StringCrawlerOptions): Promise<string[]>;
 export default function crawl(path: PathLike, options: DirentCrawlerOptions): Promise<Dirent[]>;
