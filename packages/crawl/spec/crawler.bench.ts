@@ -3,10 +3,15 @@ import { bench, describe } from 'vitest';
 
 import crawler from '../src/builder';
 
-describe('[ASYNC] crawl down single depth directory', () => {
-	bench('@hexatool/fs-crawl/sync', () => {
-		crawler.down().sync().start();
-	});
+describe('async crawl down single depth directory', () => {
+	bench(
+		'@hexatool/fs-crawl/sync',
+		() =>
+			new Promise(done => {
+				crawler.down().sync().start(process.cwd());
+				done();
+			})
+	);
 	bench(
 		'@hexatool/fs-crawl/async',
 		() =>
@@ -14,7 +19,7 @@ describe('[ASYNC] crawl down single depth directory', () => {
 				crawler
 					.down()
 					.async()
-					.start()
+					.start(process.cwd())
 					.then(() => done())
 					.catch(e => reject(e));
 			})
@@ -23,14 +28,22 @@ describe('[ASYNC] crawl down single depth directory', () => {
 		'@hexatool/fs-crawl/stream',
 		() =>
 			new Promise(done => {
-				const stream = crawler.down().stream().start();
+				const stream = crawler.down().stream().start(process.cwd());
 				stream.on('end', () => done());
 				stream.resume();
 			})
 	);
 	bench(
 		'fdir',
-		async () =>
-			void (await new Fdir().withMaxDepth(1).withDirs().crawl(process.cwd()).withPromise())
+		() =>
+			new Promise((done, reject) => {
+				new Fdir()
+					.withMaxDepth(0)
+					.withDirs()
+					.crawl(process.cwd())
+					.withPromise()
+					.then(() => done())
+					.catch(e => reject(e));
+			})
 	);
 });
