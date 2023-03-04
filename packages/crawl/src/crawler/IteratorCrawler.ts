@@ -2,7 +2,7 @@ import type { Dirent } from 'node:fs';
 
 import * as process from 'process';
 
-import type { Crawler } from '../types';
+import type { Crawler, CrawlerOptions } from '../types';
 import type { Pending } from '../utils/pending';
 import { pending } from '../utils/pending';
 import {
@@ -14,8 +14,9 @@ import {
 abstract class IteratorCrawler<T extends Dirent | string>
 	implements Crawler<AsyncIterableIterator<T>>
 {
+	constructor(protected readonly options: CrawlerOptions) {}
 	start(path = process.cwd()): AsyncIterableIterator<T> {
-		const stream = new StringFileSystemStreamCrawler(path).stream;
+		const stream = new StringFileSystemStreamCrawler(path, this.options).stream;
 		const pendingValues: T[] = [];
 		const pendingReads: Array<Pending<IteratorResult<T>>> = [];
 		let error: Error | undefined;
@@ -107,12 +108,12 @@ abstract class IteratorCrawler<T extends Dirent | string>
 
 export class StringIteratorCrawler extends IteratorCrawler<string> {
 	getStream(path: string): FileSystemStreamCrawler<string> {
-		return new StringFileSystemStreamCrawler(path);
+		return new StringFileSystemStreamCrawler(path, this.options);
 	}
 }
 
 export class DirentIteratorCrawler extends IteratorCrawler<Dirent> {
 	getStream(path: string): FileSystemStreamCrawler<Dirent> {
-		return new DirentFileSystemStreamCrawler(path);
+		return new DirentFileSystemStreamCrawler(path, this.options);
 	}
 }

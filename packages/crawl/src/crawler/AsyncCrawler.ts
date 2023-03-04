@@ -1,27 +1,26 @@
 import type { Dirent } from 'node:fs';
 
-import type { PathLike } from 'fs';
 import process from 'process';
 
 import readDirFn, { CallbackReadDirFn } from '../fn/read-dir';
-import type { Crawler } from '../types';
+import type { Crawler, CrawlerOptions } from '../types';
 
 abstract class AsyncCrawler<O extends Dirent | string> implements Crawler<Promise<O[]>> {
-	async start(path: PathLike = process.cwd()): Promise<O[]> {
+	async start(path: string = process.cwd()): Promise<O[]> {
 		return this.readdir(path);
 	}
 
-	abstract readdir(path: PathLike): Promise<O[]>;
+	abstract readdir(path: string): Promise<O[]>;
 }
 
 export class StringAsyncCrawler extends AsyncCrawler<string> {
 	private readonly readDirFn: CallbackReadDirFn<string>;
-	constructor() {
+	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', 'string');
+		this.readDirFn = readDirFn('callback', 'string', this.options.exclude);
 	}
 
-	async readdir(path: PathLike): Promise<string[]> {
+	async readdir(path: string): Promise<string[]> {
 		return new Promise((resolve, reject) => {
 			this.readDirFn(path, (error, result) => {
 				if (error) {
@@ -36,12 +35,12 @@ export class StringAsyncCrawler extends AsyncCrawler<string> {
 
 export class DirentAsyncCrawler extends AsyncCrawler<Dirent> {
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
-	constructor() {
+	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', 'Dirent');
+		this.readDirFn = readDirFn('callback', 'Dirent', this.options.exclude);
 	}
 
-	async readdir(path: PathLike): Promise<Dirent[]> {
+	async readdir(path: string): Promise<Dirent[]> {
 		return new Promise((resolve, reject) => {
 			this.readDirFn(path, (error, result) => {
 				if (error) {

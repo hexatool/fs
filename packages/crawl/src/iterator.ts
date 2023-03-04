@@ -1,7 +1,5 @@
 import type { Dirent } from 'node:fs';
 
-import type { PathLike } from 'fs';
-
 import builder from './builder';
 import type { CrawlerOptions } from './types';
 import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
@@ -11,15 +9,15 @@ export type { CrawlerOptions };
 export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<Dirent>;
 export default function crawl(options: StringCrawlerOptions): AsyncIterableIterator<string>;
 export default function crawl(
-	path: PathLike,
+	path: string,
 	options: DirentCrawlerOptions
 ): AsyncIterableIterator<Dirent>;
 export default function crawl(
-	path: PathLike,
+	path: string,
 	options: StringCrawlerOptions
 ): AsyncIterableIterator<string>;
 export default function crawl(
-	pathOrOptions: CrawlerOptions | PathLike,
+	pathOrOptions: CrawlerOptions | string,
 	options?: CrawlerOptions
 ): AsyncIterableIterator<Dirent | string> {
 	const path =

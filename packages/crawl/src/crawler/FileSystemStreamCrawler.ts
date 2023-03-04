@@ -1,20 +1,18 @@
 import type { Dirent } from 'node:fs';
 import { Readable } from 'node:stream';
 
-import type { PathLike } from 'fs';
-
 import type { CallbackReadDirFn } from '../fn/read-dir';
 import readDirFn from '../fn/read-dir';
-import type { CallBack, EmitEvents } from '../types';
+import type { CallBack, CrawlerOptions, EmitEvents } from '../types';
 
 export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 	public readonly stream: Readable;
 	private readonly buffer: (Dirent | string)[];
 	private pending: number;
-	private readonly queue: PathLike[];
+	private readonly queue: string[];
 	private shouldRead: boolean;
 
-	protected constructor(path: PathLike) {
+	protected constructor(path: string) {
 		this.buffer = [];
 		this.pending = 0;
 		this.shouldRead = true;
@@ -117,29 +115,29 @@ export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 		});
 	}
 
-	protected abstract readdir(path: PathLike, callback: CallBack<Output[]>): void;
+	protected abstract readdir(path: string, callback: CallBack<Output[]>): void;
 }
 
 export class DirentFileSystemStreamCrawler extends FileSystemStreamCrawler<Dirent> {
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
-	constructor(path: PathLike) {
+	constructor(path: string, options: CrawlerOptions) {
 		super(path);
-		this.readDirFn = readDirFn('callback', 'Dirent');
+		this.readDirFn = readDirFn('callback', 'Dirent', options.exclude);
 	}
 
-	protected readdir(path: PathLike, callback: CallBack<Dirent[]>): void {
+	protected readdir(path: string, callback: CallBack<Dirent[]>): void {
 		this.readDirFn(path, callback);
 	}
 }
 
 export class StringFileSystemStreamCrawler extends FileSystemStreamCrawler<string> {
 	private readonly readDirFn: CallbackReadDirFn<string>;
-	constructor(path: PathLike) {
+	constructor(path: string, options: CrawlerOptions) {
 		super(path);
-		this.readDirFn = readDirFn('callback', 'string');
+		this.readDirFn = readDirFn('callback', 'string', options.exclude);
 	}
 
-	protected readdir(path: PathLike, callback: CallBack<string[]>): void {
+	protected readdir(path: string, callback: CallBack<string[]>): void {
 		this.readDirFn(path, callback);
 	}
 }

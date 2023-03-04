@@ -11,7 +11,7 @@ import { DirentIteratorCrawler, StringIteratorCrawler } from '../crawler/Iterato
 import { DirentStreamCrawler, StringStreamCrawler } from '../crawler/StreamCrawler';
 import type { Crawler, CrawlerOptions } from '../types';
 import type Builder from '../types/builder';
-import type { CrawlerDownOptions } from '../types/options';
+import type { CrawlerDownOptions, ExcludeType } from '../types/options';
 
 abstract class CommonCrawlerBuilder<T extends CrawlerOptions, O extends Dirent | string>
 	implements Builder<O>
@@ -20,6 +20,12 @@ abstract class CommonCrawlerBuilder<T extends CrawlerOptions, O extends Dirent |
 
 	protected constructor(options: T) {
 		this.options = options;
+	}
+
+	exclude(exclude: ExcludeType): CommonCrawlerBuilder<T, O> {
+		this.options.exclude = exclude;
+
+		return this;
 	}
 
 	abstract async(): Crawler<Promise<O[]>>;
@@ -41,19 +47,19 @@ class CrawlerDownWithDirentBuilder extends CommonCrawlerBuilder<CrawlerDownOptio
 	}
 
 	async(): Crawler<Promise<Dirent[]>> {
-		return new DirentAsyncCrawler();
+		return new DirentAsyncCrawler(this.options);
 	}
 
 	iterator(): Crawler<AsyncIterableIterator<Dirent>> {
-		return new DirentIteratorCrawler();
+		return new DirentIteratorCrawler(this.options);
 	}
 
 	stream(): Crawler<Readable> {
-		return new DirentStreamCrawler();
+		return new DirentStreamCrawler(this.options);
 	}
 
 	sync(): Crawler<Dirent[]> {
-		return new DirentSyncCrawler();
+		return new DirentSyncCrawler(this.options);
 	}
 }
 
@@ -66,19 +72,19 @@ class CrawlerDownBuilder extends CommonCrawlerBuilder<CrawlerDownOptions, string
 	}
 
 	async(): Crawler<Promise<string[]>> {
-		return new StringAsyncCrawler();
+		return new StringAsyncCrawler(this.options);
 	}
 
 	iterator(): Crawler<AsyncIterableIterator<string>> {
-		return new StringIteratorCrawler();
+		return new StringIteratorCrawler(this.options);
 	}
 
 	stream(): Crawler<Readable> {
-		return new StringStreamCrawler();
+		return new StringStreamCrawler(this.options);
 	}
 
 	sync(): Crawler<string[]> {
-		return new StringSyncCrawler();
+		return new StringSyncCrawler(this.options);
 	}
 
 	withDirent(): CrawlerDownWithDirentBuilder {

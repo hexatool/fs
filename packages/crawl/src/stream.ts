@@ -1,13 +1,11 @@
 import type { Readable } from 'node:stream';
 
-import type { PathLike } from 'fs';
-
 import builder from './builder';
 import type { CrawlerOptions } from './types';
 
 export type { CrawlerOptions };
 export default function crawl(
-	pathOrOptions: CrawlerOptions | PathLike,
+	pathOrOptions: CrawlerOptions | string,
 	options?: CrawlerOptions
 ): Readable {
 	const path =
