@@ -3,7 +3,7 @@ import { bench, describe } from 'vitest';
 
 import crawler from '../src/builder';
 
-describe('async crawl down single depth directory', () => {
+describe('crawl down a single depth directory', () => {
 	bench(
 		'@hexatool/fs-crawl/sync',
 		() =>
