@@ -3,14 +3,14 @@ import type { Readable } from 'node:stream';
 
 import { describe, expect, it } from 'vitest';
 
-import { apiTypes, directions } from '../src/types';
+import { apiTypes, CrawlDirection, directions } from '../src/types';
 import type { ResultTypeOutput } from '../src/types/options';
 
 type ReturnType = ResultTypeOutput[];
-type StreamTestFn = () => Readable;
-type IteratorTestFn = () => AsyncIterableIterator<ResultTypeOutput>;
-type SyncTestFn = () => ReturnType;
-type AsyncTestFn = () => Promise<ReturnType>;
+type StreamTestFn = (direction: CrawlDirection) => Readable;
+type IteratorTestFn = (direction: CrawlDirection) => AsyncIterableIterator<ResultTypeOutput>;
+type SyncTestFn = (direction: CrawlDirection) => ReturnType;
+type AsyncTestFn = (direction: CrawlDirection) => Promise<ReturnType>;
 
 function check(files: ReturnType, matchSnapshot: boolean, matchEmpty: boolean) {
 	if (matchSnapshot) {
@@ -41,7 +41,7 @@ export default function crawlerTest(
 				it(`[${type}] ${testName} ${direction}`, () =>
 					new Promise<void>(resolve => {
 						const files: (Dirent | string)[] = [];
-						const st = stream();
+						const st = stream(direction);
 						st.on('data', d => files.push(d as string));
 						st.on('end', () => {
 							check(files, matchSnapshot, matchEmpty);
@@ -51,7 +51,7 @@ export default function crawlerTest(
 			} else if (type === 'iterator' && iterator) {
 				it(`[${type}] ${testName} ${direction}`, async () => {
 					const files: ReturnType = [];
-					const it = iterator();
+					const it = iterator(direction);
 					for await (const item of it) {
 						files.push(item);
 					}
@@ -59,12 +59,12 @@ export default function crawlerTest(
 				});
 			} else if (type === 'sync' && sync) {
 				it(`[${type}] ${testName} ${direction}`, () => {
-					const files = sync();
+					const files = sync(direction);
 					check(files, matchSnapshot, matchEmpty);
 				});
 			} else if (async) {
 				it(`[${type}] ${testName} ${direction}`, async () => {
-					const files = await async();
+					const files = await async(direction);
 					check(files, matchSnapshot, matchEmpty);
 				});
 			}

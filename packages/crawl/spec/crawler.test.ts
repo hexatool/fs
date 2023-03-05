@@ -12,54 +12,50 @@ crawlModuleFilePath = crawlModuleFilePath === '' ? '.' : crawlModuleFilePath;
 describe('@hexatool/fs-crawl', () => {
 	crawlerTest(
 		'should crawl current directory',
-		() => crawler.down().sync(),
-		() => crawler.down().async(),
-		() => crawler.down().stream(),
-		() => crawler.down().iterator()
+		direction => crawler[direction]().sync(),
+		direction => crawler[direction]().async(),
+		direction => crawler[direction]().stream(),
+		direction => crawler[direction]().iterator()
 	);
 	crawlerTest(
 		'should crawl current directory with Dirent',
-		() => crawler.down().withDirent().sync(),
-		() => crawler.down().withDirent().async(),
-		() => crawler.down().withDirent().stream(),
-		() => crawler.down().withDirent().iterator()
+		direction => crawler[direction]().withDirent().sync(),
+		direction => crawler[direction]().withDirent().async(),
+		direction => crawler[direction]().withDirent().stream(),
+		direction => crawler[direction]().withDirent().iterator()
 	);
 	crawlerTest(
 		'should crawl custom directory',
-		() => crawler.down().sync(crawlModuleFilePath),
-		() => crawler.down().async(crawlModuleFilePath),
-		() => crawler.down().stream(crawlModuleFilePath),
-		() => crawler.down().iterator(crawlModuleFilePath),
+		direction => crawler[direction]().sync(crawlModuleFilePath),
+		direction => crawler[direction]().async(crawlModuleFilePath),
+		direction => crawler[direction]().stream(crawlModuleFilePath),
+		direction => crawler[direction]().iterator(crawlModuleFilePath),
 		true
 	);
 	crawlerTest(
 		'should crawl custom directory with Dirent',
-		() => crawler.down().withDirent().sync(crawlModuleFilePath),
-		() => crawler.down().withDirent().async(crawlModuleFilePath),
-		() => crawler.down().withDirent().stream(crawlModuleFilePath),
-		() => crawler.down().withDirent().iterator(crawlModuleFilePath),
+		direction => crawler[direction]().withDirent().sync(crawlModuleFilePath),
+		direction => crawler[direction]().withDirent().async(crawlModuleFilePath),
+		direction => crawler[direction]().withDirent().stream(crawlModuleFilePath),
+		direction => crawler[direction]().withDirent().iterator(crawlModuleFilePath),
 		true
 	);
 	crawlerTest(
 		'should exclude folder with RegExp returning true',
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/\/fs\/packages\/.*/)
 				.sync(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/\/fs\/packages\/.*/)
 				.async(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/\/fs\/packages\/.*/)
 				.stream(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/\/fs\/packages\/.*/)
 				.iterator(crawlModuleFilePath),
 		true,
@@ -67,89 +63,78 @@ describe('@hexatool/fs-crawl', () => {
 	);
 	crawlerTest(
 		'should exclude folder with RegExp returning false',
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/weglsjikvh/)
 				.sync(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/weglsjikvh/)
 				.async(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/weglsjikvh/)
 				.stream(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(/weglsjikvh/)
 				.iterator(crawlModuleFilePath),
 		true
 	);
 	crawlerTest(
 		'should exclude folder with string returning false',
-		() => crawler.down().exclude('weglsjikvh').sync(crawlModuleFilePath),
-		() => crawler.down().exclude('weglsjikvh').async(crawlModuleFilePath),
-		() => crawler.down().exclude('weglsjikvh').stream(crawlModuleFilePath),
-		() => crawler.down().exclude('weglsjikvh').iterator(crawlModuleFilePath),
+		direction => crawler[direction]().exclude('weglsjikvh').sync(crawlModuleFilePath),
+		direction => crawler[direction]().exclude('weglsjikvh').async(crawlModuleFilePath),
+		direction => crawler[direction]().exclude('weglsjikvh').stream(crawlModuleFilePath),
+		direction => crawler[direction]().exclude('weglsjikvh').iterator(crawlModuleFilePath),
 		true
 	);
 	crawlerTest(
 		'should exclude folder with string returning true',
-		() => crawler.down().exclude(crawlModuleFilePath).sync(crawlModuleFilePath),
-		() => crawler.down().exclude(crawlModuleFilePath).async(crawlModuleFilePath),
-		() => crawler.down().exclude(crawlModuleFilePath).stream(crawlModuleFilePath),
-		() => crawler.down().exclude(crawlModuleFilePath).iterator(crawlModuleFilePath),
+		direction => crawler[direction]().exclude(crawlModuleFilePath).sync(crawlModuleFilePath),
+		direction => crawler[direction]().exclude(crawlModuleFilePath).async(crawlModuleFilePath),
+		direction => crawler[direction]().exclude(crawlModuleFilePath).stream(crawlModuleFilePath),
+		direction =>
+			crawler[direction]().exclude(crawlModuleFilePath).iterator(crawlModuleFilePath),
 		true,
 		true
 	);
 	crawlerTest(
 		'should exclude folder with fn returning false',
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => false)
 				.sync(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => false)
 				.async(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => false)
 				.stream(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => false)
 				.iterator(crawlModuleFilePath),
 		true
 	);
 	crawlerTest(
 		'should exclude folder with fn returning true',
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => true)
 				.sync(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => true)
 				.async(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => true)
 				.stream(crawlModuleFilePath),
-		() =>
-			crawler
-				.down()
+		direction =>
+			crawler[direction]()
 				.exclude(() => true)
 				.iterator(crawlModuleFilePath),
 		true,
