@@ -7,7 +7,7 @@ import crawler from '../src/builder';
 describe('async crawl down single depth directory', () => {
 	it('@hexatool/fs-crawl/sync', () =>
 		new Promise(done => {
-			const files = crawler.down().sync().start(process.cwd());
+			const files = crawler.down().sync(process.cwd());
 			console.log(files);
 			done(undefined);
 		}));
@@ -15,8 +15,7 @@ describe('async crawl down single depth directory', () => {
 		new Promise((done, reject) => {
 			crawler
 				.down()
-				.async()
-				.start(process.cwd())
+				.async(process.cwd())
 				.then(f => console.log(f))
 				.then(() => done(undefined))
 				.catch(e => reject(e));
@@ -25,7 +24,7 @@ describe('async crawl down single depth directory', () => {
 		new Promise(done => {
 			// @ts-ignore
 			const files = [];
-			const stream = crawler.down().stream().start(process.cwd());
+			const stream = crawler.down().stream(process.cwd());
 			stream.on('data', f => files.push(f));
 			stream.on('end', () => {
 				// @ts-ignore

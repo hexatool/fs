@@ -8,7 +8,7 @@ describe('async crawl down single depth directory', () => {
 		'@hexatool/fs-crawl/sync',
 		() =>
 			new Promise(done => {
-				crawler.down().sync().start(process.cwd());
+				crawler.down().sync(process.cwd());
 				done();
 			})
 	);
@@ -18,8 +18,7 @@ describe('async crawl down single depth directory', () => {
 			new Promise((done, reject) => {
 				crawler
 					.down()
-					.async()
-					.start(process.cwd())
+					.async(process.cwd())
 					.then(() => done())
 					.catch(e => reject(e));
 			})
@@ -28,7 +27,7 @@ describe('async crawl down single depth directory', () => {
 		'@hexatool/fs-crawl/stream',
 		() =>
 			new Promise(done => {
-				const stream = crawler.down().stream().start(process.cwd());
+				const stream = crawler.down().stream(process.cwd());
 				stream.on('end', () => done());
 				stream.resume();
 			})
