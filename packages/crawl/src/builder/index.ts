@@ -29,12 +29,10 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 
 	async async(path: string = process.cwd()): Promise<Output[]> {
 		if (this.options.returnType === 'string') {
-			// @ts-ignore
-			return new StringAsyncCrawler(this.options).start(path);
+			return new StringAsyncCrawler(this.options).start(path) as Promise<Output[]>;
 		}
 
-		// @ts-ignore
-		return new DirentAsyncCrawler(this.options).start(path);
+		return new DirentAsyncCrawler(this.options).start(path) as Promise<Output[]>;
 	}
 
 	exclude(exclude: ExcludeType): CrawlerBuilder<Output> {
@@ -45,12 +43,12 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 
 	iterator(path: string = process.cwd()): AsyncIterableIterator<Output> {
 		if (this.options.returnType === 'string') {
-			// @ts-ignore
-			return new StringIteratorCrawler(this.options).start(path);
+			return new StringIteratorCrawler(this.options).start(
+				path
+			) as AsyncIterableIterator<Output>;
 		}
 
-		// @ts-ignore
-		return new DirentIteratorCrawler(this.options).start(path);
+		return new DirentIteratorCrawler(this.options).start(path) as AsyncIterableIterator<Output>;
 	}
 
 	stream(path: string = process.cwd()): Readable {
@@ -63,25 +61,21 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 
 	sync(path: string = process.cwd()): Output[] {
 		if (this.options.returnType === 'string') {
-			// @ts-ignore
-			return new StringSyncCrawler(this.options).start(path);
+			return new StringSyncCrawler(this.options).start(path) as Output[];
 		}
 
-		// @ts-ignore
-		return new DirentSyncCrawler(this.options).start(path);
+		return new DirentSyncCrawler(this.options).start(path) as Output[];
 	}
 
 	withDirent(): CrawlerBuilder<Dirent> {
 		this.options.returnType = 'Dirent';
 
-		// @ts-ignore
-		return this;
+		return this as CrawlerBuilder<Dirent>;
 	}
 
 	withString(): CrawlerBuilder<string> {
 		this.options.returnType = 'string';
 
-		// @ts-ignore
-		return this;
+		return this as CrawlerBuilder<string>;
 	}
 }

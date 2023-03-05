@@ -34,40 +34,39 @@ function matchExcludeFn(path: string, fn: ExcludePathFn): boolean {
 	return fn(path);
 }
 
-function matchExclude(ex: ExcludeType): (path: string, exclude: ExcludeType) => boolean {
+type ExcludeFn<Exclude extends ExcludeType> = (path: string, exclude: Exclude) => boolean;
+
+function matchExclude<Exclude extends ExcludeType>(ex: Exclude): ExcludeFn<Exclude> {
 	if (typeof ex === 'string') {
-		// @ts-ignore
-		return matchExcludeString;
+		return matchExcludeString as ExcludeFn<Exclude>;
 	}
 	if (typeof ex === 'function') {
-		// @ts-ignore
-		return matchExcludeFn;
+		return matchExcludeFn as ExcludeFn<Exclude>;
 	}
 
-	// @ts-ignore
-	return matchExcludeRegex;
+	return matchExcludeRegex as ExcludeFn<Exclude>;
 }
 
-function excludeFn<Output extends Dirent | string, Fn extends ReadDirFn<Output>>(
-	fn: Fn,
-	exclude?: ExcludeType
-): Fn {
+function excludeFn<
+	Exclude extends ExcludeType,
+	Output extends Dirent | string,
+	Fn extends ReadDirFn<Output>
+>(readDir: Fn, exclude?: Exclude): Fn {
 	if (!exclude) {
-		return fn;
+		return readDir;
 	}
 	const excludeFn = matchExclude(exclude);
 
-	// @ts-ignore
-	return (path: string, callback) => {
+	return ((path: string, callback) => {
 		if (!excludeFn(path, exclude)) {
-			return fn(path, callback);
+			return readDir(path, callback);
 		}
 		if (callback) {
 			callback(null, []);
 		} else {
 			return [];
 		}
-	};
+	}) as Fn;
 }
 
 export default function readDirFn(
@@ -96,15 +95,13 @@ export default function readDirFn<Output extends Dirent | string>(
 	exclude?: ExcludeType
 ): ReadDirFn<Output> {
 	if (api === 'callback' && resultType === 'Dirent') {
-		// @ts-ignore
-		return excludeFn(callBackDirentReadFn, exclude);
+		return excludeFn(callBackDirentReadFn, exclude) as CallbackReadDirFn<Output>;
 	}
 	if (api === 'sync' && resultType === 'Dirent') {
 		return excludeFn(syncDirentReadFn, exclude);
 	}
 	if (api === 'callback' && resultType === 'string') {
-		// @ts-ignore
-		return excludeFn(callBackReadFn, exclude);
+		return excludeFn(callBackReadFn, exclude) as CallbackReadDirFn<Output>;
 	}
 
 	return excludeFn(syncReadFn, exclude);
