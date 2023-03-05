@@ -26,8 +26,8 @@ export default function crawl(
 
 	const b = builder[opts.direction]();
 	if (opts.returnType === 'Dirent') {
-		return b.withDirent().stream().start(path);
+		return b.withDirent().stream(path);
 	}
 
-	return b.stream().start(path);
+	return b.stream(path);
 }

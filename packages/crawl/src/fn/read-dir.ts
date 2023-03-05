@@ -2,7 +2,7 @@ import type { Dirent } from 'node:fs';
 
 import { fs } from '@hexatool/fs-file-system';
 
-import type { CallBack, ReturnType } from '../types';
+import type { CallBack, ResultType } from '../types';
 import type { ExcludePathFn, ExcludeType } from '../types/options';
 
 export type CallbackReadDirFn<Output extends Dirent | string> = (
@@ -92,7 +92,7 @@ export default function readDirFn(
 ): SyncReadDirFn<string>;
 export default function readDirFn<Output extends Dirent | string>(
 	api: 'callback' | 'sync',
-	resultType: ReturnType,
+	resultType: ResultType,
 	exclude?: ExcludeType
 ): ReadDirFn<Output> {
 	if (api === 'callback' && resultType === 'Dirent') {

@@ -1,8 +1,7 @@
 import type { Dirent } from 'node:fs';
 
 import builder from './builder';
-import type { CrawlerOptions } from './types';
-import type { DirentCrawlerOptions, StringCrawlerOptions } from './types/options';
+import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
 
 export type { CrawlerOptions };
 
@@ -38,8 +37,8 @@ export default function crawl(
 
 	const b = builder[opts.direction]();
 	if (opts.returnType === 'Dirent') {
-		return b.withDirent().iterator().start(path);
+		return b.withDirent().iterator(path);
 	}
 
-	return b.iterator().start(path);
+	return b.iterator(path);
 }

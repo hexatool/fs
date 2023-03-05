@@ -1,4 +1,5 @@
 import type { Dirent } from 'node:fs';
+import process from 'node:process';
 import type { Readable } from 'node:stream';
 
 import {
@@ -9,91 +10,78 @@ import {
 } from '../crawler';
 import { DirentIteratorCrawler, StringIteratorCrawler } from '../crawler/IteratorCrawler';
 import { DirentStreamCrawler, StringStreamCrawler } from '../crawler/StreamCrawler';
-import type { Crawler, CrawlerOptions } from '../types';
-import type Builder from '../types/builder';
-import type { CrawlerDownOptions, ExcludeType } from '../types/options';
+import type { CrawlerOptions } from '../types';
+import type { ExcludeType, ResultTypeOutput } from '../types/options';
 
-abstract class CommonCrawlerBuilder<T extends CrawlerOptions, O extends Dirent | string>
-	implements Builder<O>
-{
-	protected readonly options: T;
+export default class CrawlerBuilder<Output extends ResultTypeOutput> {
+	private readonly options: CrawlerOptions;
 
-	protected constructor(options: T) {
+	protected constructor(options: CrawlerOptions) {
 		this.options = options;
 	}
 
-	exclude(exclude: ExcludeType): CommonCrawlerBuilder<T, O> {
+	static down(): CrawlerBuilder<string> {
+		return new CrawlerBuilder<string>({
+			returnType: 'string',
+			direction: 'down',
+		});
+	}
+
+	async async(path: string = process.cwd()): Promise<Output[]> {
+		if (this.options.returnType === 'string') {
+			// @ts-ignore
+			return new StringAsyncCrawler(this.options).start(path);
+		}
+
+		// @ts-ignore
+		return new DirentAsyncCrawler(this.options).start(path);
+	}
+
+	exclude(exclude: ExcludeType): CrawlerBuilder<Output> {
 		this.options.exclude = exclude;
 
 		return this;
 	}
 
-	abstract async(): Crawler<Promise<O[]>>;
+	iterator(path: string = process.cwd()): AsyncIterableIterator<Output> {
+		if (this.options.returnType === 'string') {
+			// @ts-ignore
+			return new StringIteratorCrawler(this.options).start(path);
+		}
 
-	abstract iterator(): Crawler<AsyncIterableIterator<O>>;
-
-	abstract stream(): Crawler<Readable>;
-
-	abstract sync(): Crawler<O[]>;
-}
-
-class CrawlerDownWithDirentBuilder extends CommonCrawlerBuilder<CrawlerDownOptions, Dirent> {
-	constructor(options: CrawlerDownOptions) {
-		super({
-			...options,
-			direction: 'down',
-			returnType: 'Dirent',
-		});
+		// @ts-ignore
+		return new DirentIteratorCrawler(this.options).start(path);
 	}
 
-	async(): Crawler<Promise<Dirent[]>> {
-		return new DirentAsyncCrawler(this.options);
+	stream(path: string = process.cwd()): Readable {
+		if (this.options.returnType === 'string') {
+			return new StringStreamCrawler(this.options).start(path);
+		}
+
+		return new DirentStreamCrawler(this.options).start(path);
 	}
 
-	iterator(): Crawler<AsyncIterableIterator<Dirent>> {
-		return new DirentIteratorCrawler(this.options);
+	sync(path: string = process.cwd()): Output[] {
+		if (this.options.returnType === 'string') {
+			// @ts-ignore
+			return new StringSyncCrawler(this.options).start(path);
+		}
+
+		// @ts-ignore
+		return new DirentSyncCrawler(this.options).start(path);
 	}
 
-	stream(): Crawler<Readable> {
-		return new DirentStreamCrawler(this.options);
+	withDirent(): CrawlerBuilder<Dirent> {
+		this.options.returnType = 'Dirent';
+
+		// @ts-ignore
+		return this;
 	}
 
-	sync(): Crawler<Dirent[]> {
-		return new DirentSyncCrawler(this.options);
-	}
-}
+	withString(): CrawlerBuilder<string> {
+		this.options.returnType = 'string';
 
-class CrawlerDownBuilder extends CommonCrawlerBuilder<CrawlerDownOptions, string> {
-	constructor() {
-		super({
-			direction: 'down',
-			returnType: 'string',
-		});
-	}
-
-	async(): Crawler<Promise<string[]>> {
-		return new StringAsyncCrawler(this.options);
-	}
-
-	iterator(): Crawler<AsyncIterableIterator<string>> {
-		return new StringIteratorCrawler(this.options);
-	}
-
-	stream(): Crawler<Readable> {
-		return new StringStreamCrawler(this.options);
-	}
-
-	sync(): Crawler<string[]> {
-		return new StringSyncCrawler(this.options);
-	}
-
-	withDirent(): CrawlerDownWithDirentBuilder {
-		return new CrawlerDownWithDirentBuilder(this.options);
-	}
-}
-
-export default abstract class CrawlerBuilder {
-	static down(): CrawlerDownBuilder {
-		return new CrawlerDownBuilder();
+		// @ts-ignore
+		return this;
 	}
 }

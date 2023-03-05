@@ -70,15 +70,12 @@ abstract class IteratorCrawler<T extends Dirent | string>
 			if (readable) {
 				readable = false;
 
-				// eslint-disable-next-line no-constant-condition
-				while (true) {
+				do {
 					value = stream.read() as T | undefined;
 					if (value) {
 						pendingValues.push(value);
-					} else {
-						break;
 					}
-				}
+				} while (value);
 
 				return pendingValues.shift();
 			}
