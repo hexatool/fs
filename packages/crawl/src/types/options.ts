@@ -28,6 +28,8 @@ export type ExcludeType = ExcludePathFn | RegExp | string;
 export interface CrawlerOptions {
 	direction: CrawlDirection;
 	exclude?: ExcludeType;
+	excludeDirectories?: ExcludeType | boolean;
+	excludeFiles?: ExcludeType | boolean;
 	returnType: ResultType;
 }
 
