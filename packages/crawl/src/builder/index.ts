@@ -11,7 +11,7 @@ import {
 import { DirentIteratorCrawler, StringIteratorCrawler } from '../crawler/IteratorCrawler';
 import { DirentStreamCrawler, StringStreamCrawler } from '../crawler/StreamCrawler';
 import type { CrawlerOptions } from '../types';
-import type { ExcludeType, ResultTypeOutput } from '../types/options';
+import type { ExcludeDirentType, ExcludeType, ResultTypeOutput } from '../types/options';
 
 export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 	private readonly options: CrawlerOptions;
@@ -37,6 +37,18 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 
 	exclude(exclude: ExcludeType): CrawlerBuilder<Output> {
 		this.options.exclude = exclude;
+
+		return this;
+	}
+
+	excludeDirectories(exclude: ExcludeDirentType): CrawlerBuilder<Output> {
+		this.options.excludeDirectories = exclude;
+
+		return this;
+	}
+
+	excludeFiles(exclude: ExcludeDirentType): CrawlerBuilder<Output> {
+		this.options.excludeFiles = exclude;
 
 		return this;
 	}

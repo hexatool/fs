@@ -7,7 +7,7 @@ import excludeFn from './exclude';
 
 export type CallbackReadDirFn<Output extends Dirent | string> = (
 	path: string,
-	callback: CallBack<Output[]>
+	callback?: CallBack<Output[]>
 ) => void;
 export type SyncReadDirFn<Output extends Dirent | string> = (path: string) => Output[];
 export type ReadDirFn<Output extends Dirent | string> =
@@ -15,7 +15,7 @@ export type ReadDirFn<Output extends Dirent | string> =
 	| SyncReadDirFn<Output>;
 
 const callBackDirentReadFn: CallbackReadDirFn<Dirent> = (path, callback) =>
-	fs.readdir(path, { withFileTypes: true }, callback);
+	callback && fs.readdir(path, { withFileTypes: true }, callback);
 const syncDirentReadFn: SyncReadDirFn<Dirent> = path =>
 	fs.readdirSync(path, { withFileTypes: true });
 

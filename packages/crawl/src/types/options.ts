@@ -24,12 +24,13 @@ export type CallBack<Result> = (error: NodeJS.ErrnoException | null, result: Res
 
 export type ExcludePathFn = (path: string) => boolean;
 export type ExcludeType = ExcludePathFn | RegExp | string;
+export type ExcludeDirentType = ExcludeType | true;
 
 export interface CrawlerOptions {
 	direction: CrawlDirection;
 	exclude?: ExcludeType;
-	excludeDirectories?: ExcludeType | boolean;
-	excludeFiles?: ExcludeType | boolean;
+	excludeDirectories?: ExcludeDirentType;
+	excludeFiles?: ExcludeDirentType;
 	returnType: ResultType;
 }
 
