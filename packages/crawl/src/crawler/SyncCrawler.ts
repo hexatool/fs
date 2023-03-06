@@ -15,7 +15,7 @@ export class StringSyncCrawler extends SyncCrawler<string> {
 	private readonly readDirFn: SyncReadDirFn<Dirent>;
 	constructor(options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('sync', options.exclude);
+		this.readDirFn = readDirFn('sync', options);
 	}
 
 	protected readdir(path: string): string[] {
@@ -27,7 +27,7 @@ export class DirentSyncCrawler extends SyncCrawler<Dirent> {
 	private readonly readDirFn: SyncReadDirFn<Dirent>;
 	constructor(options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('sync', options.exclude);
+		this.readDirFn = readDirFn('sync', options);
 	}
 
 	protected readdir(path: string): Dirent[] {

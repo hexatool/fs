@@ -2,8 +2,7 @@ import type { Dirent } from 'node:fs';
 
 import { fs } from '@hexatool/fs-file-system';
 
-import type { CallBack } from '../types';
-import type { ExcludeType } from '../types/options';
+import type { CallBack, CrawlerOptions } from '../types';
 import excludeFn from './exclude';
 
 export type CallbackReadDirFn<Output extends Dirent | string> = (
@@ -22,16 +21,16 @@ const syncDirentReadFn: SyncReadDirFn<Dirent> = path =>
 
 export default function readDirFn(
 	api: 'callback',
-	exclude?: ExcludeType
+	options: CrawlerOptions
 ): CallbackReadDirFn<Dirent>;
-export default function readDirFn(api: 'sync', exclude?: ExcludeType): SyncReadDirFn<Dirent>;
+export default function readDirFn(api: 'sync', options: CrawlerOptions): SyncReadDirFn<Dirent>;
 export default function readDirFn(
 	api: 'callback' | 'sync',
-	exclude?: ExcludeType
+	options: CrawlerOptions
 ): ReadDirFn<Dirent> {
 	if (api === 'callback') {
-		return excludeFn(callBackDirentReadFn, exclude);
+		return excludeFn(callBackDirentReadFn, options.exclude);
 	}
 
-	return excludeFn(syncDirentReadFn, exclude);
+	return excludeFn(syncDirentReadFn, options.exclude);
 }

@@ -17,7 +17,7 @@ export class StringAsyncCrawler extends AsyncCrawler<string> {
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', this.options.exclude);
+		this.readDirFn = readDirFn('callback', this.options);
 	}
 
 	async readdir(path: string): Promise<string[]> {
@@ -37,7 +37,7 @@ export class DirentAsyncCrawler extends AsyncCrawler<Dirent> {
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', this.options.exclude);
+		this.readDirFn = readDirFn('callback', this.options);
 	}
 
 	async readdir(path: string): Promise<Dirent[]> {
