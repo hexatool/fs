@@ -14,10 +14,10 @@ abstract class AsyncCrawler<O extends Dirent | string> implements Crawler<Promis
 }
 
 export class StringAsyncCrawler extends AsyncCrawler<string> {
-	private readonly readDirFn: CallbackReadDirFn<string>;
+	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', 'string', this.options.exclude);
+		this.readDirFn = readDirFn('callback', this.options.exclude);
 	}
 
 	async readdir(path: string): Promise<string[]> {
@@ -26,7 +26,7 @@ export class StringAsyncCrawler extends AsyncCrawler<string> {
 				if (error) {
 					reject(error);
 				} else {
-					resolve(result);
+					resolve(result.map(r => r.name));
 				}
 			});
 		});
@@ -37,7 +37,7 @@ export class DirentAsyncCrawler extends AsyncCrawler<Dirent> {
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(private readonly options: CrawlerOptions) {
 		super();
-		this.readDirFn = readDirFn('callback', 'Dirent', this.options.exclude);
+		this.readDirFn = readDirFn('callback', this.options.exclude);
 	}
 
 	async readdir(path: string): Promise<Dirent[]> {

@@ -122,7 +122,7 @@ export class DirentFileSystemStreamCrawler extends FileSystemStreamCrawler<Diren
 	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(path: string, options: CrawlerOptions) {
 		super(path);
-		this.readDirFn = readDirFn('callback', 'Dirent', options.exclude);
+		this.readDirFn = readDirFn('callback', options.exclude);
 	}
 
 	protected readdir(path: string, callback: CallBack<Dirent[]>): void {
@@ -131,13 +131,18 @@ export class DirentFileSystemStreamCrawler extends FileSystemStreamCrawler<Diren
 }
 
 export class StringFileSystemStreamCrawler extends FileSystemStreamCrawler<string> {
-	private readonly readDirFn: CallbackReadDirFn<string>;
+	private readonly readDirFn: CallbackReadDirFn<Dirent>;
 	constructor(path: string, options: CrawlerOptions) {
 		super(path);
-		this.readDirFn = readDirFn('callback', 'string', options.exclude);
+		this.readDirFn = readDirFn('callback', options.exclude);
 	}
 
 	protected readdir(path: string, callback: CallBack<string[]>): void {
-		this.readDirFn(path, callback);
+		this.readDirFn(path, (error, result) =>
+			callback(
+				error,
+				result.map(r => r.name)
+			)
+		);
 	}
 }

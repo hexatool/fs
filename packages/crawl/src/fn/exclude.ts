@@ -28,11 +28,10 @@ function matchExclude<Exclude extends ExcludeType>(ex: Exclude): ExcludeFn<Exclu
 	return matchExcludeRegex as ExcludeFn<Exclude>;
 }
 
-export default function excludeFn<
-	Exclude extends ExcludeType,
-	Output extends Dirent | string,
-	Fn extends ReadDirFn<Output>
->(readDir: Fn, exclude?: Exclude): Fn {
+export default function excludeFn<Exclude extends ExcludeType, Fn extends ReadDirFn<Dirent>>(
+	readDir: Fn,
+	exclude?: Exclude
+): Fn {
 	if (!exclude) {
 		return readDir;
 	}
