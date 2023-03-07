@@ -1,7 +1,5 @@
 import type { Dirent } from 'node:fs';
 
-import * as process from 'process';
-
 import type { Crawler, CrawlerOptions } from '../types';
 import type { Pending } from '../utils/pending';
 import { pending } from '../utils/pending';
@@ -15,7 +13,7 @@ abstract class IteratorCrawler<T extends Dirent | string>
 	implements Crawler<AsyncIterableIterator<T>>
 {
 	constructor(protected readonly options: CrawlerOptions) {}
-	start(path = process.cwd()): AsyncIterableIterator<T> {
+	start(path: string): AsyncIterableIterator<T> {
 		const stream = new StringFileSystemStreamCrawler(path, this.options).stream;
 		const pendingValues: T[] = [];
 		const pendingReads: Array<Pending<IteratorResult<T>>> = [];

@@ -1,12 +1,10 @@
 import type { Dirent } from 'node:fs';
 
-import process from 'process';
-
 import readDirFn, { CallbackReadDirFn } from '../fn/read-dir';
 import type { CallBack, Crawler, CrawlerOptions } from '../types';
 
 abstract class AsyncCrawler<O extends Dirent | string> implements Crawler<Promise<O[]>> {
-	async start(path: string = process.cwd()): Promise<O[]> {
+	async start(path: string): Promise<O[]> {
 		return this.readdir(path);
 	}
 

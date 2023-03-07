@@ -1,10 +1,12 @@
 import type { Dirent } from 'node:fs';
 
-import builder from './builder';
+import { DirentIteratorCrawler, StringIteratorCrawler } from './crawler/IteratorCrawler';
 import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
+import { DEFAULT_CRAWL_OPTIONS } from './types/options';
 
 export type { CrawlerOptions };
 
+export default function crawl(): AsyncIterableIterator<string>;
 export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<Dirent>;
 export default function crawl(options: StringCrawlerOptions): AsyncIterableIterator<string>;
 export default function crawl(
@@ -16,29 +18,33 @@ export default function crawl(
 	options: StringCrawlerOptions
 ): AsyncIterableIterator<string>;
 export default function crawl(
-	pathOrOptions: CrawlerOptions | string,
+	pathOrOptions?: CrawlerOptions | string,
 	options?: CrawlerOptions
 ): AsyncIterableIterator<Dirent | string> {
-	const path =
-		typeof pathOrOptions === 'string'
+	let path =
+		pathOrOptions === undefined
+			? undefined
+			: typeof pathOrOptions === 'string'
 			? pathOrOptions
 			: 'direction' in pathOrOptions
 			? undefined
 			: pathOrOptions;
-	const opts =
-		typeof pathOrOptions === 'string'
+	path = path ?? process.cwd();
+
+	let opts =
+		pathOrOptions === undefined
+			? undefined
+			: typeof pathOrOptions === 'string'
 			? options
 			: 'direction' in pathOrOptions
 			? pathOrOptions
 			: options;
-	if (!opts) {
-		throw new Error(`options could not be undefined`);
-	}
 
-	const b = builder[opts.direction]();
+	opts = opts ?? DEFAULT_CRAWL_OPTIONS;
+
 	if (opts.returnType === 'Dirent') {
-		return b.withDirent().iterator(path);
+		return new DirentIteratorCrawler(opts).start(path);
 	}
 
-	return b.iterator(path);
+	return new StringIteratorCrawler(opts).start(path);
 }

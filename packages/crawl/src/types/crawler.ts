@@ -1,3 +1,3 @@
 export interface Crawler<TypeReturn> {
-	start(path?: string): TypeReturn;
+	start(path: string): TypeReturn;
 }

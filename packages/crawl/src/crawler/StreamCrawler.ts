@@ -1,7 +1,5 @@
 import type { Readable } from 'node:stream';
 
-import * as process from 'process';
-
 import type { Crawler, CrawlerOptions } from '../types';
 import {
 	DirentFileSystemStreamCrawler,
@@ -11,7 +9,7 @@ import {
 abstract class StreamCrawler implements Crawler<Readable> {
 	constructor(protected readonly options: CrawlerOptions) {}
 
-	start(path = process.cwd()): Readable {
+	start(path: string): Readable {
 		return this.readdir(path);
 	}
 

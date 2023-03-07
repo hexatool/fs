@@ -41,3 +41,8 @@ export interface DirentCrawlerOptions extends CrawlerOptions {
 export interface StringCrawlerOptions extends CrawlerOptions {
 	returnType: 'string';
 }
+
+export const DEFAULT_CRAWL_OPTIONS: StringCrawlerOptions = {
+	direction: 'down',
+	returnType: 'string',
+} as const;
