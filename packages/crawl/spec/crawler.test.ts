@@ -25,12 +25,19 @@ describe('@hexatool/fs-crawl', () => {
 		direction => crawler[direction]().withDirent().iterator()
 	);
 	crawlerTest(
+		'should crawl current directory with string',
+		direction => crawler[direction]().withDirent().withString().sync(),
+		direction => crawler[direction]().withDirent().withString().async(),
+		direction => crawler[direction]().withDirent().withString().stream(),
+		direction => crawler[direction]().withDirent().withString().iterator()
+	);
+	crawlerTest(
 		'should crawl custom directory',
 		direction => crawler[direction]().sync(crawlModuleFilePath),
 		direction => crawler[direction]().async(crawlModuleFilePath),
 		direction => crawler[direction]().stream(crawlModuleFilePath),
 		direction => crawler[direction]().iterator(crawlModuleFilePath),
-		true
+		{ matchSnapshot: true }
 	);
 	crawlerTest(
 		'should crawl custom directory with Dirent',
@@ -38,7 +45,7 @@ describe('@hexatool/fs-crawl', () => {
 		direction => crawler[direction]().withDirent().async(crawlModuleFilePath),
 		direction => crawler[direction]().withDirent().stream(crawlModuleFilePath),
 		direction => crawler[direction]().withDirent().iterator(crawlModuleFilePath),
-		true
+		{ matchSnapshot: true }
 	);
 	crawlerTest(
 		'should exclude folder with RegExp returning true',
@@ -58,8 +65,7 @@ describe('@hexatool/fs-crawl', () => {
 			crawler[direction]()
 				.exclude(/\/fs\/packages\/.*/)
 				.iterator(crawlModuleFilePath),
-		true,
-		true
+		{ matchSnapshot: true, matchEmpty: true }
 	);
 	crawlerTest(
 		'should exclude folder with RegExp returning false',
@@ -79,7 +85,7 @@ describe('@hexatool/fs-crawl', () => {
 			crawler[direction]()
 				.exclude(/weglsjikvh/)
 				.iterator(crawlModuleFilePath),
-		true
+		{ matchSnapshot: true }
 	);
 	crawlerTest(
 		'should exclude folder with string returning false',
@@ -87,7 +93,7 @@ describe('@hexatool/fs-crawl', () => {
 		direction => crawler[direction]().exclude('weglsjikvh').async(crawlModuleFilePath),
 		direction => crawler[direction]().exclude('weglsjikvh').stream(crawlModuleFilePath),
 		direction => crawler[direction]().exclude('weglsjikvh').iterator(crawlModuleFilePath),
-		true
+		{ matchSnapshot: true }
 	);
 	crawlerTest(
 		'should exclude folder with string returning true',
@@ -96,8 +102,7 @@ describe('@hexatool/fs-crawl', () => {
 		direction => crawler[direction]().exclude(crawlModuleFilePath).stream(crawlModuleFilePath),
 		direction =>
 			crawler[direction]().exclude(crawlModuleFilePath).iterator(crawlModuleFilePath),
-		true,
-		true
+		{ matchSnapshot: true, matchEmpty: true }
 	);
 	crawlerTest(
 		'should exclude folder with fn returning false',
@@ -117,7 +122,7 @@ describe('@hexatool/fs-crawl', () => {
 			crawler[direction]()
 				.exclude(() => false)
 				.iterator(crawlModuleFilePath),
-		true
+		{ matchSnapshot: true }
 	);
 	crawlerTest(
 		'should exclude folder with fn returning true',
@@ -137,7 +142,110 @@ describe('@hexatool/fs-crawl', () => {
 			crawler[direction]()
 				.exclude(() => true)
 				.iterator(crawlModuleFilePath),
-		true,
-		true
+		{ matchSnapshot: true, matchEmpty: true }
+	);
+	crawlerTest(
+		'should exclude all directories',
+		direction => crawler[direction]().excludeDirectories(true).sync(crawlModuleFilePath),
+		direction => crawler[direction]().excludeDirectories(true).async(crawlModuleFilePath),
+		direction => crawler[direction]().excludeDirectories(true).stream(crawlModuleFilePath),
+		direction => crawler[direction]().excludeDirectories(true).iterator(crawlModuleFilePath),
+		{ matchSnapshot: true }
+	);
+	crawlerTest(
+		'should exclude directories',
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(p => p.endsWith('s'))
+				.sync(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(p => p.endsWith('s'))
+				.async(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(p => p.endsWith('s'))
+				.stream(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(p => p.endsWith('s'))
+				.iterator(crawlModuleFilePath),
+		{ matchSnapshot: true }
+	);
+	crawlerTest(
+		'should exclude all files',
+		direction => crawler[direction]().excludeFiles(true).sync(crawlModuleFilePath),
+		direction => crawler[direction]().excludeFiles(true).async(crawlModuleFilePath),
+		direction => crawler[direction]().excludeFiles(true).stream(crawlModuleFilePath),
+		direction => crawler[direction]().excludeFiles(true).iterator(crawlModuleFilePath),
+		{ matchSnapshot: true }
+	);
+	crawlerTest(
+		'should exclude files',
+		direction =>
+			crawler[direction]()
+				.excludeFiles(p => p.endsWith('s'))
+				.sync(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeFiles(p => p.endsWith('s'))
+				.async(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeFiles(p => p.endsWith('s'))
+				.stream(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeFiles(p => p.endsWith('s'))
+				.iterator(crawlModuleFilePath),
+		{ matchSnapshot: true }
+	);
+	crawlerTest(
+		'should exclude all folder and files',
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(true)
+				.excludeFiles(true)
+				.sync(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(true)
+				.excludeFiles(true)
+				.async(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(true)
+				.excludeFiles(true)
+				.stream(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(true)
+				.excludeFiles(true)
+				.iterator(crawlModuleFilePath),
+		{ matchSnapshot: true, matchEmpty: true }
+	);
+	crawlerTest(
+		'should exclude folder and files',
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(/src/)
+				.excludeFiles(p => p.endsWith('s'))
+				.sync(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(/src/)
+				.excludeFiles(p => p.endsWith('s'))
+				.async(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(/src/)
+				.excludeFiles(p => p.endsWith('s'))
+				.stream(crawlModuleFilePath),
+		direction =>
+			crawler[direction]()
+				.excludeDirectories(/src/)
+				.excludeFiles(p => p.endsWith('s'))
+				.iterator(crawlModuleFilePath),
+		{ matchSnapshot: true }
 	);
 });

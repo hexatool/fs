@@ -244,6 +244,290 @@ exports[`@hexatool/fs-crawl > should crawl custom directory with Dirent > should
 ]
 `;
 
+exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > [async] should exclude all directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > [iterator] should exclude all directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > [stream] should exclude all directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > [sync] should exclude all directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > [async] should exclude all files down 1`] = `
+[
+  "node_modules",
+  "spec",
+  "src",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > [iterator] should exclude all files down 1`] = `
+[
+  "node_modules",
+  "spec",
+  "src",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > [stream] should exclude all files down 1`] = `
+[
+  "node_modules",
+  "spec",
+  "src",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > [sync] should exclude all files down 1`] = `
+[
+  "node_modules",
+  "spec",
+  "src",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude all folder and files > should exclude all folder and files down > [async] should exclude all folder and files down 1`] = `[]`;
+
+exports[`@hexatool/fs-crawl > should exclude all folder and files > should exclude all folder and files down > [iterator] should exclude all folder and files down 1`] = `[]`;
+
+exports[`@hexatool/fs-crawl > should exclude all folder and files > should exclude all folder and files down > [stream] should exclude all folder and files down 1`] = `[]`;
+
+exports[`@hexatool/fs-crawl > should exclude all folder and files > should exclude all folder and files down > [sync] should exclude all folder and files down 1`] = `[]`;
+
+exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > [async] should exclude directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > [iterator] should exclude directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > [stream] should exclude directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > [sync] should exclude directories down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+  "vite.config.ts",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > [async] should exclude files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > [iterator] should exclude files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > [stream] should exclude files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > [sync] should exclude files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "src",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > [async] should exclude folder and files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > [iterator] should exclude folder and files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > [stream] should exclude folder and files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "tsconfig.json",
+]
+`;
+
+exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > [sync] should exclude folder and files down 1`] = `
+[
+  ".eslintignore",
+  ".eslintrc.json",
+  ".npmignore",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.md",
+  "node_modules",
+  "package.json",
+  "spec",
+  "tsconfig.json",
+]
+`;
+
 exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false > should exclude folder with RegExp returning false down > [async] should exclude folder with RegExp returning false down 1`] = `
 [
   ".eslintignore",
