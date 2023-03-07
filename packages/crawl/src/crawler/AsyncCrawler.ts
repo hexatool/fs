@@ -3,7 +3,7 @@ import type { Dirent } from 'node:fs';
 import process from 'process';
 
 import readDirFn, { CallbackReadDirFn } from '../fn/read-dir';
-import type { Crawler, CrawlerOptions } from '../types';
+import type { CallBack, Crawler, CrawlerOptions } from '../types';
 
 abstract class AsyncCrawler<O extends Dirent | string> implements Crawler<Promise<O[]>> {
 	async start(path: string = process.cwd()): Promise<O[]> {
@@ -22,13 +22,26 @@ export class StringAsyncCrawler extends AsyncCrawler<string> {
 
 	async readdir(path: string): Promise<string[]> {
 		return new Promise((resolve, reject) => {
-			this.readDirFn(path, (error, result) => {
+			this.walk(path, (error, result) => {
 				if (error) {
 					reject(error);
 				} else {
-					resolve(result.map(r => r.name));
+					resolve(result);
 				}
 			});
+		});
+	}
+
+	private walk(path: string, callback: CallBack<string[]>): void {
+		this.readDirFn(path, (error, result) => {
+			if (error) {
+				callback(error, []);
+			} else {
+				callback(
+					null,
+					result.map(r => r.name)
+				);
+			}
 		});
 	}
 }
