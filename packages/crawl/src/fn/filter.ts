@@ -5,8 +5,11 @@ import type { ExcludeDirentType, ExcludeType } from '../types/options';
 import { emptyReaDir, matchExclude } from './exclude-utils';
 import type { ReadDirFn } from './read-dir';
 
-function excludeFolderReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): ReadDirFn<Dirent> {
-	const excludeFolderFn = matchExclude(exclude);
+function filterDirectories(
+	readDir: ReadDirFn<Dirent>,
+	exclude: ExcludeDirentType
+): ReadDirFn<Dirent> {
+	const excludeFolderFn = exclude === true ? () => true : matchExclude(exclude);
 
 	return (path: string, callback?: CallBack<Dirent[]>): Dirent[] | void => {
 		if (callback) {
@@ -18,7 +21,7 @@ function excludeFolderReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): 
 						error,
 						result.filter(d => {
 							if (d.isDirectory()) {
-								return !excludeFolderFn(d.name, exclude);
+								return !excludeFolderFn(d.name, exclude as ExcludeType);
 							}
 
 							return d.isFile();
@@ -31,7 +34,7 @@ function excludeFolderReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): 
 		if (dirents) {
 			return dirents.filter(d => {
 				if (d.isDirectory()) {
-					return !excludeFolderFn(d.name, exclude);
+					return !excludeFolderFn(d.name, exclude as ExcludeType);
 				}
 
 				return d.isFile();
@@ -40,8 +43,8 @@ function excludeFolderReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): 
 	};
 }
 
-function excludeFileReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): ReadDirFn<Dirent> {
-	const excludeFileFn = matchExclude(exclude);
+function filterFiles(readDir: ReadDirFn<Dirent>, exclude: ExcludeDirentType): ReadDirFn<Dirent> {
+	const excludeFileFn = exclude === true ? () => true : matchExclude(exclude);
 
 	return (path: string, callback?: CallBack<Dirent[]>): Dirent[] | void => {
 		if (callback) {
@@ -53,7 +56,7 @@ function excludeFileReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): Re
 						error,
 						result.filter(d => {
 							if (d.isFile()) {
-								return !excludeFileFn(d.name, exclude);
+								return !excludeFileFn(d.name, exclude as ExcludeType);
 							}
 
 							return d.isDirectory();
@@ -66,7 +69,7 @@ function excludeFileReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): Re
 		if (dirents) {
 			return dirents.filter(d => {
 				if (d.isFile()) {
-					return !excludeFileFn(d.name, exclude);
+					return !excludeFileFn(d.name, exclude as ExcludeType);
 				}
 
 				return d.isDirectory();
@@ -75,13 +78,13 @@ function excludeFileReaDir(readDir: ReadDirFn<Dirent>, exclude: ExcludeType): Re
 	};
 }
 
-function excludeFolderAndFileReaDir(
+function filter(
 	readDir: ReadDirFn<Dirent>,
-	excludeFolders: ExcludeType,
-	excludeFiles: ExcludeType
+	excludeFolders: ExcludeDirentType,
+	excludeFiles: ExcludeDirentType
 ): ReadDirFn<Dirent> {
-	const excludeFolderFn = matchExclude(excludeFolders);
-	const excludeFileFn = matchExclude(excludeFiles);
+	const excludeFolderFn = excludeFolders === true ? () => true : matchExclude(excludeFolders);
+	const excludeFileFn = excludeFiles === true ? () => true : matchExclude(excludeFiles);
 
 	return (path: string, callback?: CallBack<Dirent[]>): Dirent[] | void => {
 		if (callback) {
@@ -93,10 +96,10 @@ function excludeFolderAndFileReaDir(
 						error,
 						result.filter(d => {
 							if (d.isFile()) {
-								return !excludeFileFn(d.name, excludeFiles);
+								return !excludeFileFn(d.name, excludeFiles as ExcludeType);
 							}
 							if (d.isDirectory()) {
-								return !excludeFolderFn(d.name, excludeFolders);
+								return !excludeFolderFn(d.name, excludeFolders as ExcludeType);
 							}
 
 							return false;
@@ -109,10 +112,10 @@ function excludeFolderAndFileReaDir(
 		if (dirents) {
 			return dirents.filter(d => {
 				if (d.isFile()) {
-					return !excludeFileFn(d.name, excludeFiles);
+					return !excludeFileFn(d.name, excludeFiles as ExcludeType);
 				}
 				if (d.isDirectory()) {
-					return !excludeFolderFn(d.name, excludeFolders);
+					return !excludeFolderFn(d.name, excludeFolders as ExcludeType);
 				}
 
 				return false;
@@ -121,7 +124,7 @@ function excludeFolderAndFileReaDir(
 	};
 }
 
-function defaultReadDir(readDir: ReadDirFn<Dirent>): ReadDirFn<Dirent> {
+function defaultFn(readDir: ReadDirFn<Dirent>): ReadDirFn<Dirent> {
 	return (path: string, callback?: CallBack<Dirent[]>): Dirent[] | void => {
 		if (callback) {
 			return readDir(path, (error, result) => {
@@ -151,18 +154,14 @@ export default function filterFn<Exclude extends ExcludeDirentType, Fn extends R
 		return emptyReaDir as Fn;
 	}
 	if (excludeFolders === undefined && excludeFiles === undefined) {
-		return defaultReadDir(readDir) as Fn;
+		return defaultFn(readDir) as Fn;
 	}
 	if (excludeFolders !== undefined && excludeFiles !== undefined) {
-		return excludeFolderAndFileReaDir(
-			readDir,
-			excludeFolders as ExcludeType,
-			excludeFiles as ExcludeType
-		) as Fn;
+		return filter(readDir, excludeFolders, excludeFiles) as Fn;
 	}
 	if (excludeFolders) {
-		return excludeFolderReaDir(readDir, excludeFolders as ExcludeType) as Fn;
+		return filterDirectories(readDir, excludeFolders) as Fn;
 	}
 
-	return excludeFileReaDir(readDir, excludeFiles as ExcludeType) as Fn;
+	return filterFiles(readDir, excludeFiles as ExcludeDirentType) as Fn;
 }

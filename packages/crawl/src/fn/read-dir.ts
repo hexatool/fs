@@ -4,6 +4,7 @@ import { fs } from '@hexatool/fs-file-system';
 
 import type { CallBack, CrawlerOptions } from '../types';
 import excludeFn from './exclude';
+import filterFn from './filter';
 
 export type CallbackReadDirFn<Output extends Dirent | string> = (
 	path: string,
@@ -29,8 +30,16 @@ export default function readDirFn(
 	options: CrawlerOptions
 ): ReadDirFn<Dirent> {
 	if (api === 'callback') {
-		return excludeFn(callBackDirentReadFn, options.exclude);
+		return filterFn(
+			excludeFn(callBackDirentReadFn, options.exclude),
+			options.excludeDirectories,
+			options.excludeFiles
+		);
 	}
 
-	return excludeFn(syncDirentReadFn, options.exclude);
+	return filterFn(
+		excludeFn(syncDirentReadFn, options.exclude),
+		options.excludeDirectories,
+		options.excludeFiles
+	);
 }
