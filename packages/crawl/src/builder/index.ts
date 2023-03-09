@@ -79,10 +79,22 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 		return new DirentSyncCrawler(this.options).start(path) as Output[];
 	}
 
+	withAbsolutePaths(): CrawlerBuilder<Output> {
+		this.options.pathType = 'absolute';
+
+		return this;
+	}
+
 	withDirent(): CrawlerBuilder<Dirent> {
 		this.options.returnType = 'Dirent';
 
 		return this as CrawlerBuilder<Dirent>;
+	}
+
+	withRelativePaths(): CrawlerBuilder<Output> {
+		this.options.pathType = 'relative';
+
+		return this;
 	}
 
 	withString(): CrawlerBuilder<string> {

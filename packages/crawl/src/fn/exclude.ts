@@ -1,12 +1,12 @@
 import type { Dirent } from 'node:fs';
 
-import type { ExcludeType } from '../types/options';
+import type { CrawlerOptions } from '../types';
 import { emptyReaDir, matchExclude } from './exclude-utils';
 import type { ReadDirFn } from './read-dir';
 
-export default function excludeFn<Exclude extends ExcludeType, Fn extends ReadDirFn<Dirent>>(
+export default function excludeFn<Fn extends ReadDirFn<Dirent>>(
 	readDir: Fn,
-	exclude?: Exclude
+	{ exclude }: CrawlerOptions
 ): Fn {
 	if (!exclude) {
 		return readDir;

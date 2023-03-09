@@ -4,6 +4,9 @@ import type { Readable } from 'node:stream';
 export const directions = ['down'] as const;
 export type CrawlDirection = (typeof directions)[number];
 
+export const pathType = ['absolute', 'relative'] as const;
+export type PathType = (typeof pathType)[number];
+
 export const resultTypes = ['string', 'Dirent'] as const;
 export type ResultType = (typeof resultTypes)[number];
 export type ResultTypeOutput = Dirent | string;
@@ -31,6 +34,7 @@ export interface CrawlerOptions {
 	exclude?: ExcludeType;
 	excludeDirectories?: ExcludeDirentType;
 	excludeFiles?: ExcludeDirentType;
+	pathType?: PathType;
 	returnType: ResultType;
 }
 

@@ -1,6 +1,6 @@
 import type { Dirent } from 'node:fs';
 
-import type { CallBack } from '../types';
+import type { CallBack, CrawlerOptions } from '../types';
 import type { ExcludeDirentType, ExcludeType } from '../types/options';
 import { emptyReaDir, matchExclude } from './exclude-utils';
 import type { ReadDirFn } from './read-dir';
@@ -145,22 +145,21 @@ function defaultFn(readDir: ReadDirFn<Dirent>): ReadDirFn<Dirent> {
 	};
 }
 
-export default function filterFn<Exclude extends ExcludeDirentType, Fn extends ReadDirFn<Dirent>>(
+export default function processFile<Fn extends ReadDirFn<Dirent>>(
 	readDir: Fn,
-	excludeFolders?: Exclude,
-	excludeFiles?: Exclude
+	{ excludeDirectories, excludeFiles }: CrawlerOptions
 ): Fn {
-	if (excludeFolders === true && excludeFiles === true) {
+	if (excludeDirectories === true && excludeFiles === true) {
 		return emptyReaDir as Fn;
 	}
-	if (excludeFolders === undefined && excludeFiles === undefined) {
+	if (excludeDirectories === undefined && excludeFiles === undefined) {
 		return defaultFn(readDir) as Fn;
 	}
-	if (excludeFolders !== undefined && excludeFiles !== undefined) {
-		return filter(readDir, excludeFolders, excludeFiles) as Fn;
+	if (excludeDirectories !== undefined && excludeFiles !== undefined) {
+		return filter(readDir, excludeDirectories, excludeFiles) as Fn;
 	}
-	if (excludeFolders) {
-		return filterDirectories(readDir, excludeFolders) as Fn;
+	if (excludeDirectories) {
+		return filterDirectories(readDir, excludeDirectories) as Fn;
 	}
 
 	return filterFiles(readDir, excludeFiles as ExcludeDirentType) as Fn;
