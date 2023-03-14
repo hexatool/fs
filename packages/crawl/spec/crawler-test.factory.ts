@@ -1,4 +1,3 @@
-import type { Dirent } from 'node:fs';
 import type { Readable } from 'node:stream';
 
 import * as console from 'console';
@@ -50,7 +49,7 @@ export default function crawlerTest(
 						composedTestName,
 						() =>
 							new Promise<void>(resolve => {
-								const files: (Dirent | string)[] = [];
+								const files: ResultTypeOutput[] = [];
 								const st = fn(resultType, direction, type) as Readable;
 								st.on('data', d => files.push(d as string));
 								st.on('end', () => {

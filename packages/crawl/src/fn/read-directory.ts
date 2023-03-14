@@ -8,12 +8,12 @@ import emptyReadDirFn from './empty-read-dir';
 import filterReadDirectory from './filter-read-directory';
 import matchDirectory from './match-directory';
 
-export type CallbackReadDirectoryFn<Output extends Dirent | string> = (
+export type CallbackReadDirectoryFn<Output extends ResultTypeOutput> = (
 	path: string,
 	callback?: CallBack<Output[]>
 ) => void;
-export type SyncReadDirectory<Output extends Dirent | string> = (path: string) => Output[];
-export type ReadDirectory<Output extends Dirent | string> =
+export type SyncReadDirectory<Output extends ResultTypeOutput> = (path: string) => Output[];
+export type ReadDirectory<Output extends ResultTypeOutput> =
 	| CallbackReadDirectoryFn<Output>
 	| SyncReadDirectory<Output>;
 

@@ -1,10 +1,9 @@
-import type { Dirent } from 'node:fs';
-
 import readDirectory, { CallbackReadDirectoryFn, SyncReadDirectory } from '../fn/read-directory';
-import type { Crawler, CrawlerOptions } from '../types';
+import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
 
-export class AsyncCrawler<Output extends Dirent | string> implements Crawler<Promise<Output[]>> {
+export class AsyncCrawler<Output extends ResultTypeOutput> implements Crawler<Promise<Output[]>> {
 	private readonly readDirectory: CallbackReadDirectoryFn<Output>;
+
 	constructor(options: CrawlerOptions) {
 		this.readDirectory = readDirectory('callback', options) as SyncReadDirectory<Output>;
 	}
