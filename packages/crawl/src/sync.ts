@@ -1,8 +1,8 @@
 import type { Dirent } from 'node:fs';
 
-import { DirentSyncCrawler, StringSyncCrawler } from './crawler';
+import { SyncCrawler } from './crawler';
 import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
-import { DEFAULT_CRAWL_OPTIONS } from './types/options';
+import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
 export type { CrawlerOptions };
 
@@ -14,7 +14,7 @@ export default function crawl(path: string, options: StringCrawlerOptions): stri
 export default function crawl(
 	pathOrOptions?: CrawlerOptions | string,
 	options?: CrawlerOptions
-): (Dirent | string)[] {
+): ResultTypeOutput[] {
 	let path =
 		pathOrOptions === undefined
 			? undefined
@@ -36,9 +36,5 @@ export default function crawl(
 
 	opts = opts ?? DEFAULT_CRAWL_OPTIONS;
 
-	if (opts.returnType === 'Dirent') {
-		return new DirentSyncCrawler(opts).start(path);
-	}
-
-	return new StringSyncCrawler(opts).start(path);
+	return new SyncCrawler(opts).start(path);
 }

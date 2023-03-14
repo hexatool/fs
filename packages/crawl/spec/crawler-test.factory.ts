@@ -4,16 +4,20 @@ import type { Readable } from 'node:stream';
 import * as console from 'console';
 import { describe, expect, it } from 'vitest';
 
-import { apiTypes, CrawlDirection, directions } from '../src/types';
-import type { ResultTypeOutput } from '../src/types/options';
+import type { ApiType, CrawlDirection, LowerCaseResultType, ResultTypeOutput } from '../src/types';
+import { apiTypes, directions, lowerCaseResultTypes } from '../src/types';
 
 type ReturnType = ResultTypeOutput[];
-type StreamTestFn = (direction: CrawlDirection) => Readable;
-type IteratorTestFn = (direction: CrawlDirection) => AsyncIterableIterator<ResultTypeOutput>;
-type SyncTestFn = (direction: CrawlDirection) => ReturnType;
-type AsyncTestFn = (direction: CrawlDirection) => Promise<ReturnType>;
+type TestFn = (resultType: LowerCaseResultType, direction: CrawlDirection, api: ApiType) => unknown;
 
-function check(files: ReturnType, matchSnapshot?: boolean, matchEmpty?: boolean) {
+interface FactoryOptions {
+	length?: number;
+	log?: boolean;
+	matchEmpty?: boolean;
+	matchSnapshot?: boolean;
+}
+
+function check(files: ReturnType, { matchSnapshot, matchEmpty, length }: FactoryOptions) {
 	if (matchSnapshot) {
 		expect(files).toMatchSnapshot();
 	}
@@ -26,67 +30,76 @@ function check(files: ReturnType, matchSnapshot?: boolean, matchEmpty?: boolean)
 		expect(files.length).toBeGreaterThan(0);
 		expect(files.every(t => t)).toBeTruthy();
 	}
-}
 
-interface FactoryOptions {
-	log?: boolean;
-	matchEmpty?: boolean;
-	matchSnapshot?: boolean;
+	if (length) {
+		expect(files.length).toBe(length);
+	}
 }
 
 export default function crawlerTest(
 	testName: string,
-	sync?: SyncTestFn,
-	async?: AsyncTestFn,
-	stream?: StreamTestFn,
-	iterator?: IteratorTestFn,
-	options?: FactoryOptions
+	fn: TestFn,
+	options: FactoryOptions = {}
 ): void {
 	describe.each(directions)(testName, direction => {
-		describe.each(apiTypes)(`${testName} ${direction}`, type => {
-			if (type === 'stream' && stream) {
-				it(`[${type}] ${testName} ${direction}`, () =>
-					new Promise<void>(resolve => {
-						const files: (Dirent | string)[] = [];
-						const st = stream(direction);
-						st.on('data', d => files.push(d as string));
-						st.on('end', () => {
-							check(files, options?.matchSnapshot, options?.matchEmpty);
-							if (options?.log) {
-								console.log(`[${type}] ${testName} ${direction}`, files);
-							}
-							resolve();
-						});
-					}));
-			} else if (type === 'iterator' && iterator) {
-				it(`[${type}] ${testName} ${direction}`, async () => {
-					const files: ReturnType = [];
-					const it = iterator(direction);
-					for await (const item of it) {
-						files.push(item);
-					}
-					check(files, options?.matchSnapshot, options?.matchEmpty);
-					if (options?.log) {
-						console.log(`[${type}] ${testName} ${direction}`, files);
-					}
-				});
-			} else if (type === 'sync' && sync) {
-				it(`[${type}] ${testName} ${direction}`, () => {
-					const files = sync(direction);
-					check(files, options?.matchSnapshot, options?.matchEmpty);
-					if (options?.log) {
-						console.log(`[${type}] ${testName} ${direction}`, files);
-					}
-				});
-			} else if (async) {
-				it(`[${type}] ${testName} ${direction}`, async () => {
-					const files = await async(direction);
-					check(files, options?.matchSnapshot, options?.matchEmpty);
-					if (options?.log) {
-						console.log(`[${type}] ${testName} ${direction}`, files);
-					}
-				});
-			}
+		describe.each(lowerCaseResultTypes)(`${testName} ${direction}`, resultType => {
+			describe.each(apiTypes)(`${testName} ${resultType} ${direction}`, type => {
+				const composedTestName = `[${type}] ${testName} ${resultType} ${direction}`;
+				if (type === 'stream') {
+					it(
+						composedTestName,
+						() =>
+							new Promise<void>(resolve => {
+								const files: (Dirent | string)[] = [];
+								const st = fn(resultType, direction, type) as Readable;
+								st.on('data', d => files.push(d as string));
+								st.on('end', () => {
+									check(files, options);
+									if (options.log) {
+										console.log(composedTestName, files);
+									}
+									resolve();
+								});
+							})
+					);
+				} else if (type === 'iterator') {
+					it(composedTestName, async () => {
+						const files: ReturnType = [];
+						const it = fn(
+							resultType,
+							direction,
+							type
+						) as AsyncIterableIterator<ResultTypeOutput>;
+						for await (const item of it) {
+							files.push(item);
+						}
+						check(files, options);
+						if (options.log) {
+							console.log(composedTestName, files);
+						}
+					});
+				} else if (type === 'sync') {
+					it(composedTestName, () => {
+						const files = fn(resultType, direction, type) as ReturnType;
+						check(files, options);
+						if (options.log) {
+							console.log(composedTestName, files);
+						}
+					});
+				} else {
+					it(composedTestName, async () => {
+						const files = await (fn(
+							resultType,
+							direction,
+							type
+						) as Promise<ReturnType>);
+						check(files, options);
+						if (options.log) {
+							console.log(composedTestName, files);
+						}
+					});
+				}
+			});
 		});
 	});
 }

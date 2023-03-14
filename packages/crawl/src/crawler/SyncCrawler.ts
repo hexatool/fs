@@ -1,36 +1,13 @@
-import type { Dirent } from 'node:fs';
+import readDirectory, { SyncReadDirectory } from '../fn/read-directory';
+import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
 
-import readDirFn, { SyncReadDirFn } from '../fn/read-dir';
-import type { Crawler, CrawlerOptions } from '../types';
-
-abstract class SyncCrawler<O extends Dirent | string> implements Crawler<O[]> {
-	start(path: string): O[] {
-		return this.readdir(path);
-	}
-
-	protected abstract readdir(path: string): O[];
-}
-
-export class StringSyncCrawler extends SyncCrawler<string> {
-	private readonly readDirFn: SyncReadDirFn<Dirent>;
+export class SyncCrawler<Output extends ResultTypeOutput> implements Crawler<Output[]> {
+	private readonly readDirectory: SyncReadDirectory<Output>;
 	constructor(options: CrawlerOptions) {
-		super();
-		this.readDirFn = readDirFn('sync', options);
+		this.readDirectory = readDirectory('sync', options) as SyncReadDirectory<Output>;
 	}
 
-	protected readdir(path: string): string[] {
-		return this.readDirFn(path).map(s => s.name);
-	}
-}
-
-export class DirentSyncCrawler extends SyncCrawler<Dirent> {
-	private readonly readDirFn: SyncReadDirFn<Dirent>;
-	constructor(options: CrawlerOptions) {
-		super();
-		this.readDirFn = readDirFn('sync', options);
-	}
-
-	protected readdir(path: string): Dirent[] {
-		return this.readDirFn(path);
+	start(path: string): Output[] {
+		return this.readDirectory(path);
 	}
 }

@@ -8,7 +8,7 @@ describe('crawl down a single depth directory', () => {
 		'@hexatool/fs-crawl/sync',
 		() =>
 			new Promise(done => {
-				crawler.down().sync(process.cwd());
+				crawler.string().sync(process.cwd());
 				done();
 			})
 	);
@@ -17,7 +17,7 @@ describe('crawl down a single depth directory', () => {
 		() =>
 			new Promise((done, reject) => {
 				crawler
-					.down()
+					.string()
 					.async(process.cwd())
 					.then(() => done())
 					.catch(e => reject(e));
@@ -27,13 +27,13 @@ describe('crawl down a single depth directory', () => {
 		'@hexatool/fs-crawl/stream',
 		() =>
 			new Promise(done => {
-				const stream = crawler.down().stream(process.cwd());
+				const stream = crawler.string().stream(process.cwd());
 				stream.on('end', () => done());
 				stream.resume();
 			})
 	);
 	bench(
-		'fdir',
+		'fdir/async',
 		() =>
 			new Promise((done, reject) => {
 				new Fdir()
@@ -43,6 +43,14 @@ describe('crawl down a single depth directory', () => {
 					.withPromise()
 					.then(() => done())
 					.catch(e => reject(e));
+			})
+	);
+	bench(
+		'fdir/sync',
+		() =>
+			new Promise(done => {
+				new Fdir().withMaxDepth(0).withDirs().crawl(process.cwd()).sync();
+				done();
 			})
 	);
 });

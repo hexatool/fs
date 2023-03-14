@@ -1,6 +1,6 @@
 import type { Readable } from 'node:stream';
 
-import { DirentStreamCrawler, StringStreamCrawler } from './crawler/StreamCrawler';
+import { StreamCrawler } from './crawler';
 import type { CrawlerOptions } from './types';
 import { DEFAULT_CRAWL_OPTIONS } from './types/options';
 
@@ -30,9 +30,5 @@ export default function crawl(
 
 	opts = opts ?? DEFAULT_CRAWL_OPTIONS;
 
-	if (opts.returnType === 'Dirent') {
-		return new DirentStreamCrawler(opts).start(path);
-	}
-
-	return new StringStreamCrawler(opts).start(path);
+	return new StreamCrawler(opts).start(path);
 }

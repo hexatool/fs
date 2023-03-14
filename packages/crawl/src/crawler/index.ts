@@ -1,4 +1,4 @@
-import { DirentAsyncCrawler, StringAsyncCrawler } from './AsyncCrawler';
-import { DirentSyncCrawler, StringSyncCrawler } from './SyncCrawler';
-
-export { DirentAsyncCrawler, DirentSyncCrawler, StringAsyncCrawler, StringSyncCrawler };
+export * from './AsyncCrawler';
+export * from './IteratorCrawler';
+export * from './StreamCrawler';
+export * from './SyncCrawler';

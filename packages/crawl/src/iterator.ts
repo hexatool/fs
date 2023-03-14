@@ -1,8 +1,8 @@
 import type { Dirent } from 'node:fs';
 
-import { DirentIteratorCrawler, StringIteratorCrawler } from './crawler/IteratorCrawler';
+import { IteratorCrawler } from './crawler';
 import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
-import { DEFAULT_CRAWL_OPTIONS } from './types/options';
+import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
 export type { CrawlerOptions };
 
@@ -20,7 +20,7 @@ export default function crawl(
 export default function crawl(
 	pathOrOptions?: CrawlerOptions | string,
 	options?: CrawlerOptions
-): AsyncIterableIterator<Dirent | string> {
+): AsyncIterableIterator<ResultTypeOutput> {
 	let path =
 		pathOrOptions === undefined
 			? undefined
@@ -42,9 +42,5 @@ export default function crawl(
 
 	opts = opts ?? DEFAULT_CRAWL_OPTIONS;
 
-	if (opts.returnType === 'Dirent') {
-		return new DirentIteratorCrawler(opts).start(path);
-	}
-
-	return new StringIteratorCrawler(opts).start(path);
+	return new IteratorCrawler(opts).start(path);
 }

@@ -2,104 +2,105 @@ import type { Dirent } from 'node:fs';
 import process from 'node:process';
 import type { Readable } from 'node:stream';
 
-import {
-	DirentAsyncCrawler,
-	DirentSyncCrawler,
-	StringAsyncCrawler,
-	StringSyncCrawler,
-} from '../crawler';
-import { DirentIteratorCrawler, StringIteratorCrawler } from '../crawler/IteratorCrawler';
-import { DirentStreamCrawler, StringStreamCrawler } from '../crawler/StreamCrawler';
+import { AsyncCrawler, IteratorCrawler, StreamCrawler, SyncCrawler } from '../crawler';
 import type { CrawlerOptions } from '../types';
-import type { ExcludeDirentType, ExcludeType, ResultTypeOutput } from '../types/options';
+import type {
+	DirentExcludeItemType,
+	ExcludeType,
+	ResultTypeOutput,
+	StringExcludeItemType,
+} from '../types/options';
 
 export default class CrawlerBuilder<Output extends ResultTypeOutput> {
-	private readonly options: CrawlerOptions;
+	protected readonly options: CrawlerOptions;
 
 	protected constructor(options: CrawlerOptions) {
 		this.options = options;
 	}
 
-	static down(): CrawlerBuilder<string> {
-		return new CrawlerBuilder<string>({
+	// eslint-disable-next-line no-use-before-define
+	static dirent(): DirentCrawlerBuilder {
+		// eslint-disable-next-line no-use-before-define
+		return new DirentCrawlerBuilder({
+			returnType: 'Dirent',
+			direction: 'down',
+		});
+	}
+
+	// eslint-disable-next-line no-use-before-define
+	static string(): StringCrawlerBuilder {
+		// eslint-disable-next-line no-use-before-define
+		return new StringCrawlerBuilder({
 			returnType: 'string',
 			direction: 'down',
 		});
 	}
 
 	async async(path: string = process.cwd()): Promise<Output[]> {
-		if (this.options.returnType === 'string') {
-			return new StringAsyncCrawler(this.options).start(path) as Promise<Output[]>;
-		}
-
-		return new DirentAsyncCrawler(this.options).start(path) as Promise<Output[]>;
+		return new AsyncCrawler(this.options).start(path) as Promise<Output[]>;
 	}
 
-	exclude(exclude: ExcludeType): CrawlerBuilder<Output> {
+	down(): this {
+		this.options.direction = 'down';
+
+		return this;
+	}
+
+	exclude(exclude: ExcludeType): this {
 		this.options.exclude = exclude;
 
 		return this;
 	}
 
-	excludeDirectories(exclude: ExcludeDirentType): CrawlerBuilder<Output> {
-		this.options.excludeDirectories = exclude;
-
-		return this;
-	}
-
-	excludeFiles(exclude: ExcludeDirentType): CrawlerBuilder<Output> {
-		this.options.excludeFiles = exclude;
-
-		return this;
-	}
-
 	iterator(path: string = process.cwd()): AsyncIterableIterator<Output> {
-		if (this.options.returnType === 'string') {
-			return new StringIteratorCrawler(this.options).start(
-				path
-			) as AsyncIterableIterator<Output>;
-		}
-
-		return new DirentIteratorCrawler(this.options).start(path) as AsyncIterableIterator<Output>;
+		return new IteratorCrawler(this.options).start(path) as AsyncIterableIterator<Output>;
 	}
 
 	stream(path: string = process.cwd()): Readable {
-		if (this.options.returnType === 'string') {
-			return new StringStreamCrawler(this.options).start(path);
-		}
-
-		return new DirentStreamCrawler(this.options).start(path);
+		return new StreamCrawler(this.options).start(path);
 	}
 
 	sync(path: string = process.cwd()): Output[] {
-		if (this.options.returnType === 'string') {
-			return new StringSyncCrawler(this.options).start(path) as Output[];
-		}
-
-		return new DirentSyncCrawler(this.options).start(path) as Output[];
+		return new SyncCrawler(this.options).start(path) as Output[];
 	}
 
-	withAbsolutePaths(): CrawlerBuilder<Output> {
+	withAbsolutePaths(): this {
 		this.options.pathType = 'absolute';
 
 		return this;
 	}
 
-	withDirent(): CrawlerBuilder<Dirent> {
-		this.options.returnType = 'Dirent';
-
-		return this as CrawlerBuilder<Dirent>;
-	}
-
-	withRelativePaths(): CrawlerBuilder<Output> {
+	withRelativePaths(): this {
 		this.options.pathType = 'relative';
 
 		return this;
 	}
+}
 
-	withString(): CrawlerBuilder<string> {
-		this.options.returnType = 'string';
+class StringCrawlerBuilder extends CrawlerBuilder<string> {
+	excludeDirectories(exclude: StringExcludeItemType): this {
+		this.options.excludeDirectories = exclude;
 
-		return this as CrawlerBuilder<string>;
+		return this;
+	}
+
+	excludeFiles(exclude: StringExcludeItemType): this {
+		this.options.excludeFiles = exclude;
+
+		return this;
+	}
+}
+
+class DirentCrawlerBuilder extends CrawlerBuilder<Dirent> {
+	excludeDirectories(exclude: DirentExcludeItemType): this {
+		this.options.excludeDirectories = exclude;
+
+		return this;
+	}
+
+	excludeFiles(exclude: DirentExcludeItemType): this {
+		this.options.excludeFiles = exclude;
+
+		return this;
 	}
 }

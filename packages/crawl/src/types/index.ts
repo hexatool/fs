@@ -6,7 +6,9 @@ export type {
 	CrawlerOptions,
 	DirentCrawlerOptions,
 	EmitEvents,
+	LowerCaseResultType,
 	ResultType,
+	ResultTypeOutput,
 	StringCrawlerOptions,
 } from './options';
-export { apiTypes, directions, emitEvents, resultTypes } from './options';
+export { apiTypes, directions, emitEvents, lowerCaseResultTypes, resultTypes } from './options';

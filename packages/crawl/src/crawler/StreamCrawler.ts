@@ -1,29 +1,12 @@
 import type { Readable } from 'node:stream';
 
 import type { Crawler, CrawlerOptions } from '../types';
-import {
-	DirentFileSystemStreamCrawler,
-	StringFileSystemStreamCrawler,
-} from './FileSystemStreamCrawler';
+import { FileSystemStreamCrawler } from './FileSystemStreamCrawler';
 
-abstract class StreamCrawler implements Crawler<Readable> {
-	constructor(protected readonly options: CrawlerOptions) {}
+export class StreamCrawler implements Crawler<Readable> {
+	constructor(private readonly options: CrawlerOptions) {}
 
 	start(path: string): Readable {
-		return this.readdir(path);
-	}
-
-	abstract readdir(path: string): Readable;
-}
-
-export class StringStreamCrawler extends StreamCrawler {
-	readdir(path: string): Readable {
-		return new StringFileSystemStreamCrawler(path, this.options).stream;
-	}
-}
-
-export class DirentStreamCrawler extends StreamCrawler {
-	readdir(path: string): Readable {
-		return new DirentFileSystemStreamCrawler(path, this.options).stream;
+		return new FileSystemStreamCrawler(path, this.options).stream;
 	}
 }

@@ -1,22 +1,16 @@
-import type { Dirent } from 'node:fs';
-
-import type { Crawler, CrawlerOptions } from '../types';
+import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
 import type { Pending } from '../utils/pending';
 import { pending } from '../utils/pending';
-import {
-	DirentFileSystemStreamCrawler,
-	FileSystemStreamCrawler,
-	StringFileSystemStreamCrawler,
-} from './FileSystemStreamCrawler';
+import { FileSystemStreamCrawler } from './FileSystemStreamCrawler';
 
-abstract class IteratorCrawler<T extends Dirent | string>
-	implements Crawler<AsyncIterableIterator<T>>
+export class IteratorCrawler<Output extends ResultTypeOutput>
+	implements Crawler<AsyncIterableIterator<Output>>
 {
 	constructor(protected readonly options: CrawlerOptions) {}
-	start(path: string): AsyncIterableIterator<T> {
-		const stream = new StringFileSystemStreamCrawler(path, this.options).stream;
-		const pendingValues: T[] = [];
-		const pendingReads: Array<Pending<IteratorResult<T>>> = [];
+	start(path: string): AsyncIterableIterator<Output> {
+		const stream = new FileSystemStreamCrawler(path, this.options).stream;
+		const pendingValues: Output[] = [];
+		const pendingReads: Array<Pending<IteratorResult<Output>>> = [];
 		let error: Error | undefined;
 		let readable = false;
 		let done = false;
@@ -60,7 +54,7 @@ abstract class IteratorCrawler<T extends Dirent | string>
 			}
 		}
 
-		function getNextValue(): T | undefined {
+		function getNextValue(): Output | undefined {
 			let value = pendingValues.shift();
 			if (value) {
 				return value;
@@ -69,7 +63,7 @@ abstract class IteratorCrawler<T extends Dirent | string>
 				readable = false;
 
 				do {
-					value = stream.read() as T | undefined;
+					value = stream.read() as Output | undefined;
 					if (value) {
 						pendingValues.push(value);
 					}
@@ -87,7 +81,7 @@ abstract class IteratorCrawler<T extends Dirent | string>
 			},
 
 			async next() {
-				const pendingRead = pending<IteratorResult<T>>();
+				const pendingRead = pending<IteratorResult<Output>>();
 				pendingReads.push(pendingRead);
 
 				// eslint-disable-next-line @typescript-eslint/no-floating-promises
@@ -96,19 +90,5 @@ abstract class IteratorCrawler<T extends Dirent | string>
 				return pendingRead.promise;
 			},
 		};
-	}
-
-	abstract getStream(path: string): FileSystemStreamCrawler<T>;
-}
-
-export class StringIteratorCrawler extends IteratorCrawler<string> {
-	getStream(path: string): FileSystemStreamCrawler<string> {
-		return new StringFileSystemStreamCrawler(path, this.options);
-	}
-}
-
-export class DirentIteratorCrawler extends IteratorCrawler<Dirent> {
-	getStream(path: string): FileSystemStreamCrawler<Dirent> {
-		return new DirentFileSystemStreamCrawler(path, this.options);
 	}
 }

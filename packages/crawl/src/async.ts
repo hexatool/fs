@@ -1,8 +1,8 @@
 import type { Dirent } from 'node:fs';
 
-import { DirentAsyncCrawler, StringAsyncCrawler } from './crawler';
+import { AsyncCrawler } from './crawler';
 import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
-import { DEFAULT_CRAWL_OPTIONS } from './types/options';
+import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
 export type { CrawlerOptions };
 export default function crawl(): Promise<string[]>;
@@ -13,7 +13,7 @@ export default function crawl(path: string, options: StringCrawlerOptions): Prom
 export default async function crawl(
 	pathOrOptions?: CrawlerOptions | string,
 	options?: CrawlerOptions
-): Promise<(Dirent | string)[]> {
+): Promise<ResultTypeOutput[]> {
 	let path =
 		pathOrOptions === undefined
 			? undefined
@@ -35,9 +35,5 @@ export default async function crawl(
 
 	opts = opts ?? DEFAULT_CRAWL_OPTIONS;
 
-	if (opts.returnType === 'Dirent') {
-		return new DirentAsyncCrawler(opts).start(path);
-	}
-
-	return new StringAsyncCrawler(opts).start(path);
+	return new AsyncCrawler(opts).start(path);
 }

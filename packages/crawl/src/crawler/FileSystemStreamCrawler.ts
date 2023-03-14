@@ -1,22 +1,22 @@
-import type { Dirent } from 'node:fs';
 import { Readable } from 'node:stream';
 
-import type { CallbackReadDirFn } from '../fn/read-dir';
-import readDirFn from '../fn/read-dir';
-import type { CallBack, CrawlerOptions, EmitEvents } from '../types';
+import readDirectory, { CallbackReadDirectoryFn, SyncReadDirectory } from '../fn/read-directory';
+import type { CrawlerOptions, EmitEvents, ResultTypeOutput } from '../types';
 
-export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
+export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 	public readonly stream: Readable;
-	private readonly buffer: (Dirent | string)[];
+	private readonly buffer: Output[];
 	private pending: number;
 	private readonly queue: string[];
+	private readonly readDirectory: CallbackReadDirectoryFn<Output>;
 	private shouldRead: boolean;
 
-	protected constructor(path: string) {
+	constructor(path: string, options: CrawlerOptions) {
 		this.buffer = [];
 		this.pending = 0;
 		this.shouldRead = true;
 		this.queue = [path];
+		this.readDirectory = readDirectory('callback', options) as SyncReadDirectory<Output>;
 
 		this.stream = new Readable({ objectMode: true });
 		this.stream._read = () => {
@@ -69,7 +69,7 @@ export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 		}
 	}
 
-	private processItem(item: Dirent | string) {
+	private processItem(item: Output) {
 		this.pushOrBuffer(item);
 	}
 
@@ -84,7 +84,7 @@ export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 		}
 	}
 
-	private pushOrBuffer(chunk: Dirent | string) {
+	private pushOrBuffer(chunk: Output) {
 		this.buffer.push(chunk);
 		if (this.shouldRead) {
 			this.pushFromBuffer();
@@ -95,7 +95,7 @@ export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 		const path = this.queue.shift()!;
 		this.pending++;
 
-		this.readdir(path, (err, files) => {
+		this.readDirectory(path, (err, files) => {
 			if (err) {
 				this.emit('error', err);
 				this.finishedReadingDirectory();
@@ -113,36 +113,5 @@ export abstract class FileSystemStreamCrawler<Output extends Dirent | string> {
 				this.finishedReadingDirectory();
 			}
 		});
-	}
-
-	protected abstract readdir(path: string, callback: CallBack<Output[]>): void;
-}
-
-export class DirentFileSystemStreamCrawler extends FileSystemStreamCrawler<Dirent> {
-	private readonly readDirFn: CallbackReadDirFn<Dirent>;
-	constructor(path: string, options: CrawlerOptions) {
-		super(path);
-		this.readDirFn = readDirFn('callback', options);
-	}
-
-	protected readdir(path: string, callback: CallBack<Dirent[]>): void {
-		this.readDirFn(path, callback);
-	}
-}
-
-export class StringFileSystemStreamCrawler extends FileSystemStreamCrawler<string> {
-	private readonly readDirFn: CallbackReadDirFn<Dirent>;
-	constructor(path: string, options: CrawlerOptions) {
-		super(path);
-		this.readDirFn = readDirFn('callback', options);
-	}
-
-	protected readdir(path: string, callback: CallBack<string[]>): void {
-		this.readDirFn(path, (error, result) =>
-			callback(
-				error,
-				result.map(r => r.name)
-			)
-		);
 	}
 }
