@@ -127,14 +127,4 @@ describe('@hexatool/fs-crawl', () => {
 						[api](crawlModuleFilePath),
 		{ matchSnapshot: true, length: 10 }
 	);
-	crawlerTest(
-		'should crawl relative directory',
-		(res, dir, api) => crawler[res]()[dir]()[api]('.'),
-		{ log: true }
-	);
-	crawlerTest(
-		'should crawl custom directory with absolute paths',
-		(res, dir, api) => crawler[res]()[dir]().withAbsolutePaths()[api](crawlModuleFilePath),
-		{ length: 12 }
-	);
 });

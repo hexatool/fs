@@ -1,4 +1,4 @@
-import type { Dirent } from 'node:fs';
+import type { ExtendedDirent } from './extended-dirent';
 
 export const directions = ['down'] as const;
 export type CrawlDirection = (typeof directions)[number];
@@ -8,7 +8,7 @@ export type PathType = (typeof pathType)[number];
 
 export const resultTypes = ['string', 'Dirent'] as const;
 export type ResultType = (typeof resultTypes)[number];
-export type ResultTypeOutput = Dirent | string;
+export type ResultTypeOutput = ExtendedDirent | string;
 
 export const lowerCaseResultTypes = ['string', 'dirent'] as const;
 export type LowerCaseResultType = (typeof lowerCaseResultTypes)[number];
@@ -23,7 +23,7 @@ export type CallBack<Result> = (error: NodeJS.ErrnoException | null, result: Res
 
 export type ExcludeStringPathFn = (path: string) => boolean;
 export type ExcludeItemStringPathFn = (parent: string, item: string) => boolean;
-export type ExcludeItemDirentPathFn = (parent: string, item: Dirent) => boolean;
+export type ExcludeItemDirentPathFn = (parent: string, item: ExtendedDirent) => boolean;
 export type ExcludeItemPathFn = ExcludeItemDirentPathFn | ExcludeItemStringPathFn;
 export type ExcludeType = ExcludeStringPathFn | RegExp | string;
 export type ExcludeItemType = ExcludeItemPathFn | RegExp | string | true;

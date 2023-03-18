@@ -2,212 +2,212 @@
 
 exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custom directory down > should crawl custom directory dirent down > [async] should crawl custom directory dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custom directory down > should crawl custom directory dirent down > [iterator] should crawl custom directory dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custom directory down > should crawl custom directory dirent down > [stream] should crawl custom directory dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custom directory down > should crawl custom directory dirent down > [sync] should crawl custom directory dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -280,446 +280,166 @@ exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custo
 ]
 `;
 
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths dirent down > [async] should crawl custom directory with absolute paths dirent down 1`] = `
-[
-  Dirent {
-    "name": ".eslintignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".eslintrc.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".npmignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "CHANGELOG.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "LICENSE",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "README.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "node_modules",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "package.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "spec",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "src",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "tsconfig.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "vite.config.ts",
-    Symbol(type): 1,
-  },
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths dirent down > [iterator] should crawl custom directory with absolute paths dirent down 1`] = `
-[
-  Dirent {
-    "name": ".eslintignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".eslintrc.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".npmignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "CHANGELOG.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "LICENSE",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "README.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "node_modules",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "package.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "spec",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "src",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "tsconfig.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "vite.config.ts",
-    Symbol(type): 1,
-  },
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths dirent down > [stream] should crawl custom directory with absolute paths dirent down 1`] = `
-[
-  Dirent {
-    "name": ".eslintignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".eslintrc.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".npmignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "CHANGELOG.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "LICENSE",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "README.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "node_modules",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "package.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "spec",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "src",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "tsconfig.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "vite.config.ts",
-    Symbol(type): 1,
-  },
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths dirent down > [sync] should crawl custom directory with absolute paths dirent down 1`] = `
-[
-  Dirent {
-    "name": ".eslintignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".eslintrc.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": ".npmignore",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "CHANGELOG.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "LICENSE",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "README.md",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "node_modules",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "package.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "spec",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "src",
-    Symbol(type): 2,
-  },
-  Dirent {
-    "name": "tsconfig.json",
-    Symbol(type): 1,
-  },
-  Dirent {
-    "name": "vite.config.ts",
-    Symbol(type): 1,
-  },
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths string down > [async] should crawl custom directory with absolute paths string down 1`] = `
-[
-  ".eslintignore",
-  ".eslintrc.json",
-  ".npmignore",
-  "CHANGELOG.md",
-  "LICENSE",
-  "README.md",
-  "node_modules",
-  "package.json",
-  "spec",
-  "src",
-  "tsconfig.json",
-  "vite.config.ts",
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths string down > [iterator] should crawl custom directory with absolute paths string down 1`] = `
-[
-  ".eslintignore",
-  ".eslintrc.json",
-  ".npmignore",
-  "CHANGELOG.md",
-  "LICENSE",
-  "README.md",
-  "node_modules",
-  "package.json",
-  "spec",
-  "src",
-  "tsconfig.json",
-  "vite.config.ts",
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths string down > [stream] should crawl custom directory with absolute paths string down 1`] = `
-[
-  ".eslintignore",
-  ".eslintrc.json",
-  ".npmignore",
-  "CHANGELOG.md",
-  "LICENSE",
-  "README.md",
-  "node_modules",
-  "package.json",
-  "spec",
-  "src",
-  "tsconfig.json",
-  "vite.config.ts",
-]
-`;
-
-exports[`@hexatool/fs-crawl > should crawl custom directory with absolute paths > should crawl custom directory with absolute paths down > should crawl custom directory with absolute paths string down > [sync] should crawl custom directory with absolute paths string down 1`] = `
-[
-  ".eslintignore",
-  ".eslintrc.json",
-  ".npmignore",
-  "CHANGELOG.md",
-  "LICENSE",
-  "README.md",
-  "node_modules",
-  "package.json",
-  "spec",
-  "src",
-  "tsconfig.json",
-  "vite.config.ts",
-]
-`;
-
 exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > should exclude all directories dirent down > [async] should exclude all directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > should exclude all directories dirent down > [iterator] should exclude all directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > should exclude all directories dirent down > [stream] should exclude all directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all directories > should exclude all directories down > should exclude all directories dirent down > [sync] should exclude all directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -782,68 +502,68 @@ exports[`@hexatool/fs-crawl > should exclude all directories > should exclude al
 
 exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > should exclude all files dirent down > [async] should exclude all files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > should exclude all files dirent down > [iterator] should exclude all files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > should exclude all files dirent down > [stream] should exclude all files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude all files > should exclude all files down > should exclude all files dirent down > [sync] should exclude all files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
 ]
 `;
@@ -898,196 +618,196 @@ exports[`@hexatool/fs-crawl > should exclude all folder and files > should exclu
 
 exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > should exclude directories dirent down > [async] should exclude directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > should exclude directories dirent down > [iterator] should exclude directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > should exclude directories dirent down > [stream] should exclude directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude directories > should exclude directories down > should exclude directories dirent down > [sync] should exclude directories dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -1158,196 +878,196 @@ exports[`@hexatool/fs-crawl > should exclude directories > should exclude direct
 
 exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > should exclude files dirent down > [async] should exclude files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > should exclude files dirent down > [iterator] should exclude files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > should exclude files dirent down > [stream] should exclude files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude files > should exclude files down > should exclude files dirent down > [sync] should exclude files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -1418,180 +1138,180 @@ exports[`@hexatool/fs-crawl > should exclude files > should exclude files down >
 
 exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > should exclude folder and files dirent down > [async] should exclude folder and files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > should exclude folder and files dirent down > [iterator] should exclude folder and files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > should exclude folder and files dirent down > [stream] should exclude folder and files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude folder and files down > should exclude folder and files dirent down > [sync] should exclude folder and files dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -1658,212 +1378,212 @@ exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude f
 
 exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false > should exclude folder with RegExp returning false down > should exclude folder with RegExp returning false dirent down > [async] should exclude folder with RegExp returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false > should exclude folder with RegExp returning false down > should exclude folder with RegExp returning false dirent down > [iterator] should exclude folder with RegExp returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false > should exclude folder with RegExp returning false down > should exclude folder with RegExp returning false dirent down > [stream] should exclude folder with RegExp returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false > should exclude folder with RegExp returning false down > should exclude folder with RegExp returning false dirent down > [sync] should exclude folder with RegExp returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -1954,212 +1674,212 @@ exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning true >
 
 exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > should exclude folder with fn returning false down > should exclude folder with fn returning false dirent down > [async] should exclude folder with fn returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > should exclude folder with fn returning false down > should exclude folder with fn returning false dirent down > [iterator] should exclude folder with fn returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > should exclude folder with fn returning false down > should exclude folder with fn returning false dirent down > [stream] should exclude folder with fn returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > should exclude folder with fn returning false down > should exclude folder with fn returning false dirent down > [sync] should exclude folder with fn returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
@@ -2250,212 +1970,212 @@ exports[`@hexatool/fs-crawl > should exclude folder with fn returning true > sho
 
 exports[`@hexatool/fs-crawl > should exclude folder with string returning false > should exclude folder with string returning false down > should exclude folder with string returning false dirent down > [async] should exclude folder with string returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with string returning false > should exclude folder with string returning false down > should exclude folder with string returning false dirent down > [iterator] should exclude folder with string returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with string returning false > should exclude folder with string returning false down > should exclude folder with string returning false dirent down > [stream] should exclude folder with string returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;
 
 exports[`@hexatool/fs-crawl > should exclude folder with string returning false > should exclude folder with string returning false down > should exclude folder with string returning false dirent down > [sync] should exclude folder with string returning false dirent down 1`] = `
 [
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".eslintrc.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": ".npmignore",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "CHANGELOG.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "LICENSE",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "README.md",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "node_modules",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "package.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "spec",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "src",
-    Symbol(type): 2,
+    "type": 2,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "tsconfig.json",
-    Symbol(type): 1,
+    "type": 1,
   },
-  Dirent {
+  ExtendedDirent {
     "name": "vite.config.ts",
-    Symbol(type): 1,
+    "type": 1,
   },
 ]
 `;

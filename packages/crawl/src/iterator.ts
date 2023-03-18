@@ -1,18 +1,21 @@
-import type { Dirent } from 'node:fs';
-
 import { IteratorCrawler } from './crawler';
-import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
+import type {
+	CrawlerOptions,
+	DirentCrawlerOptions,
+	ExtendedDirent,
+	StringCrawlerOptions,
+} from './types';
 import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
-export type { CrawlerOptions };
+export type { CrawlerOptions, ExtendedDirent };
 
 export default function crawl(): AsyncIterableIterator<string>;
-export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<Dirent>;
+export default function crawl(options: DirentCrawlerOptions): AsyncIterableIterator<ExtendedDirent>;
 export default function crawl(options: StringCrawlerOptions): AsyncIterableIterator<string>;
 export default function crawl(
 	path: string,
 	options: DirentCrawlerOptions
-): AsyncIterableIterator<Dirent>;
+): AsyncIterableIterator<ExtendedDirent>;
 export default function crawl(
 	path: string,
 	options: StringCrawlerOptions

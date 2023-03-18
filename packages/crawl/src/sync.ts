@@ -1,15 +1,18 @@
-import type { Dirent } from 'node:fs';
-
 import { SyncCrawler } from './crawler';
-import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
+import type {
+	CrawlerOptions,
+	DirentCrawlerOptions,
+	ExtendedDirent,
+	StringCrawlerOptions,
+} from './types';
 import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
 export type { CrawlerOptions };
 
 export default function crawl(): string[];
-export default function crawl(options: DirentCrawlerOptions): Dirent[];
+export default function crawl(options: DirentCrawlerOptions): ExtendedDirent[];
 export default function crawl(options: StringCrawlerOptions): string[];
-export default function crawl(path: string, options: DirentCrawlerOptions): Dirent[];
+export default function crawl(path: string, options: DirentCrawlerOptions): ExtendedDirent[];
 export default function crawl(path: string, options: StringCrawlerOptions): string[];
 export default function crawl(
 	pathOrOptions?: CrawlerOptions | string,

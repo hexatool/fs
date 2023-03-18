@@ -1,8 +1,7 @@
-import type { Dirent } from 'node:fs';
-
 import { fs } from '@hexatool/fs-file-system';
 
 import type { CallBack, CrawlerOptions } from '../types';
+import { ExtendedDirent } from '../types';
 import type { ExcludeType, ResultTypeOutput } from '../types/options';
 import emptyReadDirFn from './empty-read-dir';
 import filterReadDirectory from './filter-read-directory';
@@ -17,24 +16,31 @@ export type ReadDirectory<Output extends ResultTypeOutput> =
 	| CallbackReadDirectoryFn<Output>
 	| SyncReadDirectory<Output>;
 
-function direntIsFileOrDirectory(dirent: Dirent) {
+function direntIsFileOrDirectory(dirent: ExtendedDirent) {
 	return dirent.isDirectory() || dirent.isFile();
 }
 
-function callbackDirentReadDirectory(): CallbackReadDirectoryFn<Dirent> {
+function callbackDirentReadDirectory(): CallbackReadDirectoryFn<ExtendedDirent> {
 	return (path, callback) =>
 		callback &&
 		fs.readdir(path, { withFileTypes: true }, (err, files) => {
 			if (err) {
 				callback(err, []);
 			} else {
-				callback(null, files.filter(direntIsFileOrDirectory));
+				callback(
+					null,
+					files.map(d => new ExtendedDirent(d)).filter(direntIsFileOrDirectory)
+				);
 			}
 		});
 }
 
-function syncDirentReadDirectory(): SyncReadDirectory<Dirent> {
-	return path => fs.readdirSync(path, { withFileTypes: true }).filter(direntIsFileOrDirectory);
+function syncDirentReadDirectory(): SyncReadDirectory<ExtendedDirent> {
+	return path =>
+		fs
+			.readdirSync(path, { withFileTypes: true })
+			.map(d => new ExtendedDirent(d))
+			.filter(direntIsFileOrDirectory);
 }
 
 function callbackStringReadDirectory(): CallbackReadDirectoryFn<string> {
@@ -105,9 +111,9 @@ function internalReadDirectory(
 function internalDirentReadDirectory(
 	api: 'callback' | 'sync',
 	options: CrawlerOptions
-): ReadDirectory<Dirent> {
+): ReadDirectory<ExtendedDirent> {
 	const { exclude } = options;
-	let fn: ReadDirectory<Dirent>;
+	let fn: ReadDirectory<ExtendedDirent>;
 
 	if (api === 'callback') {
 		fn = callbackDirentReadDirectory();

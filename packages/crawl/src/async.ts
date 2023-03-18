@@ -1,14 +1,20 @@
-import type { Dirent } from 'node:fs';
-
 import { AsyncCrawler } from './crawler';
-import type { CrawlerOptions, DirentCrawlerOptions, StringCrawlerOptions } from './types';
+import type {
+	CrawlerOptions,
+	DirentCrawlerOptions,
+	ExtendedDirent,
+	StringCrawlerOptions,
+} from './types';
 import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
 
-export type { CrawlerOptions };
+export type { CrawlerOptions, ExtendedDirent };
 export default function crawl(): Promise<string[]>;
-export default function crawl(options: DirentCrawlerOptions): Promise<Dirent[]>;
+export default function crawl(options: DirentCrawlerOptions): Promise<ExtendedDirent[]>;
 export default function crawl(options: StringCrawlerOptions): Promise<string[]>;
-export default function crawl(path: string, options: DirentCrawlerOptions): Promise<Dirent[]>;
+export default function crawl(
+	path: string,
+	options: DirentCrawlerOptions
+): Promise<ExtendedDirent[]>;
 export default function crawl(path: string, options: StringCrawlerOptions): Promise<string[]>;
 export default async function crawl(
 	pathOrOptions?: CrawlerOptions | string,

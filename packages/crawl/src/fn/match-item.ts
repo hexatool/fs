@@ -1,5 +1,4 @@
-import type { Dirent } from 'node:fs';
-
+import type { ExtendedDirent } from '../types';
 import type {
 	ExcludeItemPathFn,
 	ExcludeItemType,
@@ -31,7 +30,7 @@ function matchExcludeRegex(exclude: RegExp, returnType: ResultType): ExcludeFn {
 		return (_p, item) => exclude.test(item as string);
 	}
 
-	return (_p, item) => exclude.test((item as Dirent).name);
+	return (_p, item) => exclude.test((item as ExtendedDirent).name);
 }
 
 function matchExcludeString(exclude: string, returnType: ResultType): ExcludeFn {
@@ -39,7 +38,7 @@ function matchExcludeString(exclude: string, returnType: ResultType): ExcludeFn 
 		return (_p, item) => exclude === item;
 	}
 
-	return (_p, item) => (item as Dirent).name === item;
+	return (_p, item) => (item as ExtendedDirent).name === item;
 }
 
 function matchExcludeFn(exclude: ExcludeItemPathFn): ExcludeFn {

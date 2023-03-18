@@ -1,4 +1,5 @@
 export type { Crawler } from './crawler';
+export { ExtendedDirent } from './extended-dirent';
 export type {
 	ApiType,
 	CallBack,

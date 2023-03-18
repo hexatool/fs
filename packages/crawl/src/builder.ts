@@ -1,4 +1,4 @@
 import CrawlerBuilder from './builder/index';
 
-export type { CrawlerOptions } from './types';
+export type { CrawlerOptions, ExtendedDirent } from './types';
 export default CrawlerBuilder;

@@ -1,6 +1,4 @@
-import type { Dirent } from 'node:fs';
-
-import type { CrawlerOptions } from '../types';
+import type { CrawlerOptions, ExtendedDirent } from '../types';
 import type {
 	DirentExcludeItemType,
 	ResultTypeOutput,
@@ -11,10 +9,10 @@ import type { ReadDirectory } from './read-directory';
 
 function filterDirentDirectoryAndFilesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeDirectories: DirentExcludeItemType,
 	excludeFile: DirentExcludeItemType
-): ReadDirectory<Dirent> {
+): ReadDirectory<ExtendedDirent> {
 	const matchDirectory = matchItem(excludeDirectories, 'Dirent');
 	const matchFile = matchItem(excludeFile, 'Dirent');
 	if (api === 'callback') {
@@ -56,7 +54,7 @@ function filterDirentDirectoryAndFilesReadDir(
 
 function filterStringDirectoryAndFilesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeDirectories: StringExcludeItemType,
 	excludeFile: StringExcludeItemType
 ): ReadDirectory<string> {
@@ -105,9 +103,9 @@ function filterStringDirectoryAndFilesReadDir(
 
 function filterDirentFilesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeFile: DirentExcludeItemType
-): ReadDirectory<Dirent> {
+): ReadDirectory<ExtendedDirent> {
 	const matchFile = matchItem(excludeFile, 'Dirent');
 	if (api === 'callback') {
 		return (path, callback) => {
@@ -148,7 +146,7 @@ function filterDirentFilesReadDir(
 
 function filterStringFilesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeFile: StringExcludeItemType
 ): ReadDirectory<string> {
 	const matchFile = matchItem(excludeFile, 'string');
@@ -195,9 +193,9 @@ function filterStringFilesReadDir(
 
 function filterDirentDirectoriesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeDirectory: DirentExcludeItemType
-): ReadDirectory<Dirent> {
+): ReadDirectory<ExtendedDirent> {
 	const matchDirectory = matchItem(excludeDirectory, 'Dirent');
 	if (api === 'callback') {
 		return (path, callback) => {
@@ -238,7 +236,7 @@ function filterDirentDirectoriesReadDir(
 
 function filterStringDirectoriesReadDir(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	excludeDirectory: StringExcludeItemType
 ): ReadDirectory<string> {
 	const matchDirectory = matchItem(excludeDirectory, 'string');
@@ -285,7 +283,7 @@ function filterStringDirectoriesReadDir(
 
 export default function filterReadDirectory(
 	api: 'callback' | 'sync',
-	fn: ReadDirectory<Dirent>,
+	fn: ReadDirectory<ExtendedDirent>,
 	options: CrawlerOptions
 ): ReadDirectory<ResultTypeOutput> {
 	const { excludeFiles, excludeDirectories, returnType } = options;

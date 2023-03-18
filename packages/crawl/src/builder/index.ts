@@ -1,9 +1,8 @@
-import type { Dirent } from 'node:fs';
 import process from 'node:process';
 import type { Readable } from 'node:stream';
 
 import { AsyncCrawler, IteratorCrawler, StreamCrawler, SyncCrawler } from '../crawler';
-import type { CrawlerOptions } from '../types';
+import type { CrawlerOptions, ExtendedDirent } from '../types';
 import type {
 	DirentExcludeItemType,
 	ExcludeType,
@@ -91,7 +90,7 @@ class StringCrawlerBuilder extends CrawlerBuilder<string> {
 	}
 }
 
-class DirentCrawlerBuilder extends CrawlerBuilder<Dirent> {
+class DirentCrawlerBuilder extends CrawlerBuilder<ExtendedDirent> {
 	excludeDirectories(exclude: DirentExcludeItemType): this {
 		this.options.excludeDirectories = exclude;
 
