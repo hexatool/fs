@@ -5,6 +5,7 @@ import type {
 	StringExcludeItemType,
 } from '../types/options';
 import matchItem from './match-item';
+import pathReadDirectory from './path-read-directory';
 import type { ReadDirectory } from './read-directory';
 
 function filterDirentDirectoryAndFilesReadDir(
@@ -288,24 +289,21 @@ export default function filterReadDirectory(
 ): ReadDirectory<ResultTypeOutput> {
 	const { excludeFiles, excludeDirectories, returnType } = options;
 
+	let returnFn: ReadDirectory<ResultTypeOutput> = fn;
+
 	if (excludeFiles && excludeDirectories && returnType === 'string') {
-		return filterStringDirectoryAndFilesReadDir(api, fn, excludeDirectories, excludeFiles);
-	}
-	if (excludeFiles && excludeDirectories && returnType === 'Dirent') {
-		return filterDirentDirectoryAndFilesReadDir(api, fn, excludeDirectories, excludeFiles);
-	}
-	if (excludeFiles && returnType === 'Dirent') {
-		return filterDirentFilesReadDir(api, fn, excludeFiles);
-	}
-	if (excludeFiles && returnType === 'string') {
-		return filterStringFilesReadDir(api, fn, excludeFiles);
-	}
-	if (excludeDirectories && returnType === 'Dirent') {
-		return filterDirentDirectoriesReadDir(api, fn, excludeDirectories);
-	}
-	if (excludeDirectories && returnType === 'string') {
-		return filterStringDirectoriesReadDir(api, fn, excludeDirectories);
+		returnFn = filterStringDirectoryAndFilesReadDir(api, fn, excludeDirectories, excludeFiles);
+	} else if (excludeFiles && excludeDirectories && returnType === 'Dirent') {
+		returnFn = filterDirentDirectoryAndFilesReadDir(api, fn, excludeDirectories, excludeFiles);
+	} else if (excludeFiles && returnType === 'Dirent') {
+		returnFn = filterDirentFilesReadDir(api, fn, excludeFiles);
+	} else if (excludeFiles && returnType === 'string') {
+		returnFn = filterStringFilesReadDir(api, fn, excludeFiles);
+	} else if (excludeDirectories && returnType === 'Dirent') {
+		returnFn = filterDirentDirectoriesReadDir(api, fn, excludeDirectories);
+	} else if (excludeDirectories && returnType === 'string') {
+		returnFn = filterStringDirectoriesReadDir(api, fn, excludeDirectories);
 	}
 
-	return fn;
+	return pathReadDirectory(api, returnFn, options);
 }

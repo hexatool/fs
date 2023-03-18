@@ -6,6 +6,7 @@ import type { ExcludeType, ResultTypeOutput } from '../types/options';
 import emptyReadDirFn from './empty-read-dir';
 import filterReadDirectory from './filter-read-directory';
 import matchDirectory from './match-directory';
+import pathReadDirectory from './path-read-directory';
 
 export type CallbackReadDirectoryFn<Output extends ResultTypeOutput> = (
 	path: string,
@@ -138,7 +139,7 @@ export default function readDirectory(
 		return emptyReadDirFn(api);
 	}
 	if (excludeFiles === undefined && excludeDirectories === undefined) {
-		return internalReadDirectory(api, options);
+		return pathReadDirectory(api, internalReadDirectory(api, options), options);
 	}
 
 	const fn = internalDirentReadDirectory(api, options);

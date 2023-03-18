@@ -68,12 +68,6 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 
 		return this;
 	}
-
-	withRelativePaths(): this {
-		this.options.pathType = 'relative';
-
-		return this;
-	}
 }
 
 class StringCrawlerBuilder extends CrawlerBuilder<string> {

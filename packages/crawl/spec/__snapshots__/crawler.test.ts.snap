@@ -4,50 +4,62 @@ exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custo
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -57,50 +69,62 @@ exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custo
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -110,50 +134,62 @@ exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custo
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -163,50 +199,62 @@ exports[`@hexatool/fs-crawl > should crawl custom directory > should crawl custo
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -284,38 +332,47 @@ exports[`@hexatool/fs-crawl > should exclude all directories > should exclude al
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -325,38 +382,47 @@ exports[`@hexatool/fs-crawl > should exclude all directories > should exclude al
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -366,38 +432,47 @@ exports[`@hexatool/fs-crawl > should exclude all directories > should exclude al
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -407,38 +482,47 @@ exports[`@hexatool/fs-crawl > should exclude all directories > should exclude al
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -504,14 +588,17 @@ exports[`@hexatool/fs-crawl > should exclude all files > should exclude all file
 [
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
 ]
@@ -521,14 +608,17 @@ exports[`@hexatool/fs-crawl > should exclude all files > should exclude all file
 [
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
 ]
@@ -538,14 +628,17 @@ exports[`@hexatool/fs-crawl > should exclude all files > should exclude all file
 [
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
 ]
@@ -555,14 +648,17 @@ exports[`@hexatool/fs-crawl > should exclude all files > should exclude all file
 [
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
 ]
@@ -620,46 +716,57 @@ exports[`@hexatool/fs-crawl > should exclude directories > should exclude direct
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -669,46 +776,57 @@ exports[`@hexatool/fs-crawl > should exclude directories > should exclude direct
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -718,46 +836,57 @@ exports[`@hexatool/fs-crawl > should exclude directories > should exclude direct
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -767,46 +896,57 @@ exports[`@hexatool/fs-crawl > should exclude directories > should exclude direct
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -880,46 +1020,57 @@ exports[`@hexatool/fs-crawl > should exclude files > should exclude files down >
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -929,46 +1080,57 @@ exports[`@hexatool/fs-crawl > should exclude files > should exclude files down >
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -978,46 +1140,57 @@ exports[`@hexatool/fs-crawl > should exclude files > should exclude files down >
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1027,46 +1200,57 @@ exports[`@hexatool/fs-crawl > should exclude files > should exclude files down >
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1140,42 +1324,52 @@ exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude f
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1185,42 +1379,52 @@ exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude f
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1230,42 +1434,52 @@ exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude f
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1275,42 +1489,52 @@ exports[`@hexatool/fs-crawl > should exclude folder and files > should exclude f
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1380,50 +1604,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1433,50 +1669,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1486,50 +1734,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1539,50 +1799,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with RegExp returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1676,50 +1948,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > sh
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1729,50 +2013,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > sh
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1782,50 +2078,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > sh
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1835,50 +2143,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with fn returning false > sh
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -1972,50 +2292,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with string returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -2025,50 +2357,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with string returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -2078,50 +2422,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with string returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
@@ -2131,50 +2487,62 @@ exports[`@hexatool/fs-crawl > should exclude folder with string returning false 
 [
   ExtendedDirent {
     "name": ".eslintignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".eslintrc.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": ".npmignore",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "CHANGELOG.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "LICENSE",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "README.md",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "node_modules",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "package.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "spec",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "src",
+    "path": undefined,
     "type": 2,
   },
   ExtendedDirent {
     "name": "tsconfig.json",
+    "path": undefined,
     "type": 1,
   },
   ExtendedDirent {
     "name": "vite.config.ts",
+    "path": undefined,
     "type": 1,
   },
 ]
