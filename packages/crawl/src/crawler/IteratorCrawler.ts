@@ -84,8 +84,7 @@ export class IteratorCrawler<Output extends ResultTypeOutput>
 				const pendingRead = pending<IteratorResult<Output>>();
 				pendingReads.push(pendingRead);
 
-				// eslint-disable-next-line @typescript-eslint/no-floating-promises
-				Promise.resolve().then(fulfillPendingReads);
+				fulfillPendingReads();
 
 				return pendingRead.promise;
 			},

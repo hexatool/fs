@@ -48,16 +48,20 @@ export default function crawlerTest(
 					it(
 						composedTestName,
 						() =>
-							new Promise<void>(resolve => {
+							new Promise<void>((resolve, reject) => {
 								const files: ResultTypeOutput[] = [];
 								const st = fn(resultType, direction, type) as Readable;
 								st.on('data', d => files.push(d as string));
 								st.on('end', () => {
-									check(files, options);
 									if (options.log) {
 										console.log(composedTestName, files);
 									}
-									resolve();
+									try {
+										check(files, options);
+										resolve();
+									} catch (e) {
+										reject(e);
+									}
 								});
 							})
 					);
@@ -72,18 +76,18 @@ export default function crawlerTest(
 						for await (const item of it) {
 							files.push(item);
 						}
-						check(files, options);
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
+						check(files, options);
 					});
 				} else if (type === 'sync') {
 					it(composedTestName, () => {
 						const files = fn(resultType, direction, type) as ReturnType;
-						check(files, options);
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
+						check(files, options);
 					});
 				} else {
 					it(composedTestName, async () => {
@@ -92,10 +96,10 @@ export default function crawlerTest(
 							direction,
 							type
 						) as Promise<ReturnType>);
-						check(files, options);
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
+						check(files, options);
 					});
 				}
 			});

@@ -1,25 +1,22 @@
 import type { ReadDirectory, ResultTypeOutput } from '../types';
 
-type InterceptorFn<Output extends ResultTypeOutput> = (path: string, result: Output) => Output;
+type InterceptorFn<Input extends ResultTypeOutput> = (path: string, result: Input[]) => Input[];
 
-export default function readDirectoryInterceptor<Output extends ResultTypeOutput>(
-	fn: ReadDirectory<Output>,
-	interceptor: InterceptorFn<Output>
-): ReadDirectory<Output> {
+export default function readDirectoryMapperInterceptor<Input extends ResultTypeOutput>(
+	fn: ReadDirectory<Input>,
+	interceptor: InterceptorFn<Input>
+): ReadDirectory<Input> {
 	return (path, callback) => {
 		if (callback) {
 			return fn(path, (error, result) => {
 				if (error) {
 					callback(error);
 				} else {
-					callback(
-						undefined,
-						result?.map(r => interceptor(path, r))
-					);
+					callback(undefined, interceptor(path, result ?? []));
 				}
 			});
 		}
 
-		return (fn(path) as Output[]).map(r => interceptor(path, r));
+		return interceptor(path, fn(path) as Input[]);
 	};
 }

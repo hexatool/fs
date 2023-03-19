@@ -1,7 +1,13 @@
 import { Readable } from 'node:stream';
 
-import readDirectory, { CallbackReadDirectoryFn, SyncReadDirectory } from '../fn/read-directory';
-import type { CrawlerOptions, EmitEvents, ResultTypeOutput } from '../types';
+import readDirectory from '../fn/read-directory';
+import type {
+	CallbackReadDirectoryFn,
+	CrawlerOptions,
+	EmitEvents,
+	ResultTypeOutput,
+	SyncReadDirectory,
+} from '../types';
 
 export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 	public readonly stream: Readable;
@@ -98,6 +104,11 @@ export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 		this.readDirectory(path, (err, files) => {
 			if (err) {
 				this.emit('error', err);
+				this.finishedReadingDirectory();
+
+				return;
+			}
+			if (!files) {
 				this.finishedReadingDirectory();
 
 				return;

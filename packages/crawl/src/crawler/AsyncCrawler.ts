@@ -1,5 +1,11 @@
-import readDirectory, { CallbackReadDirectoryFn, SyncReadDirectory } from '../fn/read-directory';
-import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
+import readDirectory from '../fn/read-directory';
+import type {
+	CallbackReadDirectoryFn,
+	Crawler,
+	CrawlerOptions,
+	ResultTypeOutput,
+	SyncReadDirectory,
+} from '../types';
 
 export class AsyncCrawler<Output extends ResultTypeOutput> implements Crawler<Promise<Output[]>> {
 	private readonly readDirectory: CallbackReadDirectoryFn<Output>;
@@ -14,7 +20,7 @@ export class AsyncCrawler<Output extends ResultTypeOutput> implements Crawler<Pr
 				if (error) {
 					reject(error);
 				} else {
-					resolve(result);
+					resolve(result ?? []);
 				}
 			});
 		});

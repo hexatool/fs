@@ -1,5 +1,5 @@
-import readDirectory, { SyncReadDirectory } from '../fn/read-directory';
-import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
+import readDirectory from '../fn/read-directory';
+import type { Crawler, CrawlerOptions, ResultTypeOutput, SyncReadDirectory } from '../types';
 
 export class SyncCrawler<Output extends ResultTypeOutput> implements Crawler<Output[]> {
 	private readonly readDirectory: SyncReadDirectory<Output>;
