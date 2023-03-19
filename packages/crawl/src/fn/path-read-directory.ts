@@ -1,76 +1,22 @@
 import { resolve } from 'node:path';
 
 import type { CrawlerOptions, ResultTypeOutput } from '../types';
-import { ExtendedDirent } from '../types';
-import type { ReadDirectory } from './read-directory';
-
-function absoluteString(
-	api: 'callback' | 'sync',
-	fn: ReadDirectory<string>
-): ReadDirectory<string> {
-	if (api === 'callback') {
-		return (path, callback) => {
-			const absolutePath = resolve(path);
-			fn(absolutePath, (err, result) => {
-				if (err) {
-					callback!(err, []);
-				} else {
-					callback!(
-						null,
-						result.map(p => resolve(absolutePath, p))
-					);
-				}
-			});
-		};
-	}
-
-	return (path: string) => {
-		const absolutePath = resolve(path);
-		const files = fn(absolutePath) ?? [];
-
-		return files.map(p => resolve(absolutePath, p));
-	};
-}
-
-function absoluteDirent(
-	api: 'callback' | 'sync',
-	fn: ReadDirectory<ExtendedDirent>
-): ReadDirectory<ExtendedDirent> {
-	if (api === 'callback') {
-		return (path, callback) => {
-			const absolutePath = resolve(path);
-			fn(absolutePath, (err, result) => {
-				if (err) {
-					callback!(err, []);
-				} else {
-					callback!(
-						null,
-						result.map(p => new ExtendedDirent(absolutePath, p.name, p.type))
-					);
-				}
-			});
-		};
-	}
-
-	return (path: string) => {
-		const absolutePath = resolve(path);
-		const files = fn(absolutePath) ?? [];
-
-		return files.map(p => new ExtendedDirent(absolutePath, p.name, p.type));
-	};
-}
+import { ExtendedDirent, ReadDirectory } from '../types';
+import readDirectoryInterceptor from '../utils/read-directory-interceptor';
 
 export default function pathReadDirectory(
-	api: 'callback' | 'sync',
 	fn: ReadDirectory<ResultTypeOutput>,
 	options: CrawlerOptions
 ): ReadDirectory<ResultTypeOutput> {
 	const { pathType, returnType } = options;
 	if (pathType === 'absolute' && returnType === 'string') {
-		return absoluteString(api, fn as ReadDirectory<string>);
+		return readDirectoryInterceptor(fn as ReadDirectory<string>, (path, p) => resolve(path, p));
 	}
 	if (pathType === 'absolute' && returnType === 'Dirent') {
-		return absoluteDirent(api, fn as ReadDirectory<ExtendedDirent>);
+		return readDirectoryInterceptor(
+			fn as ReadDirectory<ExtendedDirent>,
+			(path, dir) => new ExtendedDirent(resolve(path), dir.name, dir.type)
+		);
 	}
 
 	return fn;

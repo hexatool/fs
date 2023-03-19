@@ -1,4 +1,4 @@
-import type { CrawlerOptions, ExtendedDirent } from '../types';
+import type { CrawlerOptions, ExtendedDirent, ReadDirectory } from '../types';
 import type {
 	DirentExcludeItemType,
 	ResultTypeOutput,
@@ -6,7 +6,6 @@ import type {
 } from '../types/options';
 import matchItem from './match-item';
 import pathReadDirectory from './path-read-directory';
-import type { ReadDirectory } from './read-directory';
 
 function filterDirentDirectoryAndFilesReadDir(
 	api: 'callback' | 'sync',
@@ -23,8 +22,8 @@ function filterDirentDirectoryAndFilesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
-						result.filter(d => {
+						undefined,
+						result?.filter(d => {
 							if (d.isDirectory() && !matchDirectory(path, d)) {
 								return true;
 							}
@@ -68,9 +67,9 @@ function filterStringDirectoryAndFilesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
+						undefined,
 						result
-							.filter(d => {
+							?.filter(d => {
 								if (d.isDirectory() && !matchDirectory(path, d.name)) {
 									return true;
 								}
@@ -115,8 +114,8 @@ function filterDirentFilesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
-						result.filter(d => {
+						undefined,
+						result?.filter(d => {
 							if (d.isDirectory()) {
 								return true;
 							}
@@ -158,9 +157,9 @@ function filterStringFilesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
+						undefined,
 						result
-							.filter(d => {
+							?.filter(d => {
 								if (d.isDirectory()) {
 									return true;
 								}
@@ -205,8 +204,8 @@ function filterDirentDirectoriesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
-						result.filter(d => {
+						undefined,
+						result?.filter(d => {
 							if (d.isFile()) {
 								return true;
 							}
@@ -248,9 +247,9 @@ function filterStringDirectoriesReadDir(
 					callback(error, []);
 				} else if (callback) {
 					callback(
-						null,
+						undefined,
 						result
-							.filter(d => {
+							?.filter(d => {
 								if (d.isFile()) {
 									return true;
 								}
@@ -305,5 +304,5 @@ export default function filterReadDirectory(
 		returnFn = filterStringDirectoriesReadDir(api, fn, excludeDirectories);
 	}
 
-	return pathReadDirectory(api, returnFn, options);
+	return pathReadDirectory(returnFn, options);
 }

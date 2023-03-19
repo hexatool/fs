@@ -18,6 +18,7 @@ export interface Pending<T> {
 
 type Resolve<T> = (result: PromiseLike<T> | T) => void;
 type Reject = (error: Error) => void;
+
 /**
  * Returns a `Promise` and the functions to resolve or reject it.
  * @internal
@@ -33,11 +34,10 @@ export function pending<T>(): Pending<T> {
 	return {
 		promise,
 		resolve(result) {
-			// eslint-disable-next-line @typescript-eslint/no-floating-promises
-			Promise.resolve(result).then(resolve);
+			resolve(result);
 		},
 		reject(reason: Error) {
-			Promise.reject(reason).catch(reject);
+			reject(reason);
 		},
 	};
 }

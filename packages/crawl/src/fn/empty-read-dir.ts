@@ -1,10 +1,14 @@
-import type { ResultTypeOutput } from '../types';
-import type { CallbackReadDirectoryFn, ReadDirectory, SyncReadDirectory } from './read-directory';
+import type {
+	CallbackReadDirectoryFn,
+	ReadDirectory,
+	ResultTypeOutput,
+	SyncReadDirectory,
+} from '../types';
 
 const syncEmptyReadFn: SyncReadDirectory<ResultTypeOutput> = () => [];
 
 const callbackEmptyReadFn: CallbackReadDirectoryFn<ResultTypeOutput> = (_path, callback) =>
-	callback && callback(null, []);
+	callback && callback(undefined, []);
 
 export default function emptyReadDirFn(api: 'callback' | 'sync'): ReadDirectory<ResultTypeOutput> {
 	if (api === 'sync') {

@@ -1,21 +1,17 @@
 import { fs } from '@hexatool/fs-file-system';
 
-import type { CallBack, CrawlerOptions } from '../types';
+import type {
+	CallbackReadDirectoryFn,
+	CrawlerOptions,
+	ReadDirectory,
+	SyncReadDirectory,
+} from '../types';
 import { ExtendedDirent } from '../types';
 import type { ExcludeType, ResultTypeOutput } from '../types/options';
 import emptyReadDirFn from './empty-read-dir';
 import filterReadDirectory from './filter-read-directory';
 import matchDirectory from './match-directory';
 import pathReadDirectory from './path-read-directory';
-
-export type CallbackReadDirectoryFn<Output extends ResultTypeOutput> = (
-	path: string,
-	callback?: CallBack<Output[]>
-) => void;
-export type SyncReadDirectory<Output extends ResultTypeOutput> = (path: string) => Output[];
-export type ReadDirectory<Output extends ResultTypeOutput> =
-	| CallbackReadDirectoryFn<Output>
-	| SyncReadDirectory<Output>;
 
 function direntIsFileOrDirectory(dirent: ExtendedDirent) {
 	return dirent.isDirectory() || dirent.isFile();
@@ -29,7 +25,7 @@ function callbackDirentReadDirectory(): CallbackReadDirectoryFn<ExtendedDirent> 
 				callback(err, []);
 			} else {
 				callback(
-					null,
+					undefined,
 					files.map(d => new ExtendedDirent(d)).filter(direntIsFileOrDirectory)
 				);
 			}
@@ -52,8 +48,8 @@ function callbackStringReadDirectory(): CallbackReadDirectoryFn<string> {
 				callback(err, []);
 			} else {
 				callback(
-					null,
-					files.map(d => d.name)
+					undefined,
+					files?.map(d => d.name)
 				);
 			}
 		});
@@ -73,7 +69,7 @@ function excludeDirectory<T extends ResultTypeOutput>(
 		const ex = match(path);
 		if (ex) {
 			if (callback) {
-				callback(null, []);
+				callback(undefined, []);
 
 				return;
 			}
@@ -139,7 +135,7 @@ export default function readDirectory(
 		return emptyReadDirFn(api);
 	}
 	if (excludeFiles === undefined && excludeDirectories === undefined) {
-		return pathReadDirectory(api, internalReadDirectory(api, options), options);
+		return pathReadDirectory(internalReadDirectory(api, options), options);
 	}
 
 	const fn = internalDirentReadDirectory(api, options);

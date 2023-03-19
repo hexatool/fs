@@ -13,3 +13,4 @@ export type {
 	StringCrawlerOptions,
 } from './options';
 export { apiTypes, directions, emitEvents, lowerCaseResultTypes, resultTypes } from './options';
+export type { CallbackReadDirectoryFn, ReadDirectory, SyncReadDirectory } from './read-dir';

@@ -19,16 +19,17 @@ export type ApiType = (typeof apiTypes)[number];
 export const emitEvents = ['close', 'data', 'end', 'error', 'pause', 'readable', 'resume'] as const;
 export type EmitEvents = (typeof emitEvents)[number];
 
-export type CallBack<Result> = (error: NodeJS.ErrnoException | null, result: Result) => void;
+export type CallBack<Result> = (error?: NodeJS.ErrnoException | undefined, result?: Result) => void;
 
 export type ExcludeStringPathFn = (path: string) => boolean;
+export type ExcludeType = ExcludeStringPathFn | RegExp | string;
+
 export type ExcludeItemStringPathFn = (parent: string, item: string) => boolean;
 export type ExcludeItemDirentPathFn = (parent: string, item: ExtendedDirent) => boolean;
 export type ExcludeItemPathFn = ExcludeItemDirentPathFn | ExcludeItemStringPathFn;
-export type ExcludeType = ExcludeStringPathFn | RegExp | string;
-export type ExcludeItemType = ExcludeItemPathFn | RegExp | string | true;
 export type StringExcludeItemType = ExcludeItemStringPathFn | RegExp | string | true;
 export type DirentExcludeItemType = ExcludeItemDirentPathFn | RegExp | string | true;
+export type ExcludeItemType = ExcludeItemPathFn | RegExp | string | true;
 
 export interface CommonCrawlerOptions {
 	direction: CrawlDirection;
