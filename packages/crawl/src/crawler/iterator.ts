@@ -1,7 +1,7 @@
 import type { Crawler, CrawlerOptions, ResultTypeOutput } from '../types';
 import type { Pending } from '../utils/pending';
 import { pending } from '../utils/pending';
-import { FileSystemStreamCrawler } from './FileSystemStreamCrawler';
+import { FileSystemStreamCrawler } from './file-system-stream';
 
 export class IteratorCrawler<Output extends ResultTypeOutput>
 	implements Crawler<AsyncIterableIterator<Output>>
