@@ -1,17 +1,10 @@
 import { fdir as Fdir } from 'fdir';
+import readdir from 'readdir-enhanced';
 import { bench, describe } from 'vitest';
 
 import crawler from '../src/builder';
 
-describe('crawl down a single depth directory', () => {
-	bench(
-		'@hexatool/fs-crawl/sync',
-		() =>
-			new Promise(done => {
-				crawler.string().sync(process.cwd());
-				done();
-			})
-	);
+describe('async', () => {
 	bench(
 		'@hexatool/fs-crawl/async',
 		() =>
@@ -21,15 +14,6 @@ describe('crawl down a single depth directory', () => {
 					.async(process.cwd())
 					.then(() => done())
 					.catch(e => reject(e));
-			})
-	);
-	bench(
-		'@hexatool/fs-crawl/stream',
-		() =>
-			new Promise(done => {
-				const stream = crawler.string().stream(process.cwd());
-				stream.on('end', () => done());
-				stream.resume();
 			})
 	);
 	bench(
@@ -46,11 +30,15 @@ describe('crawl down a single depth directory', () => {
 			})
 	);
 	bench(
-		'fdir/sync',
+		'readdir/async',
 		() =>
-			new Promise(done => {
-				new Fdir().withMaxDepth(0).withDirs().crawl(process.cwd()).sync();
-				done();
+			new Promise((done, reject) => {
+				readdir
+					.async(process.cwd(), {
+						deep: 0,
+					})
+					.then(() => done())
+					.catch(e => reject(e));
 			})
 	);
 });
