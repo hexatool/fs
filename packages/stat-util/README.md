@@ -9,13 +9,13 @@
 ## Installation
 
 ```bash
-npm install --save @hexatool/fs-stat
+npm install --save @hexatool/fs-stat-util
 ```
 
 **Using yarn**
 
 ```bash
-yarn add @hexatool/fs-stat
+yarn add @hexatool/fs-stat-util
 ```
 
 ## Hexatool Code Quality Standards

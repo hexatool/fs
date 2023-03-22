@@ -5,11 +5,11 @@ import makeDirAsync from '@hexatool/fs-make-dir/async';
 import {
 	checkParentPaths as checkParentPathsSync,
 	checkPaths as checkPathsSync,
-} from '@hexatool/fs-stat';
+} from '@hexatool/fs-stat-util';
 import {
 	checkParentPaths as checkParentPathsAsync,
 	checkPaths as checkPathsAsync,
-} from '@hexatool/fs-stat/async';
+} from '@hexatool/fs-stat-util/async';
 
 import { doRenameAsync, doRenameSync } from './do-rename';
 import { isParentRoot } from './is-parent-root';

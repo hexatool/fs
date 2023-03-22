@@ -9,4 +9,4 @@
   - @hexatool/fs-make-dir@0.0.1-next.4
   - @hexatool/fs-remove@0.0.1-next.4
   - @hexatool/fs-copy@0.0.1-next.4
-  - @hexatool/fs-stat@0.0.1-next.4
+  - @hexatool/fs-stat-util@0.0.1-next.4

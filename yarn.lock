@@ -924,7 +924,7 @@ __metadata:
     "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-path-exists": 0.0.1-next.4
-    "@hexatool/fs-stat": 0.0.1-next.4
+    "@hexatool/fs-stat-util": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 
@@ -964,7 +964,7 @@ __metadata:
     "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-path-exists": 0.0.1-next.4
-    "@hexatool/fs-stat": 0.0.1-next.4
+    "@hexatool/fs-stat-util": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 
@@ -1026,7 +1026,7 @@ __metadata:
     "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-remove": 0.0.1-next.4
-    "@hexatool/fs-stat": 0.0.1-next.4
+    "@hexatool/fs-stat-util": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 
@@ -1046,9 +1046,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-stat@0.0.1-next.4, @hexatool/fs-stat@workspace:packages/stat":
+"@hexatool/fs-stat-util@0.0.1-next.4, @hexatool/fs-stat-util@workspace:packages/stat-util":
   version: 0.0.0-use.local
-  resolution: "@hexatool/fs-stat@workspace:packages/stat"
+  resolution: "@hexatool/fs-stat-util@workspace:packages/stat-util"
   dependencies:
     "@hexatool/fs-file-system": 0.0.1-next.3
   languageName: unknown
@@ -1076,7 +1076,7 @@ __metadata:
     "@hexatool/fs-move": 0.0.1-next.4
     "@hexatool/fs-path-exists": 0.0.1-next.4
     "@hexatool/fs-remove": 0.0.1-next.4
-    "@hexatool/fs-stat": 0.0.1-next.4
+    "@hexatool/fs-stat-util": 0.0.1-next.4
     "@hexatool/fs-temporary": 0.0.1-next.6
   languageName: unknown
   linkType: soft

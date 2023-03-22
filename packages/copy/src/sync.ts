@@ -5,7 +5,7 @@ import makeDirSync from '@hexatool/fs-make-dir';
 import {
 	checkParentPaths as checkParentPathsSync,
 	checkPaths as checkPathsSync,
-} from '@hexatool/fs-stat';
+} from '@hexatool/fs-stat-util';
 
 import DEFAULT_OPTIONS from './default';
 import { internalCopySync } from './internal-copy';

@@ -1,5 +1,5 @@
 {
-	"name": "@hexatool/fs-stat",
+	"name": "@hexatool/fs-stat-util",
 	"version": "0.0.1-next.4",
 	"description": "Modular fs library",
 	"keywords": [
@@ -21,16 +21,16 @@
 	"files": [
 		"dist"
 	],
-	"module": "./dist/hexatool-fs-stat-sync.mjs",
+	"module": "./dist/hexatool-fs-stat-util-sync.mjs",
 	"types": "./dist/sync.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/sync.d.ts",
-			"default": "./dist/hexatool-fs-stat-sync.mjs"
+			"default": "./dist/hexatool-fs-stat-util-sync.mjs"
 		},
 		"./async": {
 			"types": "./dist/async.d.ts",
-			"default": "./dist/hexatool-fs-stat-async.mjs"
+			"default": "./dist/hexatool-fs-stat-util-async.mjs"
 		}
 	},
 	"typesVersions": {
