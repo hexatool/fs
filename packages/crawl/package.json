@@ -66,6 +66,7 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"test": "vitest run --no-isolate",
+		"test:bench": "node benchmark/benchmark.mjs",
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "tsc --noEmit"
 	},
@@ -73,14 +74,18 @@
 		"@hexatool/fs-file-system": "0.0.1-next.3"
 	},
 	"devDependencies": {
+		"@nodelib/fs.walk": "1.2.8",
 		"@types/klaw": "3.0.3",
 		"@types/klaw-sync": "6.0.1",
 		"@types/mock-fs": "4.13.1",
+		"benny": "3.7.1",
+		"csv-to-markdown-table": "1.3.0",
 		"fdir": "6.0.1",
 		"klaw": "4.1.0",
 		"klaw-sync": "6.0.0",
 		"mock-fs": "5.2.0",
-		"readdir-enhanced": "6.0.4"
+		"readdir-enhanced": "6.0.4",
+		"systeminformation": "5.17.12"
 	},
 	"engines": {
 		"node": ">=14.16.0"

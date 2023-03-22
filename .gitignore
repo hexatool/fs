@@ -122,3 +122,6 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Bench
+**/benchmark/results/**
