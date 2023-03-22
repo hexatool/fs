@@ -1,20 +1,28 @@
 import type { Mode } from 'node:fs';
 
-import { fs } from '@hexatool/fs-file-system';
-
 import checkPath from './check-path';
+import type { MakeDirSettingsOrOptions } from './settings';
+import { MakeDirSettings } from './settings';
 
-export async function makeDirAsync(path: string, mode: Mode = 0o777): Promise<void> {
+export async function makeDirAsync(
+	path: string,
+	settingsOrOptions: MakeDirSettingsOrOptions | Mode = 0o777
+): Promise<void> {
 	checkPath(path);
+	const { fs, mode } = MakeDirSettings.getSettings(settingsOrOptions);
 
-	await fs.promises.mkdir(path, {
+	await fs.mkdir(path, {
 		mode,
 		recursive: true,
 	});
 }
 
-export function makeDirSync(path: string, mode: Mode = 0o777): void {
+export function makeDirSync(
+	path: string,
+	settingsOrOptions: MakeDirSettingsOrOptions | Mode = 0o777
+): void {
 	checkPath(path);
+	const { fs, mode } = MakeDirSettings.getSettings(settingsOrOptions);
 
 	fs.mkdirSync(path, {
 		mode,
