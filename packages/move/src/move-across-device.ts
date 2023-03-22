@@ -7,6 +7,7 @@ export function moveAcrossDeviceSync(src: string, dest: string, overwrite?: bool
 	const opts = {
 		overwrite: overwrite ?? false,
 		errorOnExist: true,
+		preserveTimestamps: true,
 	};
 	copySync(src, dest, opts);
 
@@ -21,6 +22,7 @@ export async function moveAcrossDeviceAsync(
 	const opts = {
 		overwrite: overwrite ?? false,
 		errorOnExist: true,
+		preserveTimestamps: true,
 	};
 	await copyAsync(src, dest, opts);
 
