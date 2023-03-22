@@ -1,25 +1,15 @@
-import { fs } from '@hexatool/fs-file-system';
+import type { RemoveSettingsOrOptions } from './settings';
+import { RemoveSettings } from './settings';
 
-import { rimraf, rimrafSync } from './rimraf';
-
-export async function removeAsync(path: string): Promise<void> {
-	// Node 14.14.0+
-	/* eslint @typescript-eslint/no-unnecessary-condition: off */
-	if (fs.promises.rm) {
-		await fs.promises.rm(path, { recursive: true, force: true });
-
-		return;
-	}
-	await rimraf(path);
+export async function removeAsync(
+	path: string,
+	settingsOrOptions?: RemoveSettingsOrOptions
+): Promise<void> {
+	const { fs, recursive, force } = RemoveSettings.getSettings(settingsOrOptions);
+	await fs.rm(path, { recursive, force });
 }
 
-export function removeSync(path: string): void {
-	// Node 14.14.0+
-	/* eslint @typescript-eslint/no-unnecessary-condition: off */
-	if (fs.rmSync) {
-		fs.rmSync(path, { recursive: true, force: true });
-
-		return;
-	}
-	rimrafSync(path);
+export function removeSync(path: string, settingsOrOptions?: RemoveSettingsOrOptions): void {
+	const { fs, recursive, force } = RemoveSettings.getSettings(settingsOrOptions);
+	fs.rmSync(path, { recursive, force });
 }
