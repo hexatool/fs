@@ -1,6 +1,6 @@
 import si from 'systeminformation';
 
-export async function getSystemInfo() {
+export async function getSystemInfo(): Promise<string> {
 	const cpu = await si.cpu();
 	const disk = (await si.diskLayout())[0];
 	const os = await si.osInfo();
