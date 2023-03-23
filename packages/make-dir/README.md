@@ -30,56 +30,58 @@ makeDir('/tmp/this/path/does/not/exist');
 
 ### makeDir(path: string, options: MakeDirOptions | MakeDirSettings | Mode = 0o777): void
 
-#### `path`
-- Type: `string`.
-- Optional: `false`.
+- `path`
+  - Type: `string`.
+  - Optional: `false`.
 
 
-#### `options`
-- Type: [`MakeDirOptions`](#makediroptions) | [`MakeDirSettings`](#makedirsettings) | [`Mode`](#mode).
-- Optional: `true`.
-- Default `0o777`.
+- `options`
+  - Type: [`MakeDirOptions`](#makediroptions) | [`MakeDirSettings`](#makedirsettings) | `Mode`.
+  - Optional: `true`.
+  - Default `0o777`.
 
-> 📖 When you pass a [`MakeDirOptions`](#makediroptions), an instance of the [`MakeDirSettings`](#makedirsettings) class will be created automatically. 
-If you plan to call the method frequently, use a pre-created instance of the [`MakeDirSettings`](#makedirsettings) class.
+    > When you pass a [`MakeDirOptions`](#makediroptions), an instance of the [`MakeDirSettings`](#makedirsettings) class will be created automatically. 
+    If you plan to call the method frequently, use a pre-created instance of the [`MakeDirSettings`](#makedirsettings) class.
 
 
 ### MakeDirOptions
 
-#### `mode`
-- Type: `string | number`.
-- Default `0o777`.
+- `mode`
+  - Type: `string | number`.
+  - Default `0o777`.
 
-If a string is passed, it is parsed as an octal integer. If not specified, defaults to 0o777.
+    > If a string is passed, it is parsed as an octal integer. If not specified, defaults to 0o777.
 
-#### `fs`
-- Type: [`MakeDirFileSystemAdapter`](./src/adapters/index.ts).
-- Default: A default FS methods.
 
- By default, the built-in Node.js module (`fs`) is used to work with the file system. You can replace any method with your own.
+- `fs`
+  - Type: [`MakeDirFileSystemAdapter`](./src/adapters/index.ts).
+  - Default: A default FS methods.
 
-```ts
-interface MakeDirFileSystemAdapter {
-	mkdir?: typeof fs.promises.mkdir;
-	mkdirSync?: typeof fs.mkdirSync;
-}
+    > By default, the built-in Node.js module (`fs`) is used to work with the file system. You can replace any method with your own.
 
-const options: MakeDirOptions = {
-	fs: { mkdir: fakeLstat }
-};
-```
+    ```ts
+    interface MakeDirFileSystemAdapter {
+        mkdir?: typeof fs.promises.mkdir;
+        mkdirSync?: typeof fs.mkdirSync;
+    }
+    
+    const options: MakeDirOptions = {
+        fs: { mkdir: fakeLstat }
+    };
+    ```
 
 ### MakeDirSettings
 
 A class of full settings of the package.
 
-#### `new MakeDirSettings(options: MakeDirOptions = {})`
+- `new MakeDirSettings(options: MakeDirOptions = {})`
 
-Constructor of the class receiving an optional [`MakeDirOptions`](#makediroptions).  
+    Constructor of the class receiving an optional [`MakeDirOptions`](#makediroptions).  
 
-#### `MakeDirSettings.getSettings(optionsOrSettings: MakeDirOptions | MakeDirSettings | Mode = {})`
 
-Static method to create a [`MakeDirSettings`](#makedirsettings) instance.  
+- `MakeDirSettings.getSettings(optionsOrSettings: MakeDirOptions | MakeDirSettings | Mode = {})`
+
+    Static method to create a [`MakeDirSettings`](#makedirsettings) instance.  
 
 ## Examples
 
