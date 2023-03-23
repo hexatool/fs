@@ -18,12 +18,12 @@ export class RemoveSettings {
 		this.recursive = this.#getValue(options.recursive, true);
 	}
 
-	static getSettings(settingsOrOptions: RemoveOptions | RemoveSettings = {}): RemoveSettings {
-		if (settingsOrOptions instanceof RemoveSettings) {
-			return settingsOrOptions;
+	static getSettings(optionsOrSettings: RemoveOptions | RemoveSettings = {}): RemoveSettings {
+		if (optionsOrSettings instanceof RemoveSettings) {
+			return optionsOrSettings;
 		}
 
-		return new RemoveSettings(settingsOrOptions);
+		return new RemoveSettings(optionsOrSettings);
 	}
 
 	#getValue<T>(option: T | undefined, value: T): T {
@@ -31,4 +31,4 @@ export class RemoveSettings {
 	}
 }
 
-export type RemoveSettingsOrOptions = RemoveOptions | RemoveSettings | undefined;
+export type RemoveOptionsOrSettings = RemoveOptions | RemoveSettings | undefined;
