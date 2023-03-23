@@ -1,11 +1,18 @@
-import { fs } from '@hexatool/fs-file-system';
 import type { PathLike } from 'fs';
 
-const pathExistsAsync = (path: PathLike): Promise<boolean> => {
-	return fs.promises
-		.access(path)
-		.then(() => true)
-		.catch(() => false);
+import type { PathExistsOptionsOrSettings } from './settings';
+import { PathExistsSettings } from './settings';
+
+const pathExists = (
+	path: PathLike,
+	optionsOrSettings?: PathExistsOptionsOrSettings
+): Promise<boolean> => {
+	const { fs } = PathExistsSettings.getSettings(optionsOrSettings);
+
+	return fs.pathExists(path);
 };
 
-export default pathExistsAsync;
+export * from './adapters';
+export * from './settings';
+
+export default pathExists;
