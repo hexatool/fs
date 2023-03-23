@@ -1,6 +1,5 @@
 import type { BigIntStats, Stats } from 'node:fs';
-
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import { onDirAsync, onDirSync } from './on-dir';
 import { onFileAsync, onFileSync } from './on-file';

@@ -70,9 +70,6 @@
 		"test:coverage": "vitest run --no-isolate --coverage",
 		"typecheck": "tsc --noEmit"
 	},
-	"dependencies": {
-		"@hexatool/fs-file-system": "0.0.1-next.3"
-	},
 	"devDependencies": {
 		"@nodelib/fs.walk": "1.2.8",
 		"@types/klaw": "3.0.3",

@@ -1,4 +1,5 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
+
 import removeSync from '@hexatool/fs-remove';
 import removeAsync from '@hexatool/fs-remove/async';
 

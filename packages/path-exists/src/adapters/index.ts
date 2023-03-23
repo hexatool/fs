@@ -1,4 +1,5 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
+
 import type { PathLike } from 'fs';
 
 export type PathExistsAsynchronousMethod = (path: PathLike) => Promise<boolean>;

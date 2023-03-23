@@ -921,7 +921,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-copy@workspace:packages/copy"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-path-exists": 0.0.1-next.4
     "@hexatool/fs-stat": 0.0.1-next.4
@@ -952,7 +951,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
   languageName: unknown
   linkType: soft
@@ -961,7 +959,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-create-link@workspace:packages/create-link"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-path-exists": 0.0.1-next.4
     "@hexatool/fs-stat": 0.0.1-next.4
@@ -972,24 +969,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-empty-dir@workspace:packages/empty-dir"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-remove": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-file-system@0.0.1-next.3, @hexatool/fs-file-system@workspace:packages/file-system":
-  version: 0.0.0-use.local
-  resolution: "@hexatool/fs-file-system@workspace:packages/file-system"
-  dependencies:
-    "@types/graceful-fs": 4.1.6
+"@hexatool/fs-file-system@npm:0.0.1-next.3":
+  version: 0.0.1-next.3
+  resolution: "@hexatool/fs-file-system@npm:0.0.1-next.3"
   peerDependencies:
     graceful-fs: 4.2.10
   peerDependenciesMeta:
     graceful-fs:
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: ba1190bf186d430b6e7f4227de69a39dd1ddbee615ec5b0b804e1ecd9e64dc5a565473dc853df6972b492f917af69b7a205529c14497343bcd9f2c247e380117
+  languageName: node
+  linkType: hard
 
 "@hexatool/fs-make-dir@0.0.1-next.4, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
@@ -1023,7 +1018,6 @@ __metadata:
   resolution: "@hexatool/fs-move@workspace:packages/move"
   dependencies:
     "@hexatool/fs-copy": 0.0.1-next.4
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
     "@hexatool/fs-remove": 0.0.1-next.4
     "@hexatool/fs-stat": 0.0.1-next.4
@@ -1058,7 +1052,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-temporary@workspace:packages/temporary"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@hexatool/fs-make-dir": 0.0.1-next.4
   languageName: unknown
   linkType: soft
@@ -1428,15 +1421,6 @@ __metadata:
   version: 1.0.0
   resolution: "@types/estree@npm:1.0.0"
   checksum: 910d97fb7092c6738d30a7430ae4786a38542023c6302b95d46f49420b797f21619cdde11fa92b338366268795884111c2eb10356e4bd2c8ad5b92941e9e6443
-  languageName: node
-  linkType: hard
-
-"@types/graceful-fs@npm:4.1.6":
-  version: 4.1.6
-  resolution: "@types/graceful-fs@npm:4.1.6"
-  dependencies:
-    "@types/node": "*"
-  checksum: c3070ccdc9ca0f40df747bced1c96c71a61992d6f7c767e8fd24bb6a3c2de26e8b84135ede000b7e79db530a23e7e88dcd9db60eee6395d0f4ce1dae91369dd4
   languageName: node
   linkType: hard
 

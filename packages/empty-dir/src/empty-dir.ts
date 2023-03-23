@@ -1,6 +1,6 @@
+import * as fs from 'node:fs';
 import { join } from 'node:path';
 
-import { fs } from '@hexatool/fs-file-system';
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import removeSync from '@hexatool/fs-remove';

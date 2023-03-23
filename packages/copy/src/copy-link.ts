@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 export function copyLinkSync(resolvedSrc: string, dest: string): void {
 	fs.unlinkSync(dest);

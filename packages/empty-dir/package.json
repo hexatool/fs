@@ -49,7 +49,6 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@hexatool/fs-file-system": "0.0.1-next.3",
 		"@hexatool/fs-make-dir": "0.0.1-next.4",
 		"@hexatool/fs-remove": "0.0.1-next.4"
 	},

@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 export function setDestModeSync(dest: string, srcMode: bigint | number): void {
 	fs.chmodSync(dest, srcMode as number);

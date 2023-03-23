@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 export type RmAsynchronousMethod = typeof fs.promises.rm;
 export type RmSynchronousMethod = typeof fs.rmSync;

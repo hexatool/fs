@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import { copyDirItemAsync, copyDirItemSync } from './copy-dir-item';
 import type { CopyOptions } from './types';

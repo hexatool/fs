@@ -1,7 +1,7 @@
 import type { BigIntStats, Stats } from 'node:fs';
+import * as fs from 'node:fs';
 import path from 'node:path';
 
-import { fs } from '@hexatool/fs-file-system';
 import { isSrcSubdirectory } from '@hexatool/fs-stat';
 
 import { copyLinkAsync, copyLinkSync } from './copy-link';

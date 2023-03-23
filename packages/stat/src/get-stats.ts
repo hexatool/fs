@@ -1,6 +1,5 @@
 import type { PathLike } from 'node:fs';
-
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import type { ErrorWithCode, GetStatsOptions, StatsResult } from './types';
 

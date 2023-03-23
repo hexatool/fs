@@ -1,6 +1,6 @@
+import * as fs from 'node:fs';
 import path from 'node:path';
 
-import { fs } from '@hexatool/fs-file-system';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import {
 	checkParentPaths as checkParentPathsAsync,

@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 export async function utimesMillisAsync(path: string, atime: Date, mtime: Date): Promise<void> {
 	const fd = await fs.promises.open(path, 'r+');

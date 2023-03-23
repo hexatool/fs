@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import { copyDirAsync, copyDirSync } from './copy-dir';
 import { setDestModeAsync, setDestModeSync } from './set-dest-mode';

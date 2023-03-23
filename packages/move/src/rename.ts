@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import { moveAcrossDeviceAsync, moveAcrossDeviceSync } from './move-across-device';
 import type { ErrorWithCode } from './types';

@@ -3,5 +3,8 @@ import { checkParentPathsAsync as checkParentPaths } from './check-parent-paths'
 import { checkPathsAsync as checkPaths } from './check-paths';
 import { getStatsAsync as getStats } from './get-stats';
 import isSrcSubdirectory from './is-src-subdirectory';
+import { statAsync as stat } from './stat';
 
 export { areIdentical, checkParentPaths, checkPaths, getStats, isSrcSubdirectory };
+
+export default stat;

@@ -1,4 +1,4 @@
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 export type MkdirAsynchronousMethod = typeof fs.promises.mkdir;
 export type MkdirSynchronousMethod = typeof fs.mkdirSync;

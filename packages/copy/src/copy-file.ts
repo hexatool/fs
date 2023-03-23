@@ -1,6 +1,5 @@
 import type { BigIntStats, Stats } from 'node:fs';
-
-import { fs } from '@hexatool/fs-file-system';
+import * as fs from 'node:fs';
 
 import { handleTimestampsAsync, handleTimestampsSync } from './handle-timestamps';
 import { setDestModeAsync, setDestModeSync } from './set-dest-mode';
