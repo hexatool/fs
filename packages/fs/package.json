@@ -58,7 +58,7 @@
 		"@hexatool/fs-move": "0.0.1-next.4",
 		"@hexatool/fs-path-exists": "0.0.1-next.4",
 		"@hexatool/fs-remove": "0.0.1-next.4",
-		"@hexatool/fs-stat-util": "0.0.1-next.4",
+		"@hexatool/fs-stat": "0.0.1-next.4",
 		"@hexatool/fs-temporary": "0.0.1-next.6"
 	},
 	"engines": {

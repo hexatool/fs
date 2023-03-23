@@ -16,14 +16,14 @@ import makeDir from '@hexatool/fs-make-dir/async';
 import move from '@hexatool/fs-move/async';
 import pathExistsAsync from '@hexatool/fs-path-exists/async';
 import remove from '@hexatool/fs-remove/async';
-import type { StatsResult } from '@hexatool/fs-stat-util';
+import type { StatsResult } from '@hexatool/fs-stat';
 import {
 	areIdentical,
 	checkParentPaths,
 	checkPaths,
 	getStats,
 	isSrcSubdirectory,
-} from '@hexatool/fs-stat-util/async';
+} from '@hexatool/fs-stat/async';
 import temporaryDir, { makeTemporaryDir } from '@hexatool/fs-temporary/async';
 
 export type { CrawlerOptions, StatsResult };

@@ -1,7 +1,7 @@
 import path from 'node:path';
 
-import { checkPaths as checkPathsSync } from '@hexatool/fs-stat-util';
-import { checkPaths as checkPathsAsync } from '@hexatool/fs-stat-util/async';
+import { checkPaths as checkPathsSync } from '@hexatool/fs-stat';
+import { checkPaths as checkPathsAsync } from '@hexatool/fs-stat/async';
 
 import { internalCopyAsync, internalCopySync } from './internal-copy';
 import type { CopyOptions } from './types';

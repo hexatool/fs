@@ -100,7 +100,7 @@ async function streamSuite() {
 function formatNumber(number: number): string {
 	const res = String(number.toFixed(number < 100 ? 4 : 2)).split('.');
 
-	return (res[0] ?? '').replace(/(?=(?:\d{3})+$)(?!\b)/g, ',') + (res[1] ? `.${res[1]}` : '');
+	return res[0]?.replace(/(?=(?:\d{3})+$)(?!\b)/g, ',') + (res[1] ? `.${res[1]}` : '');
 }
 
 function formatResult(bench: Bench): string {

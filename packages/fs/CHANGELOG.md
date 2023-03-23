@@ -16,7 +16,7 @@
   - @hexatool/fs-crawl@0.0.1-next.1
   - @hexatool/fs-copy@0.0.1-next.4
   - @hexatool/fs-move@0.0.1-next.4
-  - @hexatool/fs-stat-util@0.0.1-next.4
+  - @hexatool/fs-stat@0.0.1-next.4
 
 ## 0.0.1-next.6
 

@@ -1,4 +1,4 @@
-# @hexatool/fs-stat-util
+# @hexatool/fs-stat
 
 ## 0.0.1-next.4
 

@@ -6,7 +6,7 @@ import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import pathExistsSync from '@hexatool/fs-path-exists';
 import pathExistsAsync from '@hexatool/fs-path-exists/async';
-import { areIdentical } from '@hexatool/fs-stat-util';
+import { areIdentical } from '@hexatool/fs-stat';
 
 export async function createLinkAsync(srcPath: string, destPath: string): Promise<void> {
 	let destPathStats: Stats | undefined;

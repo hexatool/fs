@@ -5,7 +5,7 @@ import makeDirAsync from '@hexatool/fs-make-dir/async';
 import {
 	checkParentPaths as checkParentPathsAsync,
 	checkPaths as checkPathsAsync,
-} from '@hexatool/fs-stat-util/async';
+} from '@hexatool/fs-stat/async';
 
 import DEFAULT_OPTIONS from './default';
 import { internalCopyAsync } from './internal-copy';
