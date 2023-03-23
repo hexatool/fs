@@ -1,10 +1,10 @@
-<h1 align="center">
-  Hexatool's fs-create-file module 
-</h1>
+# @hexatool/fs-make-dir
+> Create a directory with some features.
 
-<p align="center">
-  Modular fs library.
-</p>
+## 💡 Highlights
+Create a directory if not exists, with some extra features.
+  - 📂 If the directory structure does not exist, it is created.
+  - 🛠️ Can specify the desired mode for the directory.
 
 ## Installation
 
@@ -18,23 +18,68 @@ npm install --save @hexatool/fs-make-dir
 yarn add @hexatool/fs-make-dir
 ```
 
-## What it does
-Ensures that the directory exists. If the directory structure does not exist, it is created. 
-If provided, options may specify the desired mode for the directory.
+## Usage
+
+```typescript
+import makeDir from '@hexatool/fs-make-dir';
+
+makeDir('/tmp/this/path/does/not/exist');
+```
 
 ## API
 
-### makeDir(path: string, mode: Mode = 0o777): void
+### makeDir(path: string, options: MakeDirOptions | MakeDirSettings | Mode = 0o777): void
 
-- `path`
-   - Type: `string`.
-   - Optional: `false`.
+#### `path`
+- Type: `string`.
+- Optional: `false`.
 
 
-- `mode`
-   - Type: `string`.
-   - Optional: `true`.
-   - Default `0o777`.
+#### `options`
+- Type: [`MakeDirOptions`](#makediroptions) | [`MakeDirSettings`](#makedirsettings) | [`Mode`](#mode).
+- Optional: `true`.
+- Default `0o777`.
+
+> 📖 When you pass a [`MakeDirOptions`](#makediroptions), an instance of the [`MakeDirSettings`](#makedirsettings) class will be created automatically. 
+If you plan to call the method frequently, use a pre-created instance of the [`MakeDirSettings`](#makedirsettings) class.
+
+
+### MakeDirOptions
+
+#### `mode`
+- Type: `string | number`.
+- Default `0o777`.
+
+If a string is passed, it is parsed as an octal integer. If not specified, defaults to 0o777.
+
+#### `fs`
+- Type: [`MakeDirFileSystemAdapter`](./src/adapters/index.ts).
+- Default: A default FS methods.
+
+ By default, the built-in Node.js module (`fs`) is used to work with the file system. You can replace any method with your own.
+
+```ts
+interface MakeDirFileSystemAdapter {
+	mkdir?: typeof fs.promises.mkdir;
+	mkdirSync?: typeof fs.mkdirSync;
+}
+
+const options: MakeDirOptions = {
+	fs: { mkdir: fakeLstat }
+};
+```
+
+### MakeDirSettings
+
+A class of full settings of the package.
+
+#### `new MakeDirSettings(options: MakeDirOptions = {})`
+
+Constructor of the class receiving an optional [`MakeDirOptions`](#makediroptions).  
+
+#### `MakeDirSettings.getSettings(optionsOrSettings: MakeDirOptions | MakeDirSettings | Mode = {})`
+
+Static method to create a [`MakeDirSettings`](#makedirsettings) instance.  
 
 ## Examples
 
