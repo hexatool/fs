@@ -18,18 +18,18 @@ export class MakeDirSettings {
 	}
 
 	static getSettings(
-		settingsOrOptions: MakeDirOptions | MakeDirSettings | Mode = {}
+		optionsOrSettings: MakeDirOptions | MakeDirSettings | Mode = {}
 	): MakeDirSettings {
-		if (settingsOrOptions instanceof MakeDirSettings) {
-			return settingsOrOptions;
+		if (optionsOrSettings instanceof MakeDirSettings) {
+			return optionsOrSettings;
 		}
-		if (typeof settingsOrOptions === 'string' || typeof settingsOrOptions === 'number') {
+		if (typeof optionsOrSettings === 'string' || typeof optionsOrSettings === 'number') {
 			return new MakeDirSettings({
-				mode: settingsOrOptions,
+				mode: optionsOrSettings,
 			});
 		}
 
-		return new MakeDirSettings(settingsOrOptions);
+		return new MakeDirSettings(optionsOrSettings);
 	}
 
 	#getValue<T>(option: T | undefined, value: T): T {
@@ -37,4 +37,4 @@ export class MakeDirSettings {
 	}
 }
 
-export type MakeDirSettingsOrOptions = MakeDirOptions | MakeDirSettings | undefined;
+export type MakeDirOptionsOrSettings = MakeDirOptions | MakeDirSettings | undefined;
