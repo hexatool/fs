@@ -931,7 +931,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-crawl@workspace:packages/crawl"
   dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
     "@nodelib/fs.walk": 1.2.8
     "@types/klaw": 3.0.3
     "@types/klaw-sync": 6.0.1
@@ -952,6 +951,7 @@ __metadata:
   resolution: "@hexatool/fs-create-file@workspace:packages/create-file"
   dependencies:
     "@hexatool/fs-make-dir": 0.0.1-next.4
+    "@hexatool/fs-stat": 0.0.1-next.4
   languageName: unknown
   linkType: soft
 
@@ -974,23 +974,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hexatool/fs-file-system@npm:0.0.1-next.3":
-  version: 0.0.1-next.3
-  resolution: "@hexatool/fs-file-system@npm:0.0.1-next.3"
-  peerDependencies:
-    graceful-fs: 4.2.10
-  peerDependenciesMeta:
-    graceful-fs:
-      optional: true
-  checksum: ba1190bf186d430b6e7f4227de69a39dd1ddbee615ec5b0b804e1ecd9e64dc5a565473dc853df6972b492f917af69b7a205529c14497343bcd9f2c247e380117
-  languageName: node
-  linkType: hard
-
 "@hexatool/fs-make-dir@0.0.1-next.4, @hexatool/fs-make-dir@workspace:packages/make-dir":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-make-dir@workspace:packages/make-dir"
-  dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
   languageName: unknown
   linkType: soft
 
@@ -1027,24 +1013,18 @@ __metadata:
 "@hexatool/fs-path-exists@0.0.1-next.4, @hexatool/fs-path-exists@workspace:packages/path-exists":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-path-exists@workspace:packages/path-exists"
-  dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
   languageName: unknown
   linkType: soft
 
 "@hexatool/fs-remove@0.0.1-next.4, @hexatool/fs-remove@workspace:packages/remove":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-remove@workspace:packages/remove"
-  dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
   languageName: unknown
   linkType: soft
 
 "@hexatool/fs-stat@0.0.1-next.4, @hexatool/fs-stat@workspace:packages/stat":
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-stat@workspace:packages/stat"
-  dependencies:
-    "@hexatool/fs-file-system": 0.0.1-next.3
   languageName: unknown
   linkType: soft
 

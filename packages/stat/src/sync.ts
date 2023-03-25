@@ -6,6 +6,9 @@ import isSrcSubdirectory from './is-src-subdirectory';
 import { statSync as stat } from './stat';
 import type { StatsResult } from './types';
 
+export * from './adapters';
+export * from './settings';
+
 export type { StatsResult };
 
 export { areIdentical, checkParentPaths, checkPaths, getStats, isSrcSubdirectory };

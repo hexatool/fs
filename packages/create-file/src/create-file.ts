@@ -1,18 +1,27 @@
 import type { Stats } from 'node:fs';
-import * as fs from 'node:fs';
 import { dirname } from 'node:path';
 
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
+import statSync from '@hexatool/fs-stat';
+import statAsync from '@hexatool/fs-stat/async';
 
-type ErrorWithCode = Error & {
-	code?: string;
-};
+import type { CreateFileOptionsOrSettings } from './settings';
+import { CreateFileSettings } from './settings';
+import { ErrorWithCode } from './types';
 
-export async function createFileAsync(path: string): Promise<void> {
+export async function createFileAsync(
+	path: string,
+	optionsOrSettings?: CreateFileOptionsOrSettings
+): Promise<void> {
+	const { fs } = CreateFileSettings.getSettings(optionsOrSettings);
 	let stats: Stats | undefined;
 	try {
-		stats = await fs.promises.stat(path);
+		stats = await statAsync(path, {
+			fs,
+			throwErrorOnBrokenSymbolicLink: true,
+			followSymbolicLink: false,
+		});
 	} catch {
 		stats = undefined;
 	}
@@ -22,29 +31,39 @@ export async function createFileAsync(path: string): Promise<void> {
 
 	const dir = dirname(path);
 	try {
-		const dirStat = await fs.promises.stat(dir);
-		if (!dirStat.isDirectory()) {
-			// parent is not a directory
-			// This is just to cause an internal ENOTDIR error to be thrown
-			await fs.promises.readdir(dir);
+		stats = await statAsync(dir, {
+			fs,
+			throwErrorOnBrokenSymbolicLink: true,
+			followSymbolicLink: false,
+		});
+		if (!stats.isDirectory()) {
+			throw new ErrorWithCode('ENOTDIR', `not a directory, scandir '${dir}'`);
 		}
 	} catch (e) {
 		const err = e as ErrorWithCode;
 		// If the stat call above failed because the directory doesn't exist, create it
 		if (err.code === 'ENOENT') {
-			await makeDirAsync(dir);
+			await makeDirAsync(dir, { fs });
 		} else {
 			throw err;
 		}
 	}
 
-	await fs.promises.writeFile(path, '');
+	await fs.createFile(path, '');
 }
 
-export function createFileSync(path: string): void {
+export function createFileSync(
+	path: string,
+	optionsOrSettings?: CreateFileOptionsOrSettings
+): void {
+	const { fs } = CreateFileSettings.getSettings(optionsOrSettings);
 	let stats: Stats | undefined;
 	try {
-		stats = fs.statSync(path);
+		stats = statSync(path, {
+			fs,
+			throwErrorOnBrokenSymbolicLink: true,
+			followSymbolicLink: false,
+		});
 	} catch {
 		stats = undefined;
 	}
@@ -54,20 +73,23 @@ export function createFileSync(path: string): void {
 
 	const dir = dirname(path);
 	try {
-		if (!fs.statSync(dir).isDirectory()) {
-			// parent is not a directory
-			// This is just to cause an internal ENOTDIR error to be thrown
-			fs.readdirSync(dir);
+		stats = statSync(dir, {
+			fs,
+			throwErrorOnBrokenSymbolicLink: true,
+			followSymbolicLink: false,
+		});
+		if (!stats.isDirectory()) {
+			throw new ErrorWithCode('ENOTDIR', `not a directory, scandir '${dir}'`);
 		}
 	} catch (e) {
 		const err = e as ErrorWithCode;
 		// If the stat call above failed because the directory doesn't exist, create it
 		if (err.code === 'ENOENT') {
-			makeDirSync(dir);
+			makeDirSync(dir, { fs });
 		} else {
 			throw err;
 		}
 	}
 
-	fs.writeFileSync(path, '');
+	fs.createFileSync(path, '');
 }

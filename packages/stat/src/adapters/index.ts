@@ -13,7 +13,7 @@ export interface StatFileSystemAdapter {
 	statSync: StatSynchronousMethod;
 }
 
-const STAT_FILE_SYSTEM_ADAPTER: StatFileSystemAdapter = {
+export const STAT_FILE_SYSTEM_ADAPTER: StatFileSystemAdapter = {
 	lstat: fs.promises.lstat,
 	lstatSync: fs.lstatSync,
 	stat: fs.promises.stat,

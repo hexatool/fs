@@ -8,7 +8,7 @@ export interface MakeDirFileSystemAdapter {
 	mkdirSync: MkdirSynchronousMethod;
 }
 
-const MAKE_DIR_FILE_SYSTEM_ADAPTER: MakeDirFileSystemAdapter = {
+export const MAKE_DIR_FILE_SYSTEM_ADAPTER: MakeDirFileSystemAdapter = {
 	mkdir: fs.promises.mkdir,
 	mkdirSync: fs.mkdirSync,
 };

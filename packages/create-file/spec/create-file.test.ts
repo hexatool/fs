@@ -95,6 +95,7 @@ describe('@hexatool/fs-create-file', () => {
 				createFileSync(file);
 			} catch (e: any) {
 				expect(e.code).toBe('ENOTDIR');
+				expect(e.message).toBe(`ENOTDIR: not a directory, scandir '${existingFile}'`);
 			}
 		});
 		it('async', async () => {
@@ -111,6 +112,7 @@ describe('@hexatool/fs-create-file', () => {
 				await createFileAsync(file);
 			} catch (e: any) {
 				expect(e.code).toBe('ENOTDIR');
+				expect(e.message).toBe(`ENOTDIR: not a directory, scandir '${existingFile}'`);
 			}
 		});
 	});
