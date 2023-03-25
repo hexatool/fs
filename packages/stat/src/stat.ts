@@ -1,21 +1,45 @@
-import type { Stats } from 'node:fs';
+import type { BigIntStats, Stats } from 'node:fs';
 
-import { StatOptionsOrSettings, StatSettings } from './settings';
+import {
+	BigIntStatOptionsOrSettings,
+	BigIntStatSettings,
+	NoBigIntStatOptions,
+	NoBigIntStatOptionsOrSettings,
+	NoBigIntStatSettings,
+	StatSettings,
+} from './settings';
 
+export async function statAsync(path: string): Promise<Stats>;
 export async function statAsync(
 	path: string,
-	settingsOrOptions?: StatOptionsOrSettings
-): Promise<Stats> {
-	const { fs, followSymbolicLink, markSymbolicLink, throwErrorOnBrokenSymbolicLink } =
-		StatSettings.getSettings(settingsOrOptions);
-	const lstat = await fs.lstat(path);
+	settingsOrOptions: NoBigIntStatOptionsOrSettings
+): Promise<Stats>;
+export async function statAsync(
+	path: string,
+	settingsOrOptions: BigIntStatOptionsOrSettings
+): Promise<BigIntStats>;
+export async function statAsync(
+	path: string,
+	settingsOrOptions: BigIntStatOptionsOrSettings | NoBigIntStatOptionsOrSettings = {}
+): Promise<BigIntStats | Stats> {
+	const { fs, followSymbolicLink, markSymbolicLink, throwErrorOnBrokenSymbolicLink, bigint } =
+		settingsOrOptions.bigint
+			? BigIntStatSettings.getSettings(settingsOrOptions)
+			: NoBigIntStatSettings.getSettings(
+					settingsOrOptions as NoBigIntStatOptions | StatSettings
+			  );
+	const lstat = await fs.lstat(path, {
+		bigint,
+	});
 
 	if (!lstat.isSymbolicLink() || !followSymbolicLink) {
 		return lstat;
 	}
 
 	try {
-		const stat = await fs.stat(path);
+		const stat = await fs.stat(path, {
+			bigint,
+		});
 
 		if (markSymbolicLink) {
 			stat.isSymbolicLink = () => true;
@@ -31,17 +55,31 @@ export async function statAsync(
 	}
 }
 
-export function statSync(path: string, settingsOrOptions?: StatOptionsOrSettings): Stats {
-	const { fs, followSymbolicLink, markSymbolicLink, throwErrorOnBrokenSymbolicLink } =
-		StatSettings.getSettings(settingsOrOptions);
-	const lstat = fs.lstatSync(path);
+export function statSync(path: string): Stats;
+export function statSync(path: string, settingsOrOptions: NoBigIntStatOptionsOrSettings): Stats;
+export function statSync(path: string, settingsOrOptions: BigIntStatOptionsOrSettings): BigIntStats;
+export function statSync(
+	path: string,
+	settingsOrOptions: BigIntStatOptionsOrSettings | NoBigIntStatOptionsOrSettings = {}
+): BigIntStats | Stats {
+	const { fs, followSymbolicLink, markSymbolicLink, throwErrorOnBrokenSymbolicLink, bigint } =
+		settingsOrOptions.bigint
+			? BigIntStatSettings.getSettings(settingsOrOptions)
+			: NoBigIntStatSettings.getSettings(
+					settingsOrOptions as NoBigIntStatOptions | StatSettings
+			  );
+	const lstat = fs.lstatSync(path, {
+		bigint,
+	});
 
 	if (!lstat.isSymbolicLink() || !followSymbolicLink) {
 		return lstat;
 	}
 
 	try {
-		const stat = fs.statSync(path);
+		const stat = fs.statSync(path, {
+			bigint,
+		});
 
 		if (markSymbolicLink) {
 			stat.isSymbolicLink = () => true;

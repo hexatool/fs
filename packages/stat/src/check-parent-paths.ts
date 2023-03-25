@@ -1,16 +1,18 @@
 import type { BigIntStats, Stats } from 'node:fs';
-import * as fs from 'node:fs';
 import path from 'node:path';
 
 import areIdentical from './are-identical';
 import errorMessage from './error-message';
+import type { StatOptionsOrSettings } from './settings';
+import { statAsync, statSync } from './stat';
 import type { ErrorWithCode, FunctionName } from './types';
 
 export async function checkParentPathsAsync(
 	src: string,
 	srcStat: BigIntStats | Stats,
 	dest: string,
-	funcName: FunctionName
+	funcName: FunctionName,
+	optionsOrSettings: StatOptionsOrSettings = {}
 ): Promise<void> {
 	const srcParent = path.resolve(path.dirname(src));
 	const destParent = path.resolve(path.dirname(dest));
@@ -21,7 +23,7 @@ export async function checkParentPathsAsync(
 	let destStat;
 
 	try {
-		destStat = await fs.promises.stat(destParent, { bigint: true });
+		destStat = await statAsync(destParent, { ...optionsOrSettings, bigint: true });
 	} catch (e) {
 		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
@@ -40,7 +42,8 @@ export function checkParentPathsSync(
 	src: string,
 	srcStat: BigIntStats | Stats,
 	dest: string,
-	funcName: FunctionName
+	funcName: FunctionName,
+	optionsOrSettings: StatOptionsOrSettings = {}
 ): void {
 	const srcParent = path.resolve(path.dirname(src));
 	const destParent = path.resolve(path.dirname(dest));
@@ -51,7 +54,7 @@ export function checkParentPathsSync(
 	let destStat;
 
 	try {
-		destStat = fs.statSync(destParent, { bigint: true });
+		destStat = statSync(destParent, { ...optionsOrSettings, bigint: true });
 	} catch (e) {
 		const err = e as ErrorWithCode;
 		if (err.code === 'ENOENT') {
