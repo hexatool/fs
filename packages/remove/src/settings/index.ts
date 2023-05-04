@@ -1,15 +1,15 @@
-import type { FileSystemAdapter } from '../adapters';
+import type { RemoveFileFileSystemAdapter } from '../adapters';
 import { createRemoveFileSystemAdapter } from '../adapters';
 
 export interface RemoveOptions {
 	force?: boolean;
-	fs?: Partial<FileSystemAdapter>;
+	fs?: Partial<RemoveFileFileSystemAdapter>;
 	recursive?: boolean;
 }
 
 export class RemoveSettings {
 	public readonly force: boolean;
-	public readonly fs: FileSystemAdapter;
+	public readonly fs: RemoveFileFileSystemAdapter;
 	public readonly recursive: boolean;
 
 	constructor(options: RemoveOptions = {}) {
