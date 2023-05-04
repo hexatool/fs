@@ -10,7 +10,7 @@ export interface PathExistsFileSystemAdapter {
 	pathExistsSync: PathExistsSynchronousMethod;
 }
 
-const PATH_EXISTS_FILE_SYSTEM_ADAPTER: PathExistsFileSystemAdapter = {
+export const PATH_EXISTS_FILE_SYSTEM_ADAPTER: PathExistsFileSystemAdapter = {
 	pathExists: path =>
 		fs.promises
 			.access(path)
