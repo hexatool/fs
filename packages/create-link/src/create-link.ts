@@ -1,23 +1,31 @@
 import type { Stats } from 'node:fs';
-import * as fs from 'node:fs';
 import { dirname } from 'node:path';
 
 import makeDirSync from '@hexatool/fs-make-dir';
 import makeDirAsync from '@hexatool/fs-make-dir/async';
 import pathExistsSync from '@hexatool/fs-path-exists';
 import pathExistsAsync from '@hexatool/fs-path-exists/async';
-import { areIdentical } from '@hexatool/fs-stat';
+import statSync, { areIdentical } from '@hexatool/fs-stat';
+import statAsync from '@hexatool/fs-stat/async';
 
-export async function createLinkAsync(srcPath: string, destPath: string): Promise<void> {
+import type { CreateLinkOptionsOrSettings } from './settings';
+import { CreateLinkSettings } from './settings';
+
+export async function createLinkAsync(
+	srcPath: string,
+	destPath: string,
+	optionsOrSettings: CreateLinkOptionsOrSettings = {}
+): Promise<void> {
+	const { fs } = CreateLinkSettings.getSettings(optionsOrSettings);
 	let destPathStats: Stats | undefined;
 	try {
-		destPathStats = await fs.promises.stat(destPath);
+		destPathStats = await statAsync(destPath, { fs });
 	} catch {
 		destPathStats = undefined;
 	}
 	let srcPathStats: Stats | undefined;
 	try {
-		srcPathStats = await fs.promises.stat(srcPath);
+		srcPathStats = await statAsync(srcPath, { fs });
 		if (destPathStats && areIdentical(srcPathStats, destPathStats)) {
 			return;
 		}
@@ -28,27 +36,32 @@ export async function createLinkAsync(srcPath: string, destPath: string): Promis
 	}
 
 	const dir = dirname(destPath);
-	const dirExists = await pathExistsAsync(dir);
+	const dirExists = await pathExistsAsync(dir, { fs });
 	if (dirExists) {
-		await fs.promises.link(srcPath, destPath);
+		await fs.link(srcPath, destPath);
 
 		return;
 	}
-	await makeDirAsync(dir);
+	await makeDirAsync(dir, { fs });
 
-	await fs.promises.link(srcPath, destPath);
+	await fs.link(srcPath, destPath);
 }
 
-export function createLinkSync(srcPath: string, destPath: string): void {
+export function createLinkSync(
+	srcPath: string,
+	destPath: string,
+	optionsOrSettings: CreateLinkOptionsOrSettings = {}
+): void {
+	const { fs } = CreateLinkSettings.getSettings(optionsOrSettings);
 	let destPathStats: Stats | undefined;
 	try {
-		destPathStats = fs.statSync(destPath);
+		destPathStats = statSync(destPath, { fs });
 	} catch {
 		destPathStats = undefined;
 	}
 	let srcPathStats: Stats | undefined;
 	try {
-		srcPathStats = fs.statSync(srcPath);
+		srcPathStats = statSync(srcPath, { fs });
 		if (destPathStats && areIdentical(srcPathStats, destPathStats)) {
 			return;
 		}
@@ -59,13 +72,13 @@ export function createLinkSync(srcPath: string, destPath: string): void {
 	}
 
 	const dir = dirname(destPath);
-	const dirExists = pathExistsSync(dir);
+	const dirExists = pathExistsSync(dir, { fs });
 	if (dirExists) {
 		fs.linkSync(srcPath, destPath);
 
 		return;
 	}
-	makeDirSync(dir);
+	makeDirSync(dir, { fs });
 
 	fs.linkSync(srcPath, destPath);
 }
