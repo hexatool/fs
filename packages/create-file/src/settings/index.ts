@@ -1,5 +1,5 @@
 import type { CreateFileFileSystemAdapter } from '../adapters';
-import { createCreateFileFileSystemAdapter } from '../adapters';
+import { createFileFileSystemAdapter } from '../adapters';
 
 export interface CreateFileOptions {
 	fs?: Partial<CreateFileFileSystemAdapter>;
@@ -9,7 +9,7 @@ export class CreateFileSettings {
 	public readonly fs: CreateFileFileSystemAdapter;
 
 	constructor(options: CreateFileOptions = {}) {
-		this.fs = createCreateFileFileSystemAdapter(options.fs);
+		this.fs = createFileFileSystemAdapter(options.fs);
 	}
 
 	static getSettings(

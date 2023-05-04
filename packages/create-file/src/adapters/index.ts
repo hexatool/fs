@@ -24,7 +24,7 @@ export const CREATE_FILE_FILE_SYSTEM_ADAPTER: CreateFileFileSystemAdapter = {
 	createFileSync: fs.writeFileSync,
 };
 
-export function createCreateFileFileSystemAdapter(
+export function createFileFileSystemAdapter(
 	methods?: Partial<CreateFileFileSystemAdapter>
 ): CreateFileFileSystemAdapter {
 	if (methods === undefined) {
