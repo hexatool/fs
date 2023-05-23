@@ -1,13 +1,11 @@
 import type { BigIntStats, Stats } from 'node:fs';
 
-import {
+import type {
 	BigIntStatOptionsOrSettings,
-	BigIntStatSettings,
 	NoBigIntStatOptions,
 	NoBigIntStatOptionsOrSettings,
-	NoBigIntStatSettings,
-	StatSettings,
 } from './settings';
+import { BigIntStatSettings, NoBigIntStatSettings, StatSettings } from './settings';
 
 export async function statAsync(path: string): Promise<Stats>;
 export async function statAsync(

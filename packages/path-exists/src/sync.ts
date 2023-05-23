@@ -1,6 +1,7 @@
 import type { PathLike } from 'fs';
 
-import { PathExistsOptionsOrSettings, PathExistsSettings } from './settings';
+import type { PathExistsOptionsOrSettings } from './settings';
+import { PathExistsSettings } from './settings';
 
 const pathExists = (path: PathLike, optionsOrSettings?: PathExistsOptionsOrSettings): boolean => {
 	const { fs } = PathExistsSettings.getSettings(optionsOrSettings);
