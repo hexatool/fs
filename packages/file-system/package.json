@@ -38,7 +38,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"peerDependencies": {
-		"graceful-fs": "4.2.10"
+		"graceful-fs": "4.2.11"
 	},
 	"peerDependenciesMeta": {
 		"graceful-fs": {
