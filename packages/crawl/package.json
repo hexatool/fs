@@ -82,7 +82,7 @@
 		"mock-fs": "5.2.0",
 		"readdir-enhanced": "6.0.4",
 		"systeminformation": "5.17.12",
-		"tinybench": "2.4.0"
+		"tinybench": "2.5.0"
 	},
 	"engines": {
 		"node": ">=14.16.0"
