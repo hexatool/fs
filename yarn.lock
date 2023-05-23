@@ -800,7 +800,7 @@ __metadata:
   dependencies:
     "@types/graceful-fs": 4.1.6
   peerDependencies:
-    graceful-fs: 4.2.10
+    graceful-fs: 4.2.11
   peerDependenciesMeta:
     graceful-fs:
       optional: true
