@@ -91,16 +91,17 @@ async function streamSuite() {
 					.on('error', e => reject(e))
 					.resume();
 			});
-		}),
-		await bench.run();
+		});
+	await bench.run();
 
 	return formatResult(bench);
 }
 
 function formatNumber(number: number): string {
 	const res = String(number.toFixed(number < 100 ? 4 : 2)).split('.');
+	const str = res[0]?.replace(/(?=(?:\d{3})+$)(?!\b)/g, ',') ?? '';
 
-	return res[0]?.replace(/(?=(?:\d{3})+$)(?!\b)/g, ',') + (res[1] ? `.${res[1]}` : '');
+	return str + (res[1] ? `.${res[1]}` : '');
 }
 
 function formatResult(bench: Bench): string {

@@ -3,9 +3,10 @@ import type {
 	CrawlerOptions,
 	DirentCrawlerOptions,
 	ExtendedDirent,
+	ResultTypeOutput,
 	StringCrawlerOptions,
 } from './types';
-import { DEFAULT_CRAWL_OPTIONS, ResultTypeOutput } from './types/options';
+import { DEFAULT_CRAWL_OPTIONS } from './types/options';
 
 export type { CrawlerOptions };
 
