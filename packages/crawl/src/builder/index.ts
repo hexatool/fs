@@ -1,7 +1,7 @@
 import process from 'node:process';
 import type { Readable } from 'node:stream';
 
-import { AsyncCrawler, IteratorCrawler, StreamCrawler, SyncCrawler } from '../crawler';
+import { DownAsyncCrawler, DownSyncCrawler, IteratorCrawler, StreamCrawler } from '../crawler';
 import type { CrawlerOptions, ExtendedDirent } from '../types';
 import type {
 	DirentExcludeItemType,
@@ -36,7 +36,10 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 	}
 
 	async async(path: string = process.cwd()): Promise<Output[]> {
-		return new AsyncCrawler(this.options).start(path) as Promise<Output[]>;
+		if (this.options.direction === 'down') {
+			return new DownAsyncCrawler(this.options).start(path) as Promise<Output[]>;
+		}
+		throw new Error('Not implemented');
 	}
 
 	down(): this {
@@ -52,15 +55,24 @@ export default class CrawlerBuilder<Output extends ResultTypeOutput> {
 	}
 
 	iterator(path: string = process.cwd()): AsyncIterableIterator<Output> {
-		return new IteratorCrawler(this.options).start(path) as AsyncIterableIterator<Output>;
+		if (this.options.direction === 'down') {
+			return new IteratorCrawler(this.options).start(path) as AsyncIterableIterator<Output>;
+		}
+		throw new Error('Not implemented');
 	}
 
 	stream(path: string = process.cwd()): Readable {
-		return new StreamCrawler(this.options).start(path);
+		if (this.options.direction === 'down') {
+			return new StreamCrawler(this.options).start(path);
+		}
+		throw new Error('Not implemented');
 	}
 
 	sync(path: string = process.cwd()): Output[] {
-		return new SyncCrawler(this.options).start(path) as Output[];
+		if (this.options.direction === 'down') {
+			return new DownSyncCrawler(this.options).start(path) as Output[];
+		}
+		throw new Error('Not implemented');
 	}
 
 	withAbsolutePaths(): this {

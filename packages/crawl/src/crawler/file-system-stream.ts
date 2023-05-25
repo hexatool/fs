@@ -1,6 +1,7 @@
+import { join } from 'node:path';
 import { Readable } from 'node:stream';
 
-import readDirectory from '../fn/read-directory';
+import readDirent from '../fn/read-dirent';
 import type {
 	CallbackReadDirectoryFn,
 	CrawlerOptions,
@@ -8,21 +9,22 @@ import type {
 	ResultTypeOutput,
 	SyncReadDirectory,
 } from '../types';
+import { ExtendedDirent } from '../types';
 
 export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 	public readonly stream: Readable;
 	private readonly buffer: Output[];
 	private pending: number;
 	private readonly queue: string[];
-	private readonly readDirectory: CallbackReadDirectoryFn<Output>;
+	private readonly readDirent: CallbackReadDirectoryFn<ExtendedDirent>;
 	private shouldRead: boolean;
 
-	constructor(path: string, options: CrawlerOptions) {
+	constructor(path: string, private readonly options: CrawlerOptions) {
 		this.buffer = [];
 		this.pending = 0;
 		this.shouldRead = true;
 		this.queue = [path];
-		this.readDirectory = readDirectory('callback', options) as SyncReadDirectory<Output>;
+		this.readDirent = readDirent('callback', options) as SyncReadDirectory<ExtendedDirent>;
 
 		this.stream = new Readable({ objectMode: true });
 		this.stream._read = () => {
@@ -75,8 +77,15 @@ export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 		}
 	}
 
-	private processItem(item: Output) {
-		this.pushOrBuffer(item);
+	private processItem(item: ExtendedDirent) {
+		if (this.options.returnType === 'string') {
+			const p = item.path ? join(item.path, item.name) : item.name;
+			this.pushOrBuffer(p as Output);
+
+			return;
+		}
+
+		this.pushOrBuffer(item as Output);
 	}
 
 	private pushFromBuffer() {
@@ -101,7 +110,7 @@ export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 		const path = this.queue.shift()!;
 		this.pending++;
 
-		this.readDirectory(path, (err, files) => {
+		this.readDirent(path, (err, files) => {
 			if (err) {
 				this.emit('error', err);
 				this.finishedReadingDirectory();
@@ -115,8 +124,11 @@ export class FileSystemStreamCrawler<Output extends ResultTypeOutput> {
 			}
 
 			try {
-				for (const file of files) {
-					this.processItem(file);
+				for (const dir of files) {
+					this.processItem(dir);
+					if (dir.isDirectory()) {
+						this.queue.push(join(path, dir.name));
+					}
 				}
 				this.finishedReadingDirectory();
 			} catch (err2) {
