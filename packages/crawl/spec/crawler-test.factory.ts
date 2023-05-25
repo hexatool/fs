@@ -4,7 +4,7 @@ import * as console from 'console';
 import { describe, expect, it } from 'vitest';
 
 import type { ApiType, CrawlDirection, LowerCaseResultType, ResultTypeOutput } from '../src/types';
-import { apiTypes, directions, lowerCaseResultTypes } from '../src/types';
+import { apiTypes, directions, ExtendedDirent, lowerCaseResultTypes } from '../src/types';
 
 type ReturnType = ResultTypeOutput[];
 type TestFn = (resultType: LowerCaseResultType, direction: CrawlDirection, api: ApiType) => unknown;
@@ -16,7 +16,11 @@ interface FactoryOptions {
 	matchSnapshot?: boolean;
 }
 
-function check(files: ReturnType, { matchSnapshot, matchEmpty, length }: FactoryOptions) {
+function check(
+	files: ReturnType,
+	{ matchSnapshot, matchEmpty, length }: FactoryOptions,
+	resultType: LowerCaseResultType
+) {
 	if (matchSnapshot) {
 		expect(files).toMatchSnapshot();
 	}
@@ -33,6 +37,22 @@ function check(files: ReturnType, { matchSnapshot, matchEmpty, length }: Factory
 	if (length) {
 		expect(files.length).toBe(length);
 	}
+
+	for (const f of files) {
+		if (resultType === 'string') {
+			expect(typeof f).toBe('string');
+		} else {
+			expect(f).toBeInstanceOf(ExtendedDirent);
+		}
+	}
+}
+
+function sortOutput(a: ResultTypeOutput, b: ResultTypeOutput): number {
+	if (typeof a === 'string') {
+		return a.localeCompare(b as string);
+	}
+
+	return a.name.localeCompare((b as ExtendedDirent).name);
 }
 
 export default function crawlerTest(
@@ -57,7 +77,7 @@ export default function crawlerTest(
 										console.log(composedTestName, files);
 									}
 									try {
-										check(files, options);
+										check(files.sort(sortOutput), options, resultType);
 										resolve();
 									} catch (e) {
 										reject(e);
@@ -79,7 +99,7 @@ export default function crawlerTest(
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
-						check(files, options);
+						check(files.sort(sortOutput), options, resultType);
 					});
 				} else if (type === 'sync') {
 					it(composedTestName, () => {
@@ -87,7 +107,7 @@ export default function crawlerTest(
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
-						check(files, options);
+						check(files.sort(sortOutput), options, resultType);
 					});
 				} else {
 					it(composedTestName, async () => {
@@ -99,7 +119,7 @@ export default function crawlerTest(
 						if (options.log) {
 							console.log(composedTestName, files);
 						}
-						check(files, options);
+						check(files.sort(sortOutput), options, resultType);
 					});
 				}
 			});

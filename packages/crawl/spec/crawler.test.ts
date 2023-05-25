@@ -14,7 +14,7 @@ describe('@hexatool/fs-crawl', () => {
 	crawlerTest(
 		'should crawl custom directory',
 		(res, dir, api) => crawler[res]()[dir]()[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 12 }
+		{ matchSnapshot: true, length: 56 }
 	);
 	crawlerTest(
 		'should exclude folder with RegExp returning true',
@@ -32,12 +32,12 @@ describe('@hexatool/fs-crawl', () => {
 				[dir]()
 				.exclude(/weglsjikvh/)
 				[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 12 }
+		{ matchSnapshot: true, length: 56 }
 	);
 	crawlerTest(
 		'should exclude folder with string returning false',
 		(res, dir, api) => crawler[res]()[dir]().exclude('weglsjikvh')[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 12 }
+		{ matchSnapshot: true, length: 56 }
 	);
 	crawlerTest(
 		'should exclude folder with string returning true',
@@ -52,7 +52,7 @@ describe('@hexatool/fs-crawl', () => {
 				[dir]()
 				.exclude(() => false)
 				[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 12 }
+		{ matchSnapshot: true, length: 56 }
 	);
 	crawlerTest(
 		'should exclude folder with fn returning true',
@@ -80,12 +80,12 @@ describe('@hexatool/fs-crawl', () => {
 						[dir]()
 						.excludeDirectories((_p, i) => i.name.endsWith('s'))
 						[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 11 }
+		{ matchSnapshot: true, length: 43 }
 	);
 	crawlerTest(
 		'should exclude all files',
 		(res, dir, api) => crawler[res]()[dir]().excludeFiles(true)[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 3 }
+		{ matchSnapshot: true, length: 11 }
 	);
 	crawlerTest(
 		'should exclude files',
@@ -99,7 +99,7 @@ describe('@hexatool/fs-crawl', () => {
 						[dir]()
 						.excludeFiles((_p, i) => i.name.endsWith('s'))
 						[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 11 }
+		{ matchSnapshot: true, length: 22 }
 	);
 	crawlerTest(
 		'should exclude all folder and files',
@@ -125,11 +125,11 @@ describe('@hexatool/fs-crawl', () => {
 						.excludeDirectories(/src/)
 						.excludeFiles((_parent, file) => file.name.endsWith('s'))
 						[api](crawlModuleFilePath),
-		{ matchSnapshot: true, length: 10 }
+		{ matchSnapshot: true, length: 16 }
 	);
 	crawlerTest(
 		'should crawl custom directory with absolute paths',
 		(res, dir, api) => crawler[res]()[dir]().withAbsolutePaths()[api](crawlModuleFilePath),
-		{ length: 12 }
+		{ length: 56 }
 	);
 });
