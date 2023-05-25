@@ -1,3 +1,6 @@
 - TODO: Añadir sección de Usage en la documentación con una breve descripción de como se usa
 - TODO: Realizar tests
 - TODO: cambiar formato del README --> https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.stat
+- TODO: Añadir FileSystemAdapter al modulo de copy
+- TODO: Añadir FileSystemAdapter al modulo de move
+- TODO: Añadir FileSystemAdapter al modulo de crawl
