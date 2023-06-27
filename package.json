@@ -50,7 +50,7 @@
 		"version": "changeset version && $npm_execpath install"
 	},
 	"devDependencies": {
-		"@changesets/cli": "2.26.1",
+		"@changesets/cli": "2.26.2",
 		"@hexatool/eslint-config-typescript": "1.0.10",
 		"@hexatool/tsconfig": "18.0.0",
 		"@vitest/coverage-c8": "0.32.2",
