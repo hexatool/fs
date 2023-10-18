@@ -950,7 +950,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hexatool/fs-file-system@workspace:packages/file-system"
   dependencies:
-    "@types/graceful-fs": 4.1.7
+    "@types/graceful-fs": 4.1.8
   peerDependencies:
     graceful-fs: 4.2.11
   peerDependenciesMeta:
@@ -1396,12 +1396,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/graceful-fs@npm:4.1.7":
-  version: 4.1.7
-  resolution: "@types/graceful-fs@npm:4.1.7"
+"@types/graceful-fs@npm:4.1.8":
+  version: 4.1.8
+  resolution: "@types/graceful-fs@npm:4.1.8"
   dependencies:
     "@types/node": "*"
-  checksum: 8b97e208f85c9efd02a6003a582c77646dd87be0af13aec9419a720771560a8a87a979eaca73ae193d7c73127f34d0a958403a9b5d6246e450289fd8c79adf09
+  checksum: 6e1ee9c119e075134696171b680fee7b627f3e077ec5e5ad9ba9359f1688a84fa35ea6804f96922c43ca30ab8d4ca9531a526b64f57fa13e1d721bf741884829
   languageName: node
   linkType: hard
 
