@@ -46,7 +46,7 @@
 		}
 	},
 	"devDependencies": {
-		"@types/graceful-fs": "4.1.8"
+		"@types/graceful-fs": "4.1.9"
 	},
 	"engines": {
 		"node": ">=14.16.0"
