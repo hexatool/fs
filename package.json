@@ -63,7 +63,7 @@
 		"vitest": "0.34.6"
 	},
 	"volta": {
-		"node": "18.19.0",
+		"node": "18.19.1",
 		"yarn": "3.8.0"
 	},
 	"packageManager": "yarn@3.8.0"
